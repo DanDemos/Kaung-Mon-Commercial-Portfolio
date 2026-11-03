@@ -4,6 +4,20 @@
   isolation: isolate;
 }
 
+/* Inactive custom = hue wheel affordance; active shows the chosen seed */
+.theme-circle--custom:not(.theme-circle--active) {
+  background: conic-gradient(
+    from 0deg,
+    #ff5a5a,
+    #ffd15a,
+    #5aff7a,
+    #5ad4ff,
+    #7a5aff,
+    #ff5ad4,
+    #ff5a5a
+  );
+}
+
 .theme-circle--active {
   transition:
     transform 220ms cubic-bezier(0.22, 1.2, 0.36, 1),

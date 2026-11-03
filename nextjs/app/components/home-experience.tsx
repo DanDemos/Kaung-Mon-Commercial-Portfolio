@@ -4,13 +4,18 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import logo from "../../../shared/img/KLogoblack.png";
 import {
+  CUSTOM_SEED_STORAGE_KEY,
+  CUSTOM_THEME_ID,
   DEFAULT_COLOR_MODE,
+  DEFAULT_CUSTOM_SEED,
   DEFAULT_THEME_ID,
   MODE_STORAGE_KEY,
   THEME_STORAGE_KEY,
   applyThemeTokens,
   isColorMode,
+  isHexColor,
   isThemeId,
+  normalizeHex,
   themesForYear,
   tokensFromSeed,
   type ColorMode,
@@ -31,6 +36,7 @@ import PathLensControl from "./path-lens-control";
 import ThemeCircles from "./theme-circles";
 import "./brand-lockup.css";
 import "./glass-cta.css";
+import "./text-link.css";
 
 /** Let brand + hero land before the first-visit ask. */
 const CHOOSER_OPEN_DELAY_MS = 900;
@@ -48,22 +54,30 @@ export default function HomeExperience() {
   const themes = useMemo(() => themesForYear(), []);
   const [path, setPath] = useState<VisitorPath>(DEFAULT_PATH);
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
+  const [customSeed, setCustomSeed] = useState(DEFAULT_CUSTOM_SEED);
   const [colorMode, setColorMode] = useState<ColorMode>(DEFAULT_COLOR_MODE);
   const [chooserOpen, setChooserOpen] = useState(false);
   const [ready, setReady] = useState(false);
   const content = contentFor(path);
   const activeLabel =
     PATH_OPTIONS.find((option) => option.id === path)?.label ?? "Wonderer";
-  const activeTheme =
-    themes.find((theme) => theme.id === themeId) ?? themes[0];
+  const activeSwatch =
+    themeId === CUSTOM_THEME_ID
+      ? customSeed
+      : (themes.find((theme) => theme.id === themeId) ?? themes[0]).swatch;
   const tokens = useMemo(
-    () => tokensFromSeed(activeTheme.swatch, colorMode),
-    [activeTheme.swatch, colorMode],
+    () => tokensFromSeed(activeSwatch, colorMode),
+    [activeSwatch, colorMode],
   );
 
   useEffect(() => {
     const storedPath = window.localStorage.getItem(PATH_STORAGE_KEY);
     setPath(isVisitorPath(storedPath) ? storedPath : DEFAULT_PATH);
+
+    const storedCustom = window.localStorage.getItem(CUSTOM_SEED_STORAGE_KEY);
+    if (isHexColor(storedCustom)) {
+      setCustomSeed(storedCustom.toUpperCase());
+    }
 
     const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
     const nextThemeId = isThemeId(storedTheme, themes)
@@ -121,6 +135,14 @@ export default function HomeExperience() {
     window.localStorage.setItem(THEME_STORAGE_KEY, nextId);
   }
 
+  function changeCustomSeed(hex: string) {
+    const next = normalizeHex(hex);
+    setCustomSeed(next);
+    setThemeId(CUSTOM_THEME_ID);
+    window.localStorage.setItem(CUSTOM_SEED_STORAGE_KEY, next);
+    window.localStorage.setItem(THEME_STORAGE_KEY, CUSTOM_THEME_ID);
+  }
+
   function changeColorMode(nextMode: ColorMode) {
     setColorMode(nextMode);
     window.localStorage.setItem(MODE_STORAGE_KEY, nextMode);
@@ -172,8 +194,10 @@ export default function HomeExperience() {
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
           <ThemeCircles
             themes={themes}
-            activeId={activeTheme.id}
+            activeId={themeId}
+            customSeed={customSeed}
             onChange={changeTheme}
+            onCustomSeedChange={changeCustomSeed}
           />
 
           <div className="flex items-center gap-x-2.5">
@@ -235,7 +259,7 @@ export default function HomeExperience() {
             </a>
             <a
               href={content.secondaryCta.href}
-              className="text-[0.95rem] text-[var(--color-fg-muted)] underline decoration-[color-mix(in_oklab,var(--color-fg)_28%,transparent)] underline-offset-4 transition-colors hover:text-[var(--color-fg)] hover:decoration-[var(--color-fg)]"
+              className="km-text-link text-[0.95rem]"
             >
               {content.secondaryCta.label}
             </a>

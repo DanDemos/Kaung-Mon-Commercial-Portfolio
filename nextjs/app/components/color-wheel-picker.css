@@ -1,0 +1,168 @@
+.color-wheel-picker {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  right: 0;
+  z-index: 40;
+  width: 15.5rem;
+  padding: 0.85rem 0.9rem 0.95rem;
+  border-radius: 1.15rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent);
+  background: color-mix(in oklab, var(--color-bg-elevated) 92%, var(--color-bg));
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 8%, transparent),
+    0 18px 48px color-mix(in oklab, var(--color-fg) 18%, transparent),
+    0 2px 8px color-mix(in oklab, var(--color-fg) 10%, transparent);
+  backdrop-filter: blur(10px);
+  /* Isolate layout so live theme token updates don't reflow the disc mid-drag. */
+  contain: layout style;
+  animation: color-wheel-in 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes color-wheel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .color-wheel-picker {
+    animation: none;
+  }
+}
+
+.color-wheel-picker__label {
+  margin: 0 0 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.color-wheel-picker__body {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.color-wheel-picker__disc {
+  position: relative;
+  flex: 0 0 auto;
+  width: 10.5rem;
+  height: 10.5rem;
+  border-radius: 50%;
+  cursor: crosshair;
+  touch-action: none;
+  background:
+    radial-gradient(closest-side, #ffffff 0%, transparent 72%),
+    conic-gradient(
+      from 0deg,
+      #ff0000,
+      #ffff00,
+      #00ff00,
+      #00ffff,
+      #0000ff,
+      #ff00ff,
+      #ff0000
+    );
+  box-shadow:
+    inset 0 0 0 1px color-mix(in oklab, var(--color-fg) 16%, transparent),
+    0 0 0 3px color-mix(in oklab, var(--color-bg) 80%, transparent);
+}
+
+.color-wheel-picker__disc::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: #000;
+  opacity: calc(1 - var(--wheel-v, 1));
+  pointer-events: none;
+}
+
+.color-wheel-picker__marker {
+  position: absolute;
+  z-index: 2;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, black 35%, transparent),
+    0 1px 4px color-mix(in oklab, black 30%, transparent);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.color-wheel-picker__value {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 1.35rem;
+  border-radius: 999px;
+  cursor: ns-resize;
+  touch-action: none;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in oklab, var(--color-fg) 16%, transparent),
+    0 0 0 3px color-mix(in oklab, var(--color-bg) 80%, transparent);
+}
+
+.color-wheel-picker__value-thumb {
+  position: absolute;
+  left: 50%;
+  width: 1.15rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid color-mix(in oklab, black 25%, transparent);
+  box-shadow: 0 1px 3px color-mix(in oklab, black 28%, transparent);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.color-wheel-picker__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+.color-wheel-picker__swatch {
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 22%, transparent);
+  box-shadow: inset 0 1px 2px color-mix(in oklab, black 22%, transparent);
+}
+
+.color-wheel-picker__hex {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.color-wheel-picker__hex input {
+  width: 100%;
+  border-radius: 0.55rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent);
+  background: color-mix(in oklab, var(--color-fg) 5%, var(--color-bg));
+  color: var(--color-fg);
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.55rem;
+  outline: none;
+  box-shadow: inset 0 1px 2px color-mix(in oklab, var(--color-fg) 12%, transparent);
+}
+
+.color-wheel-picker__hex input:focus-visible {
+  border-color: color-mix(in oklab, var(--color-fg) 36%, transparent);
+  box-shadow:
+    inset 0 1px 2px color-mix(in oklab, var(--color-fg) 12%, transparent),
+    0 0 0 2px color-mix(in oklab, var(--color-accent) 35%, transparent);
+}

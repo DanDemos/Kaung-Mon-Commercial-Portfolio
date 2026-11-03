@@ -3,7 +3,11 @@ import { COLOR_TOKENS, type ColorTokenId } from "./colors.tokens";
 
 export const THEME_STORAGE_KEY = "km-color-theme";
 export const MODE_STORAGE_KEY = "km-color-mode";
+export const CUSTOM_SEED_STORAGE_KEY = "km-color-custom-seed";
 export const DEFAULT_THEME_ID = "young-night";
+/** Fifth swatch — any seed from the color wheel, still runs through `tokensFromSeed`. */
+export const CUSTOM_THEME_ID = "custom";
+export const DEFAULT_CUSTOM_SEED = "#6B8F71";
 
 export type ColorMode = "light" | "dark";
 
@@ -865,6 +869,8 @@ function chromaTextFromColor(
  * Hero titles/body sit over atmosphere, not only flat canvas.
  * Harden against every ground (bg + glow), preferring mode direction then
  * flipping if a mid glow still fails — same pattern as accent text.
+ * Always keep the candidate with the best *worst-case* contrast so a mid
+ * glow never “wins” by bleaching ink that then vanishes on the canvas.
  */
 function hardenInkOnGrounds(
   color: string,
@@ -874,9 +880,16 @@ function hardenInkOnGrounds(
 ): string {
   const preferred = mode === "light" ? "dark" : "light";
   const fallback = preferred === "dark" ? "light" : "dark";
-  let out = color;
+
+  function worst(c: string) {
+    return Math.min(...grounds.map((g) => contrastRatio(c, g)));
+  }
+
+  let best = color;
+  let bestWorst = worst(best);
 
   for (const toward of [preferred, fallback] as const) {
+    let out = color;
     for (const ground of grounds) {
       if (contrastRatio(out, ground) >= options.minRatio) continue;
       const hsl = hexToHsl(out);
@@ -889,11 +902,26 @@ function hardenInkOnGrounds(
         toward,
       });
     }
+    const score = worst(out);
+    if (score > bestWorst) {
+      best = out;
+      bestWorst = score;
+    }
     if (grounds.every((g) => contrastRatio(out, g) >= options.minRatio)) {
       return out;
     }
   }
-  return out;
+
+  // Escape: mid glow + light canvas can defeat hue-locked steps — bias by canvas.
+  const canvas = grounds[0] ?? (mode === "light" ? MODE_LIGHT_WHITE : MODE_DARK_BASE);
+  const towardDark = relativeLuminance(canvas) >= 0.45;
+  const pole = towardDark ? "#0a0908" : "#f7f2ec";
+  let rescue = best;
+  for (let i = 0; i < 28; i++) {
+    if (worst(rescue) >= options.minRatio) return rescue;
+    rescue = mix(rescue, pole, 0.18);
+  }
+  return worst(rescue) > bestWorst ? rescue : best;
 }
 
 /**
@@ -950,8 +978,9 @@ function lightModeBg(
 
 /**
  * Light-mode hero glow white mix.
- * Chromatic *tints* stay seed-forward; *tones* need enough white or the
- * glow becomes a muddy mid blob and AA-hardening crushes accent text.
+ * Chromatic *tints* stay seed-forward; *tones* and *shades* need enough white
+ * or the glow becomes a mid blob — AA then bleaches title ink to match the
+ * canvas (custom dark teals like #006480 vanish as “Wonderer” / section titles).
  */
 function resolveLightGlowWhite(
   spectrum: SeedSpectrum,
@@ -959,8 +988,10 @@ function resolveLightGlowWhite(
 ): number {
   if (spectrum.chroma === "neutral") return recipeGlowWhite;
   if (spectrum.value === "tint") return Math.min(recipeGlowWhite, 0.1);
-  // Soft/mid tones need real cream in the wash or display ink fails AA on glow
-  if (spectrum.value === "tone") return Math.max(recipeGlowWhite, 0.58);
+  // Soft/mid tones + dark shades: cream air so ink can clear bg *and* glow
+  if (spectrum.value === "tone" || spectrum.value === "shade") {
+    return Math.max(recipeGlowWhite, 0.62);
+  }
   return Math.max(recipeGlowWhite, 0.28);
 }
 
@@ -1332,7 +1363,19 @@ export function tokensFromSeed(
         r.display,
         mode,
       ),
-      mix(r.bodyInk, primary, r.bodyPrimaryMix),
+      hardenInkOnGrounds(
+        mix(r.bodyInk, primary, r.bodyPrimaryMix),
+        [bg, heroGlow],
+        {
+          minRatio: 4.5,
+          lightStart: 0.82,
+          lightFloor: 0.7,
+          satMin: 0,
+          satMax: 0.22,
+          toward: "light",
+        },
+        mode,
+      ),
       mode,
     );
     const fgMuted = readableMuted(ink.body, [bg, heroGlow], r.mutedMix);
@@ -1477,5 +1520,22 @@ export function isThemeId(
   value: string | null,
   themes: ColorTheme[],
 ): value is string {
-  return !!value && themes.some((theme) => theme.id === value);
+  return (
+    !!value &&
+    (value === CUSTOM_THEME_ID || themes.some((theme) => theme.id === value))
+  );
+}
+
+/** `#RGB` or `#RRGGBB` → `#RRGGBB` uppercase; invalid → default custom seed. */
+export function normalizeHex(value: string): string {
+  const raw = value.trim();
+  if (/^#[0-9A-Fa-f]{3}$/.test(raw)) {
+    return `#${raw[1]}${raw[1]}${raw[2]}${raw[2]}${raw[3]}${raw[3]}`.toUpperCase();
+  }
+  if (/^#[0-9A-Fa-f]{6}$/.test(raw)) return raw.toUpperCase();
+  return DEFAULT_CUSTOM_SEED;
+}
+
+export function isHexColor(value: string | null): value is string {
+  return typeof value === "string" && /^#[0-9A-Fa-f]{6}$/.test(value);
 }
