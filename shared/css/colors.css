@@ -1,0 +1,21 @@
+/**
+ * Default = dark mode base (#121212) before runtime seed apply.
+ * See color-themes.ts ratio model + colors.tokens.ts.
+ */
+:root {
+  --color-bg: #121212;
+  --color-bg-elevated: #1c1c1c;
+  --color-brand-mark: #ffffff;
+  --color-fg-display: #e8e8e8;
+  --color-fg: #eceff3;
+  --color-fg-muted: #9aa3ad;
+  --color-accent: #d4a574;
+  --color-on-accent: #0a0908;
+  --color-accent-fg: #c48a4a;
+  --color-accent-soft: rgba(212, 165, 116, 0.14);
+  --color-secondary: #d4a574;
+  --color-secondary-soft: rgba(212, 165, 116, 0.14);
+  --color-line: rgba(236, 239, 243, 0.14);
+  --color-hero-glow: #2a2a2a;
+  --color-hero-wash: #181818;
+}
