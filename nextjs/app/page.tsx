@@ -1,8 +1,5 @@
+import HomeExperience from "./components/home-experience";
 
 export default function Home() {
-  return (
-    <div className="">
-      
-    </div>
-  );
+  return <HomeExperience />;
 }
