@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "../../shared/css/colors.css";
+@import "../../shared/css/fonts.css";
+@import "../../shared/css/base.css";
+
+.km-rise {
+  animation: km-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.km-delay-1 {
+  animation-delay: 40ms;
+}
+.km-delay-2 {
+  animation-delay: 110ms;
+}
+.km-delay-3 {
+  animation-delay: 180ms;
+}
+.km-delay-4 {
+  animation-delay: 250ms;
+}
+.km-delay-5 {
+  animation-delay: 320ms;
+}
+
+.km-hero-glow {
+  animation: km-drift 18s ease-in-out infinite;
+}
+
+.km-hero-wash {
+  animation: km-drift 22s ease-in-out infinite reverse;
+}
