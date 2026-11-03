@@ -30,6 +30,7 @@ import PathChooserDialog from "./path-chooser-dialog";
 import PathLensControl from "./path-lens-control";
 import ThemeCircles from "./theme-circles";
 import "./brand-lockup.css";
+import "./glass-cta.css";
 
 /** Let brand + hero land before the first-visit ask. */
 const CHOOSER_OPEN_DELAY_MS = 900;
@@ -219,11 +220,18 @@ export default function HomeExperience() {
           </p>
 
           <div className="km-rise km-delay-5 mt-9 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <a
-              href={content.primaryCta.href}
-              className="inline-flex items-center rounded-md border border-[color-mix(in_oklab,var(--color-fg)_20%,transparent)] bg-[var(--color-accent)] px-4 py-2.5 text-[0.95rem] font-semibold tracking-[-0.015em] text-[var(--color-on-accent)] no-underline shadow-[0_1px_0_color-mix(in_oklab,var(--color-fg)_10%,transparent)] transition-[filter,transform] duration-150 hover:brightness-110 active:scale-[0.98]"
-            >
-              {content.primaryCta.label}
+            <a href={content.primaryCta.href} className="km-glass-cta">
+              {/* Parallel chase (accent) — grow + exit */}
+              <span className="km-glass-cta__edge" aria-hidden />
+              <span className="km-glass-cta__edge" aria-hidden />
+              <span className="km-glass-cta__edge" aria-hidden />
+              <span className="km-glass-cta__edge" aria-hidden />
+              {/* Same track as chase — white segments fade in after chase ends */}
+              <span className="km-glass-cta__hold" aria-hidden />
+              <span className="km-glass-cta__hold" aria-hidden />
+              <span className="km-glass-cta__hold" aria-hidden />
+              <span className="km-glass-cta__hold" aria-hidden />
+              <span className="km-glass-cta__label">{content.primaryCta.label}</span>
             </a>
             <a
               href={content.secondaryCta.href}
