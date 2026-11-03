@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tooling / private notes (not for public repo)
+.cursor/
+.impeccable.md
+docs/
+**/AGENTS.md
+**/CLAUDE.md
