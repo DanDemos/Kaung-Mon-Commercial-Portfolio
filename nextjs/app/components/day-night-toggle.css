@@ -1,0 +1,398 @@
+/**
+ * Day/Night toggle — design from Day-Night-Toggle-Switch,
+ * checkbox + label pattern preserved, rendered at ~30% scale.
+ *
+ * Clip fix: night sun was at left:170px (right edge 260 on a 270 track),
+ * so overflow:hidden sheared the orb. Park it further left so the disc
+ * clears the pill edge when scaled down.
+ */
+
+.day-night-switch {
+  /* Slightly quieter than the original, still readable as sun/moon */
+  --dn-scale: 0.28;
+  --dn-w: 270px;
+  --dn-h: 110px;
+  position: relative;
+  width: calc(var(--dn-w) * var(--dn-scale));
+  height: calc(var(--dn-h) * var(--dn-scale));
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.day-night-switch__input {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.day-night-switch__track {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: var(--dn-w);
+  height: var(--dn-h);
+  transform: scale(var(--dn-scale));
+  transform-origin: top left;
+  background: linear-gradient(to left, #6b8fad, #1a1d26) right;
+  background-size: 1000%;
+  border-radius: 100px;
+  box-shadow: inset 0 6px 8px rgba(50, 50, 50, 0.75);
+  overflow: hidden;
+  transition: background-position 0.8s ease-out;
+}
+
+.day-night-switch__input:checked + .day-night-switch__track {
+  background-position: left;
+}
+
+.day-night-switch__input:focus-visible + .day-night-switch__track {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.day-night-switch__cloud,
+.day-night-switch__cloud-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: left 0.6s ease-out;
+}
+
+/* Below sun/moon so leftover cloud pixels never paint over the orb */
+.day-night-switch__cloud {
+  z-index: 2;
+}
+.day-night-switch__cloud-shadow {
+  z-index: 1;
+}
+
+.day-night-switch__blob {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.day-night-switch__cloud .day-night-switch__blob {
+  background-color: #f4f9ff;
+}
+
+.day-night-switch__blob--c1 {
+  width: 70px;
+  height: 70px;
+  right: -12%;
+  bottom: 5%;
+}
+.day-night-switch__blob--c2 {
+  width: 70px;
+  height: 70px;
+  right: -4%;
+  bottom: -25%;
+}
+.day-night-switch__blob--c3 {
+  width: 70px;
+  height: 70px;
+  right: 10%;
+  bottom: -53%;
+}
+.day-night-switch__blob--c4 {
+  width: 40px;
+  height: 40px;
+  right: 30%;
+  bottom: -35%;
+}
+.day-night-switch__blob--c5 {
+  width: 70px;
+  height: 70px;
+  right: 40%;
+  bottom: -55%;
+}
+
+.day-night-switch__cloud-shadow .day-night-switch__blob {
+  background-color: #a9c4df;
+}
+
+.day-night-switch__blob--s1 {
+  width: 70px;
+  height: 70px;
+  right: -7%;
+  top: 10%;
+}
+.day-night-switch__blob--s2 {
+  width: 50px;
+  height: 50px;
+  right: 8%;
+  bottom: 4%;
+}
+.day-night-switch__blob--s3 {
+  width: 60px;
+  height: 60px;
+  right: 17%;
+  bottom: -18%;
+}
+.day-night-switch__blob--s4 {
+  width: 40px;
+  height: 40px;
+  right: 31%;
+  bottom: -13%;
+}
+.day-night-switch__blob--s5 {
+  width: 70px;
+  height: 70px;
+  right: 40%;
+  bottom: -39%;
+}
+.day-night-switch__blob--s6 {
+  width: 70px;
+  height: 70px;
+  right: 57%;
+  bottom: -52%;
+}
+.day-night-switch__blob--s7 {
+  width: 30px;
+  height: 30px;
+  right: 75%;
+  bottom: -23%;
+}
+
+.day-night-switch__stars {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  transition: right 0.8s ease-out;
+}
+
+.day-night-switch__star {
+  position: absolute;
+  display: block;
+  background: #f9fdff;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.day-night-switch__star--1 {
+  width: 10px;
+  height: 12px;
+  top: 15%;
+  left: 22%;
+  animation: dn-twinkle1 1s infinite;
+}
+.day-night-switch__star--2 {
+  width: 5px;
+  height: 5px;
+  top: 33%;
+  left: 12%;
+}
+.day-night-switch__star--3 {
+  width: 6px;
+  height: 6px;
+  top: 47%;
+  left: 24%;
+}
+.day-night-switch__star--4 {
+  width: 3px;
+  height: 3px;
+  top: 72%;
+  left: 16%;
+}
+.day-night-switch__star--5 {
+  width: 3px;
+  height: 3px;
+  top: 80%;
+  left: 13%;
+  animation: dn-twinkle2 1s infinite;
+}
+.day-night-switch__star--6 {
+  width: 3px;
+  height: 3px;
+  top: 85%;
+  left: 24%;
+}
+.day-night-switch__star--7 {
+  width: 4px;
+  height: 4px;
+  top: 28%;
+  left: 45%;
+}
+.day-night-switch__star--8 {
+  width: 4px;
+  height: 4px;
+  top: 51%;
+  left: 42%;
+  animation: dn-twinkle4 1s infinite;
+}
+.day-night-switch__star--9 {
+  width: 8px;
+  height: 8px;
+  top: 72%;
+  left: 45%;
+  animation: dn-twinkle3 1s infinite;
+}
+.day-night-switch__star--10 {
+  width: 5px;
+  height: 5px;
+  top: 57%;
+  left: 53%;
+}
+.day-night-switch__star--11 {
+  width: 12px;
+  height: 12px;
+  top: 28%;
+  left: 55%;
+}
+
+/*
+ * Cloud blobs use right: -12% / big radii, so they hang past the layer box.
+ * left: 100% alone leaves those overhangs sitting on the night moon —
+ * push past 100% by the largest blob size to clear the track fully.
+ */
+.day-night-switch__input:checked + .day-night-switch__track .day-night-switch__cloud,
+.day-night-switch__input:checked
+  + .day-night-switch__track
+  .day-night-switch__cloud-shadow {
+  left: calc(100% + 80px);
+}
+
+.day-night-switch__input:checked + .day-night-switch__track .day-night-switch__stars {
+  right: 0;
+}
+
+.day-night-switch__sun {
+  height: 90px;
+  width: 90px;
+  background: #f3c227;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  display: block;
+  transition: left 1s ease;
+  box-shadow:
+    0 0 0 30px rgba(255, 255, 255, 0.1),
+    0 0 0 60px rgba(255, 255, 255, 0.1),
+    0 0 0 90px rgba(255, 255, 255, 0.1),
+    0 6px 8px rgba(50, 50, 50, 0.75),
+    inset 4px 3px 8px #ebdb99,
+    inset -4px -3px 8px #a68c2f;
+  overflow: hidden;
+}
+
+.day-night-switch__moon {
+  height: 90px;
+  width: 90px;
+  left: 100px;
+  background: #c4c8d1;
+  border-radius: 50%;
+  position: absolute;
+  display: block;
+  transition: left 0.8s ease;
+  box-shadow:
+    0 6px 8px rgba(50, 50, 50, 0.75),
+    inset 4px 3px 8px #dad8e3,
+    inset -4px -3px 8px #94989b;
+}
+
+.day-night-switch__input:checked + .day-night-switch__track .day-night-switch__sun {
+  left: 170px;
+}
+
+.day-night-switch__input:checked + .day-night-switch__track .day-night-switch__moon {
+  left: 0;
+  transition: left 1s ease;
+}
+
+.day-night-switch__crater {
+  background-color: #959bb1;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset 1px 2px 1px #87899d;
+}
+
+.day-night-switch__crater--1 {
+  width: 18px;
+  height: 18px;
+  top: 18%;
+  left: 48%;
+  transform: translate(-48%, -18%);
+}
+.day-night-switch__crater--2 {
+  width: 30px;
+  height: 30px;
+  top: 60%;
+  left: 22%;
+  transform: translate(-22%, -65%);
+  box-shadow: inset 2px 2px 1px #87899d;
+}
+.day-night-switch__crater--3 {
+  width: 20px;
+  height: 20px;
+  top: 70%;
+  left: 80%;
+  transform: translate(-80%, -70%);
+}
+
+@keyframes dn-twinkle1 {
+  77% {
+    opacity: 0;
+  }
+}
+@keyframes dn-twinkle2 {
+  51% {
+    opacity: 0;
+  }
+}
+@keyframes dn-twinkle3 {
+  23% {
+    opacity: 0;
+  }
+}
+@keyframes dn-twinkle4 {
+  91% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day-night-switch__track,
+  .day-night-switch__cloud,
+  .day-night-switch__cloud-shadow,
+  .day-night-switch__stars,
+  .day-night-switch__sun,
+  .day-night-switch__moon {
+    transition: none;
+  }
+
+  .day-night-switch__star {
+    animation: none;
+  }
+}
