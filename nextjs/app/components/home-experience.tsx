@@ -29,6 +29,7 @@ import DayNightToggle from "./day-night-toggle";
 import PathChooserDialog from "./path-chooser-dialog";
 import PathLensControl from "./path-lens-control";
 import ThemeCircles from "./theme-circles";
+import "./brand-lockup.css";
 
 /** Let brand + hero land before the first-visit ask. */
 const CHOOSER_OPEN_DELAY_MS = 900;
@@ -149,20 +150,20 @@ export default function HomeExperience() {
       </div>
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 pb-2 pt-6 sm:px-8 sm:pt-8">
-        <a href="#top" className="flex items-center gap-2.5 no-underline">
+        <a href="#top" className="km-brand" aria-label="Kaung Mon — back to top">
           <Image
             src={logo}
             alt=""
             width={28}
             height={28}
             className={[
-              "h-7 w-7 object-contain transition-[filter] duration-200",
+              "km-brand__mark h-7 w-7 object-contain",
               // Source mark is black; invert when lockup ink is white
               tokens.brandMark === "#ffffff" ? "invert" : "",
             ].join(" ")}
             priority
           />
-          <span className="text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
+          <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
             Kaung Mon
           </span>
         </a>

@@ -11,14 +11,16 @@
     border-color 150ms ease;
 }
 
+/* Stay in the well: seed bloom is soft/inset — no lifted drop shadow */
 .theme-circle--active:hover,
 .theme-circle--active:focus-visible {
-  transform: scale(1.22) rotate(-6deg);
+  transform: scale(1.16) rotate(-5deg);
   box-shadow:
     0 0 0 2px var(--color-bg),
     0 0 0 3px var(--color-fg),
-    0 0 0 7px color-mix(in oklab, var(--swatch) 32%, transparent),
-    0 6px 16px color-mix(in oklab, var(--swatch) 38%, transparent);
+    inset 0 1px 2px color-mix(in oklab, black 28%, transparent),
+    inset 0 -1px 1px color-mix(in oklab, white 35%, transparent),
+    0 0 0 6px color-mix(in oklab, var(--swatch) 28%, transparent);
 }
 
 .theme-circle--active:hover::after,
@@ -43,6 +45,6 @@
 
   .theme-circle--active:hover,
   .theme-circle--active:focus-visible {
-    transform: scale(1.12);
+    transform: scale(1.1);
   }
 }

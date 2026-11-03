@@ -1,5 +1,7 @@
 "use client";
 
+import "./header-well.css";
+
 type PathLensControlProps = {
   label: string;
   ready: boolean;
@@ -9,7 +11,7 @@ type PathLensControlProps = {
 
 /**
  * Compact header control for the visitor path.
- * Same pill chrome as ThemeCircles — single-line label + chevron.
+ * Recessed well chrome (shared with ThemeCircles) — curved-in, not raised.
  */
 export default function PathLensControl({
   label,
@@ -20,7 +22,7 @@ export default function PathLensControl({
   if (!ready) {
     return (
       <span
-        className="inline-flex items-center rounded-full border border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-bg-elevated)_88%,transparent)] px-2.5 py-1.5 text-[0.8rem] leading-none text-[var(--color-fg-muted)]"
+        className="km-well inline-flex items-center rounded-full px-3 py-1.5 text-[0.8rem] leading-none text-[var(--color-fg-muted)]"
         aria-hidden
       >
         ···
@@ -36,39 +38,41 @@ export default function PathLensControl({
       aria-expanded={open}
       aria-label={`Lens: ${label}. Change`}
       title="Change lens"
-      className={[
-        "group inline-flex items-center gap-1 rounded-full border border-[var(--color-line)]",
-        "bg-[color-mix(in_oklab,var(--color-bg-elevated)_88%,transparent)] px-2.5 py-1.5",
-        "text-[0.8rem] leading-none transition-[border-color,background-color,color] duration-150",
-        "hover:border-[color-mix(in_oklab,var(--color-fg)_40%,transparent)] hover:bg-[var(--color-bg-elevated)]",
-        open
-          ? "border-[color-mix(in_oklab,var(--color-fg)_40%,transparent)] bg-[var(--color-bg-elevated)]"
-          : "",
-      ].join(" ")}
+      className="km-well group inline-flex items-center gap-2.5 rounded-full px-3 py-1.5 text-left"
     >
-      <span className="font-medium tracking-[-0.02em] text-[var(--color-fg)]">
-        {label}
+      <span className="min-w-0">
+        <span className="block text-[0.62rem] font-medium uppercase leading-none tracking-[0.12em] text-[var(--color-fg-muted)]">
+          Lens
+        </span>
+        <span className="mt-[3px] block truncate text-[0.8rem] font-semibold leading-none tracking-[-0.02em] text-[var(--color-fg)]">
+          {label}
+        </span>
       </span>
-      <svg
+      <span
         aria-hidden
-        width="10"
-        height="10"
-        viewBox="0 0 10 10"
         className={[
-          "shrink-0 text-[var(--color-fg-muted)] transition-[transform,color] duration-200",
-          "group-hover:text-[var(--color-fg)]",
-          open ? "translate-y-px rotate-180 text-[var(--color-fg)]" : "",
+          "km-well__slot flex h-6 w-6 shrink-0 items-center justify-center rounded-full",
+          "text-[var(--color-fg-muted)] group-hover:text-[var(--color-fg)]",
+          open ? "text-[var(--color-fg)]" : "",
         ].join(" ")}
-        fill="none"
       >
-        <path
-          d="M2.25 3.75L5 6.5L7.75 3.75"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+          <path
+            d="M3.5 2.25V8.25M3.5 8.25L1.75 6.5M3.5 8.25L5.25 6.5"
+            stroke="currentColor"
+            strokeWidth="1.35"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8.5 9.75V3.75M8.5 3.75L6.75 5.5M8.5 3.75L10.25 5.5"
+            stroke="currentColor"
+            strokeWidth="1.35"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
     </button>
   );
 }

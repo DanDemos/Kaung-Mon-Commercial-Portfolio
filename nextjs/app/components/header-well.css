@@ -1,0 +1,46 @@
+/**
+ * Shared recessed (“curved in”) chrome for header pills —
+ * same language as the Day/Night track inset lip.
+ */
+.km-well {
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  background: color-mix(in oklab, var(--color-fg) 5.5%, var(--color-bg));
+  box-shadow:
+    inset 0 2px 4px color-mix(in oklab, var(--color-fg) 22%, transparent),
+    inset 0 1px 1px color-mix(in oklab, var(--color-fg) 12%, transparent),
+    inset 0 -1px 1px color-mix(in oklab, var(--color-bg) 65%, transparent);
+  transition:
+    box-shadow 200ms ease,
+    background-color 200ms ease,
+    border-color 150ms ease;
+}
+
+.km-well:hover,
+.km-well:focus-visible,
+.km-well[aria-expanded="true"] {
+  background: color-mix(in oklab, var(--color-fg) 7.5%, var(--color-bg));
+  border-color: color-mix(in oklab, var(--color-fg) 18%, transparent);
+  box-shadow:
+    inset 0 3px 6px color-mix(in oklab, var(--color-fg) 30%, transparent),
+    inset 0 1px 2px color-mix(in oklab, var(--color-fg) 16%, transparent),
+    inset 0 -1px 1px color-mix(in oklab, var(--color-bg) 55%, transparent);
+}
+
+.km-well__slot {
+  background: color-mix(in oklab, var(--color-fg) 8%, transparent);
+  box-shadow:
+    inset 0 1px 2px color-mix(in oklab, var(--color-fg) 18%, transparent),
+    inset 0 -1px 1px color-mix(in oklab, var(--color-bg) 40%, transparent);
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease;
+}
+
+.group:hover .km-well__slot,
+.group[aria-expanded="true"] .km-well__slot {
+  background: color-mix(in oklab, var(--color-fg) 11%, transparent);
+  box-shadow:
+    inset 0 2px 3px color-mix(in oklab, var(--color-fg) 24%, transparent),
+    inset 0 -1px 1px color-mix(in oklab, var(--color-bg) 35%, transparent);
+}
