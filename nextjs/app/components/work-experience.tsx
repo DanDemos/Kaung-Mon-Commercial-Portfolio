@@ -118,7 +118,7 @@ export default function WorkExperience() {
   return (
     <>
       <SiteLoader ready={ready} />
-      <div className="km-app relative flex min-h-full flex-1 flex-col overflow-x-hidden">
+      <div className="km-app relative flex min-h-full flex-1 flex-col">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
