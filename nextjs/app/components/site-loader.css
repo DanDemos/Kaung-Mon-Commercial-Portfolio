@@ -40,18 +40,23 @@ html:not([data-km-boot]) .km-app {
   transform: scale(1.03);
 }
 
+/*
+ * Loader follows active theme tokens (default = Young Night + #2C7BD3).
+ * Atmosphere uses hero-glow / accent; spinner chrome uses accent so the
+ * brand blue (or Mocha / custom seed) reads clearly on the canvas.
+ */
 .km-loader__atmosphere {
   position: absolute;
   inset: -20%;
   background:
     radial-gradient(
       42% 36% at 50% 42%,
-      color-mix(in oklab, var(--color-hero-glow, var(--color-accent)) 42%, transparent),
+      color-mix(in oklab, var(--color-accent, var(--color-hero-glow)) 32%, transparent),
       transparent 70%
     ),
     radial-gradient(
       28% 22% at 62% 58%,
-      color-mix(in oklab, var(--color-accent) 18%, transparent),
+      color-mix(in oklab, var(--color-hero-glow, var(--color-fg)) 18%, transparent),
       transparent 72%
     );
   animation: km-loader-breathe 2.8s ease-in-out infinite;
@@ -70,7 +75,7 @@ html:not([data-km-boot]) .km-app {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-accent, var(--color-brand-mark)) 34%, transparent);
   pointer-events: none;
 }
 
@@ -78,16 +83,16 @@ html:not([data-km-boot]) .km-app {
   inset: -0.15rem;
   animation: km-loader-spin 4.2s linear infinite;
   border-color: transparent;
-  border-top-color: color-mix(in oklab, var(--color-accent) 70%, transparent);
-  border-right-color: color-mix(in oklab, var(--color-fg) 12%, transparent);
+  border-top-color: var(--color-accent, var(--color-brand-mark));
+  border-right-color: color-mix(in oklab, var(--color-accent, var(--color-brand-mark)) 42%, transparent);
 }
 
 .km-loader__orbit--inner {
   inset: 0.55rem;
   border-style: dashed;
-  border-color: color-mix(in oklab, var(--color-fg) 16%, transparent);
+  border-color: color-mix(in oklab, var(--color-accent, var(--color-brand-mark)) 48%, transparent);
   animation: km-loader-spin 7s linear infinite reverse;
-  opacity: 0.7;
+  opacity: 0.95;
 }
 
 .km-loader__sweep {
@@ -97,7 +102,7 @@ html:not([data-km-boot]) .km-app {
   background: conic-gradient(
     from 210deg,
     transparent 0deg,
-    color-mix(in oklab, var(--color-accent) 28%, transparent) 48deg,
+    color-mix(in oklab, var(--color-accent, var(--color-brand-mark)) 70%, transparent) 48deg,
     transparent 110deg
   );
   animation: km-loader-spin 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -121,14 +126,14 @@ html:not([data-km-boot]) .km-app {
   background:
     radial-gradient(
       circle at 35% 28%,
-      color-mix(in oklab, white 10%, transparent),
+      color-mix(in oklab, white 12%, transparent),
       transparent 55%
     ),
-    color-mix(in oklab, var(--color-bg-elevated, var(--color-bg)) 92%, var(--color-fg));
-  border: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent);
+    color-mix(in oklab, var(--color-bg-elevated, var(--color-bg)) 88%, var(--color-fg));
+  border: 1px solid color-mix(in oklab, var(--color-accent, var(--color-brand-mark)) 40%, transparent);
   box-shadow:
-    inset 0 1px 0 color-mix(in oklab, white 8%, transparent),
-    0 10px 28px color-mix(in oklab, var(--color-fg) 10%, transparent);
+    inset 0 1px 0 color-mix(in oklab, white 10%, transparent),
+    0 10px 28px color-mix(in oklab, var(--color-accent, var(--color-fg)) 22%, transparent);
   animation: km-loader-mark-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -152,7 +157,7 @@ html:not([data-km-boot]) .km-app {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--color-fg-display, var(--color-fg));
+  color: var(--color-brand-mark, var(--color-fg-display, var(--color-fg)));
 }
 
 .km-loader__glyph {
@@ -163,28 +168,28 @@ html:not([data-km-boot]) .km-app {
 }
 
 .km-loader__glyph:nth-child(1) {
-  animation-delay: 120ms;
+  animation-delay: 80ms;
 }
 .km-loader__glyph:nth-child(2) {
-  animation-delay: 160ms;
+  animation-delay: 120ms;
 }
 .km-loader__glyph:nth-child(3) {
-  animation-delay: 200ms;
+  animation-delay: 160ms;
 }
 .km-loader__glyph:nth-child(4) {
-  animation-delay: 240ms;
+  animation-delay: 200ms;
 }
 .km-loader__glyph:nth-child(5) {
-  animation-delay: 280ms;
+  animation-delay: 240ms;
 }
 .km-loader__glyph:nth-child(7) {
-  animation-delay: 360ms;
+  animation-delay: 300ms;
 }
 .km-loader__glyph:nth-child(8) {
-  animation-delay: 400ms;
+  animation-delay: 340ms;
 }
 .km-loader__glyph:nth-child(9) {
-  animation-delay: 440ms;
+  animation-delay: 380ms;
 }
 
 .km-loader__space {
@@ -194,11 +199,11 @@ html:not([data-km-boot]) .km-app {
 @keyframes km-loader-breathe {
   0%,
   100% {
-    opacity: 0.72;
+    opacity: 0.55;
     transform: scale(1);
   }
   50% {
-    opacity: 1;
+    opacity: 0.85;
     transform: scale(1.04);
   }
 }
@@ -243,7 +248,7 @@ html:not([data-km-boot]) .km-app {
   }
 
   .km-loader__atmosphere {
-    opacity: 0.85;
+    opacity: 0.7;
   }
 
   html[data-km-boot="ready"] .km-app,

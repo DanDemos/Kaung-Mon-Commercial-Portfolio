@@ -6,6 +6,7 @@ import {
   WANDER_OPTION,
   type VisitorPath,
 } from "../lib/visitor-paths";
+import "./path-chooser-dialog.css";
 
 type PathChooserDialogProps = {
   open: boolean;
@@ -152,10 +153,8 @@ export default function PathChooserDialog({
             aria-pressed={wondererActive}
             onClick={() => onChoose(WANDER_OPTION.id)}
             className={[
-              "-mx-3 w-[calc(100%+1.5rem)] px-3 py-3 text-left text-[0.98rem] font-medium transition-[background-color,color] duration-150",
-              wondererActive
-                ? "bg-[var(--color-accent-soft)] text-[var(--color-accent-fg)]"
-                : "bg-transparent text-[var(--color-fg-muted)] hover:bg-[color-mix(in_oklab,var(--color-fg)_6%,transparent)] hover:text-[var(--color-fg)]",
+              "km-path-chooser__wonderer",
+              wondererActive ? "km-path-chooser__wonderer--active" : "",
             ].join(" ")}
           >
             Continue as {WANDER_OPTION.label.toLowerCase()}

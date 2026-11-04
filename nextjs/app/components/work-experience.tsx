@@ -173,8 +173,8 @@ export default function WorkExperience() {
             <p className="km-work-page__eyebrow">Portfolio</p>
             <h1 className="km-work-page__title">Projects I&apos;ve worked on</h1>
             <p className="km-work-page__support">
-              Web, apps, chatbot work, UI studies, and motion pieces. Filter to
-              skim; open home for live walkthroughs on selected products.
+              Same filters as before — Web, App, Chatbot, Designs, MMD. Hover a
+              piece for the title and links; open home for live walkthroughs.
             </p>
             <p className="km-work-page__back">
               <TextLink href="/">← Back home</TextLink>

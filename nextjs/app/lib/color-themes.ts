@@ -9,6 +9,14 @@ export const DEFAULT_THEME_ID = "young-night";
 export const CUSTOM_THEME_ID = "custom";
 export const DEFAULT_CUSTOM_SEED = "#6B8F71";
 
+/**
+ * Personal brand default: Young Night charcoal canvas + fixed blue accent.
+ * Circle still shows the charcoal seed; accent/atmosphere use the blue pair.
+ * Only this preset is dual-tone — COTY / custom stay single-seed recipes.
+ */
+export const YOUNG_NIGHT_SEED = "#232323";
+export const YOUNG_NIGHT_ACCENT = "#2C7BD3";
+
 export type ColorMode = "light" | "dark";
 
 export const DEFAULT_COLOR_MODE: ColorMode = "dark";
@@ -1331,29 +1339,39 @@ export function tokensFromSeed(
   const primary = seed;
   const spectrum = classifySeed(primary);
   const recipe = SPECTRUM_RECIPES[spectrum.id];
-  const accentRaw = accentSeedFromPrimary(primary, spectrum, mode);
+  // Brand pair: Young Night charcoal keeps spectrum recipes for canvas/ink,
+  // but the 10% accent (+ night atmosphere) is locked to YOUNG_NIGHT_ACCENT.
+  // Treat that accent as vivid so neutral sat caps don't crush the blue.
+  const brandPair = isYoungNightSeed(primary);
+  const accentRaw = brandPair
+    ? YOUNG_NIGHT_ACCENT
+    : accentSeedFromPrimary(primary, spectrum, mode);
+  const accentChroma: SeedChroma = brandPair ? "vivid" : spectrum.chroma;
 
   if (mode === "dark") {
     const r = recipe.dark;
-    const atmosphere = darkAtmosphereSeed(primary, spectrum);
+    const atmosphere = brandPair
+      ? YOUNG_NIGHT_ACCENT
+      : darkAtmosphereSeed(primary, spectrum);
     // Vivid pastel nights: true charcoal canvas — seed color lives on the CTA
     const bg = MODE_DARK_BASE;
     const bgElevated = mixDarkAtmosphere(
       bg,
       atmosphere,
-      r.elevatedPrimary,
+      // Brand blue is chromatic — quieter elevated than neutral mist at 0.32
+      brandPair ? 0.22 : r.elevatedPrimary,
       spectrum,
     );
     const heroGlow = mixDarkAtmosphere(
       bg,
       atmosphere,
-      r.glowPrimary,
+      brandPair ? 0.38 : r.glowPrimary,
       spectrum,
     );
     const heroWash = mixDarkAtmosphere(
       bg,
       atmosphere,
-      r.washPrimary,
+      brandPair ? 0.14 : r.washPrimary,
       spectrum,
     );
     const ink = enforceInkHierarchy(
@@ -1385,7 +1403,7 @@ export function tokensFromSeed(
       bg,
       heroGlow,
       mode,
-      spectrum.chroma,
+      accentChroma,
       r.accent,
     );
     const brandMark = brandMarkForBg(bg);
@@ -1417,7 +1435,11 @@ export function tokensFromSeed(
   const bgElevated = mix(paper, primary, r.elevatedPrimary);
   // Tints keep seed-forward glow; mid tones need air or the atmosphere stains.
   const glowWhite = resolveLightGlowWhite(spectrum, r.glowWhite);
-  const heroGlow = mix(primary, paper, glowWhite);
+  let heroGlow = mix(primary, paper, glowWhite);
+  // Day Young Night: cool paper + a soft blue wash so the brand pair still reads
+  if (brandPair) {
+    heroGlow = mix(heroGlow, YOUNG_NIGHT_ACCENT, 0.2);
+  }
   const heroWash = mix(paper, primary, Math.max(r.washPrimary, 0.1));
   const ink = enforceInkHierarchy(
     hardenInkOnGrounds(
@@ -1441,7 +1463,7 @@ export function tokensFromSeed(
     bg,
     heroGlow,
     mode,
-    spectrum.chroma,
+    accentChroma,
     r.accent,
   );
   const brandMark = brandMarkForBg(bg);
@@ -1469,9 +1491,14 @@ export function tokensFromSeed(
 
 export const YOUNG_NIGHT_THEME: ColorTheme = {
   id: DEFAULT_THEME_ID,
-  swatch: "#232323",
+  swatch: YOUNG_NIGHT_SEED,
   label: "Young Night",
 };
+
+/** True when the active seed is the Young Night brand charcoal. */
+export function isYoungNightSeed(seed: string): boolean {
+  return seed.trim().toUpperCase() === YOUNG_NIGHT_SEED;
+}
 
 export function themesForYear(year = new Date().getFullYear()): ColorTheme[] {
   const cotyThemes = recentCoty(3, year).map((entry) => ({

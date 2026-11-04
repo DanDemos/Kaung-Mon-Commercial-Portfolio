@@ -6,6 +6,8 @@ import {
   DEFAULT_THEME_ID,
   MODE_STORAGE_KEY,
   THEME_STORAGE_KEY,
+  YOUNG_NIGHT_ACCENT,
+  YOUNG_NIGHT_SEED,
   type ColorMode,
 } from "./color-themes";
 import { recentCoty } from "./pantone-coty";
@@ -28,7 +30,7 @@ export function presetSwatchesForBoot(
   year = new Date().getFullYear(),
 ): Record<string, string> {
   const map: Record<string, string> = {
-    [DEFAULT_THEME_ID]: "#232323",
+    [DEFAULT_THEME_ID]: YOUNG_NIGHT_SEED,
   };
   for (const entry of recentCoty(3, year)) {
     map[`coty-${entry.year}`] = entry.hex;
@@ -51,6 +53,8 @@ export function getThemeBootScript(): string {
     defaultThemeId: DEFAULT_THEME_ID,
     customThemeId: CUSTOM_THEME_ID,
     defaultCustomSeed: DEFAULT_CUSTOM_SEED,
+    youngNightSeed: YOUNG_NIGHT_SEED,
+    youngNightAccent: YOUNG_NIGHT_ACCENT,
     presets,
     darkBg: "#121212",
     lightBg: "#f2f4f7",
@@ -81,6 +85,9 @@ export function getThemeBootScript(): string {
     var root = document.documentElement;
     var bg = mode === "light" ? p.lightBg : p.darkBg;
     var fg = mode === "light" ? p.lightFg : p.darkFg;
+    var brandPair = String(seed).toUpperCase() === p.youngNightSeed;
+    var accent = brandPair ? p.youngNightAccent : seed;
+    var glow = brandPair ? p.youngNightAccent : seed;
     root.style.setProperty("--color-bg", bg);
     root.style.setProperty("--color-bg-elevated", bg);
     root.style.setProperty("--color-fg", fg);
@@ -88,8 +95,19 @@ export function getThemeBootScript(): string {
     root.style.setProperty("--color-fg-muted", mode === "light" ? "#5c574f" : "#9aa3ad");
     root.style.setProperty("--color-brand-mark", mode === "light" ? "#000000" : "#ffffff");
     root.style.setProperty("--color-line", mode === "light" ? "rgba(26,24,22,0.12)" : "rgba(236,239,243,0.14)");
-    root.style.setProperty("--color-hero-glow", seed);
+    root.style.setProperty("--color-accent", accent);
+    root.style.setProperty("--color-accent-fg", accent);
+    root.style.setProperty("--color-secondary", accent);
+    root.style.setProperty("--color-hero-glow", glow);
     root.style.setProperty("--color-hero-wash", bg);
+    if (brandPair) {
+      root.style.setProperty("--color-on-accent", "#0a0908");
+      root.style.setProperty("--color-accent-fg", "#89b5e6");
+      root.style.setProperty("--color-accent-soft", "rgba(44,123,211,0.14)");
+      root.style.setProperty("--color-secondary-soft", "rgba(44,123,211,0.14)");
+      root.style.setProperty("--color-hero-glow", "#1c3a5b");
+      root.style.setProperty("--color-bg-elevated", "#18293c");
+    }
     root.dataset.themeSurface = mode;
     root.dataset.kmBoot = "loading";
     window.__KM_BOOT__ = {

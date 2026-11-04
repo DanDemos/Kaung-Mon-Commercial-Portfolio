@@ -1,7 +1,8 @@
 /**
- * Full works index for `/work`.
- * Covers live under `assets/portfolios/{slug}/cover.*`.
- * Optional `master.mp4` in the same folder feeds home walkthroughs (via public/media).
+ * Works index for `/work`.
+ * Shape mirrors the old `portfolio-container` items:
+ * category filter class + title + kind label + optional external link.
+ * Covers: `assets/portfolios/{slug}/cover.*`
  */
 
 import type { StaticImageData } from "next/image";
@@ -12,7 +13,6 @@ import blackWizard from "../../../assets/portfolios/black-wizard/cover.gif";
 import c2 from "../../../assets/portfolios/c2/cover.jpg";
 import cheese from "../../../assets/portfolios/cheese/cover.jpg";
 import chikanero from "../../../assets/portfolios/chikanero/cover.jpg";
-import dungeon from "../../../assets/portfolios/dungeon/cover.jpg";
 import essential from "../../../assets/portfolios/essential/cover.jpg";
 import finalPrototypeDay from "../../../assets/portfolios/final-prototype-day/cover.jpg";
 import finalPrototypeNight from "../../../assets/portfolios/final-prototype-night/cover.jpg";
@@ -37,6 +37,7 @@ import yorkYoga from "../../../assets/portfolios/york-yoga/cover.jpg";
 import zeus from "../../../assets/portfolios/zeus/cover.gif";
 import zeusAttack from "../../../assets/portfolios/zeus-attack/cover.gif";
 
+/** Same filters as the old `#portfolio-flters` list. */
 export type PortfolioCategory =
   | "web"
   | "app"
@@ -46,10 +47,15 @@ export type PortfolioCategory =
 
 export type PortfolioItem = {
   slug: string;
+  /** Visible title (h4 in old markup). */
   title: string;
+  /** Filter bucket — old `filter-web` / `filter-app` / … */
   category: PortfolioCategory;
+  /** Overlay line under the title — Website, App, Drawing, Animation, … */
+  kind: string;
   cover: StaticImageData;
-  /** True when a home walkthrough video exists under public/media/projects. */
+  /** External project link (old portfolio-links second anchor). */
+  href?: string;
   hasWalkthrough?: boolean;
 };
 
@@ -65,190 +71,224 @@ export const PORTFOLIO_FILTERS: {
   { id: "mmd", label: "MMD" },
 ];
 
+/**
+ * Order follows the old `portfolio-container` row.
+ * Titles / kinds / hrefs taken from that markup.
+ */
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     slug: "york-yoga",
     title: "York Yoga Corner",
     category: "web",
+    kind: "Website",
     cover: yorkYoga,
+    href: "https://yorkyogacorner.com/",
     hasWalkthrough: true,
   },
   {
     slug: "essential",
     title: "Essential Air Solution",
     category: "web",
+    kind: "Website",
     cover: essential,
+    href: "https://essentialairsolution.com/",
     hasWalkthrough: true,
   },
   {
     slug: "genesis",
-    title: "iGenesis Myanmar",
+    title: "Genesis Myanmar",
     category: "web",
+    kind: "Website",
     cover: genesis,
+    href: "http://genesismyanmar.com/",
     hasWalkthrough: true,
-  },
-  {
-    slug: "myan-pro-solutions",
-    title: "Property Management Solutions",
-    category: "web",
-    cover: myanProSolutions,
   },
   {
     slug: "myan-gate",
     title: "MyanGate",
     category: "web",
+    kind: "Website",
     cover: myanGate,
+    href: "https://myangate.com/",
     hasWalkthrough: true,
   },
   {
-    slug: "avs",
-    title: "AVS",
+    slug: "myan-bell",
+    title: "Myanbell",
     category: "web",
-    cover: avs,
+    kind: "Website",
+    cover: myanBell,
+    href: "https://myanbell.com/",
+  },
+  {
+    slug: "myan-pro-solutions",
+    title: "Myan Pro Solutions",
+    category: "web",
+    kind: "Website",
+    cover: myanProSolutions,
+    href: "https://myanprosolutions.com/",
   },
   {
     slug: "hwt",
-    title: "HWT",
-    category: "web",
+    title: "HWT Hardwares",
+    category: "app",
+    kind: "App",
     cover: hwt,
+    href: "https://play.google.com/store/apps/details?id=com.myanshop.hwt",
   },
   {
     slug: "c2",
-    title: "C2",
-    category: "web",
+    title: "Cotton Concept",
+    category: "app",
+    kind: "App",
     cover: c2,
+    href: "https://play.google.com/store/apps/details?id=com.myanshop.c2onlineshoppingmall",
+  },
+  {
+    slug: "avs",
+    title: "Av's Online Store",
+    category: "app",
+    kind: "App",
+    cover: avs,
+    href: "https://play.google.com/store/apps/details?id=com.myanshop.avsonlinestore",
   },
   {
     slug: "anime-mm-sub",
     title: "Anime MM Sub",
-    category: "web",
+    category: "app",
+    kind: "App",
     cover: animeMmSub,
-  },
-  {
-    slug: "myan-bell",
-    title: "MyanBell",
-    category: "web",
-    cover: myanBell,
+    href: "https://play.google.com/store/apps/details?id=com.jp.ul.nwayoofansub",
   },
   {
     slug: "kmd",
     title: "KMD",
-    category: "web",
+    category: "app",
+    kind: "Student project (final year)",
     cover: kmd,
   },
   {
-    slug: "hnd-project",
-    title: "HND project",
-    category: "web",
-    cover: hndProject,
-  },
-  {
-    slug: "ia-conqueror",
-    title: "IA Conqueror",
-    category: "app",
-    cover: iaConqueror,
-  },
-  {
-    slug: "chikanero",
-    title: "Chikanero",
-    category: "app",
-    cover: chikanero,
-  },
-  {
     slug: "myan-bell-chatbot",
-    title: "MyanBell Chatbot",
+    title: "Myanbell",
     category: "chatbot",
+    kind: "Chatbot",
     cover: myanBellChatbot,
+    href: "https://www.facebook.com/Myanbellofficial/",
   },
   {
-    slug: "final-prototype-day",
-    title: "Final prototype — day",
-    category: "designs",
-    cover: finalPrototypeDay,
+    slug: "hnd-project",
+    title: "Seventh April Online Shop",
+    category: "web",
+    kind: "Student project (HND)",
+    cover: hndProject,
+    href: "https://docs.google.com/document/d/1Ga7dvY4VtSAej1zeqmTaulGtjXxwedsq/edit?usp=sharing&ouid=103913041693913816097&rtpof=true&sd=true",
   },
   {
-    slug: "final-prototype-night",
-    title: "Final prototype — night",
+    slug: "tsukasa-tsukuyomi",
+    title: "Tsukasa Tsukuyomi",
     category: "designs",
-    cover: finalPrototypeNight,
+    kind: "Drawing",
+    cover: tsukasaTsukuyomi,
+  },
+  {
+    slug: "sei-no-glasses",
+    title: "Sei Takanashi",
+    category: "designs",
+    kind: "Drawing",
+    cover: seiNoGlasses,
+  },
+  {
+    slug: "slime-attack",
+    title: "Slime",
+    category: "designs",
+    kind: "Animation",
+    cover: slimeAttack,
+  },
+  {
+    slug: "slime",
+    title: "Slime walk",
+    category: "designs",
+    kind: "Animation",
+    cover: slime,
+  },
+  {
+    slug: "zeus-attack",
+    title: "Zeus",
+    category: "designs",
+    kind: "Animation",
+    cover: zeusAttack,
+  },
+  {
+    slug: "zeus",
+    title: "Zeus idle",
+    category: "designs",
+    kind: "Animation",
+    cover: zeus,
+  },
+  {
+    slug: "black-wizard",
+    title: "Black Wizard",
+    category: "designs",
+    kind: "Animation",
+    cover: blackWizard,
   },
   {
     slug: "wizard",
     title: "Wizard",
     category: "designs",
+    kind: "Drawing",
     cover: wizard,
   },
   {
     slug: "wizard-study",
     title: "Wizard study",
     category: "designs",
+    kind: "Drawing",
     cover: wizardStudy,
   },
   {
     slug: "potion",
-    title: "Potion",
+    title: "Lava Potion",
     category: "designs",
+    kind: "Drawing",
     cover: potion,
-  },
-  {
-    slug: "cheese",
-    title: "Cheese",
-    category: "designs",
-    cover: cheese,
   },
   {
     slug: "rubiks-cube",
     title: "Rubik's Cube",
     category: "designs",
+    kind: "Drawing",
     cover: rubiksCube,
   },
   {
-    slug: "tsukasa-tsukuyomi",
-    title: "Tsukasa Tsukuyomi",
-    category: "mmd",
-    cover: tsukasaTsukuyomi,
+    slug: "final-prototype-night",
+    title: "Smart Car UI",
+    category: "designs",
+    kind: "Student project design",
+    cover: finalPrototypeNight,
   },
   {
-    slug: "sei-no-glasses",
-    title: "Sei no glasses",
-    category: "mmd",
-    cover: seiNoGlasses,
+    slug: "final-prototype-day",
+    title: "Smart Car UI — day",
+    category: "designs",
+    kind: "Student project design",
+    cover: finalPrototypeDay,
   },
   {
-    slug: "dungeon",
-    title: "Dungeon",
+    slug: "chikanero",
+    title: "Chika Dance Nero Claudius",
     category: "mmd",
-    cover: dungeon,
+    kind: "MMD",
+    cover: chikanero,
+    href: "https://youtu.be/lnps2LOVhkE",
   },
   {
-    slug: "black-wizard",
-    title: "Black Wizard",
+    slug: "ia-conqueror",
+    title: "IA — Conqueror",
     category: "mmd",
-    cover: blackWizard,
-  },
-  {
-    slug: "zeus",
-    title: "Zeus",
-    category: "mmd",
-    cover: zeus,
-  },
-  {
-    slug: "zeus-attack",
-    title: "Zeus attack",
-    category: "mmd",
-    cover: zeusAttack,
-  },
-  {
-    slug: "slime",
-    title: "Slime",
-    category: "mmd",
-    cover: slime,
-  },
-  {
-    slug: "slime-attack",
-    title: "Slime attack",
-    category: "mmd",
-    cover: slimeAttack,
+    kind: "MMD",
+    cover: iaConqueror,
+    href: "https://youtu.be/rtrv5rbjF54",
   },
 ];
 
