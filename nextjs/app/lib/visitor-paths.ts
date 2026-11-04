@@ -13,11 +13,11 @@ export const DEFAULT_PATH: VisitorPath = "wander";
 export const CONTACT_EMAIL = "kaungmonsoe14613@gmail.com";
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
 
-/** Editable social / resume. Swap when ready. */
+/** Editable social / resume. Resume page is Recruiter-lens only. */
 export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/",
   youtube: "https://www.youtube.com/",
-  resume: "/resume.pdf",
+  resume: "/resume",
 } as const;
 
 export const FOOTER_BLURB =
@@ -272,7 +272,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     support:
       "I ship product UI and the APIs that feed it. Watch the work, read what collaborators wrote, email if the shape fits.",
     primaryCta: { label: "See impact", section: "work" },
-    secondaryCta: { label: "Email me", section: "contact" },
+    secondaryCta: { label: "View resume", href: "/resume" },
     focusTitle: "",
     focusSupport: "",
     items: [],
@@ -282,7 +282,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     aboutTitle: "Who you'd be hiring",
     aboutBody:
       "I'm Kaung Mon (Dan). Product engineer with a bias for clear interfaces and finished edges. I've shipped for teams and for small businesses. I write and speak plainly about what shipped and what I'd change next.",
-    aboutCta: { label: "Email me", section: "contact" },
+    aboutCta: { label: "View resume", href: "/resume" },
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "From people I've shipped with",

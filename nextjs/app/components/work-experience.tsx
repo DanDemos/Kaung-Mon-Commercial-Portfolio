@@ -21,7 +21,6 @@ import {
 } from "../lib/color-themes";
 import { BRAND } from "../lib/media";
 import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
-import { SOCIAL_LINKS } from "../lib/visitor-paths";
 import DayNightToggle from "./day-night-toggle";
 import MediaImage from "./media-image";
 import SiteLoader from "./site-loader";
@@ -194,7 +193,6 @@ export default function WorkExperience() {
               <Link href="/work" aria-current="page">
                 Work
               </Link>
-              <a href={SOCIAL_LINKS.resume}>Resume</a>
             </nav>
             <p className="km-work-page__copy">© {year} Kaung Mon</p>
           </div>

@@ -15,16 +15,25 @@ type SiteFooterProps = {
   invertMark?: boolean;
   /** Hide Voices when that section isn’t on the page (e.g. Client lens). */
   showVoices?: boolean;
+  /** Resume is Recruiter-lens only. */
+  showResume?: boolean;
 };
 
 export default function SiteFooter({
   invertMark = false,
   showVoices = true,
+  showResume = false,
 }: SiteFooterProps) {
   const year = new Date().getFullYear();
-  const nav = FOOTER_NAV.filter(
-    (item) => showVoices || !("section" in item) || item.section !== "voices",
-  );
+  const nav = FOOTER_NAV.filter((item) => {
+    if (!showVoices && "section" in item && item.section === "voices") {
+      return false;
+    }
+    if (!showResume && "href" in item && item.href === SOCIAL_LINKS.resume) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <footer className="km-footer">

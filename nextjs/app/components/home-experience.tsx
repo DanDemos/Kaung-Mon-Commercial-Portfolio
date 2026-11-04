@@ -409,6 +409,7 @@ export default function HomeExperience() {
       <SiteFooter
         invertMark={tokens.brandMark === "#ffffff"}
         showVoices={content.voices.length > 0}
+        showResume={path === "hire"}
       />
 
       <PathChooserDialog
