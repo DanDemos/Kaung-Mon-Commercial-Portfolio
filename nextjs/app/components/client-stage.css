@@ -64,6 +64,22 @@
   opacity: 1;
 }
 
+.km-client-stage__link {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.35rem;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.km-client-stage__link:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-accent) 70%, transparent);
+  outline-offset: 3px;
+}
+
 .km-client-stage__mark {
   --km-media-w: 100% !important;
   --km-media-h: 100% !important;
