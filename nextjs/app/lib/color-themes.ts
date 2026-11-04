@@ -1213,6 +1213,17 @@ function onAccentInk(fill: string) {
 }
 
 /**
+ * Light-mode main button: force white ink on the blue→purple→magenta→red
+ * arc of the custom wheel (≈7 o’clock blue through top red). Rounded band:
+ * hue ≥ 210° or ≤ 20°. Dark mode keeps normal onAccentInk / brand locks.
+ */
+function accentWantsWhiteInkOnLight(fill: string) {
+  const { h, s } = hexToHsl(fill);
+  if (s < 0.12) return false;
+  return h >= 210 || h <= 20;
+}
+
+/**
  * Keep filled accent chromatically present on the canvas.
  * Do NOT run text-AA hardening on the fill (that washed fills to cream).
  * Soft seeds: deepen/presence without a 0.5 sat floor (that made Mocha orange).
@@ -1471,7 +1482,10 @@ export function tokensFromSeed(
     r.accent,
   );
   const brandMark = brandMarkForBg(bg);
-  const onAccent = brandPair ? "#ffffff" : accents.onAccent;
+  const onAccent =
+    brandPair || accentWantsWhiteInkOnLight(accents.accent)
+      ? "#ffffff"
+      : accents.onAccent;
   const softFill = brandPair
     ? rgba(ink.body, 0.08)
     : rgba(accents.accent, 0.12);

@@ -7,6 +7,7 @@ import {
   type VisitorPath,
 } from "../lib/visitor-paths";
 import "./path-chooser-dialog.css";
+import "./section-title.css";
 
 type PathChooserDialogProps = {
   open: boolean;
@@ -100,12 +101,10 @@ export default function PathChooserDialog({
           </svg>
         </button>
 
-        <p className="pr-10 text-[0.75rem] font-medium uppercase tracking-[0.16em] text-[var(--color-fg-muted)]">
-          Optional
-        </p>
+        <p className="km-section-title__label pr-10">Optional</p>
         <h2
           id={titleId}
-          className="mt-3 text-[1.55rem] font-semibold tracking-[-0.035em] text-[var(--color-fg)]"
+          className="km-section-title__title"
         >
           Who are you here as?
         </h2>

@@ -16,9 +16,7 @@
   font-weight: 550;
   text-align: left;
   color: var(--color-fg-muted);
-  transition:
-    color 160ms ease,
-    background-color 160ms ease;
+  transition: color 160ms ease;
 }
 
 .km-path-chooser__wonderer::after {
@@ -43,11 +41,11 @@
   transform: scaleX(1);
 }
 
-/* Hover must differ from both rest and active (default path is wonderer). */
+/* Hover: secondary ink + underline only — no fill wash */
 .km-path-chooser__wonderer:hover,
 .km-path-chooser__wonderer:focus-visible {
-  color: var(--color-accent-fg);
-  background: var(--color-accent-soft);
+  color: var(--color-secondary);
+  background: transparent;
 }
 
 .km-path-chooser__wonderer:hover::after,

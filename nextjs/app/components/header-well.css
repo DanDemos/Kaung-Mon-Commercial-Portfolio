@@ -44,3 +44,11 @@
     inset 0 2px 3px color-mix(in oklab, var(--color-fg) 24%, transparent),
     inset 0 -1px 1px color-mix(in oklab, var(--color-bg) 35%, transparent);
 }
+
+.km-lens-path {
+  color: var(--color-fg);
+}
+
+html[data-theme-surface="dark"] .km-lens-path {
+  color: #fff;
+}

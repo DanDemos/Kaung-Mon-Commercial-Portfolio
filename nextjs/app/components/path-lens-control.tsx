@@ -44,7 +44,7 @@ export default function PathLensControl({
         <span className="block text-[0.62rem] font-medium uppercase leading-none tracking-[0.12em] text-[var(--color-fg-muted)]">
           Lens
         </span>
-        <span className="mt-[3px] block truncate text-[0.8rem] font-semibold leading-none tracking-[-0.02em] text-[var(--color-fg)]">
+        <span className="km-lens-path mt-[3px] block truncate text-[0.8rem] font-semibold leading-none tracking-[-0.02em]">
           {label}
         </span>
       </span>

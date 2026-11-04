@@ -51,16 +51,16 @@ html:not([data-km-boot]) .km-app {
 }
 
 /*
- * Cover ONLY the letter K — measured on 112² logo-mark.png:
- * frame 9–12 / 99–102; left square-dot 25–31×63–69 (must stay visible);
- * K glyph 32–86 × 28–82. Cover uses that box + 1–2px pad (not into the dot).
+ * Cover the letter K + its left square-dot — measured on 112² logo-mark.png:
+ * frame 9–12 / 99–102; square-dot 25–31×63–69; K glyph 32–86 × 28–82.
+ * Cover from the dot through the K (+1–2px pad), leaving the outer frame.
  */
 .km-loader__k-block {
   position: absolute;
   z-index: 1;
-  left: 28.57%; /* 32/112 — flush after the square-dot */
+  left: 21.43%; /* 24/112 — pad before the square-dot */
   top: 24.11%; /* 27/112 */
-  width: 50%; /* → 88/112, past K’s right serifs */
+  width: 57.14%; /* → 88/112, past K’s right serifs */
   height: 50.89%; /* → 84/112, past K’s feet */
   display: grid;
   place-items: center;
