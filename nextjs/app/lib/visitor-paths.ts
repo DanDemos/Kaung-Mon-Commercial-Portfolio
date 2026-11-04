@@ -288,7 +288,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     voicesTitle: "From people I've shipped with",
     voicesSupport: "Unedited. Useful for culture and collaboration fit.",
     voices: COLLEAGUE_VOICES,
-    contactTitle: "Open to the right role",
+    contactTitle: "Open to the right\u00A0role",
     contactSupport:
       "Send the role, timeline, and location or remote expectations. I'll reply with a straight yes, no, or clarifying question.",
   },
@@ -321,7 +321,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     voicesTitle: "Colleague network",
     voicesSupport: "Two faces per slide on purpose. Density over theatre.",
     voices: COLLEAGUE_VOICES,
-    contactTitle: "Got a knotty UI or API edge?",
+    contactTitle: "Got a knotty UI or API\u00A0edge?",
     contactSupport:
       "Email a link, a loom, or a short description. I'll answer with how I'd cut the problem, not a sales call.",
   },
@@ -368,7 +368,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     voicesTitle: "Voices",
     voicesSupport: "",
     voices: [],
-    contactTitle: "Tell me what you want to grow",
+    contactTitle: "Tell me what you want to\u00A0grow",
     contactSupport:
       "A sentence about your business is enough to start. We'll figure out whether a new site, a redesign, or something smaller is the right next step.",
   },
@@ -401,7 +401,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     voicesTitle: "People I've worked beside",
     voicesSupport: "Optional reading. Faces first.",
     voices: COLLEAGUE_VOICES,
-    contactTitle: "If you feel like saying hi",
+    contactTitle: "If you feel like saying\u00A0hi",
     contactSupport: "No form. Email when you want. Silence is fine too.",
   },
 };
