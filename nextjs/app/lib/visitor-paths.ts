@@ -370,7 +370,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
       "A sentence about your business is enough to start. We'll figure out whether a new site, a redesign, or something smaller is the right next step.",
   },
 
-  /* Wonderer: light, zero pressure, invite to switch lens. */
+  /* Wonderer: calm, low pressure — not performatively friendly. */
   wander: {
     eyebrow: "Just looking",
     roles: [
@@ -382,7 +382,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     support:
       "Clips of work, a few people I've built with, and a quiet about section. Use Lens in the header if you arrived with a job to do.",
     primaryCta: { label: "Browse work", section: "work" },
-    secondaryCta: { label: "Say hello", section: "contact" },
+    secondaryCta: { label: "Contact", section: "contact" },
     focusTitle: "",
     focusSupport: "",
     items: [],
@@ -392,14 +392,14 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     aboutTitle: "About me",
     aboutBody:
       "I'm Kaung Mon, also Dan. I build websites and product interfaces. Some days that means a shop that needs to be found online. Other days it's denser product UI for a team. Either way I care that the screen makes sense.",
-    aboutCta: { label: "Say hello", section: "contact" },
+    aboutCta: { label: "Contact", section: "contact" },
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "People I've worked beside",
     voicesSupport: "Optional reading. Faces first.",
     voices: COLLEAGUE_VOICES,
-    contactTitle: "If you feel like saying\u00A0hi",
-    contactSupport: "No form. Email when you want. Silence is fine too.",
+    contactTitle: "Contact",
+    contactSupport: "Form or email — I read what comes in.",
   },
 };
 
