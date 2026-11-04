@@ -1,0 +1,2693 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="Slime.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="206.31573"
+     inkscape:cy="563.36974"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="985"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4162"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)"
+         id="g3680">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path3676"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path3678"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="-416.92935"
+         id="ellipse3682"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.436977"
+         cx="-421.69186"
+         id="ellipse3684"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g3692"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path3686"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3688"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path3690"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         id="g3698">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path3694"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3696"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4190"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         transform="matrix(-1,0,0,1,369.31564,-126.73541)"
+         id="g3771">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path3767"
+           d="m -77.405395,83.888405 c 2.203226,4.848629 -3.473149,3.95364 -7.46277,3.944604 -4.003802,-0.0091 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 5.281969,3.705866 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path3769"
+           d="m -79.398357,87.677489 c -2e-6,0.191157 -2.785787,0.172489 -5.406277,0.172489 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 5.406282,0.08882 5.406277,0.27998 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="-454.90836"
+         id="ellipse3773"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.436977"
+         cx="-459.67087"
+         id="ellipse3775"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g3783"
+         transform="matrix(-1,0,0,1,381.71798,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path3777"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3779"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path3781"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,389.32475,-139.32792)"
+         id="g3789">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path3785"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3787"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       transform="matrix(-0.30705093,0,0,0.30705093,35.16394,8.6752383)"
+       id="g3795"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <path
+         sodipodi:nodetypes="sssscss"
+         inkscape:connector-curvature="0"
+         id="path3791"
+         d="m -77.405395,83.888405 c 4.721934,5.155789 -3.46947,3.954089 -7.46277,3.944604 -4.003801,-0.0095 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 4.265865,4.377419 6.888204,7.2407 z"
+         style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path3793"
+         d="m -79.02418,87.817806 c -2e-6,0.191157 -3.159964,0.03217 -5.780454,0.03217 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 5.780459,0.229137 5.780454,0.420297 z"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3807"
+       transform="matrix(-0.30705093,0,0,0.30705093,38.97209,4.8899283)"
+       style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <path
+         style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M -72.049348,96.098568 -72.545441,96.975"
+         id="path3801"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3803"
+         d="M -71.321744,96.098568 -71.817837,96.975"
+         style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M -70.660286,96.098568 -71.156379,96.975"
+         id="path3805"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+       transform="matrix(-0.30705093,0,0,0.30705093,41.30776,4.8086983)"
+       id="g3813"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <path
+         style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -71.31869,96.096839 -0.461275,0.814921"
+         id="path3809"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3811"
+         d="M -70.660286,96.098568 -71.156379,96.975"
+         style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4176"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         id="g3722"
+         transform="matrix(-1,0,0,1,350.2326,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 1.253789,4.681081 -3.489747,3.950711 -7.46277,3.944604 -4.003807,-0.0062 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 5.883674,3.490238 6.888204,7.2407 z"
+           id="path3718"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -79.398357,87.677489 c -2e-6,0.191157 -2.785787,0.172489 -5.406277,0.172489 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 5.406282,0.08882 5.406277,0.27998 z"
+           id="path3720"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse3724"
+         cx="-435.82532"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.6113103"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,362.63494,-139.06334)"
+         id="g3734">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3728"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path3730"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3732"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g3740"
+         transform="matrix(-1,0,0,1,370.24171,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3736"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path3738"
+           inkscape:connector-curvature="0" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.6113103"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="-440.58096"
+         id="ellipse3817"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <ellipse
+       style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.05199877;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="ellipse3819"
+       cx="-61.44709"
+       cy="33.617676"
+       rx="0.27361071"
+       ry="0.1877034"
+       transform="scale(-1,1)"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116" />
+    <ellipse
+       transform="scale(-1,1)"
+       ry="0.1877034"
+       rx="0.27361071"
+       cy="33.617676"
+       cx="-62.90731"
+       id="ellipse3821"
+       style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.05199877;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116" />
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4204"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         id="g3827"
+         transform="translate(466.92892,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           id="path3823"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path3825"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse3829"
+         cx="381.33621"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse3831"
+         cx="376.5737"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="translate(454.52658,-139.06334)"
+         id="g3840">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3834"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path3836"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3838"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g3846"
+         transform="translate(446.91981,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3842"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path3844"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4232"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         id="g3875"
+         transform="translate(428.94992,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 2.203226,4.848629 -3.473149,3.95364 -7.46277,3.944604 -4.003802,-0.0091 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 5.281969,3.705866 6.888204,7.2407 z"
+           id="path3871"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -79.398357,87.677489 c -2e-6,0.191157 -2.785787,0.172489 -5.406277,0.172489 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 5.406282,0.08882 5.406277,0.27998 z"
+           id="path3873"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse3877"
+         cx="343.35721"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse3879"
+         cx="338.5947"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="translate(416.54758,-139.06334)"
+         id="g3887">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3881"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path3883"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3885"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g3893"
+         transform="translate(408.94081,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3889"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path3891"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4218"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         transform="translate(448.03296,-126.73541)"
+         id="g3852">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path3848"
+           d="m -77.405395,83.888405 c 1.253789,4.681081 -3.489747,3.950711 -7.46277,3.944604 -4.003807,-0.0062 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 5.883674,3.490238 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path3850"
+           d="m -79.398357,87.677489 c -2e-6,0.191157 -2.785787,0.172489 -5.406277,0.172489 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 5.406282,0.08882 5.406277,0.27998 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         ry="0.6113103"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="362.44025"
+         id="ellipse3854"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g3863"
+         transform="translate(435.63062,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path3857"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3859"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path3861"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="translate(428.02385,-139.32792)"
+         id="g3869">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path3865"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3867"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse3915"
+         cx="357.6846"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.6113103" />
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4246"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         transform="translate(410.09836,-126.73541)"
+         id="g3899">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path3895"
+           d="m -77.405395,83.888405 c 4.721934,5.155789 -3.46947,3.954089 -7.46277,3.944604 -4.003801,-0.0095 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 4.265865,4.377419 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path3897"
+           d="m -79.02418,87.817806 c -2e-6,0.191157 -3.159964,0.03217 -5.780454,0.03217 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 5.780459,0.229137 5.780454,0.420297 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g3907"
+         transform="translate(397.69602,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path3901"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3903"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path3905"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="translate(390.08925,-139.32792)"
+         id="g3913">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path3909"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3911"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse3917"
+         cx="324.49976"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.6113103" />
+      <ellipse
+         ry="0.6113103"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="319.74411"
+         id="ellipse3919"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3973"
+       transform="matrix(0.30705093,0,0,0.30705093,-83.779428,47.589458)"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <path
+         style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 405.5337,-56.705535 c 0,4.003814 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.03632,0.0592 -7.03632,-3.944604 0,-3.89675 3.07446,-7.07541 6.93002,-7.24264 0.10593,-0.005 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21497,0.4694 0.33468,0.47527 3.83595,0.18829 6.8882,3.35804 6.8882,7.2407 z"
+         id="path3969"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="sssscss" />
+      <path
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 402.87928,-53.147961 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -1e-5,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+         id="path3971"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cscsc" />
+    </g>
+    <g
+       id="g3979"
+       transform="matrix(0.30705093,0,0,0.30705093,-83.779428,47.589458)"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <path
+         sodipodi:nodetypes="sssscss"
+         inkscape:connector-curvature="0"
+         id="path3975"
+         d="m 405.5337,-70.830729 c 0.0713,4.003178 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.07241,0.05904 -7.03632,-3.944604 0.0362,-4.017072 3.68264,-6.362017 6.93002,-7.24264 0.10235,-0.02776 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21841,0.446196 0.33468,0.47527 3.4505,0.862816 6.82109,3.475484 6.8882,7.2407 z"
+         style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path3977"
+         d="m 402.99621,-67.273155 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -10e-6,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g3985"
+       transform="matrix(0.30705093,0,0,0.30705093,-83.779428,47.589458)"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <path
+         style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 405.5337,-84.581746 c 0.82659,3.91756 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.95103,-0.04668 -7.03632,-3.944604 0.89611,-3.818635 3.98029,-5.402902 6.93002,-7.24264 0.09,-0.05612 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.23112,0.414935 0.33468,0.47527 3.00617,1.751487 6.04935,3.265009 6.8882,7.2407 z"
+         id="path3981"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="sssscss" />
+      <path
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 402.99621,-81.097634 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -10e-6,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+         id="path3983"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cscsc" />
+    </g>
+    <g
+       id="g3991"
+       transform="matrix(0.30705093,0,0,0.30705093,-83.779428,47.589458)"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <path
+         sodipodi:nodetypes="sssscss"
+         inkscape:connector-curvature="0"
+         id="path3987"
+         d="m 405.20297,-101.51933 c 0,4.003807 -3.09515,3.382358 -7.09897,3.382358 -4.00381,0 -6.67252,0.687585 -6.67252,-3.316218 0,-3.89675 2.67759,-7.10848 6.53315,-7.27571 0.10593,-0.005 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21497,0.4694 0.33468,0.47527 3.83595,0.18829 6.55747,3.32497 6.55747,7.20763 z"
+         style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path3989"
+         d="m 402.99621,-98.34516 c 0,0.191157 -2.12432,0.155952 -4.74481,0.155952 -2.62049,0 -4.74482,0.02694 -4.74482,-0.16422 -10e-6,-0.191158 2.12432,-0.288249 4.74482,-0.288249 2.62049,0 4.74482,0.105355 4.74481,0.296517 z"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4278"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         id="g4118">
+        <g
+           id="g3963"
+           transform="translate(0,61.11875)">
+          <path
+             style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 405.5337,-70.830729 c 0.0713,4.003178 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.07241,0.05904 -7.03632,-3.944604 0.0362,-4.017072 3.68264,-6.362017 6.93002,-7.24264 0.10235,-0.02776 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21841,0.446196 0.33468,0.47527 3.4505,0.862816 6.82109,3.475484 6.8882,7.2407 z"
+             id="path3921"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="sssscss" />
+          <path
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 402.99621,-67.273155 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -10e-6,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+             id="path3931"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cscsc" />
+        </g>
+        <ellipse
+           ry="0.82178503"
+           rx="0.89109224"
+           cy="-12.894594"
+           cx="395.73877"
+           id="ellipse3993"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse3995"
+           cx="400.76273"
+           cy="-12.88875"
+           rx="0.89109224"
+           ry="0.82178503" />
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="translate(474.11549,-106.62879)"
+           id="g4003">
+          <path
+             inkscape:connector-curvature="0"
+             id="path3997"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             id="path3999"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4001"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <g
+           id="g4011"
+           transform="translate(465.27555,-106.62879)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             id="path4005"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4007"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path4009"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,47.589458)"
+       id="g4262"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         id="g4102">
+        <g
+           id="g3967"
+           transform="translate(0,29.501042)">
+          <path
+             sodipodi:nodetypes="sssscss"
+             inkscape:connector-curvature="0"
+             id="path3547"
+             d="m 405.5337,-56.705535 c 0,4.003814 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.03632,0.0592 -7.03632,-3.944604 0,-3.89675 3.07446,-7.07541 6.93002,-7.24264 0.10593,-0.005 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21497,0.4694 0.33468,0.47527 3.83595,0.18829 6.8882,3.35804 6.8882,7.2407 z"
+             style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="cscsc"
+             inkscape:connector-curvature="0"
+             id="path3549"
+             d="m 402.87928,-53.147961 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -1e-5,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse4013"
+           cx="395.73987"
+           cy="-30.388229"
+           rx="0.89109224"
+           ry="0.82178503" />
+        <ellipse
+           ry="0.82178503"
+           rx="0.89109224"
+           cy="-30.429569"
+           cx="400.75555"
+           id="ellipse4015"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           id="g4023"
+           transform="translate(474.11549,-124.15176)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             id="path4017"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4019"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path4021"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="translate(465.27555,-124.15176)"
+           id="g4031">
+          <path
+             inkscape:connector-curvature="0"
+             id="path4025"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             id="path4027"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4029"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g4133"
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,74.926908)"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         id="g3959">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 405.5337,-84.581746 c 0.82659,3.91756 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.95103,-0.04668 -7.03632,-3.944604 0.89611,-3.818635 3.98029,-5.402902 6.93002,-7.24264 0.09,-0.05612 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.23112,0.414935 0.33468,0.47527 3.00617,1.751487 6.04935,3.265009 6.8882,7.2407 z"
+           id="path3923"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 402.99621,-81.097634 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -10e-6,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+           id="path3933"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse4033"
+         cx="395.69852"
+         cy="-87.827621"
+         rx="0.89109224"
+         ry="0.82178503" />
+      <ellipse
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-87.844154"
+         cx="400.77209"
+         id="ellipse4035"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4043"
+         transform="translate(474.11548,-181.56954)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path4037"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4039"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path4041"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="translate(465.27555,-181.56954)"
+         id="g4051">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4045"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path4047"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4049"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       id="g4148"
+       transform="matrix(0.30705093,0,0,0.30705093,-84.02315,84.675778)"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+       inkscape:export-xdpi="156.8116"
+       inkscape:export-ydpi="156.8116">
+      <g
+         id="g3955">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path3929"
+           d="m 405.20297,-101.51933 c 0,4.003807 -3.09515,3.382358 -7.09897,3.382358 -4.00381,0 -6.67252,0.687585 -6.67252,-3.316218 0,-3.89675 2.67759,-7.10848 6.53315,-7.27571 0.10593,-0.005 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21497,0.4694 0.33468,0.47527 3.83595,0.18829 6.55747,3.32497 6.55747,7.20763 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path3935"
+           d="m 402.99621,-98.34516 c 0,0.191157 -2.12432,0.155952 -4.74481,0.155952 -2.62049,0 -4.74482,0.02694 -4.74482,-0.16422 -10e-6,-0.191158 2.12432,-0.288249 4.74482,-0.288249 2.62049,0 4.74482,0.105355 4.74481,0.296517 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-105.12309"
+         cx="395.73291"
+         id="ellipse4053"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse4055"
+         cx="400.75687"
+         cy="-105.1114"
+         rx="0.89109224"
+         ry="0.82178503" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="translate(474.11549,-198.84188)"
+         id="g4063">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4057"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path4059"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4061"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g4072"
+         transform="translate(465.27554,-198.84188)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path4066"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4068"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path4070"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="287.82309"
+       inkscape:export-xdpi="287.82309"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g7760"
+       transform="matrix(0.30705093,0,0,0.30705093,-69.366958,149.64303)">
+      <g
+         id="g7740"
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           id="path7736"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path7738"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse7742"
+         cx="-416.92935"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse7744"
+         cx="-421.69186"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         id="g7752">
+        <path
+           inkscape:connector-curvature="0"
+           id="path7746"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path7748"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path7750"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g7758"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path7754"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path7756"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6409"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="285.177"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       transform="matrix(0.30705093,0,0,0.30705093,-69.123238,149.64303)"
+       id="g7792">
+      <path
+         sodipodi:nodetypes="sssscss"
+         inkscape:connector-curvature="0"
+         id="path7788"
+         d="m 405.5337,-56.705535 c 0,4.003814 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.03632,0.0592 -7.03632,-3.944604 0,-3.89675 3.07446,-7.07541 6.93002,-7.24264 0.10593,-0.005 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21497,0.4694 0.33468,0.47527 3.83595,0.18829 6.8882,3.35804 6.8882,7.2407 z"
+         style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path7790"
+         d="m 402.87928,-53.147961 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -1e-5,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       inkscape:export-ydpi="285.177"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g7822"
+       transform="matrix(0.30705093,0,0,0.30705093,-69.366958,149.64303)">
+      <g
+         id="g7820">
+        <g
+           transform="translate(0,29.501042)"
+           id="g7798">
+          <path
+             style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 405.5337,-56.705535 c 0,4.003814 -3.45895,3.944604 -7.46277,3.944604 -4.00381,0 -7.03632,0.0592 -7.03632,-3.944604 0,-3.89675 3.07446,-7.07541 6.93002,-7.24264 0.10593,-0.005 -1.14016,0.45952 0.34619,-0.47333 1.6337,0.91286 0.21497,0.4694 0.33468,0.47527 3.83595,0.18829 6.8882,3.35804 6.8882,7.2407 z"
+             id="path7794"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="sssscss" />
+          <path
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 402.87928,-53.147961 c 0,0.191157 -2.12432,0.403999 -4.74481,0.403999 -2.62049,0 -4.74482,-0.212842 -4.74482,-0.403999 -1e-5,-0.191158 2.12432,-0.04847 4.74482,-0.04847 2.62049,0 4.74482,-0.142692 4.74481,0.04847 z"
+             id="path7796"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cscsc" />
+        </g>
+        <ellipse
+           ry="0.82178503"
+           rx="0.89109224"
+           cy="-30.388229"
+           cx="395.73987"
+           id="ellipse7800"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse7802"
+           cx="400.75555"
+           cy="-30.429569"
+           rx="0.89109224"
+           ry="0.82178503" />
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="translate(474.11549,-124.15176)"
+           id="g7810">
+          <path
+             inkscape:connector-curvature="0"
+             id="path7804"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             id="path7806"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path7808"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <g
+           id="g7818"
+           transform="translate(465.27555,-124.15176)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             id="path7812"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path7814"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path7816"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.30705093,0,0,0.30705093,-63.493138,149.64303)"
+       id="g6470"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       inkscape:export-xdpi="287.82309"
+       inkscape:export-ydpi="287.82309">
+      <g
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)"
+         id="g6448">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path6444"
+           d="m -77.405395,83.888405 c -0.149792,4.001011 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.161823,0.05723 -7.036323,-3.944604 0.104509,-3.332472 2.364033,-5.312208 5.855149,-6.614255 0.09937,-0.03706 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.217662,0.449389 0.334685,0.47527 4.202451,0.929436 8.082858,3.412821 7.963074,6.612315 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path6446"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.63161576"
+         rx="0.89109224"
+         cy="-45.379101"
+         cx="-416.92935"
+         id="ellipse6450"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.15604758;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.58200634"
+         rx="0.89109224"
+         cy="-45.379101"
+         cx="-421.67532"
+         id="ellipse6452"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.15788586;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g6460"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path6454"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6456"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path6458"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         id="g6468">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path6462"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6464"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           id="path6466"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.30641896,-0.01968995,0.01968995,0.30641896,-56.809088,155.78686)"
+       id="g6498"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       inkscape:export-xdpi="287.82309"
+       inkscape:export-ydpi="287.82309">
+      <g
+         transform="matrix(-1,0,0,1,331.29465,-126.08195)"
+         id="g6476">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path6472"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path6474"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="-416.92935"
+         id="ellipse6478"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.436977"
+         cx="-421.69186"
+         id="ellipse6480"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g6488"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path6482"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6484"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path6486"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         id="g6496">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path6490"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6492"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           id="path6494"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="287.82309"
+       inkscape:export-xdpi="287.82309"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g6526"
+       transform="matrix(0.30458986,0.03879808,-0.03879808,0.30458986,-53.160197,132.31562)">
+      <g
+         id="g6542"
+         transform="translate(-0.18911991,-1.484713)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 408.74203,-42.847005 c 0,4.003814 3.45896,3.944604 7.46277,3.944604 4.00382,0 7.03633,0.0592 7.03633,-3.944604 0,-3.89675 -3.07447,-7.07541 -6.93002,-7.24264 -0.10593,-0.005 1.14016,0.45952 -0.34619,-0.47333 -1.6337,0.91286 -0.21497,0.4694 -0.33468,0.47527 -3.83595,0.18829 -6.88821,3.35804 -6.88821,7.2407 z"
+           id="path6500"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 411.39645,-39.289431 c 10e-6,0.191157 2.12433,0.403999 4.74482,0.403999 2.62049,0 4.74482,-0.212842 4.74482,-0.403999 10e-6,-0.191158 -2.12432,-0.04847 -4.74482,-0.04847 -2.62049,0 -4.74482,-0.142692 -4.74482,0.04847 z"
+           id="path6502"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+        <ellipse
+           transform="matrix(-0.97320261,-0.2299493,-0.31978672,0.94748955,0,0)"
+           ry="0.61231577"
+           rx="0.94510007"
+           cy="-140.5892"
+           cx="-382.29999"
+           id="ellipse6506"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.15054587;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <ellipse
+           transform="matrix(-0.97563247,0.21941124,0.13424449,0.99094824,0,0)"
+           ry="0.59516513"
+           rx="0.89582396"
+           cy="48.607388"
+           cx="-425.57422"
+           id="ellipse6508"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.14450148;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           id="g6516"
+           transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             id="path6510"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path6512"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path6514"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+           id="g6524">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m -71.31869,96.096839 -0.461275,0.814921"
+             id="path6518"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path6520"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.028862,96.098568 -70.524955,96.975"
+             id="path6522"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="287.82309"
+       inkscape:export-xdpi="287.82309"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g6654"
+       transform="matrix(0.30705093,0,0,0.30705093,-46.532827,149.64303)">
+      <g
+         id="g6632"
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           id="path6628"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path6630"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse6634"
+         cx="-416.92935"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse6636"
+         cx="-421.69186"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         id="g6644">
+        <path
+           inkscape:connector-curvature="0"
+           id="path6638"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path6640"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6642"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g6652"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path6646"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path6648"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6650"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       transform="matrix(-0.30705093,0,0,0.30705093,175.5385,149.64303)"
+       id="g8170"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-ydpi="285.177">
+      <g
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)"
+         id="g8148">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path8144"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path8146"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="-416.92935"
+         id="ellipse8150"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.436977"
+         cx="-421.69186"
+         id="ellipse8152"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g8160"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path8154"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8156"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8158"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         id="g8168">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path8162"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8164"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           id="path8166"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="285.177"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g8198"
+       transform="matrix(-0.30705093,0,0,0.30705093,169.66468,149.64303)">
+      <g
+         id="g8176"
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c -0.149792,4.001011 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.161823,0.05723 -7.036323,-3.944604 0.104509,-3.332472 2.364033,-5.312208 5.855149,-6.614255 0.09937,-0.03706 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.217662,0.449389 0.334685,0.47527 4.202451,0.929436 8.082858,3.412821 7.963074,6.612315 z"
+           id="path8172"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path8174"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.15604758;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8178"
+         cx="-416.92935"
+         cy="-45.379101"
+         rx="0.89109224"
+         ry="0.63161576"
+         transform="scale(-1,1)" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.15788586;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8180"
+         cx="-421.67532"
+         cy="-45.379101"
+         rx="0.89109224"
+         ry="0.58200634"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         id="g8188">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8182"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path8184"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8186"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g8196"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8190"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8192"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8194"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="285.177"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g8228"
+       transform="matrix(-0.30641896,-0.01968995,-0.01968995,0.30641896,162.98061,155.78685)">
+      <g
+         id="g8206"
+         transform="matrix(-1,0,0,1,331.29465,-126.08195)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           id="path8200"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path8204"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8208"
+         cx="-416.92935"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8210"
+         cx="-421.69186"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         id="g8218">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8212"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path8214"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8216"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g8226"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8220"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8222"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8224"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       transform="matrix(-0.30458986,0.03879808,0.03879808,0.30458986,159.33174,132.31563)"
+       id="g8256"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-ydpi="285.177">
+      <g
+         transform="translate(-0.18911991,-1.484713)"
+         id="g8254">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path8230"
+           d="m 408.74203,-42.847005 c 0,4.003814 3.45896,3.944604 7.46277,3.944604 4.00382,0 7.03633,0.0592 7.03633,-3.944604 0,-3.89675 -3.07447,-7.07541 -6.93002,-7.24264 -0.10593,-0.005 1.14016,0.45952 -0.34619,-0.47333 -1.6337,0.91286 -0.21497,0.4694 -0.33468,0.47527 -3.83595,0.18829 -6.88821,3.35804 -6.88821,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path8232"
+           d="m 411.39645,-39.289431 c 10e-6,0.191157 2.12433,0.403999 4.74482,0.403999 2.62049,0 4.74482,-0.212842 4.74482,-0.403999 10e-6,-0.191158 -2.12432,-0.04847 -4.74482,-0.04847 -2.62049,0 -4.74482,-0.142692 -4.74482,0.04847 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.15054587;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse8234"
+           cx="-382.29999"
+           cy="-140.5892"
+           rx="0.94510007"
+           ry="0.61231577"
+           transform="matrix(-0.97320261,-0.2299493,-0.31978672,0.94748955,0,0)" />
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.14450148;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse8236"
+           cx="-425.57422"
+           cy="48.607388"
+           rx="0.89582396"
+           ry="0.59516513"
+           transform="matrix(-0.97563247,0.21941124,0.13424449,0.99094824,0,0)" />
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+           id="g8244">
+          <path
+             inkscape:connector-curvature="0"
+             id="path8238"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             id="path8240"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path8242"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <g
+           id="g8252"
+           transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             inkscape:connector-curvature="0"
+             id="path8246"
+             d="m -71.31869,96.096839 -0.461275,0.814921"
+             style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path8248"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path8250"
+             d="M -70.028862,96.098568 -70.524955,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="285.177"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g8284"
+       transform="matrix(-0.30705093,0,0,0.30705093,175.5385,149.64303)">
+      <g
+         id="g8262"
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           id="path8258"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path8260"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8264"
+         cx="-416.92935"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8266"
+         cx="-421.69186"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         id="g8274">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8268"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path8270"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8272"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g8282"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8276"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8278"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8280"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       transform="matrix(-0.3011104,0.06010656,0.06010656,0.3011104,153.40594,124.01306)"
+       id="g8312"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-ydpi="285.177">
+      <g
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)"
+         id="g8290">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path8286"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path8288"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="-416.92935"
+         id="ellipse8292"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.436977"
+         cx="-421.69186"
+         id="ellipse8294"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g8302"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path8296"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8298"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8300"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         id="g8310">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path8304"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8306"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           id="path8308"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       transform="matrix(-0.30705093,0,0,0.30705093,147.50498,149.64303)"
+       id="g8340"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       inkscape:export-xdpi="285.177"
+       inkscape:export-ydpi="285.177">
+      <g
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)"
+         id="g8318">
+        <path
+           sodipodi:nodetypes="sssscss"
+           inkscape:connector-curvature="0"
+           id="path8314"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cscsc"
+           inkscape:connector-curvature="0"
+           id="path8316"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.503124"
+         cx="-416.92935"
+         id="ellipse8320"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         transform="scale(-1,1)"
+         ry="0.82178503"
+         rx="0.89109224"
+         cy="-45.436977"
+         cx="-421.69186"
+         id="ellipse8322"
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g8330"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           id="path8324"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8326"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8328"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         id="g8338">
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           id="path8332"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8334"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           id="path8336"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="287.82309"
+       inkscape:export-xdpi="287.82309"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g8368"
+       transform="matrix(0.30641896,-0.01968995,0.01968995,0.30641896,-38.733057,156.31492)">
+      <g
+         id="g8346"
+         transform="matrix(-1,0,0,1,331.29465,-126.08195)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           id="path8342"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path8344"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8348"
+         cx="-416.92935"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8350"
+         cx="-421.69186"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         id="g8358">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8352"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path8354"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8356"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g8366"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8360"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8362"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8364"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="287.82309"
+       inkscape:export-xdpi="287.82309"
+       inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime\slime attack.png"
+       id="g8447"
+       transform="matrix(0.30705093,0,0,0.30705093,-33.418017,149.64303)">
+      <g
+         id="g8424"
+         transform="matrix(-1,0,0,1,331.33664,-126.73541)">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+           id="path8420"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+           id="path8422"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+      </g>
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8426"
+         cx="-416.92935"
+         cy="-45.503124"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <ellipse
+         style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse8428"
+         cx="-421.69186"
+         cy="-45.436977"
+         rx="0.89109224"
+         ry="0.82178503"
+         transform="scale(-1,1)" />
+      <g
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+         id="g8436">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8430"
+           d="M -72.049348,96.098568 -72.545441,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -71.321744,96.098568 -71.817837,96.975"
+           id="path8432"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8434"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g8445"
+         transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+         style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           inkscape:connector-curvature="0"
+           id="path8439"
+           d="m -71.31869,96.096839 -0.461275,0.814921"
+           style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M -70.660286,96.098568 -71.156379,96.975"
+           id="path8441"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path8443"
+           d="M -70.028862,96.098568 -70.524955,96.975"
+           style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       transform="translate(17.127788,19.732443)"
+       id="g1515"
+       inkscape:export-filename="C:\Users\msi\Downloads\g1515.png"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-ydpi="918.97455">
+      <rect
+         y="41.552155"
+         x="49.065292"
+         height="11.055803"
+         width="11.055803"
+         id="rect1213-4"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.31818199;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <g
+         transform="translate(-12.018897,-5.7344408)"
+         id="g1333-5">
+        <g
+           inkscape:export-ydpi="156.8116"
+           inkscape:export-xdpi="156.8116"
+           inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+           id="g1318-3"
+           transform="matrix(0.30705093,0,0,0.30705093,-64.699117,66.77175)">
+          <g
+             transform="matrix(-1,0,0,1,350.2326,-126.73541)"
+             id="g1298-2">
+            <path
+               sodipodi:nodetypes="sssscss"
+               inkscape:connector-curvature="0"
+               id="path1294-3"
+               d="m -77.405395,83.888405 c 1.253789,4.681081 -3.489747,3.950711 -7.46277,3.944604 -4.003807,-0.0062 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 5.883674,3.490238 6.888204,7.2407 z"
+               style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               sodipodi:nodetypes="cscsc"
+               inkscape:connector-curvature="0"
+               id="path1296-6"
+               d="m -79.398357,87.677489 c -2e-6,0.191157 -2.785787,0.172489 -5.406277,0.172489 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 5.406282,0.08882 5.406277,0.27998 z"
+               style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+          <ellipse
+             transform="scale(-1,1)"
+             ry="0.6113103"
+             rx="0.89109224"
+             cy="-45.503124"
+             cx="-435.82532"
+             id="ellipse1300-9"
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <g
+             id="g1308-3"
+             transform="matrix(-1,0,0,1,362.63494,-139.06334)"
+             style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+            <path
+               style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M -72.049348,96.098568 -72.545441,96.975"
+               id="path1302-8"
+               inkscape:connector-curvature="0" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1304-2"
+               d="M -71.321744,96.098568 -71.817837,96.975"
+               style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <path
+               style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="M -70.660286,96.098568 -71.156379,96.975"
+               id="path1306-1"
+               inkscape:connector-curvature="0" />
+          </g>
+          <g
+             style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+             transform="matrix(-1,0,0,1,370.24171,-139.32792)"
+             id="g1314-5">
+            <path
+               style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m -71.31869,96.096839 -0.461275,0.814921"
+               id="path1310-8"
+               inkscape:connector-curvature="0" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1312-6"
+               d="M -70.660286,96.098568 -71.156379,96.975"
+               style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+          <ellipse
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="ellipse1316-0"
+             cx="-440.58096"
+             cy="-45.503124"
+             rx="0.89109224"
+             ry="0.6113103"
+             transform="scale(-1,1)" />
+        </g>
+      </g>
+    </g>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.31818199;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect1577"
+       width="11.055803"
+       height="11.055803"
+       x="49.065292"
+       y="54.581543"
+       inkscape:export-filename="C:\Users\msi\Downloads\g1605.png"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-ydpi="918.97455" />
+    <g
+       id="g1605"
+       transform="translate(4.8442598,8.4523987)"
+       inkscape:export-filename="C:\Users\msi\Downloads\g1605.png"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-ydpi="918.97455">
+      <g
+         transform="matrix(0.30705093,0,0,0.30705093,-80.66438,65.61246)"
+         id="g1603"
+         inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+         inkscape:export-xdpi="156.8116"
+         inkscape:export-ydpi="156.8116">
+        <g
+           transform="matrix(-1,0,0,1,331.33664,-126.73541)"
+           id="g1583">
+          <path
+             sodipodi:nodetypes="sssscss"
+             inkscape:connector-curvature="0"
+             id="path1579"
+             d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+             style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="cscsc"
+             inkscape:connector-curvature="0"
+             id="path1581"
+             d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <ellipse
+           transform="scale(-1,1)"
+           ry="0.82178503"
+           rx="0.89109224"
+           cy="-45.503124"
+           cx="-416.92935"
+           id="ellipse1585"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <ellipse
+           transform="scale(-1,1)"
+           ry="0.82178503"
+           rx="0.89109224"
+           cy="-45.436977"
+           cx="-421.69186"
+           id="ellipse1587"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           id="g1595"
+           transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             id="path1589"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path1591"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path1593"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+           id="g1601">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m -71.31869,96.096839 -0.461275,0.814921"
+             id="path1597"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path1599"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+      </g>
+    </g>
+    <rect
+       inkscape:export-ydpi="918.97455"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-filename="C:\Users\msi\Downloads\g1605.png"
+       y="41.151249"
+       x="49.065292"
+       height="11.055803"
+       width="11.055803"
+       id="rect1624"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.31818199;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <g
+       inkscape:export-ydpi="918.97455"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-filename="C:\Users\msi\Downloads\g1605.png"
+       transform="translate(9.1076925,-4.9778951)"
+       id="g1999">
+      <g
+         inkscape:export-ydpi="156.8116"
+         inkscape:export-xdpi="156.8116"
+         inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+         id="g1997"
+         transform="matrix(0.30705093,0,0,0.30705093,-80.66438,65.61246)">
+        <g
+           id="g1977"
+           transform="matrix(-1,0,0,1,331.33664,-126.73541)">
+          <path
+             style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+             id="path1973"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="sssscss" />
+          <path
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+             id="path1975"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cscsc" />
+        </g>
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse1979"
+           cx="-416.92935"
+           cy="-45.503124"
+           rx="0.89109224"
+           ry="0.82178503"
+           transform="scale(-1,1)" />
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse1981"
+           cx="-421.69186"
+           cy="-45.436977"
+           rx="0.89109224"
+           ry="0.82178503"
+           transform="scale(-1,1)" />
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+           id="g1989">
+          <path
+             inkscape:connector-curvature="0"
+             id="path1983"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             id="path1985"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path1987"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <g
+           id="g1995"
+           transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             inkscape:connector-curvature="0"
+             id="path1991"
+             d="m -71.31869,96.096839 -0.461275,0.814921"
+             style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path1993"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <rect
+       inkscape:export-ydpi="918.97455"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-filename="C:\Users\msi\Downloads\g1605.png"
+       y="161.45595"
+       x="57.615444"
+       height="11.055803"
+       width="11.055803"
+       id="rect2049"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.31818199;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+    <g
+       inkscape:export-ydpi="918.97455"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-filename="C:\Users\msi\Downloads\g1605.png"
+       transform="translate(13.394414,115.32681)"
+       id="g2077">
+      <g
+         inkscape:export-ydpi="156.8116"
+         inkscape:export-xdpi="156.8116"
+         inkscape:export-filename="C:\Users\msi\Desktop\Destiny of Magic\Enemy\Slime.png"
+         id="g2075"
+         transform="matrix(0.30705093,0,0,0.30705093,-80.66438,65.61246)">
+        <g
+           id="g2055"
+           transform="matrix(-1,0,0,1,331.33664,-126.73541)">
+          <path
+             style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m -77.405395,83.888405 c 0,4.003814 -3.458953,3.944604 -7.46277,3.944604 -4.003812,0 -7.036323,0.0592 -7.036323,-3.944604 0,-3.89675 3.074463,-7.07541 6.930019,-7.24264 0.105933,-0.005 -1.140163,0.45952 0.346185,-0.47333 1.633708,0.91286 0.214978,0.4694 0.334685,0.47527 3.835947,0.18829 6.888204,3.35804 6.888204,7.2407 z"
+             id="path2051"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="sssscss" />
+          <path
+             style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.10228866;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m -80.059815,87.445979 c -2e-6,0.191157 -2.124329,0.403999 -4.744819,0.403999 -2.62049,0 -4.744817,-0.212842 -4.744819,-0.403999 -5e-6,-0.191158 2.124324,-0.04847 4.744819,-0.04847 2.620495,0 4.744824,-0.142692 4.744819,0.04847 z"
+             id="path2053"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cscsc" />
+        </g>
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse2057"
+           cx="-416.92935"
+           cy="-45.503124"
+           rx="0.89109224"
+           ry="0.82178503"
+           transform="scale(-1,1)" />
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.169349;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse2059"
+           cx="-421.69186"
+           cy="-45.436977"
+           rx="0.89109224"
+           ry="0.82178503"
+           transform="scale(-1,1)" />
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-1,0,0,1,343.73898,-139.06334)"
+           id="g2067">
+          <path
+             inkscape:connector-curvature="0"
+             id="path2061"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             id="path2063"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path2065"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <g
+           id="g2073"
+           transform="matrix(-1,0,0,1,351.34575,-139.32792)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             inkscape:connector-curvature="0"
+             id="path2069"
+             d="m -71.31869,96.096839 -0.461275,0.814921"
+             style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path2071"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g2372"
+       inkscape:export-filename="C:\Users\msi\Downloads\g2372.png"
+       inkscape:export-xdpi="918.97455"
+       inkscape:export-ydpi="918.97455">
+      <rect
+         inkscape:export-ydpi="918.97455"
+         inkscape:export-xdpi="918.97455"
+         inkscape:export-filename="C:\Users\msi\Downloads\g1605.png"
+         y="145.58682"
+         x="57.615444"
+         height="11.055803"
+         width="11.055803"
+         id="rect2079"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.31818199;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" />
+      <g
+         id="g2356">
+        <path
+           style="opacity:1;fill:#1ecb2d;fill-opacity:1;stroke:#036e1b;stroke-width:0.03070509;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 63.434902,150.75164 c -0.332071,1.18367 0.695437,1.45305 1.879113,1.78512 1.183678,0.33207 2.075291,0.60109 2.407362,-0.58259 0.323192,-1.15202 -0.322101,-2.34674 -1.448076,-2.71596 -0.0309,-0.0103 0.298962,0.23042 -0.06309,-0.16864 -0.558695,0.13437 -0.102485,0.12094 -0.138363,0.11275 -1.149666,-0.26249 -2.314923,0.42146 -2.636946,1.56932 z"
+           id="path2289"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="sssscss" />
+        <path
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:#036e1b;stroke-width:0.03140783;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 63.924587,152.02354 c -0.01585,0.0565 0.594524,0.29563 1.369238,0.51297 0.774715,0.21734 1.420399,0.33061 1.436254,0.27409 0.01586,-0.0565 -0.624009,-0.19052 -1.398726,-0.40786 -0.774715,-0.21734 -1.390911,-0.43571 -1.406766,-0.3792 z"
+           id="path2291"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsc" />
+        <ellipse
+           transform="matrix(-0.77650229,-0.63011442,-0.98575765,0.16817209,0,0)"
+           ry="0.14096648"
+           rx="0.28805569"
+           cy="100.35299"
+           cx="-212.50345"
+           id="ellipse2293"
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.03987846;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           id="g2303"
+           transform="matrix(-0.29563732,-0.08293884,-0.08293884,0.29563732,52.197646,116.91522)"
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -72.049348,96.098568 -72.545441,96.975"
+             id="path2297"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path2299"
+             d="M -71.321744,96.098568 -71.817837,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             id="path2301"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           style="stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-0.29563732,-0.08293884,-0.08293884,0.29563732,54.468435,117.4679)"
+           id="g2311">
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.09298159;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m -71.31869,96.096839 -0.461275,0.814921"
+             id="path2305"
+             inkscape:connector-curvature="0" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path2307"
+             d="M -70.660286,96.098568 -71.156379,96.975"
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#f800ff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M -70.028862,96.098568 -70.524955,96.975"
+             id="path2309"
+             inkscape:connector-curvature="0" />
+        </g>
+        <ellipse
+           style="opacity:1;fill:#036e1b;fill-opacity:1;stroke:none;stroke-width:0.0334915;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="ellipse2342"
+           cx="-136.2366"
+           cy="219.69235"
+           rx="0.24192047"
+           ry="0.11838917"
+           transform="matrix(0.93332214,-0.35904008,0.88540282,0.46482453,0,0)" />
+      </g>
+    </g>
+  </g>
+</svg>

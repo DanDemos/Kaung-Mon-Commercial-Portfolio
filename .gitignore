@@ -51,6 +51,5 @@ skills-lock.json
 **/AGENTS.md
 **/CLAUDE.md
 
-# local recovery / unused media (not wired into the site)
+# local recovery (not wired into the site)
 _recover/
-assets/**/unused/
