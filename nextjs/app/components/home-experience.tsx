@@ -231,7 +231,7 @@ export default function HomeExperience() {
         />
       </div>
 
-      <header className="relative z-10 mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 pb-2 pt-6 sm:px-8 sm:pt-8">
+      <header className="km-site-header km-site-header--home">
         <button
           type="button"
           className="km-brand"
@@ -253,7 +253,7 @@ export default function HomeExperience() {
           </span>
         </button>
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
+        <div className="km-site-header__controls">
           <ThemeCircles
             themes={themes}
             activeId={themeId}
@@ -262,7 +262,7 @@ export default function HomeExperience() {
             onCustomSeedChange={changeCustomSeed}
           />
 
-          <div className="flex items-center gap-x-2.5">
+          <div className="km-site-header__path-mode">
             <PathLensControl
               label={activeLabel}
               ready={ready}
@@ -279,7 +279,7 @@ export default function HomeExperience() {
         id="top"
         className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 sm:px-8"
       >
-        <section className="relative flex min-h-[calc(100svh-5.5rem)] flex-col justify-center pb-16 pt-10 sm:pb-20 sm:pt-6">
+        <section className="km-home-hero">
           <p
             className="km-rise km-delay-1 mb-5 text-[0.8rem] font-medium uppercase tracking-[0.18em] text-[var(--color-fg-muted)]"
             key={`eyebrow-${path}`}

@@ -1,0 +1,148 @@
+/**
+ * Site header chrome — desktop keeps the existing flex wrap.
+ * Mobile (≤639px) is a 2-row composition so controls don't stack into a tower.
+ */
+
+.km-site-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .km-site-header {
+    padding: 2rem 2rem 0.5rem;
+  }
+}
+
+.km-site-header__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .km-site-header__controls {
+    gap: 0.5rem 1rem;
+  }
+}
+
+.km-site-header__path-mode {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+/* Home hero: desktop keeps centered full-band; mobile starts under chrome */
+.km-home-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100svh - 5.5rem);
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .km-home-hero {
+    padding-top: 1.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/*
+ * Mobile: reclaim the first viewport.
+ * Row 1 — mark | day/night
+ * Row 2 — theme wells | Lens
+ * Lens + toggle are stacked (Y), not side-by-side — extra row-gap for air.
+ */
+@media (max-width: 639px) {
+  .km-site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand mode"
+      "tools lens";
+    column-gap: 0.65rem;
+    row-gap: 0.95rem;
+    align-items: center;
+    padding-top: 1rem;
+    padding-inline: 1.15rem;
+  }
+
+  .km-site-header > .km-brand {
+    grid-area: brand;
+    justify-self: start;
+  }
+
+  /* Home only: hero already carries the name — mark-only lockup */
+  .km-site-header--home .km-brand__name {
+    display: none;
+  }
+
+  .km-site-header__controls {
+    display: contents;
+  }
+
+  .km-site-header__path-mode {
+    display: contents;
+  }
+
+  .km-site-header .day-night-switch {
+    grid-area: mode;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .km-site-header .theme-circles {
+    grid-area: tools;
+    justify-self: start;
+    align-self: center;
+  }
+
+  .km-site-header .km-path-lens {
+    grid-area: lens;
+    justify-self: end;
+    align-self: center;
+    gap: 0.45rem;
+    padding-top: 1rem;
+    padding-bottom: 0.7rem;
+    padding-left: 0.75rem;
+    padding-right: 0.35rem;
+  }
+
+  /* Pages without Lens: day/night on brand row; swatches full second row */
+  .km-site-header:not(:has(.km-path-lens)) {
+    grid-template-areas:
+      "brand mode"
+      "tools tools";
+  }
+
+  .km-site-header .theme-circles .km-well {
+    gap: 0.28rem;
+    padding-inline: 0.4rem;
+    padding-block: 0.32rem;
+  }
+
+  .km-site-header .theme-circle {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .km-home-hero {
+    min-height: 0;
+    justify-content: flex-start;
+    padding-top: 1.05rem;
+    padding-bottom: 3.25rem;
+  }
+}

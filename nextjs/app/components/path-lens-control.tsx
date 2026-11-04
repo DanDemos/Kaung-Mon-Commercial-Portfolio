@@ -22,7 +22,7 @@ export default function PathLensControl({
   if (!ready) {
     return (
       <span
-        className="km-well inline-flex items-center rounded-full px-3 py-1.5 text-[0.8rem] leading-none text-[var(--color-fg-muted)]"
+        className="km-path-lens km-well inline-flex items-center rounded-full px-3 py-1.5 text-[0.8rem] leading-none text-[var(--color-fg-muted)]"
         aria-hidden
       >
         ···
@@ -38,13 +38,13 @@ export default function PathLensControl({
       aria-expanded={open}
       aria-label={`Lens: ${label}. Change`}
       title="Change lens"
-      className="km-well group inline-flex items-center gap-2.5 rounded-full px-3 py-1.5 text-left"
+      className="km-path-lens km-well group inline-flex items-center gap-2.5 rounded-full px-3 py-1.5 text-left"
     >
       <span className="min-w-0">
         <span className="block text-[0.62rem] font-medium uppercase leading-none tracking-[0.12em] text-[var(--color-fg-muted)]">
           Lens
         </span>
-        <span className="km-lens-path mt-[3px] block truncate text-[0.8rem] font-semibold leading-none tracking-[-0.02em]">
+        <span className="km-lens-path mt-[3px] inline-block max-w-full truncate text-[0.8rem] font-semibold leading-none tracking-[-0.02em]">
           {label}
         </span>
       </span>

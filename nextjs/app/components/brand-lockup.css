@@ -1,3 +1,5 @@
+@import "./site-header.css";
+
 .km-brand {
   display: inline-flex;
   align-items: center;

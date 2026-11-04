@@ -333,7 +333,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "Colleague network",
-    voicesSupport: "Two faces per slide on purpose. Density over theatre.",
+    voicesSupport: "Paired faces from tablet up. Density over theatre.",
     voices: COLLEAGUE_VOICES,
     voicesShowQuotes: true,
     contactEyebrow: "",

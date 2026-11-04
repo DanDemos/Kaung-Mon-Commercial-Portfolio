@@ -85,6 +85,35 @@ html[data-theme-surface="dark"] .km-project-stage__tab-title {
   color: color-mix(in oklab, var(--color-secondary) 60%, #000);
 }
 
+/* Mobile: 2×2 compact chips — four full cards ate the section */
+@media (max-width: 899px) {
+  .km-project-stage__tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+
+  .km-project-stage__tab {
+    gap: 0;
+    padding: 0.48rem 0.65rem;
+    border-radius: 0.65rem;
+  }
+
+  .km-project-stage__tab-meta {
+    display: none;
+  }
+
+  .km-project-stage__tab-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+  }
+
+  .km-project-stage__tab--active:hover,
+  .km-project-stage__tab--active:focus-visible {
+    transform: none;
+  }
+}
+
 .km-project-stage__panel {
   display: grid;
   gap: 1.25rem;

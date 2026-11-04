@@ -94,7 +94,8 @@
   list-style: none;
 }
 
-@media (min-width: 640px) {
+/* Tablet+: two cards side-by-side when the slide actually has a pair */
+@media (min-width: 768px) {
   .km-voice-stage__pair {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -134,10 +135,33 @@ html[data-theme-surface="dark"] .km-voice-stage__role {
   color: color-mix(in oklab, #fff 58%, transparent);
 }
 
-/* People-only (no quotes): one row of faces, quieter chrome */
-.km-voice-stage--people .km-voice-stage__pair {
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+/*
+ * People-only (no quotes): compact face strip — low height, scroll on narrow.
+ * Keep density without quote-card chrome eating the section.
+ */
+.km-voice-stage--people {
+  gap: 0.55rem;
   max-width: none;
+}
+
+.km-voice-stage--people .km-voice-stage__track {
+  padding-block: 0.05rem 0.15rem;
+}
+
+.km-voice-stage--people .km-voice-stage__pair {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+  max-width: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.1rem;
+}
+
+.km-voice-stage--people .km-voice-stage__pair::-webkit-scrollbar {
+  display: none;
 }
 
 .km-voice-stage--people .km-voice-stage__pair:has(> :only-child) {
@@ -145,20 +169,53 @@ html[data-theme-surface="dark"] .km-voice-stage__role {
 }
 
 .km-voice-stage--people .km-voice-stage__card {
-  padding: 0.85rem 0.9rem;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 11.5rem;
+  padding: 0.45rem 0.65rem 0.45rem 0.45rem;
+  border-radius: 999px;
+  scroll-snap-align: start;
+  box-shadow: none;
+  background: color-mix(in oklab, var(--color-fg) 5.5%, var(--color-bg));
+}
+
+html[data-theme-surface="dark"] .km-voice-stage--people .km-voice-stage__card {
+  background: color-mix(in oklab, var(--color-fg) 8%, var(--color-bg));
 }
 
 .km-voice-stage--people .km-voice-stage__person {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.65rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .km-voice-stage--people .km-voice-stage__photo {
-  --km-media-w: 4rem !important;
-  --km-media-h: 4rem !important;
-  width: 4rem !important;
-  height: 4rem !important;
+  --km-media-w: 2.35rem !important;
+  --km-media-h: 2.35rem !important;
+  width: 2.35rem !important;
+  height: 2.35rem !important;
+}
+
+.km-voice-stage--people .km-voice-stage__name {
+  font-size: 0.82rem;
+  line-height: 1.15;
+}
+
+.km-voice-stage--people .km-voice-stage__role {
+  margin-top: 0.08rem;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 8.5rem;
+}
+
+@media (min-width: 768px) {
+  .km-voice-stage--people .km-voice-stage__pair {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
 }
 
 .km-voice-stage__person {

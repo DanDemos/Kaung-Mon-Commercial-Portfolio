@@ -129,7 +129,7 @@ export default function WorkExperience() {
           <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--color-bg)] from-40% to-transparent" />
         </div>
 
-        <header className="relative z-10 mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 pb-2 pt-6 sm:px-8 sm:pt-8">
+        <header className="km-site-header">
           <Link
             href="/"
             className="km-brand"
@@ -150,7 +150,7 @@ export default function WorkExperience() {
             </span>
           </Link>
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
+          <div className="km-site-header__controls">
             <ThemeCircles
               themes={themes}
               activeId={themeId}
@@ -158,7 +158,9 @@ export default function WorkExperience() {
               onChange={changeTheme}
               onCustomSeedChange={changeCustomSeed}
             />
-            <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+            <div className="km-site-header__path-mode">
+              <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+            </div>
           </div>
         </header>
 

@@ -13,8 +13,9 @@ import { VOICE_PHOTOS } from "../lib/voice-photos";
 import MediaImage from "./media-image";
 import "./voice-stage.css";
 
-/** Two-up: network density over single-quote theatre. */
-const VOICES_PER_SLIDE = 2;
+/** Tablet+ with quotes: two-up. Mobile: one-up (see matchMedia). */
+const VOICES_PER_SLIDE_TABLET = 2;
+const TABLET_MQ = "(min-width: 768px)";
 
 type VoiceStageProps = {
   voices: PathVoice[];
@@ -34,8 +35,8 @@ function chunkVoices(voices: PathVoice[], size: number): PathVoice[][] {
 }
 
 /**
- * Voices carousel — two colleagues per slide with quotes, or a people strip
- * when quotes are off (Wonderer). Auto-advances; pauses on hover / focus / nav.
+ * Voices carousel — 1-up on mobile / 2-up from tablet when quotes show;
+ * compact people strip when quotes are off (Wonderer).
  */
 export default function VoiceStage({
   voices,
@@ -49,8 +50,21 @@ export default function VoiceStage({
   const scrollingRef = useRef(false);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  /* Mobile-first default; tablet syncs on mount via matchMedia */
+  const [quotedPerSlide, setQuotedPerSlide] = useState(1);
 
-  const perSlide = showQuotes ? VOICES_PER_SLIDE : Math.max(voices.length, 1);
+  useEffect(() => {
+    if (!showQuotes) return;
+    const mq = window.matchMedia(TABLET_MQ);
+    const sync = () => setQuotedPerSlide(mq.matches ? VOICES_PER_SLIDE_TABLET : 1);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, [showQuotes]);
+
+  const perSlide = showQuotes
+    ? quotedPerSlide
+    : Math.max(voices.length, 1);
   const slides = useMemo(
     () => chunkVoices(voices, perSlide),
     [voices, perSlide],
@@ -60,7 +74,7 @@ export default function VoiceStage({
 
   useEffect(() => {
     setIndex(0);
-  }, [voices]);
+  }, [voices, perSlide]);
 
   // Scroll only the track — never scrollIntoView (that hijacks page scroll).
   useEffect(() => {
