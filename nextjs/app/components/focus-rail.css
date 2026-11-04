@@ -14,12 +14,137 @@
 }
 
 .km-focus-rail__panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   min-width: 0;
   padding: 1.15rem 1.1rem 1.2rem;
-  border-radius: 1.05rem;
-  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
-  background: color-mix(in oklab, var(--color-bg-elevated) 90%, var(--color-bg));
-  box-shadow: inset 0 1px 0 color-mix(in oklab, white 6%, transparent);
+  border-radius: 0;
+  /*
+   * Light = clear glass in daylight (still-life logic), not frosted UI glass:
+   * - body value ≈ canvas (you barely paint the pane)
+   * - sharp warm specular on the lit edge
+   * - thin dark contour where the glass has thickness (bottom)
+   * - soft coloured reflection from the surroundings (secondary)
+   * Frost grain / heavy blur fights this — reserved for dark mode.
+   */
+  border: 1px solid color-mix(in oklab, black 11%, transparent);
+  background: color-mix(in oklab, white 10%, transparent);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow:
+    /* Daylight catch — warm white, not a milky wash */
+    inset 0 1px 0 color-mix(in oklab, #fff6ea 70%, white),
+    inset 1px 0 0 color-mix(in oklab, white 50%, transparent),
+    /* Environment colour riding the far vertical edge */
+    inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 28%, transparent),
+    /* Glass thickness — dark rim opposite the light */
+    inset 0 -1px 0 color-mix(in oklab, black 22%, transparent),
+    0 10px 26px color-mix(in oklab, black 7%, transparent);
+}
+
+/* Soft reflected secondary (what the “room” does to the pane) */
+.km-focus-rail__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-secondary) 14%, transparent) 0%,
+      transparent 22%
+    ),
+    linear-gradient(
+      270deg,
+      color-mix(in oklab, var(--color-secondary) 10%, transparent) 0%,
+      transparent 18%
+    );
+}
+
+/* Sharp specular streak — the sun on smooth glass */
+.km-focus-rail__panel::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 8%;
+  right: 28%;
+  z-index: 1;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklab, #fff8f0 55%, white) 12%,
+    #fff 45%,
+    color-mix(in oklab, #fff8f0 55%, white) 78%,
+    transparent 100%
+  );
+}
+
+/* Dark: frosted UI glass (works on charcoal) */
+html[data-theme-surface="dark"] .km-focus-rail__panel {
+  border-color: color-mix(in oklab, white 22%, transparent);
+  background: color-mix(in oklab, var(--color-bg-elevated) 40%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 55%, transparent),
+    inset 1px 0 0 color-mix(in oklab, white 14%, transparent),
+    inset -1px 0 0 color-mix(in oklab, white 6%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, var(--color-fg) 10%, transparent),
+    0 14px 34px color-mix(in oklab, var(--color-fg) 12%, transparent);
+}
+
+html[data-theme-surface="dark"] .km-focus-rail__panel::before {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, white 38%, transparent) 0%,
+      color-mix(in oklab, white 10%, transparent) 1px,
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, white 28%, transparent) 0%,
+      color-mix(in oklab, white 8%, transparent) 28%,
+      transparent 52%
+    );
+}
+
+html[data-theme-surface="dark"] .km-focus-rail__panel::after {
+  top: 4px;
+  left: 10%;
+  right: 18%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklab, white 70%, transparent) 20%,
+    color-mix(in oklab, white 70%, transparent) 70%,
+    transparent 100%
+  );
+  box-shadow: 0 0 8px color-mix(in oklab, white 35%, transparent);
+}
+
+html[data-theme-brand="young-night"][data-theme-surface="dark"] .km-focus-rail__panel {
+  --km-focus-glass-plate: color-mix(
+    in oklab,
+    var(--color-secondary) 12%,
+    var(--color-bg-elevated)
+  );
+  border-color: color-mix(
+    in oklab,
+    var(--color-secondary) 16%,
+    color-mix(in oklab, white 18%, transparent)
+  );
+  background: color-mix(in oklab, var(--km-focus-glass-plate) 40%, transparent);
+}
+
+.km-focus-rail__title,
+.km-focus-rail__body {
+  position: relative;
+  z-index: 2;
 }
 
 .km-focus-rail__title {

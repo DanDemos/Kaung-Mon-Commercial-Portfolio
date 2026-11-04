@@ -78,7 +78,7 @@ function classes(className?: string, busy?: boolean) {
 }
 
 /**
- * One main site button — accent fill in day, glass in night
+ * One main site button — clear daylight glass in day, frosted glass in night
  * (`html[data-theme-surface]`).
  */
 export default function Btn(props: BtnProps) {

@@ -1,12 +1,12 @@
 /* Home shell — sections stay simple; interaction lives in components */
 
-/* Brand name: black in day; themed display ink at night */
+/* Brand name: black in day; white in every dark theme */
 .km-hero-brand {
   color: #000;
 }
 
 html[data-theme-surface="dark"] .km-hero-brand {
-  color: var(--color-fg-display);
+  color: #fff;
 }
 
 /* Headline keeps --color-fg-display (not forced black) */
@@ -25,21 +25,25 @@ html[data-theme-surface="dark"] .km-hero-brand {
   }
 }
 
+/* Head is layout-only — no vertical margin/padding */
 .km-home-section__head {
   max-width: 42rem;
-  margin-bottom: 1.75rem;
 }
 
 .km-home-section__support {
-  margin: 0.15rem 0 0;
+  margin: 0 0 1.75rem;
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--color-fg-muted);
 }
 
+/* Visible CTA owns the gap after the stage — not a wrapper */
+.km-home-section__cta {
+  margin: 1.5rem 0 0;
+}
+
 .km-home-about {
   display: grid;
-  gap: 1.25rem;
   max-width: 42rem;
 }
 
@@ -48,4 +52,8 @@ html[data-theme-surface="dark"] .km-hero-brand {
   font-size: 1.08rem;
   line-height: 1.7;
   color: var(--color-fg-muted);
+}
+
+.km-home-about > * + * {
+  margin-top: 1.25rem;
 }

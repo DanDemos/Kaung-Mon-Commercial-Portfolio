@@ -178,7 +178,7 @@ export default function WorkExperience() {
             </p>
           </header>
 
-          <div className="km-rise km-delay-2 mt-10">
+          <div className="km-rise km-delay-2">
             <WorkGallery />
           </div>
         </main>

@@ -1,14 +1,27 @@
+/* Follows section title — owns exit gap (title bottom shrinks via :has(+ p)) */
+.km-path-chooser__desc {
+  margin: 0 0 1.75rem;
+}
+
+.km-path-chooser__roles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 /* Demoted wonderer escape — text + underline at rest; clear hover even when active. */
 .km-path-chooser__wonderer {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
-  margin: 0;
-  padding: 0.55rem 0.65rem;
+  width: calc(100% + 1.3rem);
+  margin: 0.5rem 0 0;
   margin-inline: -0.65rem;
+  padding: 0.85rem 0.65rem 0.55rem;
   border: none;
-  border-radius: 0.2rem;
+  border-top: 1px solid var(--color-line);
+  border-radius: 0 0 0.2rem 0.2rem;
   background: transparent;
   cursor: pointer;
   font: inherit;

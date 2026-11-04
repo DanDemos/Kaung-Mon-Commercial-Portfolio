@@ -1,5 +1,8 @@
 /* Portfilio `.section-title` — accent label + rule, then bold title.
- * Recreated with theme tokens; same proportions as assets/css/style.css. */
+ * Recreated with theme tokens; same proportions as assets/css/style.css.
+ *
+ * Spacing rule: the title (or following support copy) owns vertical rhythm.
+ * Wrapper heads never add margin/padding for gaps. */
 
 .km-section-title {
   display: grid;
@@ -32,7 +35,8 @@
 }
 
 .km-section-title__title {
-  margin: -0.95rem 0 0.95rem;
+  /* Negative top pulls to label; bottom is the exit gap when title is last */
+  margin: -0.95rem 0 1.75rem;
   padding: 0;
   font-size: clamp(1.55rem, 3.2vw, 2rem);
   font-weight: 700;
@@ -41,6 +45,17 @@
   color: #000;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   text-wrap: balance;
+}
+
+/*
+ * Support under the title owns the exit gap instead — title keeps a short
+ * handoff only. Matches both SectionTitle siblings and bare title + p (chooser).
+ */
+.km-section-title:has(+ .km-home-section__support) .km-section-title__title,
+.km-section-title:has(+ .km-work-page__support) .km-section-title__title,
+.km-section-title:has(+ .km-resume-gate__support) .km-section-title__title,
+.km-section-title__title:has(+ p) {
+  margin-bottom: 0.55rem;
 }
 
 /* Portfilio night titles were solid white */

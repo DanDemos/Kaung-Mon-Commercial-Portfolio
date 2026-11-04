@@ -1,11 +1,12 @@
 /**
- * Main button — day: accent fill + chase/hold lines.
- * Night: glass skin via `html[data-theme-surface="dark"]` below.
+ * Main button — day: clear glass in daylight (still-life logic).
+ * Night: frosted glass via `html[data-theme-surface="dark"]` below.
  */
 
 .km-btn {
-  --km-btn-edge: color-mix(in oklab, var(--color-accent) 42%, white);
-  --km-btn-hold: rgb(255 255 255 / 0.92);
+  /* Daylight specular — white chase/sweep (fg mix reads as a dark smear on glass) */
+  --km-btn-edge: color-mix(in oklab, #fff6ea 35%, white);
+  --km-btn-hold: color-mix(in oklab, white 88%, transparent);
   --km-btn-line: 1.5px;
   position: relative;
   display: inline-flex;
@@ -16,30 +17,68 @@
   max-width: 12.5rem;
   white-space: nowrap;
   border-radius: 0;
-  border: 1px solid color-mix(in oklab, var(--color-on-accent) 26%, transparent);
-  background: var(--color-accent);
+  /* Pane ≈ canvas with stronger secondary in the glass; warm specular; dark rim */
+  border: 1px solid color-mix(
+    in oklab,
+    var(--color-secondary) 28%,
+    color-mix(in oklab, black 10%, transparent)
+  );
+  background: color-mix(
+    in oklab,
+    var(--color-secondary) 22%,
+    color-mix(in oklab, white 12%, transparent)
+  );
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   padding: 0.65rem 1.15rem;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: -0.015em;
   line-height: 1.2;
-  color: var(--color-on-accent);
+  color: var(--color-fg);
   text-decoration: none;
   cursor: pointer;
   box-shadow:
-    inset 0 1px 0 color-mix(in oklab, white 22%, transparent),
-    0 1px 2px color-mix(in oklab, var(--color-fg) 10%, transparent);
+    inset 0 1px 0 color-mix(in oklab, #fff6ea 70%, white),
+    inset 1px 0 0 color-mix(in oklab, white 48%, transparent),
+    inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 42%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, black 20%, transparent),
+    0 8px 22px color-mix(
+      in oklab,
+      var(--color-secondary) 14%,
+      color-mix(in oklab, black 6%, transparent)
+    );
   transition:
     filter 150ms ease,
     transform 150ms ease,
     border-color 150ms ease,
-    box-shadow 150ms ease;
+    box-shadow 150ms ease,
+    background 150ms ease;
 }
 
 .km-btn:hover,
 .km-btn:focus-visible {
-  filter: brightness(1.05);
-  border-color: color-mix(in oklab, var(--color-on-accent) 38%, transparent);
+  filter: none;
+  border-color: color-mix(
+    in oklab,
+    var(--color-secondary) 36%,
+    color-mix(in oklab, black 12%, transparent)
+  );
+  background: color-mix(
+    in oklab,
+    var(--color-secondary) 30%,
+    color-mix(in oklab, white 14%, transparent)
+  );
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, #fff8f0 85%, white),
+    inset 1px 0 0 color-mix(in oklab, white 58%, transparent),
+    inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 48%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, black 22%, transparent),
+    0 10px 26px color-mix(
+      in oklab,
+      var(--color-secondary) 18%,
+      color-mix(in oklab, black 7%, transparent)
+    );
 }
 
 .km-btn:active {
@@ -68,9 +107,9 @@
   width: 1.05rem;
   height: 1.05rem;
   border-radius: 50%;
-  border: 2px solid color-mix(in oklab, var(--color-on-accent) 28%, transparent);
-  border-top-color: var(--color-on-accent);
-  border-right-color: color-mix(in oklab, var(--color-on-accent) 55%, transparent);
+  border: 2px solid color-mix(in oklab, var(--color-fg) 28%, transparent);
+  border-top-color: var(--color-fg);
+  border-right-color: color-mix(in oklab, var(--color-fg) 55%, transparent);
   background: transparent;
   animation: km-btn-spin 0.7s linear infinite;
 }
@@ -92,17 +131,24 @@
   }
 }
 
+/* Stronger secondary reflection on the pane (daylight glass) */
 .km-btn::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(
-    145deg,
-    color-mix(in oklab, white 28%, transparent),
-    transparent 50%,
-    color-mix(in oklab, white 6%, transparent)
-  );
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-secondary) 28%, transparent) 0%,
+      color-mix(in oklab, var(--color-secondary) 10%, transparent) 38%,
+      transparent 62%
+    ),
+    linear-gradient(
+      270deg,
+      color-mix(in oklab, var(--color-secondary) 22%, transparent) 0%,
+      transparent 42%
+    );
   pointer-events: none;
 }
 
@@ -242,27 +288,39 @@
 }
 
 .km-btn:focus-visible {
-  outline: 2px solid var(--color-accent-fg);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
 /**
- * One main button: accent fill in day, frosted glass in night.
- * Other controls (text links, icon wells) stay separate.
+ * Night: frosted glass (elevated plate). Day uses clear daylight glass above.
  */
 html[data-theme-surface="dark"] .km-btn {
   --km-btn-edge: color-mix(in oklab, var(--color-fg) 55%, white);
   --km-btn-hold: color-mix(in oklab, var(--color-fg) 70%, transparent);
-  /* Rest = former hover fill */
-  border-color: color-mix(in oklab, var(--color-fg) 34%, transparent);
-  background: color-mix(in oklab, var(--color-bg-elevated) 58%, transparent);
+  --km-btn-glass-plate: color-mix(
+    in oklab,
+    var(--color-secondary) 20%,
+    var(--color-bg-elevated)
+  );
+  border-color: color-mix(
+    in oklab,
+    var(--color-secondary) 18%,
+    color-mix(in oklab, var(--color-fg) 30%, transparent)
+  );
+  background: color-mix(in oklab, var(--km-btn-glass-plate) 58%, transparent);
   color: var(--color-fg);
-  backdrop-filter: blur(14px) saturate(1.15);
-  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
   box-shadow:
     inset 0 1px 0 color-mix(in oklab, white 28%, transparent),
     inset 0 -1px 0 color-mix(in oklab, var(--color-fg) 8%, transparent),
-    0 10px 28px color-mix(in oklab, var(--color-fg) 12%, transparent);
+    0 10px 28px
+      color-mix(
+        in oklab,
+        var(--color-secondary) 14%,
+        color-mix(in oklab, var(--color-fg) 10%, transparent)
+      );
 }
 
 html[data-theme-surface="dark"] .km-btn::before {
@@ -277,8 +335,24 @@ html[data-theme-surface="dark"] .km-btn::before {
 html[data-theme-surface="dark"] .km-btn:hover,
 html[data-theme-surface="dark"] .km-btn:focus-visible {
   filter: brightness(1.05);
-  border-color: color-mix(in oklab, var(--color-fg) 44%, transparent);
-  background: color-mix(in oklab, var(--color-bg-elevated) 72%, transparent);
+  border-color: color-mix(
+    in oklab,
+    var(--color-secondary) 24%,
+    color-mix(in oklab, var(--color-fg) 36%, transparent)
+  );
+  background: color-mix(in oklab, var(--km-btn-glass-plate) 72%, transparent);
+}
+
+/*
+ * Young Night dark glass — elevated is flat, so secondary carries the chroma.
+ * Slightly stronger tint than other themes’ automatic elevated mix.
+ */
+html[data-theme-brand="young-night"][data-theme-surface="dark"] .km-btn {
+  --km-btn-glass-plate: color-mix(
+    in oklab,
+    var(--color-secondary) 22%,
+    var(--color-bg-elevated)
+  );
 }
 
 html[data-theme-surface="dark"] .km-btn:focus-visible {
@@ -294,9 +368,14 @@ html[data-theme-surface="dark"] .km-btn .km-btn__spinner {
 @media (prefers-reduced-motion: reduce) {
   .km-btn__spinner {
     animation: none;
-    border-color: color-mix(in oklab, var(--color-on-accent) 35%, transparent);
-    border-top-color: var(--color-on-accent);
+    border-color: color-mix(in oklab, var(--color-fg) 35%, transparent);
+    border-top-color: var(--color-fg);
     clip-path: inset(0 0 50% 0);
+  }
+
+  html[data-theme-surface="dark"] .km-btn__spinner {
+    border-color: color-mix(in oklab, var(--color-fg) 35%, transparent);
+    border-top-color: var(--color-fg);
   }
 
   .km-btn::after,

@@ -106,19 +106,19 @@ export default function PathChooserDialog({
           id={titleId}
           className="km-section-title__title"
         >
-          Who are you here as?
+          What are you looking for?
         </h2>
         <p
           id={descriptionId}
-          className="mt-2 text-[0.98rem] leading-relaxed text-[var(--color-fg-muted)]"
+          className="km-path-chooser__desc text-[0.98rem] leading-relaxed text-[var(--color-fg-muted)]"
         >
-          Default is wonderer. Pick a role only if you want a different view.
+          You can stay as a wonderer, or choose a lens if you&apos;re hiring, curious about the craft, or need a site built.
         </p>
 
         <div
           role="group"
           aria-label="Visitor type"
-          className="mt-7 flex flex-col"
+          className="km-path-chooser__roles"
         >
           {ROLE_OPTIONS.map((option) => {
             const active = currentPath === option.id;
@@ -129,16 +129,16 @@ export default function PathChooserDialog({
                 aria-pressed={active}
                 onClick={() => onChoose(option.id)}
                 className={[
-                  "-mx-3 flex items-baseline justify-between gap-4 border-t border-[var(--color-line)] px-3 py-3.5 text-left transition-[background-color,color] duration-150",
+                  "flex items-baseline justify-between gap-4 rounded-2xl px-3.5 py-3.5 text-left transition-[background-color,color] duration-150",
                   active
                     ? "bg-[var(--color-accent-soft)] text-[var(--color-accent-fg)]"
                     : "bg-transparent text-[var(--color-fg)] hover:bg-[var(--color-accent-soft)] hover:text-[var(--color-accent-fg)]",
                 ].join(" ")}
               >
-                <span className="text-[1.05rem] font-semibold tracking-[-0.02em]">
+                <span className="text-[0.9rem] font-semibold tracking-[-0.02em]">
                   {option.label}
                 </span>
-                <span className="text-sm text-[var(--color-fg-muted)]">
+                <span className="text-[0.8rem] text-[var(--color-fg-muted)]">
                   {option.hint}
                 </span>
               </button>
@@ -146,22 +146,20 @@ export default function PathChooserDialog({
           })}
         </div>
 
-        <div className="mt-2 border-t border-[var(--color-line)] pt-3">
-          <button
-            type="button"
-            aria-pressed={wondererActive}
-            onClick={() => onChoose(WANDER_OPTION.id)}
-            className={[
-              "km-path-chooser__wonderer",
-              wondererActive ? "km-path-chooser__wonderer--active" : "",
-            ].join(" ")}
-          >
-            Continue as {WANDER_OPTION.label.toLowerCase()}
-            <span aria-hidden className="ml-1">
-              →
-            </span>
-          </button>
-        </div>
+        <button
+          type="button"
+          aria-pressed={wondererActive}
+          onClick={() => onChoose(WANDER_OPTION.id)}
+          className={[
+            "km-path-chooser__wonderer",
+            wondererActive ? "km-path-chooser__wonderer--active" : "",
+          ].join(" ")}
+        >
+          Continue as {WANDER_OPTION.label.toLowerCase()}
+          <span aria-hidden className="ml-1">
+            →
+          </span>
+        </button>
       </div>
     </div>
   );

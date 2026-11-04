@@ -56,7 +56,7 @@ export const ROLE_OPTIONS: {
   {
     id: "craft",
     label: "Developer/Designer",
-    hint: "Looking at craft and UI choices",
+    hint: "View UI choices & architecture",
   },
   {
     id: "build",
@@ -197,13 +197,13 @@ const CRAFT_PROJECTS = projectsWith({
 const BUILD_PROJECTS = projectsWith({
   essential: {
     meta: "Product for a real team",
-    outcome: "People open this and know what to do next.",
-    body: "Built so the product is usable without a training manual. Ask if you want the longer story.",
+    outcome: "Screens shaped around how the team already works.",
+    body: "Made for daily use. Happy to walk through the process if useful.",
   },
   genesis: {
     meta: "Product for a real team",
-    outcome: "Same idea: clear screens that match how the work actually runs.",
-    body: "Custom build, not a template with a logo stuck on.",
+    outcome: "Clear screens that match the real workflow.",
+    body: "Built around how that team already runs the work.",
   },
   "myan-gate": {
     meta: "Product for a real team",
@@ -354,7 +354,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     ],
     headline: "A site your customers understand, and you aren't afraid to update.",
     support:
-      "I build custom websites for companies, shops, and associations that want to grow. Plain language. Yours, not a theme with a logo stuck on.",
+      "I build websites for companies, shops, and associations that want to grow. Plain language, shaped around how you already work.",
     primaryCta: { label: "See examples", section: "work" },
     secondaryCta: { label: "Get in touch", section: "contact" },
     focusTitle: "What usually gets in the way",
@@ -390,7 +390,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     contactEyebrow: "Are you ready?",
     contactTitle: "Let's create your beautiful\u00A0website",
     contactSupport:
-      "Tell me about your project. We can create something new together.",
+      "Tell me about your project.\nWe can create something new together.",
     contactFormSupport:
       "A short note is enough. We can sort out whether you need a new site, a redesign, or something smaller.",
     contactCtaLabel: "Send message",

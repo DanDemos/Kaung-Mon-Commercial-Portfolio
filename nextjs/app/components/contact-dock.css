@@ -1,18 +1,30 @@
 /* Contact page — layout from Portfilio: info cards + full-width form.
  * Neutral panels only. Accent on icons / submit / social hover — not washes. */
 
-.km-contact-page {
-  display: grid;
-  gap: 1.75rem;
+.km-contact-page__back {
+  margin: 0.5rem 0 1.5rem;
 }
 
+.km-contact-page {
+  display: grid;
+}
+
+/* Entry gap on the next content block (info / form), not on the head wrapper */
+.km-contact-page > * + * {
+  margin-top: 1.75rem;
+}
+
+/* Head is layout-only; title exit is zeroed so page adjacent gap isn’t doubled */
 .km-contact-page__head {
   display: grid;
-  gap: 0.15rem;
+}
+
+.km-contact-page__head .km-section-title__title {
+  margin-bottom: 0;
 }
 
 .km-contact-page__support {
-  margin: 0;
+  margin: 0.55rem 0 0;
   max-width: 36rem;
   font-size: 1.02rem;
   line-height: 1.55;

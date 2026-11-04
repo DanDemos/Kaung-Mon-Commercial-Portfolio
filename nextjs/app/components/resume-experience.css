@@ -3,9 +3,8 @@
   padding-top: clamp(3rem, 12vh, 6rem);
 }
 
-.km-resume-gate__support,
-.km-resume__support {
-  margin: 0.15rem 0 0;
+.km-resume-gate__support {
+  margin: 0 0 1.75rem;
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--color-fg-muted);
@@ -17,7 +16,6 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.85rem 1.25rem;
-  margin-top: 1.5rem;
 }
 
 .km-resume {
@@ -32,6 +30,11 @@
   gap: 0.5rem 1.25rem;
 }
 
+/* Support is not a SectionTitle sibling (heading-row in between) */
+.km-resume__intro .km-section-title__title {
+  margin-bottom: 0;
+}
+
 .km-resume__aside {
   margin: 0;
   font-size: 0.82rem;
@@ -41,14 +44,21 @@
   color: var(--color-fg-muted);
 }
 
+.km-resume__support {
+  margin: 0.55rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+  max-width: 36rem;
+}
+
 .km-resume__links {
-  margin: 1.1rem 0 0;
+  margin: 1.1rem 0 1.75rem;
 }
 
 .km-resume__columns {
   display: grid;
   gap: 2.5rem;
-  margin-top: 2.5rem;
 }
 
 @media (min-width: 900px) {

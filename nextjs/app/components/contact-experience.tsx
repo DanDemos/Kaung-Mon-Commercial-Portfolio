@@ -180,7 +180,7 @@ export default function ContactExperience() {
         </header>
 
         <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
-          <p className="km-rise mb-6 mt-2">
+          <p className="km-contact-page__back km-rise">
             <TextLink href="/">← Back home</TextLink>
           </p>
           <div className="km-rise km-delay-1">

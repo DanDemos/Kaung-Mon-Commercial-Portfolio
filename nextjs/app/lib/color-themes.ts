@@ -573,9 +573,10 @@ const SPECTRUM_RECIPES: Record<SeedSpectrumId, SpectrumRecipe> = {
       }),
     },
     dark: {
-      elevatedPrimary: 0.36,
-      glowPrimary: 0.48,
-      washPrimary: 0.28,
+      // Quieter than pastel nights — mid mocha air used to outshine Peach
+      elevatedPrimary: 0.22,
+      glowPrimary: 0.28,
+      washPrimary: 0.16,
       bodyInk: "#e6ddd7",
       bodyPrimaryMix: 0.14,
       mutedMix: 0.36,
@@ -818,10 +819,10 @@ const SPECTRUM_RECIPES: Record<SeedSpectrumId, SpectrumRecipe> = {
       }),
     },
     dark: {
-      // Charcoal + seed button: atmosphere is a whisper, not a second swatch
-      elevatedPrimary: 0.1,
-      glowPrimary: 0.14,
-      washPrimary: 0.08,
+      // Charcoal + seed button, with a little more luminous peach air than soft-tone
+      elevatedPrimary: 0.18,
+      glowPrimary: 0.26,
+      washPrimary: 0.14,
       bodyInk: "#ebe0d6",
       bodyPrimaryMix: 0.1,
       mutedMix: 0.32,
@@ -1061,19 +1062,17 @@ function mixDarkAtmosphere(
   amount: number,
   spectrum: SeedSpectrum,
 ): string {
-  if (
-    spectrum.chroma === "soft" &&
-    spectrum.value === "tint" &&
-    spectrum.lum > 0.45
-  ) {
+  // Pastel chromatrics: mix via a seed-hued charcoal bridge so light seeds
+  // (Peach) lift cleanly instead of browning into cocoa on #121212.
+  if (spectrum.chroma !== "neutral" && spectrum.value === "tint" && spectrum.lum > 0.45) {
+    const bridgeL = spectrum.chroma === "vivid" ? 0.17 : 0.14;
     const bridge = hslToHex(
       spectrum.h,
-      Math.min(0.45, Math.max(spectrum.s, 0.28)),
-      0.14,
+      Math.min(0.5, Math.max(spectrum.s, 0.28)),
+      bridgeL,
     );
     return mix(bridge, atmosphere, clamp01(amount));
   }
-  // vivid-tint (and everything else): mix into the actual canvas (charcoal)
   return mix(canvas, atmosphere, amount);
 }
 
