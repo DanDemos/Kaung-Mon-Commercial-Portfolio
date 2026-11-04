@@ -6,6 +6,7 @@ import c2 from "../../../assets/brand/clients/c2.png";
 import essentialAir from "../../../assets/brand/clients/essential-air.png";
 import genesis from "../../../assets/brand/clients/genesis.png";
 import hwt from "../../../assets/brand/clients/hwt.png";
+import jdonut from "../../../assets/brand/clients/jdonut.png";
 import lozengeGalleria from "../../../assets/brand/clients/lozenge-galleria.png";
 import mps from "../../../assets/brand/clients/mps.png";
 import vnm from "../../../assets/brand/clients/vnm.png";
@@ -26,6 +27,7 @@ export const CLIENT_LOGOS: ClientLogo[] = [
   { id: "hwt", name: "HWT", mark: hwt },
   { id: "alidac", name: "Alidac Healthcare", mark: alidac },
   { id: "c2", name: "C2 Online Shopping Mall", mark: c2 },
+  { id: "jdonut", name: "J'Donuts", mark: jdonut },
   { id: "mps", name: "MPS", mark: mps },
   { id: "vnm", name: "Vocaloid Nation Myanmar", mark: vnm },
   { id: "avs", name: "Av's", mark: avs },

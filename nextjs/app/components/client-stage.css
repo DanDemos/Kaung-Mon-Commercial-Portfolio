@@ -19,12 +19,12 @@
   display: flex;
   align-items: center;
   width: max-content;
-  gap: 2.5rem;
-  padding: 0.5rem 0.75rem;
+  gap: 2rem;
+  padding: 0.65rem 0.85rem;
   list-style: none;
   margin: 0;
   /* Full set; keep pace readable (not a crawl). */
-  animation: km-client-marquee 28s linear infinite;
+  animation: km-client-marquee 32s linear infinite;
 }
 
 .km-client-stage__viewport:hover .km-client-stage__track,
@@ -37,14 +37,14 @@
   opacity: 1;
 }
 
-/* Fixed slots — shell size never waits on decode. */
+/* Large square slots so circular marks (C2, etc.) stay legible. */
 .km-client-stage__item {
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  width: 11.5rem;
-  height: 4.75rem;
-  opacity: 0.92;
+  width: 8.25rem;
+  height: 8.25rem;
+  opacity: 0.94;
   transition: opacity 180ms ease;
 }
 
@@ -52,7 +52,7 @@
   --km-media-w: 100% !important;
   --km-media-h: 100% !important;
   --km-media-ar: auto !important;
-  --km-spinner-size: 1.55rem;
+  --km-spinner-size: 1.7rem;
   --km-spinner-thickness: 2.5px;
   width: 100% !important;
   height: 100% !important;
@@ -75,13 +75,13 @@
 
 @media (max-width: 640px) {
   .km-client-stage__track {
-    gap: 1.85rem;
-    animation-duration: 24s;
+    gap: 1.5rem;
+    animation-duration: 28s;
   }
 
   .km-client-stage__item {
-    width: 9.5rem;
-    height: 4rem;
+    width: 6.75rem;
+    height: 6.75rem;
   }
 }
 
@@ -95,7 +95,7 @@
   .km-client-stage__track {
     animation: none;
     width: max-content;
-    gap: 2rem;
+    gap: 1.75rem;
     padding-inline: 0;
   }
 
