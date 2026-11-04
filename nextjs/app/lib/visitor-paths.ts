@@ -31,6 +31,7 @@ export type FooterNavItem =
 export const FOOTER_NAV: FooterNavItem[] = [
   { label: "Home", section: "top" },
   { label: "Work", section: "work" },
+  { label: "All work", href: "/work" },
   { label: "Clients", section: "clients" },
   { label: "About", section: "about" },
   { label: "Voices", section: "voices" },

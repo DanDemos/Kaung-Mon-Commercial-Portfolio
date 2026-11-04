@@ -346,6 +346,9 @@ export default function HomeExperience() {
           <div className="km-rise">
             <ProjectStage key={path} projects={content.projects} />
           </div>
+          <p className="km-home-section__support mt-5">
+            <TextLink href="/work">See all work →</TextLink>
+          </p>
         </section>
 
         <section id="clients" className="km-home-section" key={`clients-${path}`}>
