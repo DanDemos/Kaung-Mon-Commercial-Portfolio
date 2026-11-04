@@ -5,7 +5,8 @@
 
 @media (min-width: 900px) {
   .km-project-stage {
-    grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+    /* Video left, tabs right — controls on the dominant hand side. */
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem);
     gap: 1.75rem;
     align-items: stretch;
   }

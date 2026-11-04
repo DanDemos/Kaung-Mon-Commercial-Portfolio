@@ -6,6 +6,7 @@ export type VisitorPath = "hire" | "craft" | "build" | "wander";
 export const PATH_STORAGE_KEY = "km-visitor-path";
 /** Set after first auto-ask (choose or dismiss). Header Change still reopens. */
 export const CHOOSER_SEEN_KEY = "km-path-chooser-seen";
+/** Wonderer is the quiet default; roles are one Lens click away. */
 export const DEFAULT_PATH: VisitorPath = "wander";
 
 /** Editable contact. Swap when ready. */
@@ -20,7 +21,7 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const FOOTER_BLURB =
-  "I build clear websites and product UI for teams and small businesses that want something that actually feels like them.";
+  "I build websites and product UI for teams and small businesses that want work that feels like theirs.";
 
 export type FooterNavItem =
   | { label: string; section: PageSection }
@@ -98,16 +99,20 @@ export type PathContent = {
   support: string;
   primaryCta: PathCta;
   secondaryCta: PathCta;
+  /** Optional help / objection rail. Empty items = section hidden. */
+  focusTitle: string;
+  focusSupport: string;
+  items: { title: string; body: string }[];
+  /** Work stage (project videos). */
   sectionTitle: string;
   sectionSupport: string;
   projects: PathProject[];
-  items: { title: string; body: string }[];
   aboutTitle: string;
   aboutBody: string;
   aboutCta: PathCta;
   clientsTitle: string;
   clientsSupport: string;
-  /** Empty = hide Voices (Client path). */
+  /** Empty voices array = hide Voices section. */
   voicesTitle: string;
   voicesSupport: string;
   voices: PathVoice[];
@@ -115,41 +120,119 @@ export type PathContent = {
   contactSupport: string;
 };
 
-/** Real work + screen recordings under `public/media/projects/{slug}/`. */
-const SHARED_PROJECTS: PathProject[] = [
-  {
-    title: "Essential",
-    meta: "Product walkthrough",
-    mediaSlug: "essential",
-    outcome: "Here's the product moving around.",
-    body: "A screen recording from the live build. Ask if you want the longer story.",
-  },
-  {
-    title: "Genesis",
-    meta: "Product walkthrough",
-    mediaSlug: "genesis",
-    outcome: "Here's the product moving around.",
-    body: "A screen recording from the live build. Ask if you want the longer story.",
-  },
-  {
-    title: "MyanGate",
-    meta: "Product walkthrough",
-    mediaSlug: "myan-gate",
-    outcome: "Here's the product moving around.",
-    body: "A screen recording from the live build. Ask if you want the longer story.",
-  },
-  {
-    title: "York Yoga",
-    meta: "Product walkthrough",
-    mediaSlug: "york-yoga",
-    outcome: "Here's the product moving around.",
-    body: "A screen recording from the live build. Ask if you want the longer story.",
-  },
+/** Screen recordings under `public/media/projects/{slug}/`. Copy is path-specific. */
+const PROJECT_SLUGS = [
+  { title: "Essential", mediaSlug: "essential" as const },
+  { title: "Genesis", mediaSlug: "genesis" as const },
+  { title: "MyanGate", mediaSlug: "myan-gate" as const },
+  { title: "York Yoga", mediaSlug: "york-yoga" as const },
 ];
+
+type ProjectCopy = { meta: string; outcome: string; body: string };
+
+function projectsWith(copy: Record<(typeof PROJECT_SLUGS)[number]["mediaSlug"], ProjectCopy>): PathProject[] {
+  return PROJECT_SLUGS.map(({ title, mediaSlug }) => ({
+    title,
+    mediaSlug,
+    ...copy[mediaSlug],
+  }));
+}
+
+const HIRE_PROJECTS = projectsWith({
+  essential: {
+    meta: "Shipped product",
+    outcome: "Live walkthrough of a product UI I owned end to end.",
+    body: "Skim the flow for delivery quality. Stack and process details on request.",
+  },
+  genesis: {
+    meta: "Shipped product",
+    outcome: "Another live product cut. Same bar: clear screens, finished edges.",
+    body: "Useful for a quick read on interface judgment under real constraints.",
+  },
+  "myan-gate": {
+    meta: "Shipped product",
+    outcome: "Production UI in motion, not a mock.",
+    body: "Watch how navigation and content hierarchy hold up in use.",
+  },
+  "york-yoga": {
+    meta: "Client site",
+    outcome: "A small-business site built to convert visitors into contact.",
+    body: "Shows the freelance side of the same craft: clarity over decoration.",
+  },
+});
+
+const CRAFT_PROJECTS = projectsWith({
+  essential: {
+    meta: "UI walkthrough",
+    outcome: "Layout, density, and motion choices in a working product.",
+    body: "Look at spacing, component rhythm, and how screens stay readable under load.",
+  },
+  genesis: {
+    meta: "UI walkthrough",
+    outcome: "Structure first. Decoration stay out of the way.",
+    body: "Good place to judge hierarchy, states, and whether the UI earns its chrome.",
+  },
+  "myan-gate": {
+    meta: "UI walkthrough",
+    outcome: "Navigation and content packing in a denser product surface.",
+    body: "Watch how information is grouped when the screen has a lot to say.",
+  },
+  "york-yoga": {
+    meta: "Marketing UI",
+    outcome: "A quieter site: fewer screens, harder to hide weak type or layout.",
+    body: "Small surface area. Every section has to carry its weight.",
+  },
+});
+
+const BUILD_PROJECTS = projectsWith({
+  essential: {
+    meta: "Product for a real team",
+    outcome: "People open this and know what to do next.",
+    body: "Built so the product is usable without a training manual. Ask if you want the longer story.",
+  },
+  genesis: {
+    meta: "Product for a real team",
+    outcome: "Same idea: clear screens that match how the work actually runs.",
+    body: "Custom build, not a template with a logo stuck on.",
+  },
+  "myan-gate": {
+    meta: "Product for a real team",
+    outcome: "A denser tool that still stays readable.",
+    body: "Watch the walkthrough, then tell me what you need your own site or product to do.",
+  },
+  "york-yoga": {
+    meta: "Business website",
+    outcome: "Visitors can tell what the business offers and how to get in touch.",
+    body: "The kind of site a shop or studio needs when growth depends on being found online.",
+  },
+});
+
+const WANDER_PROJECTS = projectsWith({
+  essential: {
+    meta: "A product I built",
+    outcome: "Press play if it looks interesting.",
+    body: "No homework. Skip anything that doesn't catch you.",
+  },
+  genesis: {
+    meta: "A product I built",
+    outcome: "Another short walkthrough.",
+    body: "Stay as long as you like.",
+  },
+  "myan-gate": {
+    meta: "A product I built",
+    outcome: "More of the same craft, different surface.",
+    body: "Open it or keep scrolling. Either is fine.",
+  },
+  "york-yoga": {
+    meta: "A site I built",
+    outcome: "A quieter piece for a small business.",
+    body: "Good stop if you prefer calm pages over product chrome.",
+  },
+});
 
 /**
  * Colleague voices for hire, craft, and wonderer.
- * Not shown on Client.
+ * Not shown on Client. Quotes stay verbatim.
  */
 const COLLEAGUE_VOICES: PathVoice[] = [
   {
@@ -175,208 +258,154 @@ const COLLEAGUE_VOICES: PathVoice[] = [
   },
 ];
 
-const SHARED_ABOUT_BODY =
-  "I'm Kaung Mon. Friends call me Dan. I make websites and product interfaces for small businesses, shops, and associations. The goal is simple: it should feel like your work, and you should understand how the online side fits together.";
-
-export const DEFAULT_CONTENT: PathContent = {
-  eyebrow: "Software engineer",
-  roles: ["Web developer", "UI/UX designer", "Product partner"],
-  headline: "I build product UI that stays understandable when things get busy.",
-  support: "Same work on every path. Switch the lens only if it helps.",
-  primaryCta: { label: "View work", section: "work" },
-  secondaryCta: { label: "Contact", section: "contact" },
-  sectionTitle: "Selected work",
-  sectionSupport: "Watch the recordings. Details when you're ready.",
-  projects: SHARED_PROJECTS,
-  items: [
-    {
-      title: "Shipping",
-      body: "Features that make it to production with clear ownership.",
-    },
-    {
-      title: "Structure",
-      body: "Interfaces and data flow that the next person can follow.",
-    },
-    {
-      title: "Working together",
-      body: "Short loops with design, product, and whoever owns the outcome.",
-    },
-  ],
-  aboutTitle: "About me",
-  aboutBody: SHARED_ABOUT_BODY,
-  aboutCta: { label: "Say hello", section: "contact" },
-  clientsTitle: "Worked with",
-  clientsSupport: "",
-  voicesTitle: "Voices",
-  voicesSupport: "Faces first. A quick look at people I've built with.",
-  voices: COLLEAGUE_VOICES,
-  contactTitle: "Want to talk?",
-  contactSupport: "Email works. Tell me what you're hiring for or trying to ship.",
-};
-
 export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
+  /* Recruiter: crisp, scannable, evidence-first. */
   hire: {
-    eyebrow: "For recruiters",
+    eyebrow: "Hiring",
     roles: [
-      "Full-stack product engineer",
-      "Interface-minded builder",
-      "Calm when delivery is loud",
+      "Product engineer",
+      "Frontend-strong full stack",
+      "Ships and explains tradeoffs",
     ],
-    headline: "Engineer who cares about outcomes you can check.",
-    support: "Impact, fit, and how I work with a team. We can go deeper later.",
+    headline: "Screen recordings and coworker notes. Role fit without the brochure.",
+    support:
+      "I ship product UI and the APIs that feed it. Watch the work, read what collaborators wrote, email if the shape fits.",
     primaryCta: { label: "See impact", section: "work" },
     secondaryCta: { label: "Email me", section: "contact" },
-    sectionTitle: "Work hiring teams can skim",
-    sectionSupport: "Proof first. Stack talk when we meet.",
-    projects: SHARED_PROJECTS,
-    items: [
-      {
-        title: "What I do",
-        body: "Full-stack product work with a strong frontend seat and steady release habits.",
-      },
-      {
-        title: "How I update people",
-        body: "Short written decisions, clear status, notes that still make sense after hand-off.",
-      },
-      {
-        title: "What I look for",
-        body: "Teams that care about shipping clean work, not looking busy.",
-      },
-    ],
+    focusTitle: "",
+    focusSupport: "",
+    items: [],
+    sectionTitle: "Recent delivery",
+    sectionSupport: "Short clips from live builds. Stack and process when we talk.",
+    projects: HIRE_PROJECTS,
     aboutTitle: "Who you'd be hiring",
-    aboutBody: SHARED_ABOUT_BODY,
+    aboutBody:
+      "I'm Kaung Mon (Dan). Product engineer with a bias for clear interfaces and finished edges. I've shipped for teams and for small businesses. I write and speak plainly about what shipped and what I'd change next.",
     aboutCta: { label: "Email me", section: "contact" },
     clientsTitle: "Worked with",
     clientsSupport: "",
-    voicesTitle: "What collaborators say",
-    voicesSupport: "A few people I've built with.",
+    voicesTitle: "From people I've shipped with",
+    voicesSupport: "Unedited. Useful for culture and collaboration fit.",
     voices: COLLEAGUE_VOICES,
-    contactTitle: "Want to talk?",
+    contactTitle: "Open to the right role",
     contactSupport:
-      "If you need someone who ships and can explain the tradeoffs, email me.",
+      "Send the role, timeline, and location or remote expectations. I'll reply with a straight yes, no, or clarifying question.",
   },
+
+  /* Developer/Designer: peer tone, tradeoffs, no sales pitch. */
   craft: {
-    eyebrow: "For developers & designers",
+    eyebrow: "Craft",
     roles: [
-      "Systems-minded frontend",
-      "Typed APIs & clear edges",
-      "UI that earns its complexity",
+      "Frontend systems",
+      "Typed edges between UI and API",
+      "Layout that stays readable",
     ],
-    headline: "Architecture, interfaces, and the choices behind the UI.",
+    headline: "How the screens hold together when you press play.",
     support:
-      "How pieces hold together. Structure and tradeoffs, not a code dump.",
-    primaryCta: { label: "See craft", section: "work" },
-    secondaryCta: { label: "Email", section: "contact" },
-    sectionTitle: "How the work is built",
-    sectionSupport: "Less pitch. More structure and execution.",
-    projects: SHARED_PROJECTS,
-    items: [
-      {
-        title: "System design",
-        body: "Module edges, typed contracts, data flow you can point at.",
-      },
-      {
-        title: "Frontend craft",
-        body: "Accessible UI, motion that has a reason, budgets that stick.",
-      },
-      {
-        title: "Operability",
-        body: "Failure modes, visibility, and deploys you can trust.",
-      },
-    ],
-    aboutTitle: "How I work",
-    aboutBody: SHARED_ABOUT_BODY,
+      "I'm interested in structure, states, and what complexity is worth. Not a portfolio pitch deck.",
+    primaryCta: { label: "Watch builds", section: "work" },
+    secondaryCta: { label: "Talk shop", section: "contact" },
+    focusTitle: "",
+    focusSupport: "",
+    items: [],
+    sectionTitle: "Builds worth pausing on",
+    sectionSupport: "Judge hierarchy, density, and motion yourself. I'll fill in constraints if you ask.",
+    projects: CRAFT_PROJECTS,
+    aboutTitle: "How I tend to work",
+    aboutBody:
+      "I start from the real screen and the data it needs. Types at the edges, CSS that maps to the design tokens we mean, and motion only when it clarifies a state change. Happy to disagree in public about a tradeoff.",
     aboutCta: { label: "Talk shop", section: "contact" },
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "Colleague network",
-    voicesSupport:
-      "Two voices per slide on purpose. One card looks nicer; two shows the network faster. You're not meant to study every line. You should see how many people I've built with. Same kind of call as product UI: pretty focus vs denser signal.",
+    voicesSupport: "Two faces per slide on purpose. Density over theatre.",
     voices: COLLEAGUE_VOICES,
-    contactTitle: "Want to dig in together?",
-    contactSupport: "Happy to walk through architecture or a messy problem space.",
+    contactTitle: "Got a knotty UI or API edge?",
+    contactSupport:
+      "Email a link, a loom, or a short description. I'll answer with how I'd cut the problem, not a sales call.",
   },
+
+  /* Client: warm, practical, business-owner speak. */
   build: {
-    eyebrow: "For clients",
+    eyebrow: "For your business",
     roles: [
-      "Web developer",
-      "UI/UX designer",
-      "Partner for growing businesses",
+      "Websites that get used",
+      "Custom, not template-kit",
+      "Someone you can reach after launch",
     ],
-    headline: "You don't just need a website. You need one people trust.",
+    headline: "A site your customers understand, and you aren't afraid to update.",
     support:
-      "I help companies and associations grow with custom sites and product interfaces that feel like you, not a template with a logo stuck on.",
-    primaryCta: { label: "See work", section: "work" },
+      "I build custom websites for companies, shops, and associations that want to grow. Plain language. Yours, not a theme with a logo slapped on.",
+    primaryCta: { label: "See examples", section: "work" },
     secondaryCta: { label: "Say hello", section: "contact" },
-    sectionTitle: "How we usually work together",
-    sectionSupport: "Finding clients online shouldn't feel mysterious. Here's what we fix first.",
-    projects: SHARED_PROJECTS,
+    focusTitle: "What usually gets in the way",
+    focusSupport:
+      "Getting found online does not have to feel hard. People already work with people they trust. Here is what we fix first.",
     items: [
       {
-        title: "Nobody's booking the call",
-        body: "A clear site that shows what you do, and why you're worth trusting, gives people a reason to reach out.",
+        title: "Nobody books the call",
+        body: "If the site shows what you do and why you are worth trusting, people have a reason to reach out.",
       },
       {
-        title: "Tech feels intimidating",
-        body: "I'll walk the online side with you until it makes sense. No jargon wall, and I don't vanish after launch.",
+        title: "Tech feels like a wall",
+        body: "I walk you through the online side until it makes sense. Plain language, and I stay reachable after launch.",
       },
       {
         title: "It has to feel like you",
-        body: "No ready-made templates. We design for your products, your voice, and how you actually work.",
+        body: "No ready-made templates. We design around your products, your voice, and how you already work.",
       },
     ],
+    sectionTitle: "Examples you can watch",
+    sectionSupport: "Real sites and products. Ask if you want the longer story behind any of them.",
+    projects: BUILD_PROJECTS,
     aboutTitle: "Nice to meet you. I'm Dan",
     aboutBody:
-      "I've helped small businesses and local shops with websites that carry the character of their products, so growth online feels like an extension of what they already do well.",
+      "I'm Kaung Mon. Friends call me Dan. I make websites for small businesses and local shops so customers can see what you offer and get in touch. You should understand how the online side works, not just own a file you can't change.",
     aboutCta: { label: "Say hello", section: "contact" },
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "Voices",
     voicesSupport: "",
     voices: [],
-    contactTitle: "Ready when you are",
-    contactSupport: "Tell me what you're trying to grow. We can make something new together.",
+    contactTitle: "Tell me what you want to grow",
+    contactSupport:
+      "A sentence about your business is enough to start. We'll figure out whether a new site, a redesign, or something smaller is the right next step.",
   },
+
+  /* Wonderer: light, zero pressure, invite to switch lens. */
   wander: {
-    eyebrow: "Welcome",
+    eyebrow: "Just looking",
     roles: [
       "Web developer",
-      "UI/UX designer",
-      "Builder for growing businesses",
+      "UI designer",
+      "Someone who builds for small teams",
     ],
-    headline: "Glad you stopped by. No pitch required.",
-    support: "A light look at who I am and what I make. Change the lens anytime.",
-    primaryCta: { label: "Start browsing", section: "work" },
+    headline: "Wander around. Nothing here asks you to decide today.",
+    support:
+      "Clips of work, a few people I've built with, and a quiet about section. Use Lens in the header if you arrived with a job to do.",
+    primaryCta: { label: "Browse work", section: "work" },
     secondaryCta: { label: "Say hello", section: "contact" },
-    sectionTitle: "A short tour",
-    sectionSupport: "Skim freely. Dig in only where something catches you.",
-    projects: SHARED_PROJECTS,
-    items: [
-      {
-        title: "Who I am",
-        body: "Engineer and designer. Clear products, and sites that help real businesses grow.",
-      },
-      {
-        title: "What I make",
-        body: "Custom web products and interfaces meant to last past launch day.",
-      },
-      {
-        title: "If you stick around",
-        body: "Switch the path in the header when you want a different cut of the same work.",
-      },
-    ],
+    focusTitle: "",
+    focusSupport: "",
+    items: [],
+    sectionTitle: "Things I've made",
+    sectionSupport: "Skip freely. Pause only where something pulls you in.",
+    projects: WANDER_PROJECTS,
     aboutTitle: "About me",
-    aboutBody: SHARED_ABOUT_BODY,
+    aboutBody:
+      "I'm Kaung Mon, also Dan. I build websites and product interfaces. Some days that means a shop that needs to be found online. Other days it's denser product UI for a team. Either way I care that the screen makes sense.",
     aboutCta: { label: "Say hello", section: "contact" },
     clientsTitle: "Worked with",
     clientsSupport: "",
-    voicesTitle: "Voices",
-    voicesSupport: "Faces first. A quick look at people I've built with.",
+    voicesTitle: "People I've worked beside",
+    voicesSupport: "Optional reading. Faces first.",
     voices: COLLEAGUE_VOICES,
-    contactTitle: "If something clicks, say hi.",
-    contactSupport: "No form maze. Just email when you're ready.",
+    contactTitle: "If you feel like saying hi",
+    contactSupport: "No form. Email when you want. Silence is fine too.",
   },
 };
+
+export const DEFAULT_CONTENT: PathContent = PATH_CONTENT.build;
 
 export function contentFor(path: VisitorPath = DEFAULT_PATH): PathContent {
   return PATH_CONTENT[path] ?? DEFAULT_CONTENT;

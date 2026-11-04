@@ -157,19 +157,14 @@
   color: var(--color-fg-muted);
 }
 
-/* Quote is secondary — faces/names carry the network signal */
 .km-voice-stage__quote {
   margin: 0;
   font-family: var(--font-display), ui-serif, Georgia, serif;
   font-size: 0.92rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.45;
   letter-spacing: -0.02em;
   color: color-mix(in oklab, var(--color-fg) 78%, var(--color-fg-muted));
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
 }
 
 .km-voice-stage__dots {

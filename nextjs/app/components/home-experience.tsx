@@ -319,16 +319,29 @@ export default function HomeExperience() {
           </div>
         </section>
 
+        {content.items.length > 0 ? (
+          <section className="km-home-section" key={`focus-${path}`}>
+            <div className="km-home-section__head km-rise">
+              <h2 className="km-home-section__title">{content.focusTitle}</h2>
+              {content.focusSupport ? (
+                <p className="km-home-section__support">{content.focusSupport}</p>
+              ) : null}
+            </div>
+            <div className="km-rise">
+              <FocusRail items={content.items} />
+            </div>
+          </section>
+        ) : null}
+
         <section id="work" className="km-home-section" key={`work-${path}`}>
           <div className="km-home-section__head km-rise">
             <h2 className="km-home-section__title">{content.sectionTitle}</h2>
-            <p className="km-home-section__support">{content.sectionSupport}</p>
+            {content.sectionSupport ? (
+              <p className="km-home-section__support">{content.sectionSupport}</p>
+            ) : null}
           </div>
           <div className="km-rise">
             <ProjectStage key={path} projects={content.projects} />
-          </div>
-          <div className="km-rise mt-10">
-            <FocusRail items={content.items} />
           </div>
         </section>
 

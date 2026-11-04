@@ -42,8 +42,10 @@ next-env.d.ts
 
 # local tooling / private notes (not for public repo)
 .cursor/
+.agents/
 .impeccable.md
 docs/
+skills-lock.json
 **/AGENTS.md
 **/CLAUDE.md
 

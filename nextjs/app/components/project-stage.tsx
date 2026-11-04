@@ -87,34 +87,6 @@ export default function ProjectStage({
       }}
     >
       <div
-        className="km-project-stage__tabs"
-        role="tablist"
-        aria-label="Selected work"
-      >
-        {projects.map((item, index) => {
-          const selected = index === active;
-          return (
-            <button
-              key={item.mediaSlug}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              id={`project-tab-${index}`}
-              aria-controls="project-panel"
-              className={[
-                "km-project-stage__tab",
-                selected ? "km-project-stage__tab--active" : "",
-              ].join(" ")}
-              onClick={() => select(index)}
-            >
-              <span className="km-project-stage__tab-meta">{item.meta}</span>
-              <span className="km-project-stage__tab-title">{item.title}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div
         id="project-panel"
         role="tabpanel"
         aria-labelledby={`project-tab-${active}`}
@@ -143,6 +115,34 @@ export default function ProjectStage({
           <p className="km-project-stage__outcome">{project.outcome}</p>
           <p className="km-project-stage__body">{project.body}</p>
         </div>
+      </div>
+
+      <div
+        className="km-project-stage__tabs"
+        role="tablist"
+        aria-label="Selected work"
+      >
+        {projects.map((item, index) => {
+          const selected = index === active;
+          return (
+            <button
+              key={item.mediaSlug}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              id={`project-tab-${index}`}
+              aria-controls="project-panel"
+              className={[
+                "km-project-stage__tab",
+                selected ? "km-project-stage__tab--active" : "",
+              ].join(" ")}
+              onClick={() => select(index)}
+            >
+              <span className="km-project-stage__tab-meta">{item.meta}</span>
+              <span className="km-project-stage__tab-title">{item.title}</span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
