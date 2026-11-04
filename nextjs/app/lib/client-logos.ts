@@ -64,7 +64,12 @@ export const CLIENT_LOGOS: ClientLogo[] = [
     mark: c2,
     href: "https://www.facebook.com/CottonConcept-906257929418438/",
   },
-  { id: "jdonut", name: "J'Donuts", mark: jdonut },
+  {
+    id: "jdonut",
+    name: "J'Donuts",
+    mark: jdonut,
+    href: "https://jdonuts.com",
+  },
   {
     id: "mps",
     name: "MPS",
