@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 import path from "path";
 
+/** Repo root (shared/ + assets/ live next to nextjs/). */
+const repoRoot = path.join(__dirname, "..");
+
 const nextConfig: NextConfig = {
-  // Allow importing shared assets from the monorepo root (e.g. shared/colors.css)
+  // Dev/bundler + production file tracing both need the monorepo root so
+  // imports like `../../shared/...` and `../../assets/...` resolve and ship.
   turbopack: {
-    root: path.join(__dirname, ".."),
+    root: repoRoot,
   },
+  outputFileTracingRoot: repoRoot,
 };
 
 export default nextConfig;
