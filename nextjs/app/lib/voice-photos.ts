@@ -4,7 +4,7 @@ import khinPhoto from "../../../assets/people/voices/khin.jpg";
 import waiYanPhoto from "../../../assets/people/voices/wai-yan.jpg";
 import type { PathVoiceId } from "./visitor-paths";
 
-/** Web-optimized portraits (~256px). Imported only by Voices UI. */
+/** Voice portraits (high-quality JPEG). Imported only by Voices UI. */
 export const VOICE_PHOTOS = {
   kein: keinPyiSiPhoto,
   khin: khinPhoto,

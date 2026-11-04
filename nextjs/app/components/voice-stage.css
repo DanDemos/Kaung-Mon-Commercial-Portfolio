@@ -132,9 +132,13 @@
 }
 
 .km-voice-stage__photo {
+  --km-media-w: 3.25rem !important;
+  --km-media-h: 3.25rem !important;
   --km-spinner-size: 1.2rem;
   --km-spinner-thickness: 2px;
   flex: 0 0 auto;
+  width: 3.25rem !important;
+  height: 3.25rem !important;
   border: 1px solid color-mix(in oklab, var(--color-fg) 16%, transparent);
 }
 

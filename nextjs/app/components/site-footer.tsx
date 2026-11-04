@@ -59,9 +59,10 @@ export default function SiteFooter({
               <MediaImage
                 src={logo}
                 alt=""
-                width={36}
-                height={36}
-                sizes="36px"
+                width={72}
+                height={72}
+                sizes="72px"
+                quality={95}
                 className={[
                   "km-footer__mark",
                   invertMark ? "km-media--invert" : "",

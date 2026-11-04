@@ -242,9 +242,10 @@ export default function HomeExperience() {
           <MediaImage
             src={logo}
             alt=""
-            width={28}
-            height={28}
-            sizes="28px"
+            width={56}
+            height={56}
+            sizes="56px"
+            quality={95}
             priority
             className={[
               "km-brand__mark",

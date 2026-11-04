@@ -5,15 +5,15 @@ import { useEffect, useState } from "react";
 function whenIdle(task: () => void) {
   const ric = window.requestIdleCallback?.bind(window);
   if (ric) {
-    return ric(() => task(), { timeout: 2500 });
+    // Prefer a settled shell; media is allowed to start later.
+    return ric(() => task(), { timeout: 1800 });
   }
-  return window.setTimeout(task, 400);
+  return window.setTimeout(task, 500);
 }
 
 /**
- * Opens after JS has painted once.
- * `priority` skips the idle wait (logo); otherwise media waits for idle
- * so HTML/CSS/JS settle before image/video bytes start.
+ * Opens after the first paint so HTML/CSS/JS can settle before heavy media bytes.
+ * `priority` skips the idle wait (header logo only).
  */
 export function useMediaGate(options?: { priority?: boolean }) {
   const priority = options?.priority ?? false;

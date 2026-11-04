@@ -30,14 +30,16 @@ function runWhenIdle(task: () => void) {
 }
 
 /**
- * After the document is fully loaded, warm remaining project videos in the
- * background so tab switches feel instant — without competing with first paint.
+ * Optionally warm other project videos after the page is fully idle.
+ * Disabled by default so HTML/CSS/JS + the active clip aren't fighting
+ * multi‑MB downloads. Call with `{ eager: true }` only if you want it.
  */
 export function prefetchProjectVideos(
   slugs: ProjectMediaSlug[],
-  options?: { skip?: ProjectMediaSlug },
+  options?: { skip?: ProjectMediaSlug; eager?: boolean },
 ) {
   if (typeof document === "undefined") return;
+  if (!options?.eager) return;
 
   const skip = options?.skip;
   const urls = slugs

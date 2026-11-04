@@ -39,8 +39,8 @@ function projectPreviewUrls(slug: ProjectMediaSlug) {
 }
 
 /**
- * Project screen recordings. Masters stay on disk only
- * (`assets/projects/{slug}/master.mp4`) — not served.
+ * Project screen recordings. `preview.mp4` should be the best practical
+ * encode (often a copy of `assets/projects/{slug}/master.mp4`).
  */
 export const PROJECT_PREVIEWS: Record<ProjectMediaSlug, ProjectPreview> = {
   essential: {

@@ -203,10 +203,9 @@ export default function VoiceStage({
                     <MediaImage
                       src={VOICE_PHOTOS[voice.id]}
                       alt=""
-                      width={52}
-                      height={52}
-                      sizes="52px"
-                      quality={75}
+                      width={128}
+                      height={128}
+                      sizes="128px"
                       round
                       className="km-voice-stage__photo"
                     />

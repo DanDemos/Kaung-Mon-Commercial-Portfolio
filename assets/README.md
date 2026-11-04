@@ -11,11 +11,11 @@ assets/
     clients/             # One optimized mark per client (kebab-case)
       {client-slug}.png  # Transparent PNG; keep only intentional badge fills (circle/color plates)
   people/
-    voices/              # Web-ready portraits (~256px JPEG for Voices)
+    voices/              # High-quality portraits (~640px JPEG q92 for Voices)
       {person-slug}.jpg
   projects/
     {project-slug}/
-      master.mp4         # Full-quality archive for re-encode — not for UI
+      master.mp4         # Best-quality source (also copied to public preview when possible)
       poster.jpg         # Optional still (add when available; may also copy to public)
       stills/            # Optional extra frames / UI shots
   _archive/              # Kept for reference; not wired into the site
@@ -25,8 +25,8 @@ assets/
 nextjs/public/media/
   projects/
     {project-slug}/
-      preview.mp4        # Web delivery (primary)
-      preview.webm       # Web delivery (Chromium/Firefox friendly)
+      preview.mp4        # Web delivery (primary — prefer master quality)
+      preview.webm       # Optional fallback
 ```
 
 ## Naming
@@ -49,11 +49,11 @@ nextjs/public/media/
 
 Do **not** `import` `.mp4` / `.webm` in app code — Turbopack has no loader for them. Use public URLs from the registry.
 
-**Load strategy:** HTML/CSS shell first, then JS. Images and videos wait for a media gate (after paint / idle), each with its own CSS skeleton and error fallback. Only the active project video starts; others prefetch after `window` `load`.
+**Load strategy:** HTML/CSS/JS shell first (media gate after paint/idle). Each image/video shows its own spinner and may take longer — quality over early media bytes. Only the **active** project clip starts; other clips are not prefetched by default.
 
 ## Mobile variants — not used
 
-Separate `*mobile*` encodes are **not** required for “looking better” on phones. The browser scales one landscape preview to the CSS box. The archived mobile files were lower resolution (~1000×480) but **larger** on disk than `preview.mp4`, so they would not help bandwidth either. Prefer one well-compressed `preview` pair; use responsive CSS (and later a poster), not a second video file.
+Separate `*mobile*` encodes are **not** required for “looking better” on phones. The browser scales one landscape preview to the CSS box. Prefer one high-quality `preview.mp4` (from `master` when available); use responsive CSS (and later a poster), not a second video file.
 
 ## Do not commit
 

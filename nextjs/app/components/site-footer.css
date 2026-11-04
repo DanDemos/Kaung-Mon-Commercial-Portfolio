@@ -110,7 +110,12 @@
 }
 
 .km-footer__mark {
+  --km-media-w: 2.25rem !important;
+  --km-media-h: 2.25rem !important;
   flex: 0 0 auto;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  background: transparent;
 }
 
 .km-footer__name {

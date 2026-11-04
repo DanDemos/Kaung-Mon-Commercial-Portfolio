@@ -5,6 +5,9 @@ import { useState, type CSSProperties } from "react";
 import { useMediaGate } from "../lib/media-gate";
 import "./media-frame.css";
 
+/** High visual quality — media may load slower; shell stays deferred via gate. */
+export const MEDIA_IMAGE_QUALITY = 92;
+
 type MediaImageProps = {
   src: StaticImageData | string;
   alt: string;
@@ -31,7 +34,7 @@ export default function MediaImage({
   height,
   className,
   sizes,
-  quality = 75,
+  quality = MEDIA_IMAGE_QUALITY,
   priority = false,
   round = false,
   contain = false,

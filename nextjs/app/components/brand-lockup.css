@@ -14,8 +14,12 @@
 }
 
 .km-brand__mark {
+  --km-media-w: 1.75rem !important;
+  --km-media-h: 1.75rem !important;
   --km-spinner-size: 0.85rem;
   --km-spinner-thickness: 2px;
+  width: 1.75rem !important;
+  height: 1.75rem !important;
   background: transparent;
   transform-origin: center;
   transition:
