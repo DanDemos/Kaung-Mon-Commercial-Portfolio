@@ -3,19 +3,22 @@ import alidac from "../../../assets/brand/clients/alidac.png";
 import animeMmSub from "../../../assets/brand/clients/anime-mm-sub.png";
 import avs from "../../../assets/brand/clients/avs.png";
 import c2 from "../../../assets/brand/clients/c2.png";
+import cherryOo from "../../../assets/brand/clients/cherry-oo.svg";
 import essentialAir from "../../../assets/brand/clients/essential-air.png";
 import genesis from "../../../assets/brand/clients/genesis.png";
 import hwt from "../../../assets/brand/clients/hwt.png";
 import jdonut from "../../../assets/brand/clients/jdonut.png";
 import lozengeGalleria from "../../../assets/brand/clients/lozenge-galleria.png";
 import mps from "../../../assets/brand/clients/mps.png";
+import mtbBank from "../../../assets/brand/clients/mtbbank.png";
 import vnm from "../../../assets/brand/clients/vnm.png";
 import yorkYoga from "../../../assets/brand/clients/york-yoga.png";
 
 export type ClientLogo = {
   id: string;
   name: string;
-  mark: StaticImageData;
+  /** PNG StaticImageData or SVG URL string (Next asset import). */
+  mark: StaticImageData | string;
   /** Client site / social — opens in a new tab. */
   href?: string;
 };
@@ -69,6 +72,18 @@ export const CLIENT_LOGOS: ClientLogo[] = [
     name: "J'Donuts",
     mark: jdonut,
     href: "https://jdonuts.com",
+  },
+  {
+    id: "cherry-oo",
+    name: "Cherry Oo",
+    mark: cherryOo,
+    href: "https://www.grandcherryoo.com/",
+  },
+  {
+    id: "mtb-bank",
+    name: "MTB Bank",
+    mark: mtbBank,
+    href: "https://mtb.com.mm/",
   },
   {
     id: "mps",
