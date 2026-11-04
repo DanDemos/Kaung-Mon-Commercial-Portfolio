@@ -1,0 +1,105 @@
+.km-client-stage {
+  display: grid;
+}
+
+/* Mask only — no glass tray, no border card. */
+.km-client-stage__viewport {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4%,
+    black 96%,
+    transparent
+  );
+}
+
+.km-client-stage__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  list-style: none;
+  margin: 0;
+  /* Full set; keep pace readable (not a crawl). */
+  animation: km-client-marquee 28s linear infinite;
+}
+
+.km-client-stage__viewport:hover .km-client-stage__track,
+.km-client-stage__viewport:focus-within .km-client-stage__track {
+  animation-play-state: paused;
+}
+
+.km-client-stage__viewport:hover .km-client-stage__item,
+.km-client-stage__viewport:focus-within .km-client-stage__item {
+  opacity: 1;
+}
+
+/* Fixed slots — shell size never waits on decode. */
+.km-client-stage__item {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 11.5rem;
+  height: 4.75rem;
+  opacity: 0.92;
+  transition: opacity 180ms ease;
+}
+
+.km-client-stage__mark {
+  --km-media-w: 100% !important;
+  --km-media-h: 100% !important;
+  --km-media-ar: auto !important;
+  --km-spinner-size: 1.55rem;
+  --km-spinner-thickness: 2.5px;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  background: transparent !important;
+}
+
+.km-client-stage__mark .km-media__skeleton {
+  background: color-mix(in oklab, var(--color-fg) 6%, transparent);
+}
+
+@keyframes km-client-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .km-client-stage__track {
+    gap: 1.85rem;
+    animation-duration: 24s;
+  }
+
+  .km-client-stage__item {
+    width: 9.5rem;
+    height: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .km-client-stage__viewport {
+    mask-image: none;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .km-client-stage__track {
+    animation: none;
+    width: max-content;
+    gap: 2rem;
+    padding-inline: 0;
+  }
+
+  .km-client-stage__item {
+    opacity: 1;
+  }
+}

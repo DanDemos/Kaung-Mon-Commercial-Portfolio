@@ -46,3 +46,7 @@ next-env.d.ts
 docs/
 **/AGENTS.md
 **/CLAUDE.md
+
+# local recovery / unused media archive
+_recover/
+assets/_archive/

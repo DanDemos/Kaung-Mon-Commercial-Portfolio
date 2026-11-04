@@ -1,0 +1,38 @@
+.km-focus-rail {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 720px) {
+  .km-focus-rail {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+}
+
+.km-focus-rail__panel {
+  min-width: 0;
+  padding: 1.15rem 1.1rem 1.2rem;
+  border-radius: 1.05rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  background: color-mix(in oklab, var(--color-bg-elevated) 90%, var(--color-bg));
+  box-shadow: inset 0 1px 0 color-mix(in oklab, white 6%, transparent);
+}
+
+.km-focus-rail__title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+.km-focus-rail__body {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+}

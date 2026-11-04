@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import logo from "../../../shared/img/KLogoblack.png";
+import dynamic from "next/dynamic";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import {
   CUSTOM_SEED_STORAGE_KEY,
   CUSTOM_THEME_ID,
@@ -20,6 +19,9 @@ import {
   tokensFromSeed,
   type ColorMode,
 } from "../lib/color-themes";
+import { BRAND } from "../lib/media";
+import { clearLocationHash, scrollToSection } from "../lib/scroll-section";
+import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
 import {
   CHOOSER_SEEN_KEY,
   CONTACT_EMAIL,
@@ -28,18 +30,35 @@ import {
   PATH_OPTIONS,
   PATH_STORAGE_KEY,
   contentFor,
+  type PathCta,
   type VisitorPath,
 } from "../lib/visitor-paths";
+import Btn from "./btn";
 import DayNightToggle from "./day-night-toggle";
-import PathChooserDialog from "./path-chooser-dialog";
+import FocusRail from "./focus-rail";
+import MediaImage from "./media-image";
 import PathLensControl from "./path-lens-control";
+import ProjectStage from "./project-stage";
+import SiteFooter from "./site-footer";
+import SiteLoader from "./site-loader";
+import TextLink from "./text-link";
 import ThemeCircles from "./theme-circles";
+import TypewriterRoles from "./typewriter-roles";
 import "./brand-lockup.css";
-import "./glass-cta.css";
-import "./text-link.css";
+import "./home-experience.css";
+import "./site-loader.css";
+
+const PathChooserDialog = dynamic(() => import("./path-chooser-dialog"), {
+  ssr: false,
+});
+const ClientStage = dynamic(() => import("./client-stage"));
+const VoiceStage = dynamic(() => import("./voice-stage"));
+const ContactDock = dynamic(() => import("./contact-dock"));
 
 /** Let brand + hero land before the first-visit ask. */
 const CHOOSER_OPEN_DELAY_MS = 900;
+
+const logo = BRAND.logoMark;
 
 function isVisitorPath(value: string | null): value is VisitorPath {
   return (
@@ -50,8 +69,24 @@ function isVisitorPath(value: string | null): value is VisitorPath {
   );
 }
 
+function PathBtn({ cta }: { cta: PathCta }) {
+  if ("section" in cta) {
+    return <Btn section={cta.section}>{cta.label}</Btn>;
+  }
+  return <Btn href={cta.href}>{cta.label}</Btn>;
+}
+
+/** Quiet sibling — underlined text, not a second primary. */
+function PathTextLink({ cta }: { cta: PathCta }) {
+  if ("section" in cta) {
+    return <TextLink section={cta.section}>{cta.label}</TextLink>;
+  }
+  return <TextLink href={cta.href}>{cta.label}</TextLink>;
+}
+
 export default function HomeExperience() {
   const themes = useMemo(() => themesForYear(), []);
+  // SSR + first hydrate use defaults; boot script covers paint until we resolve storage.
   const [path, setPath] = useState<VisitorPath>(DEFAULT_PATH);
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
   const [customSeed, setCustomSeed] = useState(DEFAULT_CUSTOM_SEED);
@@ -70,29 +105,45 @@ export default function HomeExperience() {
     [activeSwatch, colorMode],
   );
 
-  useEffect(() => {
+  // Resolve stored prefs + full tokens before revealing the app (no dark→light flash).
+  useLayoutEffect(() => {
+    const boot = readClientBootPrefs();
+
     const storedPath = window.localStorage.getItem(PATH_STORAGE_KEY);
-    setPath(isVisitorPath(storedPath) ? storedPath : DEFAULT_PATH);
+    const nextPath = isVisitorPath(storedPath) ? storedPath : DEFAULT_PATH;
 
     const storedCustom = window.localStorage.getItem(CUSTOM_SEED_STORAGE_KEY);
-    if (isHexColor(storedCustom)) {
-      setCustomSeed(storedCustom.toUpperCase());
-    }
+    const nextCustom =
+      isHexColor(storedCustom)
+        ? storedCustom.toUpperCase()
+        : boot && isHexColor(boot.customSeed)
+          ? boot.customSeed.toUpperCase()
+          : DEFAULT_CUSTOM_SEED;
 
     const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+    const bootTheme = boot?.themeId ?? null;
     const nextThemeId = isThemeId(storedTheme, themes)
       ? storedTheme
-      : DEFAULT_THEME_ID;
-    setThemeId(nextThemeId);
+      : isThemeId(bootTheme, themes)
+        ? bootTheme
+        : DEFAULT_THEME_ID;
 
     const storedMode = window.localStorage.getItem(MODE_STORAGE_KEY);
-    if (isColorMode(storedMode)) {
-      setColorMode(storedMode);
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setColorMode("light");
-    } else {
-      setColorMode(DEFAULT_COLOR_MODE);
-    }
+    let nextMode: ColorMode = DEFAULT_COLOR_MODE;
+    if (isColorMode(storedMode)) nextMode = storedMode;
+    else if (boot && isColorMode(boot.mode)) nextMode = boot.mode;
+
+    setPath(nextPath);
+    setCustomSeed(nextCustom);
+    setThemeId(nextThemeId);
+    setColorMode(nextMode);
+
+    const swatch =
+      nextThemeId === CUSTOM_THEME_ID
+        ? nextCustom
+        : (themes.find((theme) => theme.id === nextThemeId) ?? themes[0]).swatch;
+    applyThemeTokens(tokensFromSeed(swatch, nextMode));
+    markBootReady();
     setReady(true);
 
     const seenChooser = window.localStorage.getItem(CHOOSER_SEEN_KEY) === "1";
@@ -105,9 +156,16 @@ export default function HomeExperience() {
     return () => window.clearTimeout(timer);
   }, [themes]);
 
-  useEffect(() => {
+  // Keep CSS vars in sync after boot when the visitor changes theme/mode.
+  useLayoutEffect(() => {
+    if (!ready) return;
     applyThemeTokens(tokens);
-  }, [tokens]);
+  }, [tokens, ready]);
+
+  // Never leave `#contact` (etc.) stuck in the address bar for non-tech visitors.
+  useEffect(() => {
+    clearLocationHash();
+  }, []);
 
   function markChooserSeen() {
     window.localStorage.setItem(CHOOSER_SEEN_KEY, "1");
@@ -149,7 +207,9 @@ export default function HomeExperience() {
   }
 
   return (
-    <div className="relative flex min-h-full flex-1 flex-col overflow-x-hidden">
+    <>
+      <SiteLoader ready={ready} />
+      <div className="km-app relative flex min-h-full flex-1 flex-col overflow-x-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -173,23 +233,28 @@ export default function HomeExperience() {
       </div>
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 pb-2 pt-6 sm:px-8 sm:pt-8">
-        <a href="#top" className="km-brand" aria-label="Kaung Mon — back to top">
-          <Image
+        <button
+          type="button"
+          className="km-brand"
+          aria-label="Kaung Mon, back to top"
+          onClick={() => scrollToSection("top")}
+        >
+          <MediaImage
             src={logo}
             alt=""
             width={28}
             height={28}
-            className={[
-              "km-brand__mark h-7 w-7 object-contain",
-              // Source mark is black; invert when lockup ink is white
-              tokens.brandMark === "#ffffff" ? "invert" : "",
-            ].join(" ")}
+            sizes="28px"
             priority
+            className={[
+              "km-brand__mark",
+              tokens.brandMark === "#ffffff" ? "km-media--invert" : "",
+            ].join(" ")}
           />
           <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
             Kaung Mon
           </span>
-        </a>
+        </button>
 
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
           <ThemeCircles
@@ -229,6 +294,10 @@ export default function HomeExperience() {
             Kaung Mon
           </h1>
 
+          <div className="km-rise km-delay-2" key={`roles-${path}`}>
+            <TypewriterRoles roles={content.roles} />
+          </div>
+
           <p
             className="km-rise km-delay-3 mt-7 max-w-xl text-[clamp(1.15rem,2.4vw,1.55rem)] font-medium leading-snug tracking-[-0.025em] text-[var(--color-fg)]"
             key={`headline-${path}`}
@@ -244,102 +313,83 @@ export default function HomeExperience() {
           </p>
 
           <div className="km-rise km-delay-5 mt-9 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <a href={content.primaryCta.href} className="km-glass-cta">
-              {/* Parallel chase (accent) — grow + exit */}
-              <span className="km-glass-cta__edge" aria-hidden />
-              <span className="km-glass-cta__edge" aria-hidden />
-              <span className="km-glass-cta__edge" aria-hidden />
-              <span className="km-glass-cta__edge" aria-hidden />
-              {/* Same track as chase — white segments fade in after chase ends */}
-              <span className="km-glass-cta__hold" aria-hidden />
-              <span className="km-glass-cta__hold" aria-hidden />
-              <span className="km-glass-cta__hold" aria-hidden />
-              <span className="km-glass-cta__hold" aria-hidden />
-              <span className="km-glass-cta__label">{content.primaryCta.label}</span>
-            </a>
-            <a
-              href={content.secondaryCta.href}
-              className="km-text-link text-[0.95rem]"
-            >
-              {content.secondaryCta.label}
-            </a>
+            <PathBtn cta={content.primaryCta} />
+            <PathTextLink cta={content.secondaryCta} />
           </div>
         </section>
 
-        <section
-          id="work"
-          className="border-t border-[var(--color-line)] py-20 sm:py-24"
-          key={`work-${path}`}
-        >
-          <div className="km-rise max-w-2xl">
-            <h2 className="text-[clamp(1.6rem,3vw,2.15rem)] font-semibold tracking-[-0.035em] text-[var(--color-fg)]">
-              {content.sectionTitle}
-            </h2>
-            <p className="mt-3 text-[1.05rem] leading-relaxed text-[var(--color-fg-muted)]">
-              {content.sectionSupport}
-            </p>
+        <section id="work" className="km-home-section" key={`work-${path}`}>
+          <div className="km-home-section__head km-rise">
+            <h2 className="km-home-section__title">{content.sectionTitle}</h2>
+            <p className="km-home-section__support">{content.sectionSupport}</p>
           </div>
-
-          <ul className="mt-12 grid list-none gap-x-12 gap-y-14 p-0 lg:grid-cols-2">
-            {content.projects.map((project, index) => (
-              <li
-                key={project.title}
-                className="km-rise border-t border-[var(--color-line)] pt-6"
-                style={{ animationDelay: `${100 + index * 90}ms` }}
-              >
-                <p className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-[var(--color-fg-muted)]">
-                  {project.meta}
-                </p>
-                <h3 className="mt-3 text-[1.35rem] font-semibold tracking-[-0.03em] text-[var(--color-fg)]">
-                  {project.title}
-                </h3>
-                <p className="mt-3 text-[1.05rem] font-medium leading-snug tracking-[-0.015em] text-[var(--color-accent-fg)]">
-                  {project.outcome}
-                </p>
-                <p className="mt-3 text-[0.98rem] leading-relaxed text-[var(--color-fg-muted)]">
-                  {project.body}
-                </p>
-              </li>
-            ))}
-          </ul>
-
-          <ul className="mt-16 grid list-none gap-x-10 gap-y-10 p-0 sm:grid-cols-3">
-            {content.items.map((item, index) => (
-              <li
-                key={item.title}
-                className="km-rise border-t border-[var(--color-line)] pt-5"
-                style={{ animationDelay: `${200 + index * 70}ms` }}
-              >
-                <h3 className="text-[1.08rem] font-semibold tracking-[-0.02em] text-[var(--color-fg)]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-[0.98rem] leading-relaxed text-[var(--color-fg-muted)]">
-                  {item.body}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <div className="km-rise">
+            <ProjectStage key={path} projects={content.projects} />
+          </div>
+          <div className="km-rise mt-10">
+            <FocusRail items={content.items} />
+          </div>
         </section>
 
-        <section
-          id="contact"
-          className="border-t border-[var(--color-line)] py-20 sm:py-24"
-          key={`contact-${path}`}
-        >
-          <h2 className="max-w-xl text-[clamp(1.6rem,3vw,2.15rem)] font-semibold tracking-[-0.035em] text-[var(--color-fg)]">
-            {content.contactTitle}
-          </h2>
-          <p className="mt-3 max-w-lg text-[1.05rem] leading-relaxed text-[var(--color-fg-muted)]">
-            {content.contactSupport}
-          </p>
-          <a
-            href={CONTACT_MAILTO}
-            className="mt-8 inline-block text-[1.05rem] font-semibold tracking-[-0.02em] text-[var(--color-accent-fg)] underline decoration-[color-mix(in_oklab,var(--color-accent-fg)_45%,transparent)] underline-offset-4 hover:decoration-[var(--color-accent-fg)]"
+        <section id="clients" className="km-home-section" key={`clients-${path}`}>
+          <div className="km-home-section__head km-rise">
+            <h2 className="km-home-section__title">{content.clientsTitle}</h2>
+            {content.clientsSupport ? (
+              <p className="km-home-section__support">{content.clientsSupport}</p>
+            ) : null}
+          </div>
+          <div className="km-rise">
+            <ClientStage title={content.clientsTitle} />
+          </div>
+        </section>
+
+        <section id="about" className="km-home-section" key={`about-${path}`}>
+          <div className="km-home-section__head km-rise">
+            <h2 className="km-home-section__title">{content.aboutTitle}</h2>
+          </div>
+          <div className="km-home-about km-rise">
+            <p className="km-home-about__body">{content.aboutBody}</p>
+            <PathBtn cta={content.aboutCta} />
+          </div>
+        </section>
+
+        {content.voices.length > 0 ? (
+          <section
+            id="voices"
+            className="km-home-section"
+            key={`voices-${path}`}
           >
-            {CONTACT_EMAIL}
-          </a>
+            <div className="km-home-section__head km-rise">
+              <h2 className="km-home-section__title">{content.voicesTitle}</h2>
+              {content.voicesSupport ? (
+                <p className="km-home-section__support">{content.voicesSupport}</p>
+              ) : null}
+            </div>
+            <div className="km-rise">
+              <VoiceStage
+                title={content.voicesTitle}
+                voices={content.voices}
+              />
+            </div>
+          </section>
+        ) : null}
+
+        <section id="contact" className="km-home-section" key={`contact-${path}`}>
+          <div className="km-rise">
+            <ContactDock
+              title={content.contactTitle}
+              support={content.contactSupport}
+              email={CONTACT_EMAIL}
+              mailto={CONTACT_MAILTO}
+            />
+          </div>
         </section>
       </main>
+
+      <SiteFooter
+        invertMark={tokens.brandMark === "#ffffff"}
+        showVoices={content.voices.length > 0}
+      />
 
       <PathChooserDialog
         open={chooserOpen}
@@ -348,5 +398,6 @@ export default function HomeExperience() {
         onDismiss={dismissChooser}
       />
     </div>
+    </>
   );
 }

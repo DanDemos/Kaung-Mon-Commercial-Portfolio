@@ -1,3 +1,6 @@
+import type { ProjectMediaSlug } from "./media";
+import type { PageSection } from "./scroll-section";
+
 export type VisitorPath = "hire" | "craft" | "build" | "wander";
 
 export const PATH_STORAGE_KEY = "km-visitor-path";
@@ -5,9 +8,38 @@ export const PATH_STORAGE_KEY = "km-visitor-path";
 export const CHOOSER_SEEN_KEY = "km-path-chooser-seen";
 export const DEFAULT_PATH: VisitorPath = "wander";
 
-/** Editable contact — swap when ready. */
+/** Editable contact. Swap when ready. */
 export const CONTACT_EMAIL = "hello@kaungmon.dev";
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
+
+/** Editable social / resume. Swap when ready. */
+export const SOCIAL_LINKS = {
+  linkedin: "https://www.linkedin.com/",
+  youtube: "https://www.youtube.com/",
+  resume: "/resume.pdf",
+} as const;
+
+export const FOOTER_BLURB =
+  "I build clear websites and product UI for teams and small businesses that want something that actually feels like them.";
+
+export type FooterNavItem =
+  | { label: string; section: PageSection }
+  | { label: string; href: string };
+
+/** In-page items use `section` (no `#` in the URL). Resume stays a real href. */
+export const FOOTER_NAV: FooterNavItem[] = [
+  { label: "Home", section: "top" },
+  { label: "Work", section: "work" },
+  { label: "Clients", section: "clients" },
+  { label: "About", section: "about" },
+  { label: "Voices", section: "voices" },
+  { label: "Contact", section: "contact" },
+  { label: "Resume", href: SOCIAL_LINKS.resume },
+];
+
+export type PathCta =
+  | { label: string; section: PageSection }
+  | { label: string; href: string };
 
 export const ROLE_OPTIONS: {
   id: Exclude<VisitorPath, "wander">;
@@ -21,8 +53,8 @@ export const ROLE_OPTIONS: {
   },
   {
     id: "craft",
-    label: "Developer",
-    hint: "Reviewing the technical work",
+    label: "Developer/Designer",
+    hint: "Looking at craft and UI choices",
   },
   {
     id: "build",
@@ -45,216 +77,304 @@ export type PathProject = {
   meta: string;
   outcome: string;
   body: string;
+  /** Links to `PROJECT_PREVIEWS` for the work stage video. */
+  mediaSlug: ProjectMediaSlug;
+};
+
+export type PathVoiceId = "kein" | "khin" | "wai-yan";
+
+export type PathVoice = {
+  id: PathVoiceId;
+  quote: string;
+  name: string;
+  role: string;
 };
 
 export type PathContent = {
   eyebrow: string;
+  /** Quiet rotating line under the brand name. */
+  roles: string[];
   headline: string;
   support: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  primaryCta: PathCta;
+  secondaryCta: PathCta;
   sectionTitle: string;
   sectionSupport: string;
-  /** Featured proof — first viewport of trust below the hero. */
   projects: PathProject[];
   items: { title: string; body: string }[];
+  aboutTitle: string;
+  aboutBody: string;
+  aboutCta: PathCta;
+  clientsTitle: string;
+  clientsSupport: string;
+  /** Empty = hide Voices (Client path). */
+  voicesTitle: string;
+  voicesSupport: string;
+  voices: PathVoice[];
   contactTitle: string;
   contactSupport: string;
 };
 
+/** Real work + screen recordings under `public/media/projects/{slug}/`. */
 const SHARED_PROJECTS: PathProject[] = [
   {
-    title: "Commerce ops console",
-    meta: "Product engineering · React / Node",
-    outcome: "Cut fulfillment exceptions ~40% in the first quarter after launch.",
-    body: "Rebuilt the internal order desk around clear states, typed APIs, and a UI operators could learn in a shift—not a week. Focus: fewer dead-ends, faster recovery when something breaks.",
+    title: "Essential",
+    meta: "Product walkthrough",
+    mediaSlug: "essential",
+    outcome: "Here's the product moving around.",
+    body: "A screen recording from the live build. Ask if you want the longer story.",
   },
   {
-    title: "Member onboarding system",
-    meta: "Full-stack delivery · Next.js",
-    outcome: "Time-to-first-value dropped from days to the same session for most new accounts.",
-    body: "One continuous flow from invite → setup → first successful action, with observability on every drop-off. Handed off with runbooks and ownership boundaries the team still uses.",
+    title: "Genesis",
+    meta: "Product walkthrough",
+    mediaSlug: "genesis",
+    outcome: "Here's the product moving around.",
+    body: "A screen recording from the live build. Ask if you want the longer story.",
+  },
+  {
+    title: "MyanGate",
+    meta: "Product walkthrough",
+    mediaSlug: "myan-gate",
+    outcome: "Here's the product moving around.",
+    body: "A screen recording from the live build. Ask if you want the longer story.",
+  },
+  {
+    title: "York Yoga",
+    meta: "Product walkthrough",
+    mediaSlug: "york-yoga",
+    outcome: "Here's the product moving around.",
+    body: "A screen recording from the live build. Ask if you want the longer story.",
   },
 ];
 
+/**
+ * Colleague voices for hire, craft, and wonderer.
+ * Not shown on Client.
+ */
+const COLLEAGUE_VOICES: PathVoice[] = [
+  {
+    id: "kein",
+    quote:
+      "Dan is an Expert in UI/UX. He Literally do UI simple and Easy to Understand Interface.He also see the details and sizes of components in UI and Calculate it based on how many percent is needed to do. Working with Dan is Fun and you can leave everything about UI/UX to him. Thanks, Dan!",
+    name: "Kein Pyi Si",
+    role: "Backend Developer & Founder of Vocaloid Nation Myanmar",
+  },
+  {
+    id: "khin",
+    quote:
+      "Dan is one of those rare breeds of professional who is passionate about his work and will go to any length to complete an assignment on time. He is the one who is admired and envied. But it's not just his technical abilities that have me impressed. Dan was a joy to work with because of his incredible positive attitude, emotional intelligence, and commitment to meet deadlines.",
+    name: "Khin Myat San",
+    role: "Web Developer",
+  },
+  {
+    id: "wai-yan",
+    quote:
+      "ကောင်းမွန်က အလုပ်လုပ်တဲ့နေရမှာကော ဘာသာစကားပိုင်းမှာကောအကုန် Balance ဖြစ်တယ်။ Website လုပ်တာလည်း စိတ်ရှည်တယ်။ ဘယ်နေရာ၊ ဘယ်နားမှားနေလဲ ဆိုတာကိုလည်း ပြန်ရှာတက်တယ်။",
+    name: "Wai Yan Naing",
+    role: "Graphic Designer",
+  },
+];
+
+const SHARED_ABOUT_BODY =
+  "I'm Kaung Mon. Friends call me Dan. I make websites and product interfaces for small businesses, shops, and associations. The goal is simple: it should feel like your work, and you should understand how the online side fits together.";
+
 export const DEFAULT_CONTENT: PathContent = {
   eyebrow: "Software engineer",
-  headline: "I ship product systems that stay clear under pressure.",
-  support: "Same work throughout — choose a lens only if it helps.",
-  primaryCta: { label: "View selected work", href: "#work" },
-  secondaryCta: { label: "Contact", href: "#contact" },
+  roles: ["Web developer", "UI/UX designer", "Product partner"],
+  headline: "I build product UI that stays understandable when things get busy.",
+  support: "Same work on every path. Switch the lens only if it helps.",
+  primaryCta: { label: "View work", section: "work" },
+  secondaryCta: { label: "Contact", section: "contact" },
   sectionTitle: "Selected work",
-  sectionSupport: "Outcomes first. Depth when you want it.",
+  sectionSupport: "Watch the recordings. Details when you're ready.",
   projects: SHARED_PROJECTS,
   items: [
     {
-      title: "Product delivery",
-      body: "End-to-end features with measurable release quality.",
+      title: "Shipping",
+      body: "Features that make it to production with clear ownership.",
     },
     {
-      title: "Systems thinking",
-      body: "Interfaces, data flow, and maintainable architecture.",
+      title: "Structure",
+      body: "Interfaces and data flow that the next person can follow.",
     },
     {
-      title: "Clear collaboration",
-      body: "Tight loops with design, product, and stakeholders.",
+      title: "Working together",
+      body: "Short loops with design, product, and whoever owns the outcome.",
     },
   ],
-  contactTitle: "Open to the right conversation.",
-  contactSupport: "Email is fine. Say what you’re trying to ship or hire for.",
+  aboutTitle: "About me",
+  aboutBody: SHARED_ABOUT_BODY,
+  aboutCta: { label: "Say hello", section: "contact" },
+  clientsTitle: "Worked with",
+  clientsSupport: "",
+  voicesTitle: "Voices",
+  voicesSupport: "Faces first. A quick look at people I've built with.",
+  voices: COLLEAGUE_VOICES,
+  contactTitle: "Want to talk?",
+  contactSupport: "Email works. Tell me what you're hiring for or trying to ship.",
 };
 
 export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
   hire: {
     eyebrow: "For recruiters",
-    headline: "Senior-minded engineer focused on outcomes you can verify.",
-    support:
-      "Impact, role fit, and how I work with a team — before the deep dive.",
-    primaryCta: { label: "See impact", href: "#work" },
-    secondaryCta: { label: "Email me", href: "#contact" },
-    sectionTitle: "Signal for hiring teams",
-    sectionSupport:
-      "Proof first. Stack and process details when we talk.",
-    projects: [
-      {
-        title: "Commerce ops console",
-        meta: "Staff-level ownership · B2B product",
-        outcome:
-          "Exception rate down ~40%; on-call noise down with clearer state machines.",
-        body: "Led the rebuild of a high-traffic internal desk: prioritization UX, API contracts, and release discipline so the team could ship weekly without fear.",
-      },
-      {
-        title: "Member onboarding system",
-        meta: "Cross-functional delivery",
-        outcome: "Activation improved; support tickets on setup fell sharply.",
-        body: "Partnered with design and success to collapse a fragmented signup into one measurable journey—instrumented, owned, and documented for the next hire.",
-      },
+    roles: [
+      "Full-stack product engineer",
+      "Interface-minded builder",
+      "Calm when delivery is loud",
     ],
+    headline: "Engineer who cares about outcomes you can check.",
+    support: "Impact, fit, and how I work with a team. We can go deeper later.",
+    primaryCta: { label: "See impact", section: "work" },
+    secondaryCta: { label: "Email me", section: "contact" },
+    sectionTitle: "Work hiring teams can skim",
+    sectionSupport: "Proof first. Stack talk when we meet.",
+    projects: SHARED_PROJECTS,
     items: [
       {
-        title: "Role shape",
-        body: "Full-stack product engineering with strong frontend ownership and calm production habits.",
+        title: "What I do",
+        body: "Full-stack product work with a strong frontend seat and steady release habits.",
       },
       {
-        title: "How I communicate",
-        body: "Written decisions, concise updates, and incident notes that survive hand-off.",
+        title: "How I update people",
+        body: "Short written decisions, clear status, notes that still make sense after hand-off.",
       },
       {
         title: "What I look for",
-        body: "Teams that care about clarity, craft, and shipping — not theater.",
+        body: "Teams that care about shipping clean work, not looking busy.",
       },
     ],
-    contactTitle: "Open to the right conversation.",
+    aboutTitle: "Who you'd be hiring",
+    aboutBody: SHARED_ABOUT_BODY,
+    aboutCta: { label: "Email me", section: "contact" },
+    clientsTitle: "Worked with",
+    clientsSupport: "",
+    voicesTitle: "What collaborators say",
+    voicesSupport: "A few people I've built with.",
+    voices: COLLEAGUE_VOICES,
+    contactTitle: "Want to talk?",
     contactSupport:
-      "If the role needs someone who ships and explains the trade-offs, email me.",
+      "If you need someone who ships and can explain the tradeoffs, email me.",
   },
   craft: {
-    eyebrow: "For developers",
-    headline: "Architecture, interfaces, and the decisions behind the UI.",
-    support:
-      "Code quality, system boundaries, and how the pieces hold together.",
-    primaryCta: { label: "Read the craft", href: "#work" },
-    secondaryCta: { label: "Email", href: "#contact" },
-    sectionTitle: "How the work is built",
-    sectionSupport: "Less pitch. More structure, trade-offs, and execution.",
-    projects: [
-      {
-        title: "Commerce ops console",
-        meta: "React · typed APIs · observability",
-        outcome: "Predictable state, fewer impossible UI modes, safer deploys.",
-        body: "Domain model first, then UI. Explicit transitions, error boundaries that mean something, and metrics on the paths that used to page people at 2am.",
-      },
-      {
-        title: "Member onboarding system",
-        meta: "Next.js · progressive disclosure",
-        outcome: "One pipeline; drop-offs finally visible.",
-        body: "Server/client boundaries kept boring on purpose. Forms that fail loudly, retries that don’t double-write, and a hand-off the next engineer can extend.",
-      },
+    eyebrow: "For developers & designers",
+    roles: [
+      "Systems-minded frontend",
+      "Typed APIs & clear edges",
+      "UI that earns its complexity",
     ],
+    headline: "Architecture, interfaces, and the choices behind the UI.",
+    support:
+      "How pieces hold together. Structure and tradeoffs, not a code dump.",
+    primaryCta: { label: "See craft", section: "work" },
+    secondaryCta: { label: "Email", section: "contact" },
+    sectionTitle: "How the work is built",
+    sectionSupport: "Less pitch. More structure and execution.",
+    projects: SHARED_PROJECTS,
     items: [
       {
         title: "System design",
-        body: "Clear module edges, typed contracts, and predictable data flow.",
+        body: "Module edges, typed contracts, data flow you can point at.",
       },
       {
         title: "Frontend craft",
-        body: "Accessible UI, intentional motion, and performance budgets.",
+        body: "Accessible UI, motion that has a reason, budgets that stick.",
       },
       {
         title: "Operability",
-        body: "Observability, failure modes, and deploy confidence.",
+        body: "Failure modes, visibility, and deploys you can trust.",
       },
     ],
-    contactTitle: "Want to dig into the code together?",
-    contactSupport: "Happy to walk through architecture or review a problem space.",
+    aboutTitle: "How I work",
+    aboutBody: SHARED_ABOUT_BODY,
+    aboutCta: { label: "Talk shop", section: "contact" },
+    clientsTitle: "Worked with",
+    clientsSupport: "",
+    voicesTitle: "Colleague network",
+    voicesSupport:
+      "Two voices per slide on purpose. One card looks nicer; two shows the network faster. You're not meant to study every line. You should see how many people I've built with. Same kind of call as product UI: pretty focus vs denser signal.",
+    voices: COLLEAGUE_VOICES,
+    contactTitle: "Want to dig in together?",
+    contactSupport: "Happy to walk through architecture or a messy problem space.",
   },
   build: {
     eyebrow: "For clients",
-    headline: "From messy problem to a product people can actually use.",
-    support:
-      "Discovery, delivery rhythm, and results — without the agency fog.",
-    primaryCta: { label: "See engagements", href: "#work" },
-    secondaryCta: { label: "Start a conversation", href: "#contact" },
-    sectionTitle: "How engagements usually run",
-    sectionSupport: "Problem → approach → shipped result. One thread at a time.",
-    projects: [
-      {
-        title: "Commerce ops console",
-        meta: "Ops-facing product · multi-week delivery",
-        outcome: "Team moved from spreadsheets and chat chaos to one desk.",
-        body: "Started with the real constraint (exceptions, not “a nicer UI”), then shipped in visible slices so stakeholders could steer without stopping progress.",
-      },
-      {
-        title: "Member onboarding system",
-        meta: "Growth-critical journey",
-        outcome: "New members reached value in-session instead of over days.",
-        body: "Framed success as first meaningful action, not account creation. Built, measured, iterated — then left docs and ownership with your team.",
-      },
+    roles: [
+      "Web developer",
+      "UI/UX designer",
+      "Partner for growing businesses",
     ],
+    headline: "You don't just need a website. You need one people trust.",
+    support:
+      "I help companies and associations grow with custom sites and product interfaces that feel like you, not a template with a logo stuck on.",
+    primaryCta: { label: "See work", section: "work" },
+    secondaryCta: { label: "Say hello", section: "contact" },
+    sectionTitle: "How we usually work together",
+    sectionSupport: "Finding clients online shouldn't feel mysterious. Here's what we fix first.",
+    projects: SHARED_PROJECTS,
     items: [
       {
-        title: "Problem framing",
-        body: "We define the real constraint before writing code.",
+        title: "Nobody's booking the call",
+        body: "A clear site that shows what you do, and why you're worth trusting, gives people a reason to reach out.",
       },
       {
-        title: "Build cadence",
-        body: "Visible progress every week, with room to change course.",
+        title: "Tech feels intimidating",
+        body: "I'll walk the online side with you until it makes sense. No jargon wall, and I don't vanish after launch.",
       },
       {
-        title: "Hand-off ready",
-        body: "Documentation, ownership, and a system your team can keep.",
+        title: "It has to feel like you",
+        body: "No ready-made templates. We design for your products, your voice, and how you actually work.",
       },
     ],
-    contactTitle: "Tell me what you want to ship.",
-    contactSupport:
-      "A short note on the problem and timeline is enough to start.",
+    aboutTitle: "Nice to meet you. I'm Dan",
+    aboutBody:
+      "I've helped small businesses and local shops with websites that carry the character of their products, so growth online feels like an extension of what they already do well.",
+    aboutCta: { label: "Say hello", section: "contact" },
+    clientsTitle: "Worked with",
+    clientsSupport: "",
+    voicesTitle: "Voices",
+    voicesSupport: "",
+    voices: [],
+    contactTitle: "Ready when you are",
+    contactSupport: "Tell me what you're trying to grow. We can make something new together.",
   },
   wander: {
     eyebrow: "Welcome",
-    headline: "Glad you stopped by — no pitch required.",
-    support:
-      "A light tour of who I am and what I make. Change your lens anytime.",
-    primaryCta: { label: "Start browsing", href: "#work" },
-    secondaryCta: { label: "Say hello", href: "#contact" },
+    roles: [
+      "Web developer",
+      "UI/UX designer",
+      "Builder for growing businesses",
+    ],
+    headline: "Glad you stopped by. No pitch required.",
+    support: "A light look at who I am and what I make. Change the lens anytime.",
+    primaryCta: { label: "Start browsing", section: "work" },
+    secondaryCta: { label: "Say hello", section: "contact" },
     sectionTitle: "A short tour",
     sectionSupport: "Skim freely. Dig in only where something catches you.",
     projects: SHARED_PROJECTS,
     items: [
       {
         title: "Who I am",
-        body: "A software engineer who cares about clear products and steady delivery.",
+        body: "Engineer and designer. Clear products, and sites that help real businesses grow.",
       },
       {
         title: "What I make",
-        body: "Web products, interfaces, and systems meant to last past launch day.",
+        body: "Custom web products and interfaces meant to last past launch day.",
       },
       {
         title: "If you stick around",
-        body: "Switch the path in the header whenever you want a sharper cut of the same work.",
+        body: "Switch the path in the header when you want a different cut of the same work.",
       },
     ],
-    contactTitle: "If something resonates, say hi.",
-    contactSupport: "No form maze — just email when you’re ready.",
+    aboutTitle: "About me",
+    aboutBody: SHARED_ABOUT_BODY,
+    aboutCta: { label: "Say hello", section: "contact" },
+    clientsTitle: "Worked with",
+    clientsSupport: "",
+    voicesTitle: "Voices",
+    voicesSupport: "Faces first. A quick look at people I've built with.",
+    voices: COLLEAGUE_VOICES,
+    contactTitle: "If something clicks, say hi.",
+    contactSupport: "No form maze. Just email when you're ready.",
   },
 };
 

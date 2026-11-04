@@ -2,10 +2,21 @@
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
   text-decoration: none;
+  font: inherit;
+  color: inherit;
 }
 
 .km-brand__mark {
+  --km-spinner-size: 0.85rem;
+  --km-spinner-thickness: 2px;
+  background: transparent;
   transform-origin: center;
   transition:
     transform 280ms cubic-bezier(0.22, 1.15, 0.36, 1),

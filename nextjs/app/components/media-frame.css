@@ -1,0 +1,159 @@
+/**
+ * Progressive media shell: reserved box first, absolute media fade-in.
+ * Shell size must never depend on decoded image/video dimensions.
+ */
+
+.km-media {
+  --km-media-ar: auto;
+  --km-spinner-size: 2.5rem;
+  --km-spinner-thickness: 3px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  isolation: isolate;
+  flex-shrink: 0;
+  width: var(--km-media-w, 100%);
+  height: var(--km-media-h, auto);
+  aspect-ratio: var(--km-media-ar);
+  background: color-mix(in oklab, var(--color-fg) 5%, var(--color-bg));
+}
+
+.km-media--round {
+  border-radius: 50%;
+}
+
+.km-media--video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920 / 928;
+  --km-spinner-size: 2.75rem;
+  --km-spinner-thickness: 3.5px;
+}
+
+.km-media--contain .km-media__img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.km-media__skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  /* Flex cluster — grid + place-items stretched the two rows apart. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 0;
+  border: 0;
+  padding: 0.5rem;
+  pointer-events: none;
+  background: color-mix(in oklab, var(--color-fg) 7%, var(--color-bg));
+  opacity: 1;
+  transition: opacity 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.km-media--ready .km-media__skeleton {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.km-media--ready .km-media__spinner {
+  animation: none;
+}
+
+/* Classic circular loading spinner — unmistakable “busy” cue. */
+.km-media__spinner {
+  box-sizing: border-box;
+  width: var(--km-spinner-size);
+  height: var(--km-spinner-size);
+  border-radius: 50%;
+  border: var(--km-spinner-thickness) solid
+    color-mix(in oklab, var(--color-fg) 16%, transparent);
+  border-top-color: var(--color-fg);
+  border-right-color: color-mix(in oklab, var(--color-fg) 45%, transparent);
+  background: transparent;
+  animation: km-media-spin 0.7s linear infinite;
+}
+
+.km-media__skeleton-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 560;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.km-media__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  gap: 0.35rem;
+  padding: 1rem;
+  text-align: center;
+  background: color-mix(in oklab, var(--color-fg) 5%, var(--color-bg));
+  color: var(--color-fg-muted);
+}
+
+.km-media__fallback-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+.km-media__fallback-note {
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+/* Media never drives layout — shell does. */
+.km-media__img,
+.km-media__video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.km-media--ready .km-media__img,
+.km-media--ready .km-media__video {
+  opacity: 1;
+}
+
+.km-media--invert .km-media__img {
+  filter: invert(1);
+}
+
+@keyframes km-media-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .km-media__spinner {
+    animation: none;
+    border-color: color-mix(in oklab, var(--color-fg) 28%, transparent);
+    border-top-color: var(--color-fg);
+    /* Static partial ring still reads as “loading”. */
+    clip-path: inset(0 0 50% 0);
+  }
+
+  .km-media__img,
+  .km-media__video,
+  .km-media--ready .km-media__skeleton {
+    transition: none;
+  }
+}

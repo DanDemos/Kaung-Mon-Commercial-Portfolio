@@ -81,13 +81,13 @@ export default function PathChooserDialog({
           id={titleId}
           className="mt-3 text-[1.55rem] font-semibold tracking-[-0.035em] text-[var(--color-fg)]"
         >
-          How should I shape this?
+          Who are you here as?
         </h2>
         <p
           id={descriptionId}
           className="mt-2 text-[0.98rem] leading-relaxed text-[var(--color-fg-muted)]"
         >
-          Default is wonderer. Pick a role only if you want a sharper cut.
+          Default is wonderer. Pick a role only if you want a different view.
         </p>
 
         <div

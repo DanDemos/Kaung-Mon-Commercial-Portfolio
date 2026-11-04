@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import logo from "../../shared/img/KLogoblack.png";
+import logo from "../../assets/brand/logo-mark.png";
 import geistSans from "../../shared/fonts/GeistSans.woff2";
 import cormorantGaramond from "../../shared/fonts/CormorantGaramond-SemiBold.woff2";
+import { getThemeBootScript } from "./lib/theme-boot";
 import "./tailwind.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
         {/* Classic equivalent of next/font preload */}
         <link
@@ -30,6 +31,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
+        />
+        {/* Sync before paint — resolve stored day/night + seed so we never flash default dark → light */}
+        <script
+          id="km-theme-boot"
+          dangerouslySetInnerHTML={{ __html: getThemeBootScript() }}
         />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>

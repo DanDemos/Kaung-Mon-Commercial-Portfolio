@@ -1,0 +1,81 @@
+.km-contact-dock {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.75rem 1.4rem 1.6rem;
+  border-radius: 1.4rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  background: color-mix(in oklab, var(--color-bg-elevated) 88%, var(--color-bg));
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 7%, transparent),
+    0 20px 48px color-mix(in oklab, var(--color-fg) 10%, transparent);
+}
+
+@media (min-width: 800px) {
+  .km-contact-dock {
+    grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+    gap: 2rem;
+    align-items: end;
+    padding: 2rem 1.85rem;
+  }
+}
+
+.km-contact-dock__glow {
+  position: absolute;
+  inset: auto -20% -55% 35%;
+  height: 90%;
+  border-radius: 50%;
+  background: var(--color-hero-glow);
+  opacity: 0.5;
+  filter: blur(42px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.km-contact-dock__title {
+  margin: 0;
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(1.85rem, 3.5vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--color-fg-display);
+  max-width: 16ch;
+}
+
+.km-contact-dock__support {
+  margin: 0.75rem 0 0;
+  max-width: 32rem;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+}
+
+.km-contact-dock__well {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  border-radius: 1.1rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  background: color-mix(in oklab, var(--color-fg) 5%, var(--color-bg));
+  box-shadow:
+    inset 0 2px 4px color-mix(in oklab, var(--color-fg) 16%, transparent),
+    inset 0 -1px 1px color-mix(in oklab, var(--color-bg) 50%, transparent);
+}
+
+.km-contact-dock__email {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+  word-break: break-all;
+}
+
+.km-contact-dock__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}

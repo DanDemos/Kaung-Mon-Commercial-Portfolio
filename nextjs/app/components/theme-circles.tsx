@@ -1,13 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useRef, useState, type CSSProperties } from "react";
 import {
   CUSTOM_THEME_ID,
   type ColorTheme,
 } from "../lib/color-themes";
-import ColorWheelPicker from "./color-wheel-picker";
 import "./header-well.css";
 import "./theme-circles.css";
+
+const ColorWheelPicker = dynamic(() => import("./color-wheel-picker"), {
+  ssr: false,
+});
 
 type ThemeCirclesProps = {
   themes: ColorTheme[];
