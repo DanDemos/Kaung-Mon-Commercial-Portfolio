@@ -17,6 +17,10 @@ const LOADING_MESSAGES = [
 const PETAL_COUNT = 8;
 const MESSAGE_INTERVAL_MS = 500;
 
+/** Almond leaf pointing up from spinner center — rotated per petal. */
+const LEAF_PATH =
+  "M24 5.5C27.4 9.8 28.6 14.2 24 19.5C19.4 14.2 20.6 9.8 24 5.5Z";
+
 function pickMessage(exclude?: string) {
   const pool =
     exclude == null
@@ -26,7 +30,7 @@ function pickMessage(exclude?: string) {
 }
 
 /**
- * Boot gate — petal spinner, bouncing dots, status line every 0.5s.
+ * Boot gate — leaf-petal spinner (white→grey), bouncing dots, status every 0.5s.
  * Flat white / black canvas from day·night. Dissolves when ready.
  */
 export default function SiteLoader({ ready }: SiteLoaderProps) {
@@ -51,23 +55,32 @@ export default function SiteLoader({ ready }: SiteLoaderProps) {
       role={ready ? undefined : "status"}
       aria-live={ready ? undefined : "polite"}
     >
-      <div className="km-loader__spinner" aria-hidden>
+      <svg
+        className="km-loader__spinner"
+        viewBox="0 0 48 48"
+        width="53"
+        height="53"
+        aria-hidden
+      >
         {Array.from({ length: PETAL_COUNT }, (_, index) => (
-          <span
+          <path
             key={index}
             className="km-loader__petal"
+            d={LEAF_PATH}
+            transform={`rotate(${index * 45} 24 24)`}
             style={{ "--km-petal": index } as CSSProperties}
           />
         ))}
-      </div>
+      </svg>
 
-      <div className="km-loader__dots" aria-hidden>
-        <span />
-        <span />
-        <span />
+      <div className="km-loader__status">
+        <p className="km-loader__label">{message}</p>
+        <div className="km-loader__dots" aria-hidden>
+          <span />
+          <span />
+          <span />
+        </div>
       </div>
-
-      <p className="km-loader__label">{message}</p>
     </div>
   );
 }

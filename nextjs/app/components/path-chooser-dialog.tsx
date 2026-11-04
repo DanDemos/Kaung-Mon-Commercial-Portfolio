@@ -155,9 +155,11 @@ export default function PathChooserDialog({
             wondererActive ? "km-path-chooser__wonderer--active" : "",
           ].join(" ")}
         >
-          Continue as {WANDER_OPTION.label.toLowerCase()}
-          <span aria-hidden className="ml-1">
-            →
+          <span className="km-path-chooser__wonderer-label">
+            Continue as {WANDER_OPTION.label.toLowerCase()}
+            <span aria-hidden className="ml-1">
+              →
+            </span>
           </span>
         </button>
       </div>

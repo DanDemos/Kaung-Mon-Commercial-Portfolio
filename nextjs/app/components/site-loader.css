@@ -23,11 +23,11 @@ html:not([data-km-boot]) .km-app {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.15rem;
+  gap: 1.38rem;
   overflow: hidden;
   /* Day / night only — not theme seed */
   background: #fff;
-  color: #1a1a1a;
+  color: #4a4a4a;
   transition:
     opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
     visibility 420ms linear;
@@ -35,7 +35,7 @@ html:not([data-km-boot]) .km-app {
 
 html[data-theme-surface="dark"] .km-loader {
   background: #000;
-  color: #fff;
+  color: #c8c8c8;
 }
 
 .km-loader--done {
@@ -44,43 +44,65 @@ html[data-theme-surface="dark"] .km-loader {
   pointer-events: none;
 }
 
-/* Eight leaf petals — opacity trail; whole ring rotates */
+/* Leaf ring — greyscale only (no theme / blue) */
 .km-loader__spinner {
-  position: relative;
-  width: 2.75rem;
-  height: 2.75rem;
+  display: block;
+  width: 3.3rem;
+  height: 3.3rem;
   animation: km-loader-spin 0.85s linear infinite;
 }
 
 .km-loader__petal {
   --km-petal: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 0.34rem;
-  height: 0.88rem;
-  margin: -1.2rem 0 0 -0.17rem;
-  border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
-  background: currentColor;
-  transform-origin: 50% calc(100% + 0.52rem);
-  transform: rotate(calc(var(--km-petal) * 45deg));
-  opacity: calc(1 - (var(--km-petal) * 0.115));
+  /* Day: charcoal → grey (greyscale only — white leaves vanish on #fff) */
+  fill: rgb(
+    calc(42 + (var(--km-petal) * 28)),
+    calc(42 + (var(--km-petal) * 28)),
+    calc(42 + (var(--km-petal) * 28))
+  );
+  opacity: calc(1 - (var(--km-petal) * 0.06));
+}
+
+/* Night: white → grey trail (matches reference) */
+html[data-theme-surface="dark"] .km-loader__petal {
+  fill: rgb(
+    calc(255 - (var(--km-petal) * 30)),
+    calc(255 - (var(--km-petal) * 30)),
+    calc(255 - (var(--km-petal) * 30))
+  );
+  opacity: calc(1 - (var(--km-petal) * 0.08));
+}
+
+.km-loader__status {
+  position: relative;
+  /* Width = label only (dots are out of flow) so text stays truly centered */
+  display: block;
+  min-height: 1.62rem;
 }
 
 .km-loader__dots {
+  position: absolute;
+  left: 100%;
+  top: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.42rem;
+  margin-left: 0.66rem;
+  transform: translateY(-50%);
+  flex-shrink: 0;
 }
 
 .km-loader__dots span {
   display: block;
-  width: 0.38rem;
-  height: 0.38rem;
+  width: 0.456rem;
+  height: 0.456rem;
   border-radius: 50%;
-  background: currentColor;
+  background: #9a9a9a;
   animation: km-loader-dot-bounce 1.05s ease-in-out infinite;
+}
+
+html[data-theme-surface="dark"] .km-loader__dots span {
+  background: #d0d0d0;
 }
 
 .km-loader__dots span:nth-child(2) {
@@ -95,13 +117,17 @@ html[data-theme-surface="dark"] .km-loader {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans), "Geist Sans", system-ui, sans-serif;
-  font-size: 0.92rem;
+  font-size: 1.104rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1.3;
   text-align: center;
-  color: inherit;
-  opacity: 0.72;
+  color: #6a6a6a;
+  white-space: nowrap;
+}
+
+html[data-theme-surface="dark"] .km-loader__label {
+  color: #b0b0b0;
 }
 
 @keyframes km-loader-spin {
@@ -119,7 +145,7 @@ html[data-theme-surface="dark"] .km-loader {
   }
 
   30% {
-    transform: translateY(-0.38em);
+    transform: translateY(-0.456em);
     opacity: 1;
   }
 }

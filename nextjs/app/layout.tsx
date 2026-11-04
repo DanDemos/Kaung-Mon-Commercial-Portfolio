@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import logo from "../../assets/brand/logo-mark.png";
 import geistSans from "../../shared/fonts/GeistSans.woff2";
 import cormorantGaramond from "../../shared/fonts/CormorantGaramond-SemiBold.woff2";
+import { ThemeBootScript } from "./components/theme-boot-script";
 import { getThemeBootScript } from "./lib/theme-boot";
 import "./tailwind.css";
 
@@ -32,13 +33,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Sync before paint — resolve stored day/night + seed so we never flash default dark → light */}
-        <script
-          id="km-theme-boot"
-          dangerouslySetInnerHTML={{ __html: getThemeBootScript() }}
-        />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        {/* SSR stream injection — not in the React client tree (Next 16 / React 19) */}
+        <ThemeBootScript script={getThemeBootScript()} />
         {children}
       </body>
     </html>
