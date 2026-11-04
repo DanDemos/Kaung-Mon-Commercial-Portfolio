@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import {
+  useEffect,
   useRef,
   useState,
   type CSSProperties,
@@ -19,6 +20,8 @@ import "./theme-circles.css";
 const ColorWheelPicker = dynamic(() => import("./color-wheel-picker"), {
   ssr: false,
 });
+
+const MOBILE_MQ = "(max-width: 639px)";
 
 type ThemeCirclesProps = {
   themes: ColorTheme[];
@@ -44,7 +47,34 @@ export default function ThemeCircles({
   const shellRef = useRef<HTMLDivElement>(null);
   const [wheelOpen, setWheelOpen] = useState(false);
   const [tip, setTip] = useState<TipState | null>(null);
+  /** Mobile: collapsed to active swatch until expanded */
+  const [mobileExpanded, setMobileExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const customActive = activeId === CUSTOM_THEME_ID;
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_MQ);
+    const sync = () => {
+      setIsMobile(mq.matches);
+      if (!mq.matches) setMobileExpanded(false);
+    };
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    if (!mobileExpanded) return;
+    function onPointerDown(event: globalThis.PointerEvent) {
+      const shell = shellRef.current;
+      if (!shell) return;
+      if (!shell.contains(event.target as Node)) {
+        setMobileExpanded(false);
+      }
+    }
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [mobileExpanded]);
 
   function hideTip() {
     setTip(null);
@@ -94,10 +124,28 @@ export default function ThemeCircles({
     setWheelOpen(true);
   }
 
+  function selectTheme(id: string) {
+    setWheelOpen(false);
+    onChange(id);
+    if (isMobile) setMobileExpanded(false);
+  }
+
+  function onActiveCollapsedClick() {
+    setMobileExpanded(true);
+  }
+
+  const collapsed = isMobile && !mobileExpanded;
+
   return (
     <div
       ref={shellRef}
-      className="theme-circles"
+      className={[
+        "theme-circles",
+        collapsed ? "theme-circles--collapsed" : "",
+        mobileExpanded ? "theme-circles--expanded" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
       onPointerLeave={onShellPointerLeave}
       onBlur={onShellBlur}
     >
@@ -114,17 +162,27 @@ export default function ThemeCircles({
               type="button"
               role="radio"
               aria-checked={active}
-              aria-label={theme.label}
+              aria-label={
+                collapsed && active
+                  ? `${theme.label}. Expand theme picker`
+                  : theme.label
+              }
               onPointerEnter={(event) =>
                 onCirclePointerEnter(event, theme.label)
               }
               onFocus={(event) => onCircleFocus(event, theme.label)}
               onClick={() => {
-                setWheelOpen(false);
-                onChange(theme.id);
+                if (collapsed && active) {
+                  onActiveCollapsedClick();
+                  return;
+                }
+                selectTheme(theme.id);
               }}
               onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
-                if (event.key === "Escape") hideTip();
+                if (event.key === "Escape") {
+                  hideTip();
+                  if (mobileExpanded) setMobileExpanded(false);
+                }
               }}
               className={[
                 "theme-circle h-6 w-6 rounded-full border",
@@ -147,16 +205,30 @@ export default function ThemeCircles({
           type="button"
           role="radio"
           aria-checked={customActive}
-          aria-expanded={wheelOpen}
+          aria-expanded={wheelOpen || (collapsed && customActive)}
           aria-haspopup="dialog"
-          aria-label="Custom color"
+          aria-label={
+            collapsed && customActive
+              ? "Custom color. Expand theme picker"
+              : "Custom color"
+          }
           onPointerEnter={(event) =>
             onCirclePointerEnter(event, "Custom color")
           }
           onFocus={(event) => onCircleFocus(event, "Custom color")}
-          onClick={openCustomPicker}
+          onClick={() => {
+            if (collapsed && customActive) {
+              onActiveCollapsedClick();
+              return;
+            }
+            if (collapsed) setMobileExpanded(true);
+            openCustomPicker();
+          }}
           onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
-            if (event.key === "Escape") hideTip();
+            if (event.key === "Escape") {
+              hideTip();
+              if (mobileExpanded) setMobileExpanded(false);
+            }
           }}
           className={[
             "theme-circle theme-circle--custom h-6 w-6 rounded-full border",

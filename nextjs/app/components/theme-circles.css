@@ -2,6 +2,29 @@
   position: relative;
 }
 
+/* Mobile: one active swatch until expanded (see ThemeCircles JS) */
+@media (max-width: 639px) {
+  .theme-circles--collapsed .theme-circle:not([aria-checked="true"]) {
+    display: none;
+  }
+
+  .theme-circles--collapsed .km-well {
+    gap: 0;
+    padding-inline: 0.35rem;
+    padding-block: 0.3rem;
+  }
+
+  .theme-circles--expanded {
+    z-index: 50;
+  }
+
+  .theme-circles--expanded .km-well {
+    box-shadow:
+      inset 0 2px 4px color-mix(in oklab, var(--color-fg) 22%, transparent),
+      0 12px 28px color-mix(in oklab, var(--color-fg) 16%, transparent);
+  }
+}
+
 .theme-circles__tip {
   position: absolute;
   top: calc(100% + 0.4rem);

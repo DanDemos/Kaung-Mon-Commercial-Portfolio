@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
     root: repoRoot,
   },
   outputFileTracingRoot: repoRoot,
+  experimental: {
+    // Corrupted turbopack FS cache has aborted `next dev` (Restore of Data /
+    // TaskId panic) and dropped the HMR WebSocket — Firefox then logs
+    // ws://localhost:3000/_next/hmr failures. Skip persistent restore in dev.
+    turbopackFileSystemCacheForDev: false,
+  },
   images: {
     // Prefer modern codecs; keep high qualities available to MediaImage.
     formats: ["image/avif", "image/webp"],

@@ -62,7 +62,7 @@ export default function PathChooserDialog({
   const wondererActive = currentPath === WANDER_OPTION.id;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <button
         type="button"
         aria-label="Close path chooser"
@@ -76,7 +76,7 @@ export default function PathChooserDialog({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="km-rise relative z-10 w-full max-w-md border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-6 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
+        className="km-rise relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-6 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
       >
         <button
           ref={closeRef}
@@ -129,16 +129,14 @@ export default function PathChooserDialog({
                 aria-pressed={active}
                 onClick={() => onChoose(option.id)}
                 className={[
-                  "flex items-baseline justify-between gap-4 rounded-2xl px-3.5 py-3.5 text-left transition-[background-color,color] duration-150",
-                  active
-                    ? "bg-[var(--color-accent-soft)] text-[var(--color-accent-fg)]"
-                    : "bg-transparent text-[var(--color-fg)] hover:bg-[var(--color-accent-soft)] hover:text-[var(--color-accent-fg)]",
+                  "km-path-chooser__role",
+                  active ? "km-path-chooser__role--active" : "",
                 ].join(" ")}
               >
-                <span className="text-[0.9rem] font-semibold tracking-[-0.02em]">
+                <span className="km-path-chooser__role-label">
                   {option.label}
                 </span>
-                <span className="text-[0.8rem] text-[var(--color-fg-muted)]">
+                <span className="km-path-chooser__role-hint">
                   {option.hint}
                 </span>
               </button>

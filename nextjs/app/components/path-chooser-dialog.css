@@ -7,6 +7,63 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  /* Scale label/hint from the row width so one line fits on narrow phones */
+  container-type: inline-size;
+  container-name: path-roles;
+}
+
+.km-path-chooser__role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.3rem, 2cqi, 1rem);
+  width: 100%;
+  padding: 0.85rem clamp(0.45rem, 2.2cqi, 0.875rem);
+  border: none;
+  border-radius: 1rem;
+  background: transparent;
+  color: var(--color-fg);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.km-path-chooser__role:hover,
+.km-path-chooser__role:focus-visible {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-fg);
+}
+
+.km-path-chooser__role:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-accent) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.km-path-chooser__role--active {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-fg);
+}
+
+/* cqi tracks dialog width — sized so “Developer/Designer” + longest hint stay one line */
+.km-path-chooser__role-label {
+  flex: 0 0 auto;
+  font-size: clamp(0.58rem, 0.28rem + 2.9cqi, 0.9rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.km-path-chooser__role-hint {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-size: clamp(0.54rem, 0.24rem + 2.5cqi, 0.8rem);
+  line-height: 1.2;
+  text-align: right;
+  color: var(--color-fg-muted);
 }
 
 /* Demoted wonderer escape — underline under label text only, not full row. */

@@ -40,8 +40,8 @@ export default function PathLensControl({
       title="Change lens"
       className="km-path-lens km-well group inline-flex items-center gap-2.5 rounded-full px-3 py-1.5 text-left"
     >
-      <span className="min-w-0">
-        <span className="block text-[0.62rem] font-medium uppercase leading-none tracking-[0.12em] text-[var(--color-fg-muted)]">
+      <span className="km-path-lens__copy min-w-0">
+        <span className="km-path-lens__eyebrow block text-[0.62rem] font-medium uppercase leading-none tracking-[0.12em] text-[var(--color-fg-muted)]">
           Lens
         </span>
         <span className="km-lens-path mt-[3px] inline-block max-w-full truncate text-[0.8rem] font-semibold leading-none tracking-[-0.02em]">

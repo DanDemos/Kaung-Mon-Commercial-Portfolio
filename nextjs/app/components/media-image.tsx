@@ -92,7 +92,7 @@ export default function MediaImage({
           priority={priority}
           loading={priority ? "eager" : "lazy"}
           className="km-media__img"
-          onLoadingComplete={() => setReady(true)}
+          onLoad={() => setReady(true)}
           onError={() => setFailed(true)}
         />
       ) : null}
