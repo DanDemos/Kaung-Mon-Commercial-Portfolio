@@ -49,6 +49,47 @@
 .km-btn__label {
   position: relative;
   z-index: 3;
+  display: inline-grid;
+  place-items: center;
+}
+
+.km-btn__label-text {
+  grid-area: 1 / 1;
+}
+
+/* Keep label metrics so the pill doesn’t shrink when the spinner shows. */
+.km-btn__label-text--busy {
+  visibility: hidden;
+}
+
+.km-btn__spinner {
+  grid-area: 1 / 1;
+  box-sizing: border-box;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  border: 2px solid color-mix(in oklab, var(--color-on-accent) 28%, transparent);
+  border-top-color: var(--color-on-accent);
+  border-right-color: color-mix(in oklab, var(--color-on-accent) 55%, transparent);
+  background: transparent;
+  animation: km-btn-spin 0.7s linear infinite;
+}
+
+.km-btn--busy {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.km-btn:disabled,
+.km-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  filter: saturate(0.92) brightness(0.96);
+}
+
+@keyframes km-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .km-btn::before {
@@ -206,6 +247,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .km-btn__spinner {
+    animation: none;
+    border-color: color-mix(in oklab, var(--color-on-accent) 35%, transparent);
+    border-top-color: var(--color-on-accent);
+    clip-path: inset(0 0 50% 0);
+  }
+
   .km-btn::after,
   .km-btn__edge,
   .km-btn__hold {

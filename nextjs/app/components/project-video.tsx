@@ -112,7 +112,6 @@ export default function ProjectVideo({ preview, label, onReady }: ProjectVideoPr
           aria-label={busy ? `Loading ${label}` : undefined}
         >
           <span className="km-media__spinner" aria-hidden />
-          {busy ? <p className="km-media__skeleton-label">Loading</p> : null}
         </div>
       ) : null}
 

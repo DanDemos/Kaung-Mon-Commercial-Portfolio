@@ -374,8 +374,8 @@ export default function ContactDock({
           ) : null}
 
           <div className="km-contact-form__actions">
-            <Btn type="submit" disabled={busy}>
-              {busy ? "Sending…" : "Send message"}
+            <Btn type="submit" disabled={busy} busy={busy} aria-label={busy ? "Sending message" : undefined}>
+              Send message
             </Btn>
           </div>
         </form>
