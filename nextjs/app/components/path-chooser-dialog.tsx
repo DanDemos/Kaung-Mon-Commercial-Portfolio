@@ -62,21 +62,27 @@ export default function PathChooserDialog({
   const wondererActive = currentPath === WANDER_OPTION.id;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="km-path-chooser fixed inset-0 z-50 overflow-y-auto overscroll-contain">
       <button
         type="button"
         aria-label="Close path chooser"
-        className="absolute inset-0 bg-[color-mix(in_oklab,var(--color-fg)_28%,transparent)] backdrop-blur-[2px] transition-opacity"
+        className="fixed inset-0 bg-[color-mix(in_oklab,var(--color-fg)_28%,transparent)] backdrop-blur-[2px] transition-opacity"
         onClick={onDismiss}
       />
 
+      {/*
+        Scroll the overlay (not only the card). `safe center` keeps the dialog
+        centered when it fits; when taller than the phone chrome it pins to the
+        top so the title stays reachable and the rest scrolls.
+      */}
+      <div className="relative flex min-h-dvh items-[safe_center] justify-center p-4 py-5 sm:p-6">
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="km-rise relative z-10 max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-6 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
+        className="km-path-chooser__panel km-rise relative z-10 w-full max-w-md border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-5 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
       >
         <button
           ref={closeRef}
@@ -160,6 +166,7 @@ export default function PathChooserDialog({
             </span>
           </span>
         </button>
+      </div>
       </div>
     </div>
   );

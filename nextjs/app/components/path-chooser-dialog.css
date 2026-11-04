@@ -3,6 +3,43 @@
   margin: 0 0 1.75rem;
 }
 
+/* Short phones: compress vertical rhythm so the card fits more often */
+@media (max-height: 720px) {
+  .km-path-chooser__panel {
+    padding-block: 1.1rem;
+  }
+
+  .km-path-chooser__panel .km-section-title__label {
+    margin-bottom: 0.85rem;
+  }
+
+  .km-path-chooser__panel .km-section-title__title {
+    margin-top: -0.7rem;
+    margin-bottom: 0.4rem;
+    font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+  }
+
+  .km-path-chooser__desc {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .km-path-chooser__roles {
+    gap: 0.3rem;
+  }
+
+  .km-path-chooser__role {
+    padding-block: 0.62rem;
+  }
+
+  .km-path-chooser__wonderer {
+    margin-top: 0.25rem;
+    padding-top: 0.65rem;
+    padding-bottom: 0.35rem;
+  }
+}
+
 .km-path-chooser__roles {
   display: flex;
   flex-direction: column;
