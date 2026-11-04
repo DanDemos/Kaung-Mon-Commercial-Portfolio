@@ -98,7 +98,7 @@ export default function ProjectStage({
             <span />
             <span />
             <p className="km-project-stage__url">
-              {media.label.toLowerCase().replace(/\s+/g, "")}.app
+              {media.host ?? "Walkthrough"}
             </p>
           </div>
           <div className="km-project-stage__screen km-project-stage__screen--video">

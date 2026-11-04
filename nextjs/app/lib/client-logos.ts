@@ -18,8 +18,10 @@ export type ClientLogo = {
   id: string;
   name: string;
   mark: StaticImageData;
-  /** Client site / social — opens in a new tab. */
+  /** Live site / social — opens in a new tab. Omit when the site is gone. */
   href?: string;
+  /** Former URL kept for records when `href` is omitted. */
+  archivedHref?: string;
 };
 
 /** All unique client marks under `assets/brand/clients/`. */
@@ -28,19 +30,19 @@ export const CLIENT_LOGOS: ClientLogo[] = [
     id: "essential-air",
     name: "Essential Air Solution",
     mark: essentialAir,
-    href: "https://essentialairsolution.com/",
+    archivedHref: "https://essentialairsolution.com/",
   },
   {
     id: "genesis",
     name: "Genesis",
     mark: genesis,
-    href: "http://genesismyanmar.com/",
+    archivedHref: "http://genesismyanmar.com/",
   },
   {
     id: "york-yoga",
     name: "York Yoga",
     mark: yorkYoga,
-    href: "https://yorkyogacorner.com/",
+    archivedHref: "https://yorkyogacorner.com/",
   },
   {
     id: "lozenge-galleria",

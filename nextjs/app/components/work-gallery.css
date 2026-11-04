@@ -204,6 +204,20 @@
   transform: translateY(-1px);
 }
 
+/* Dead site — proof stays; no outbound click */
+.km-portfolio__offline {
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  padding-inline: 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, white 72%, transparent);
+  background: color-mix(in oklab, white 10%, transparent);
+}
+
 .km-portfolio__wrap:hover::before,
 .km-portfolio__wrap:focus-within::before {
   inset: 0;

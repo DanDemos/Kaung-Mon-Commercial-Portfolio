@@ -23,6 +23,11 @@ export type ProjectPreview = {
   slug: ProjectMediaSlug;
   /** Short label for alt text / chrome */
   label: string;
+  /**
+   * Live hostname for the Safari-like frame. Omit when the site is offline —
+   * chrome then shows “Walkthrough” instead of a dead host.
+   */
+  host?: string;
   /** Web delivery — prefer webm then mp4 in <video> */
   preview: {
     mp4: string;
@@ -56,6 +61,7 @@ export const PROJECT_PREVIEWS: Record<ProjectMediaSlug, ProjectPreview> = {
   "myan-gate": {
     slug: "myan-gate",
     label: "MyanGate",
+    host: "myangate.com",
     preview: projectPreviewUrls("myan-gate"),
   },
   "york-yoga": {

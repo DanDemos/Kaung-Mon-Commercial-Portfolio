@@ -54,8 +54,10 @@ export type PortfolioItem = {
   /** Overlay line under the title — Website, App, Drawing, Animation, … */
   kind: string;
   cover: StaticImageData;
-  /** External project link (old portfolio-links second anchor). */
+  /** Live external project link. Omit when the site is gone. */
   href?: string;
+  /** Former URL kept for records when `href` is omitted. */
+  archivedHref?: string;
   hasWalkthrough?: boolean;
 };
 
@@ -82,7 +84,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: yorkYoga,
-    href: "https://yorkyogacorner.com/",
+    archivedHref: "https://yorkyogacorner.com/",
     hasWalkthrough: true,
   },
   {
@@ -91,7 +93,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: essential,
-    href: "https://essentialairsolution.com/",
+    archivedHref: "https://essentialairsolution.com/",
     hasWalkthrough: true,
   },
   {
@@ -100,7 +102,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: genesis,
-    href: "http://genesismyanmar.com/",
+    archivedHref: "http://genesismyanmar.com/",
     hasWalkthrough: true,
   },
   {

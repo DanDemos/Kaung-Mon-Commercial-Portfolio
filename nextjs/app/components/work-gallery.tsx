@@ -90,6 +90,13 @@ export default function WorkGallery() {
                     >
                       <LinkIcon />
                     </a>
+                  ) : item.archivedHref ? (
+                    <span
+                      className="km-portfolio__offline"
+                      title={item.archivedHref}
+                    >
+                      Offline
+                    </span>
                   ) : null}
                 </div>
               </div>
