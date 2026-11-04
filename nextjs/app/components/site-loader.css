@@ -99,23 +99,28 @@ html[data-theme-surface="dark"] .km-loader__petal {
 }
 
 .km-loader__status {
-  /* Stacked — never wider than the gate (no 100vw, no side-by-side dots) */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.7rem;
+  /* One row: label + dots share the same horizontal axis */
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.55rem;
   box-sizing: border-box;
-  width: 100%;
-  max-width: 18rem;
+  max-width: 100%;
   min-width: 0;
 }
 
 .km-loader__dots {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.42rem;
   flex-shrink: 0;
+  /*
+   * Sit in the x-height band (a/c/e), not on the baseline with descenders (p)
+   * and not centered on full line-box / ascenders (b).
+   * From baseline: mid-x is 0.5ex; lift so dot centers there.
+   */
+  position: relative;
+  bottom: calc(0.5ex - 0.228rem);
 }
 
 .km-loader__dots span {
@@ -142,15 +147,14 @@ html[data-theme-surface="dark"] .km-loader__dots span {
 .km-loader__label {
   margin: 0;
   padding: 0;
-  width: 100%;
   min-width: 0;
   font-family: var(--font-sans), "Geist Sans", system-ui, sans-serif;
   font-size: clamp(0.92rem, 3.8vw, 1.104rem);
   font-weight: 500;
   letter-spacing: 0.02em;
-  line-height: 1.35;
-  text-align: center;
-  text-wrap: balance;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap;
   color: #6a6a6a;
 }
 

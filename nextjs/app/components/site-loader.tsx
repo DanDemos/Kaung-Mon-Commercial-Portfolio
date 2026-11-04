@@ -14,8 +14,8 @@ type SiteLoaderProps = {
 };
 
 const LOADING_MESSAGES = [
-  "Color of the year",
-  "Getting ready",
+  "Fetching color of the year",
+  "Getting ready for everything",
   "Loading",
 ] as const;
 
