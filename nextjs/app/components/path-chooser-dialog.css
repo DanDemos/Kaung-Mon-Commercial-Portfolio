@@ -1,10 +1,14 @@
-/* Demoted wonderer escape — text + underline only, never a filled row. */
+/* Demoted wonderer escape — text + underline at rest; clear hover even when active. */
 .km-path-chooser__wonderer {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
   margin: 0;
-  padding: 0.85rem 0 0.35rem;
+  padding: 0.55rem 0.65rem;
+  margin-inline: -0.65rem;
   border: none;
+  border-radius: 0.2rem;
   background: transparent;
   cursor: pointer;
   font: inherit;
@@ -12,39 +16,48 @@
   font-weight: 550;
   text-align: left;
   color: var(--color-fg-muted);
-  transition: color 200ms ease;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
 }
 
 .km-path-chooser__wonderer::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.2rem;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: 0.35rem;
   height: 1px;
   background: currentColor;
   transform: scaleX(0);
   transform-origin: left center;
-  opacity: 0.7;
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0.75;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.km-path-chooser__wonderer:hover,
-.km-path-chooser__wonderer:focus-visible,
 .km-path-chooser__wonderer--active {
   color: var(--color-fg);
 }
 
-.km-path-chooser__wonderer:hover::after,
-.km-path-chooser__wonderer:focus-visible::after,
 .km-path-chooser__wonderer--active::after {
+  transform: scaleX(1);
+}
+
+/* Hover must differ from both rest and active (default path is wonderer). */
+.km-path-chooser__wonderer:hover,
+.km-path-chooser__wonderer:focus-visible {
+  color: var(--color-accent-fg);
+  background: var(--color-accent-soft);
+}
+
+.km-path-chooser__wonderer:hover::after,
+.km-path-chooser__wonderer:focus-visible::after {
   transform: scaleX(1);
 }
 
 .km-path-chooser__wonderer:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--color-accent) 55%, transparent);
-  outline-offset: 4px;
-  border-radius: 0.2rem;
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -57,6 +70,6 @@
   .km-path-chooser__wonderer:hover::after,
   .km-path-chooser__wonderer:focus-visible::after,
   .km-path-chooser__wonderer--active::after {
-    opacity: 0.7;
+    opacity: 0.75;
   }
 }

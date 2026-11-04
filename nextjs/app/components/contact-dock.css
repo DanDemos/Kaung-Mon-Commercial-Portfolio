@@ -199,24 +199,6 @@
   border-color: color-mix(in oklab, #c45b5b 55%, var(--color-fg));
 }
 
-.km-contact-form__error {
-  margin: 0;
-  font-size: 0.82rem;
-  line-height: 1.35;
-  color: color-mix(in oklab, #c45b5b 70%, var(--color-fg));
-}
-
-.km-contact-form__banner {
-  margin: 0;
-  padding: 0.7rem 0.85rem;
-  border-radius: 0.7rem;
-  border: 1px solid color-mix(in oklab, #c45b5b 35%, transparent);
-  background: color-mix(in oklab, #c45b5b 10%, var(--color-bg));
-  font-size: 0.9rem;
-  line-height: 1.45;
-  color: var(--color-fg);
-}
-
 .km-contact-form__turnstile {
   min-height: 1.5rem;
 }

@@ -1407,6 +1407,8 @@ export function tokensFromSeed(
       r.accent,
     );
     const brandMark = brandMarkForBg(bg);
+    // Brand blue reads as a button field — white ink, never near-black on #2C7BD3
+    const onAccent = brandPair ? "#ffffff" : accents.onAccent;
 
     return {
       bg,
@@ -1416,7 +1418,7 @@ export function tokensFromSeed(
       fg: ink.body,
       fgMuted,
       accent: accents.accent,
-      onAccent: accents.onAccent,
+      onAccent,
       accentFg: accents.accentFg,
       accentSoft: rgba(accents.accent, 0.14),
       secondary: accents.accent,
@@ -1467,6 +1469,7 @@ export function tokensFromSeed(
     r.accent,
   );
   const brandMark = brandMarkForBg(bg);
+  const onAccent = brandPair ? "#ffffff" : accents.onAccent;
 
   return {
     bg,
@@ -1476,7 +1479,7 @@ export function tokensFromSeed(
     fg: ink.body,
     fgMuted,
     accent: accents.accent,
-    onAccent: accents.onAccent,
+    onAccent,
     accentFg: accents.accentFg,
     accentSoft: rgba(accents.accent, 0.12),
     secondary: accents.accent,

@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { BRAND } from "../lib/media";
-import { scrollToSection } from "../lib/scroll-section";
 import {
   FOOTER_BLURB,
   FOOTER_NAV,
@@ -13,57 +13,46 @@ const logo = BRAND.logoMark;
 type SiteFooterProps = {
   /** When true, invert the black source mark for dark canvases. */
   invertMark?: boolean;
-  /** Hide Voices when that section isn’t on the page (e.g. Client lens). */
-  showVoices?: boolean;
-  /** Resume is Recruiter-lens only. */
-  showResume?: boolean;
 };
 
-export default function SiteFooter({
-  invertMark = false,
-  showVoices = true,
-  showResume = false,
-}: SiteFooterProps) {
+function isExternalHref(href: string) {
+  return (
+    href.startsWith("http://") ||
+    href.startsWith("https://") ||
+    href.startsWith("mailto:")
+  );
+}
+
+/**
+ * Shared site footer — same on every page.
+ * Nav is real routes / mailto only (no in-page section scroll).
+ */
+export default function SiteFooter({ invertMark = false }: SiteFooterProps) {
   const year = new Date().getFullYear();
-  const nav = FOOTER_NAV.filter((item) => {
-    if (!showVoices && "section" in item && item.section === "voices") {
-      return false;
-    }
-    if (!showResume && "href" in item && item.href === SOCIAL_LINKS.resume) {
-      return false;
-    }
-    return true;
-  });
 
   return (
     <footer className="km-footer">
       <div className="km-footer__inner">
         <div className="km-footer__grid">
           <nav className="km-footer__nav" aria-label="Footer">
-            {nav.map((item) =>
-              "section" in item ? (
-                <button
-                  key={item.section}
-                  type="button"
-                  className="km-footer__link"
-                  onClick={() => scrollToSection(item.section)}
-                >
-                  {item.label}
-                </button>
-              ) : (
+            {FOOTER_NAV.map((item) =>
+              isExternalHref(item.href) ? (
                 <a key={item.href} href={item.href} className="km-footer__link">
                   {item.label}
                 </a>
+              ) : (
+                <Link key={item.href} href={item.href} className="km-footer__link">
+                  {item.label}
+                </Link>
               ),
             )}
           </nav>
 
           <div className="km-footer__brand">
-            <button
-              type="button"
+            <Link
+              href="/"
               className="km-footer__lockup"
-              aria-label="Kaung Mon, back to top"
-              onClick={() => scrollToSection("top")}
+              aria-label="Kaung Mon, home"
             >
               <MediaImage
                 src={logo}
@@ -78,7 +67,7 @@ export default function SiteFooter({
                 ].join(" ")}
               />
               <span className="km-footer__name">Kaung Mon</span>
-            </button>
+            </Link>
             <p className="km-footer__blurb">{FOOTER_BLURB}</p>
             <div className="km-footer__social" aria-label="Social">
               <a

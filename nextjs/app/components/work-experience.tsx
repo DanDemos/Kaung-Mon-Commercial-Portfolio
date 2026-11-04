@@ -23,6 +23,7 @@ import { BRAND } from "../lib/media";
 import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
 import DayNightToggle from "./day-night-toggle";
 import MediaImage from "./media-image";
+import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
 import TextLink from "./text-link";
 import ThemeCircles from "./theme-circles";
@@ -113,14 +114,9 @@ export default function WorkExperience() {
     window.localStorage.setItem(MODE_STORAGE_KEY, nextMode);
   }
 
-  const year = new Date().getFullYear();
-
   return (
     <>
-      <SiteLoader
-        ready={ready}
-        invertMark={tokens.brandMark === "#ffffff"}
-      />
+      <SiteLoader ready={ready} />
       <div className="km-app relative flex min-h-full flex-1 flex-col overflow-x-hidden">
         <div
           aria-hidden
@@ -186,17 +182,7 @@ export default function WorkExperience() {
           </div>
         </main>
 
-        <footer className="km-work-page__footer">
-          <div className="km-work-page__footer-inner">
-            <nav className="km-work-page__footer-nav" aria-label="Footer">
-              <Link href="/">Home</Link>
-              <Link href="/work" aria-current="page">
-                Work
-              </Link>
-            </nav>
-            <p className="km-work-page__copy">© {year} Kaung Mon</p>
-          </div>
-        </footer>
+        <SiteFooter invertMark={tokens.brandMark === "#ffffff"} />
       </div>
     </>
   );

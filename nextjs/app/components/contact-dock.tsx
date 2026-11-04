@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useCallback,
   useEffect,
   useId,
   useRef,
@@ -13,8 +14,21 @@ import {
   type ContactFieldErrors,
 } from "../lib/contact";
 import Btn from "./btn";
+import SiteAlert from "./site-alert";
 import TextLink from "./text-link";
 import "./contact-dock.css";
+
+function alertMessageFromFields(
+  fields: ContactFieldErrors,
+  fallback: string,
+): string {
+  const parts = (
+    ["name", "email", "subject", "message", "phone", "form"] as const
+  )
+    .map((key) => fields[key])
+    .filter((msg): msg is string => Boolean(msg));
+  return parts.length > 0 ? parts.join(" ") : fallback;
+}
 
 type ContactDockProps = {
   title: string;
@@ -145,6 +159,10 @@ export default function ContactDock({
     });
   }
 
+  const dismissAlert = useCallback(() => {
+    setStatus((prev) => (prev.kind === "error" ? { kind: "idle" } : prev));
+  }, []);
+
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (status.kind === "sending") return;
@@ -180,7 +198,12 @@ export default function ContactDock({
         if (data.fields) setFieldErrors(data.fields);
         setStatus({
           kind: "error",
-          message: data.error || "Could not send. Try again.",
+          message: data.fields
+            ? alertMessageFromFields(
+                data.fields,
+                data.error || "Could not send. Try again.",
+              )
+            : data.error || "Could not send. Try again.",
         });
         if (widgetId.current && window.turnstile) {
           window.turnstile.reset(widgetId.current);
@@ -215,6 +238,12 @@ export default function ContactDock({
 
   return (
     <div className="km-contact-dock">
+      <SiteAlert
+        open={status.kind === "error"}
+        message={status.kind === "error" ? status.message : ""}
+        onClose={dismissAlert}
+      />
+
       <div className="km-contact-dock__glow" aria-hidden />
 
       <div className="km-contact-dock__intro">
@@ -244,14 +273,7 @@ export default function ContactDock({
           </TextLink>
         </div>
       ) : (
-        <form
-          className="km-contact-form"
-          onSubmit={onSubmit}
-          noValidate
-          aria-describedby={
-            status.kind === "error" ? `${formId}-status` : undefined
-          }
-        >
+        <form className="km-contact-form" onSubmit={onSubmit} noValidate>
           {/* Honeypot — hidden from people, tempting for bots */}
           <div className="km-contact-form__honeypot" aria-hidden>
             <label htmlFor={`${formId}-company`}>Company</label>
@@ -281,6 +303,7 @@ export default function ContactDock({
                 maxLength={CONTACT_FIELD_LIMITS.name}
                 value={fields.name}
                 disabled={busy}
+                aria-invalid={fieldErrors.name ? true : undefined}
                 onChange={(e) => updateField("name", e.target.value)}
               />
             </Field>
@@ -298,6 +321,7 @@ export default function ContactDock({
                 maxLength={CONTACT_FIELD_LIMITS.phone}
                 value={fields.phone}
                 disabled={busy}
+                aria-invalid={fieldErrors.phone ? true : undefined}
                 onChange={(e) => updateField("phone", e.target.value)}
               />
             </Field>
@@ -318,6 +342,7 @@ export default function ContactDock({
               maxLength={CONTACT_FIELD_LIMITS.email}
               value={fields.email}
               disabled={busy}
+              aria-invalid={fieldErrors.email ? true : undefined}
               onChange={(e) => updateField("email", e.target.value)}
             />
           </Field>
@@ -335,6 +360,7 @@ export default function ContactDock({
               maxLength={CONTACT_FIELD_LIMITS.subject}
               value={fields.subject}
               disabled={busy}
+              aria-invalid={fieldErrors.subject ? true : undefined}
               onChange={(e) => updateField("subject", e.target.value)}
             />
           </Field>
@@ -352,6 +378,7 @@ export default function ContactDock({
               maxLength={CONTACT_FIELD_LIMITS.message}
               value={fields.message}
               disabled={busy}
+              aria-invalid={fieldErrors.message ? true : undefined}
               onChange={(e) => updateField("message", e.target.value)}
             />
           </Field>
@@ -361,16 +388,6 @@ export default function ContactDock({
               ref={turnstileHost}
               className="km-contact-form__turnstile"
             />
-          ) : null}
-
-          {status.kind === "error" ? (
-            <p
-              id={`${formId}-status`}
-              className="km-contact-form__banner"
-              role="alert"
-            >
-              {status.message}
-            </p>
           ) : null}
 
           <div className="km-contact-form__actions">
@@ -399,7 +416,6 @@ function Field({
   error?: string;
   children: ReactNode;
 }) {
-  const errorId = error ? `${id}-error` : undefined;
   return (
     <div
       className={[
@@ -426,11 +442,6 @@ function Field({
       >
         {children}
       </div>
-      {error ? (
-        <p id={errorId} className="km-contact-form__error" role="alert">
-          {error}
-        </p>
-      ) : null}
     </div>
   );
 }

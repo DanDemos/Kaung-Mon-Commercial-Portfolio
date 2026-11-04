@@ -23,20 +23,17 @@ export const SOCIAL_LINKS = {
 export const FOOTER_BLURB =
   "I build websites and product UI for teams and small businesses that want work that feels like theirs.";
 
-export type FooterNavItem =
-  | { label: string; section: PageSection }
-  | { label: string; href: string };
+export type FooterNavItem = { label: string; href: string };
 
-/** In-page items use `section` (no `#` in the URL). Resume stays a real href. */
+/**
+ * Footer site map — real destinations only (pages / mailto).
+ * No in-page section scroll targets; hero CTAs may still scroll on home.
+ */
 export const FOOTER_NAV: FooterNavItem[] = [
-  { label: "Home", section: "top" },
-  { label: "Work", section: "work" },
-  { label: "All work", href: "/work" },
-  { label: "Clients", section: "clients" },
-  { label: "About", section: "about" },
-  { label: "Voices", section: "voices" },
-  { label: "Contact", section: "contact" },
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/work" },
   { label: "Resume", href: SOCIAL_LINKS.resume },
+  { label: "Contact", href: CONTACT_MAILTO },
 ];
 
 export type PathCta =

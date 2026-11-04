@@ -35,6 +35,7 @@ import Btn from "./btn";
 import DayNightToggle from "./day-night-toggle";
 import MediaImage from "./media-image";
 import PathLensControl from "./path-lens-control";
+import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
 import TextLink from "./text-link";
 import ThemeCircles from "./theme-circles";
@@ -155,10 +156,7 @@ export default function ResumeExperience() {
 
   return (
     <>
-      <SiteLoader
-        ready={ready}
-        invertMark={tokens.brandMark === "#ffffff"}
-      />
+      <SiteLoader ready={ready} />
       <div className="km-app relative flex min-h-full flex-1 flex-col overflow-x-hidden">
         <div
           aria-hidden
@@ -221,6 +219,8 @@ export default function ResumeExperience() {
             <ResumeGate onUnlock={() => persistPath("hire")} />
           )}
         </main>
+
+        <SiteFooter invertMark={tokens.brandMark === "#ffffff"} />
       </div>
 
       <PathChooserDialog

@@ -208,10 +208,7 @@ export default function HomeExperience() {
 
   return (
     <>
-      <SiteLoader
-        ready={ready}
-        invertMark={tokens.brandMark === "#ffffff"}
-      />
+      <SiteLoader ready={ready} />
       <div className="km-app relative flex min-h-full flex-1 flex-col overflow-x-hidden">
       <div
         aria-hidden
@@ -406,11 +403,7 @@ export default function HomeExperience() {
         </section>
       </main>
 
-      <SiteFooter
-        invertMark={tokens.brandMark === "#ffffff"}
-        showVoices={content.voices.length > 0}
-        showResume={path === "hire"}
-      />
+      <SiteFooter invertMark={tokens.brandMark === "#ffffff"} />
 
       <PathChooserDialog
         open={chooserOpen}

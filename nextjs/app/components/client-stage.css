@@ -55,16 +55,18 @@
   place-items: center;
   width: var(--km-logo-size);
   height: var(--km-logo-size);
-  opacity: 0.94;
-  transition: opacity 180ms ease;
+  opacity: 0.88;
+  transition:
+    opacity 180ms ease,
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.km-client-stage__item:hover,
-.km-client-stage__item:focus-within {
-  opacity: 1;
+.km-client-stage__item--link {
+  opacity: 0.92;
 }
 
 .km-client-stage__link {
+  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
@@ -73,6 +75,67 @@
   text-decoration: none;
   color: inherit;
   outline: none;
+  cursor: pointer;
+  transition:
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+/* Quiet resting cue — linked marks aren't inert ornaments */
+.km-client-stage__link::before {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  border-radius: 0.45rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 14%, transparent);
+  opacity: 0.55;
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.km-client-stage__hint {
+  position: absolute;
+  right: -0.15rem;
+  bottom: -0.1rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-bg);
+  opacity: 0.92;
+  transform: scale(0.92);
+  transition:
+    opacity 160ms ease,
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.km-client-stage__item--link:hover,
+.km-client-stage__item--link:focus-within {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.km-client-stage__item--link:hover .km-client-stage__link::before,
+.km-client-stage__item--link:focus-within .km-client-stage__link::before {
+  opacity: 1;
+  border-color: color-mix(in oklab, var(--color-accent) 55%, transparent);
+  background: color-mix(in oklab, var(--color-accent) 10%, transparent);
+}
+
+.km-client-stage__item--link:hover .km-client-stage__hint,
+.km-client-stage__item--link:focus-within .km-client-stage__hint {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .km-client-stage__link:focus-visible {
@@ -128,7 +191,14 @@
     padding-inline: 0;
   }
 
-  .km-client-stage__item {
+  .km-client-stage__item,
+  .km-client-stage__item--link {
     opacity: 1;
+    transform: none;
+  }
+
+  .km-client-stage__item--link:hover,
+  .km-client-stage__item--link:focus-within {
+    transform: none;
   }
 }

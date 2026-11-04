@@ -101,7 +101,7 @@ export function getThemeBootScript(): string {
     root.style.setProperty("--color-hero-glow", glow);
     root.style.setProperty("--color-hero-wash", bg);
     if (brandPair) {
-      root.style.setProperty("--color-on-accent", "#0a0908");
+      root.style.setProperty("--color-on-accent", "#ffffff");
       root.style.setProperty("--color-accent-fg", "#89b5e6");
       root.style.setProperty("--color-accent-soft", "rgba(44,123,211,0.14)");
       root.style.setProperty("--color-secondary-soft", "rgba(44,123,211,0.14)");

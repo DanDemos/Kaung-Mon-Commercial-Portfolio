@@ -49,7 +49,10 @@ export default function ClientStage({ title }: ClientStageProps) {
             return (
               <li
                 key={`${client.id}-${index}`}
-                className="km-client-stage__item"
+                className={[
+                  "km-client-stage__item",
+                  client.href ? "km-client-stage__item--link" : "",
+                ].join(" ")}
                 aria-hidden={isClone}
               >
                 {client.href ? (
@@ -59,9 +62,16 @@ export default function ClientStage({ title }: ClientStageProps) {
                     target="_blank"
                     rel="noreferrer"
                     tabIndex={isClone ? -1 : undefined}
-                    aria-label={isClone ? undefined : `${client.name} (opens in a new tab)`}
+                    aria-label={
+                      isClone
+                        ? undefined
+                        : `${client.name} (opens in a new tab)`
+                    }
                   >
                     {mark}
+                    <span className="km-client-stage__hint" aria-hidden>
+                      ↗
+                    </span>
                   </a>
                 ) : (
                   mark
