@@ -32,10 +32,12 @@
   -webkit-backdrop-filter: none;
   padding: 0.65rem 1.15rem;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.2;
-  color: var(--color-fg);
+  /* Daylight glass label — theme accent ink + etched light rim */
+  color: var(--color-accent-fg);
+  text-shadow: 0 1px 0 color-mix(in oklab, white 78%, transparent);
   text-decoration: none;
   cursor: pointer;
   box-shadow:
@@ -310,6 +312,7 @@ html[data-theme-surface="dark"] .km-btn {
   );
   background: color-mix(in oklab, var(--km-btn-glass-plate) 58%, transparent);
   color: var(--color-fg);
+  text-shadow: none;
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
   box-shadow:

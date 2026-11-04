@@ -112,30 +112,37 @@ html[data-theme-surface="dark"] .km-project-stage__tab-title {
     0 18px 40px color-mix(in oklab, var(--color-fg) 10%, transparent);
 }
 
+/*
+ * Window chrome — Safari (not Chrome) defaults + macOS traffic lights.
+ * Keyed only to day/night surface, never theme seed blends.
+ * Lights: close #FF5F57 · minimize #FEBC2E · zoom #28C840
+ * Safari toolbar (untinted): light #FFFFFF · dark #1C1C1E
+ * Safari URL field: light #F2F2F7 · dark #2C2C2E (system secondary bg)
+ */
 .km-project-stage__chrome {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   padding: 0.7rem 0.85rem;
-  border-bottom: 1px solid color-mix(in oklab, var(--color-fg) 10%, transparent);
-  background: color-mix(in oklab, var(--color-fg) 5%, var(--color-bg));
+  border-bottom: 1px solid #d2d2d7;
+  background: #ffffff;
 }
 
 .km-project-stage__chrome > span {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background: color-mix(in oklab, var(--color-fg) 22%, transparent);
+  background: #c8c8c8;
 }
 
 .km-project-stage__chrome > span:nth-child(1) {
-  background: color-mix(in oklab, #e07070 70%, var(--color-fg));
+  background: #ff5f57;
 }
 .km-project-stage__chrome > span:nth-child(2) {
-  background: color-mix(in oklab, #e0c070 70%, var(--color-fg));
+  background: #febc2e;
 }
 .km-project-stage__chrome > span:nth-child(3) {
-  background: color-mix(in oklab, #70c090 70%, var(--color-fg));
+  background: #28c840;
 }
 
 .km-project-stage__url {
@@ -146,11 +153,37 @@ html[data-theme-surface="dark"] .km-project-stage__tab-title {
   border-radius: 999px;
   font-size: 0.72rem;
   letter-spacing: 0.02em;
-  color: var(--color-fg-muted);
-  background: color-mix(in oklab, var(--color-fg) 6%, var(--color-bg));
+  color: #6c6c70;
+  background: #f2f2f7;
+  border: 1px solid #e5e5ea;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+html[data-theme-surface="dark"] .km-project-stage__chrome {
+  border-bottom-color: #38383a;
+  background: #1c1c1e;
+}
+
+html[data-theme-surface="dark"] .km-project-stage__chrome > span {
+  background: #636366;
+}
+
+html[data-theme-surface="dark"] .km-project-stage__chrome > span:nth-child(1) {
+  background: #ff5f57;
+}
+html[data-theme-surface="dark"] .km-project-stage__chrome > span:nth-child(2) {
+  background: #febc2e;
+}
+html[data-theme-surface="dark"] .km-project-stage__chrome > span:nth-child(3) {
+  background: #28c840;
+}
+
+html[data-theme-surface="dark"] .km-project-stage__url {
+  color: #98989d;
+  background: #2c2c2e;
+  border-color: #3a3a3c;
 }
 
 .km-project-stage__screen {

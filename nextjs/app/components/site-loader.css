@@ -23,12 +23,19 @@ html:not([data-km-boot]) .km-app {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.15rem;
   overflow: hidden;
-  background: var(--color-bg);
-  color: var(--color-fg);
+  /* Day / night only — not theme seed */
+  background: #fff;
+  color: #1a1a1a;
   transition:
     opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
     visibility 420ms linear;
+}
+
+html[data-theme-surface="dark"] .km-loader {
+  background: #000;
+  color: #fff;
 }
 
 .km-loader--done {
@@ -37,58 +44,42 @@ html:not([data-km-boot]) .km-app {
   pointer-events: none;
 }
 
-/*
- * Logo chrome only — measured on 112² logo-mark.png:
- * outer pad ~9/112; white frame stroke ~3/112. No K, no accent square.
- */
-.km-loader__mark {
-  position: relative;
-  width: clamp(7.5rem, 22vw, 10rem);
-  height: clamp(7.5rem, 22vw, 10rem);
-  background: #000;
-  display: grid;
-  place-items: center;
-}
-
-.km-loader__frame {
-  position: absolute;
-  inset: 8.04%; /* 9/112 */
-  border: clamp(2px, 0.28vw, 3px) solid #fff;
-  pointer-events: none;
-}
-
+/* Eight leaf petals — opacity trail; whole ring rotates */
 .km-loader__spinner {
   position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-  width: 42%;
-  height: 42%;
-  max-width: 2.85rem;
-  max-height: 2.85rem;
-  border-radius: 50%;
-  border: 2.5px solid color-mix(in oklab, #fff 22%, transparent);
-  border-top-color: #fff;
-  animation: km-loader-spin 0.7s linear infinite;
+  width: 2.75rem;
+  height: 2.75rem;
+  animation: km-loader-spin 0.85s linear infinite;
 }
 
-.km-loader__label {
-  margin: 1.15rem 0 0;
-  padding: 0;
-  font-family: var(--font-sans), "Geist Sans", system-ui, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  color: var(--color-fg-muted);
+.km-loader__petal {
+  --km-petal: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.34rem;
+  height: 0.88rem;
+  margin: -1.2rem 0 0 -0.17rem;
+  border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
+  background: currentColor;
+  transform-origin: 50% calc(100% + 0.52rem);
+  transform: rotate(calc(var(--km-petal) * 45deg));
+  opacity: calc(1 - (var(--km-petal) * 0.115));
 }
 
 .km-loader__dots {
-  display: inline-flex;
-  margin-left: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
 }
 
 .km-loader__dots span {
-  display: inline-block;
+  display: block;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: currentColor;
   animation: km-loader-dot-bounce 1.05s ease-in-out infinite;
 }
 
@@ -98,6 +89,19 @@ html:not([data-km-boot]) .km-app {
 
 .km-loader__dots span:nth-child(3) {
   animation-delay: 0.3s;
+}
+
+.km-loader__label {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans), "Geist Sans", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-align: center;
+  color: inherit;
+  opacity: 0.72;
 }
 
 @keyframes km-loader-spin {
@@ -111,11 +115,11 @@ html:not([data-km-boot]) .km-app {
   60%,
   100% {
     transform: translateY(0);
-    opacity: 0.35;
+    opacity: 0.28;
   }
 
   30% {
-    transform: translateY(-0.32em);
+    transform: translateY(-0.38em);
     opacity: 1;
   }
 }
@@ -123,12 +127,11 @@ html:not([data-km-boot]) .km-app {
 @media (prefers-reduced-motion: reduce) {
   .km-loader__spinner {
     animation: none;
-    border-top-color: color-mix(in oklab, #fff 55%, transparent);
   }
 
   .km-loader__dots span {
     animation: none;
-    opacity: 1;
+    opacity: 0.75;
   }
 
   html[data-km-boot="ready"] .km-app,
