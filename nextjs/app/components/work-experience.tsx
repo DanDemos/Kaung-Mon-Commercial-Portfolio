@@ -118,75 +118,77 @@ export default function WorkExperience() {
   return (
     <>
       <SiteLoader ready={ready} />
-      <div className="km-app relative flex min-h-full flex-1 flex-col">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-[var(--color-bg)]" />
-          <div className="km-hero-glow absolute -left-[6%] top-[14%] h-[70vh] w-[68vw] rounded-full bg-[var(--color-hero-glow)] opacity-90 blur-3xl" />
-          <div className="km-hero-wash absolute -right-[12%] top-[22%] h-[54vh] w-[48vw] rounded-full bg-[var(--color-hero-wash)] opacity-50 blur-3xl" />
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--color-bg)] from-40% to-transparent" />
-        </div>
-
-        <header className="km-site-header">
-          <Link
-            href="/"
-            className="km-brand"
-            aria-label="Kaung Mon, back to home"
+      {ready ? (
+        <div className="km-app relative flex min-h-full flex-1 flex-col">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
           >
-            <MediaImage
-              src={logo}
-              alt=""
-              width={56}
-              height={56}
-              sizes="56px"
-              quality={95}
-              priority
-              className="km-brand__mark"
-            />
-            <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
-              Kaung Mon
-            </span>
-          </Link>
-
-          <div className="km-site-header__controls">
-            <ThemeCircles
-              themes={themes}
-              activeId={themeId}
-              customSeed={customSeed}
-              onChange={changeTheme}
-              onCustomSeedChange={changeCustomSeed}
-            />
-            <div className="km-site-header__path-mode">
-              <DayNightToggle mode={colorMode} onChange={changeColorMode} />
-            </div>
+            <div className="absolute inset-0 bg-[var(--color-bg)]" />
+            <div className="km-hero-glow absolute -left-[6%] top-[14%] h-[70vh] w-[68vw] rounded-full bg-[var(--color-hero-glow)] opacity-90 blur-3xl" />
+            <div className="km-hero-wash absolute -right-[12%] top-[22%] h-[54vh] w-[48vw] rounded-full bg-[var(--color-hero-wash)] opacity-50 blur-3xl" />
+            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[var(--color-bg)] from-40% to-transparent" />
           </div>
-        </header>
 
-        <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
-          <header className="km-work-page__intro km-rise">
-            <SectionTitle
-              label="Portfolio"
-              title="Projects I've worked on"
-              as="h1"
-            />
-            <p className="km-work-page__support">
-              Same filters as before — Web, App, Chatbot, Designs, MMD. Hover a
-              piece for the title and links; open home for live walkthroughs.
-            </p>
-            <p className="km-work-page__back">
-              <TextLink href="/">← Back home</TextLink>
-            </p>
+          <header className="km-site-header">
+            <Link
+              href="/"
+              className="km-brand"
+              aria-label="Kaung Mon, back to home"
+            >
+              <MediaImage
+                src={logo}
+                alt=""
+                width={56}
+                height={56}
+                sizes="56px"
+                quality={95}
+                priority
+                className="km-brand__mark"
+              />
+              <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
+                Kaung Mon
+              </span>
+            </Link>
+
+            <div className="km-site-header__controls">
+              <ThemeCircles
+                themes={themes}
+                activeId={themeId}
+                customSeed={customSeed}
+                onChange={changeTheme}
+                onCustomSeedChange={changeCustomSeed}
+              />
+              <div className="km-site-header__path-mode">
+                <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+              </div>
+            </div>
           </header>
 
-          <div className="km-rise km-delay-2">
-            <WorkGallery />
-          </div>
-        </main>
+          <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
+            <header className="km-work-page__intro km-rise">
+              <SectionTitle
+                label="Portfolio"
+                title="Projects I've worked on"
+                as="h1"
+              />
+              <p className="km-work-page__support">
+                Same filters as before — Web, App, Chatbot, Designs, MMD. Hover a
+                piece for the title and links; open home for live walkthroughs.
+              </p>
+              <p className="km-work-page__back">
+                <TextLink href="/">← Back home</TextLink>
+              </p>
+            </header>
 
-        <SiteFooter />
-      </div>
+            <div className="km-rise km-delay-2">
+              <WorkGallery />
+            </div>
+          </main>
+
+          <SiteFooter />
+        </div>
+      ) : null}
     </>
   );
 }

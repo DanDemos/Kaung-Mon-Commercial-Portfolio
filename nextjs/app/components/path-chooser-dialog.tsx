@@ -71,18 +71,19 @@ export default function PathChooserDialog({
       />
 
       {/*
-        Scroll the overlay (not only the card). `safe center` keeps the dialog
-        centered when it fits; when taller than the phone chrome it pins to the
-        top so the title stays reachable and the rest scrolls.
+        Overlay scrolls. Panel uses my-auto + h-fit so it hugs content and
+        centers when short; when taller than the phone, margins collapse and
+        the full card stays reachable by scrolling (avoids stretch from
+        unsupported `align-items: safe center`).
       */}
-      <div className="relative flex min-h-dvh items-[safe_center] justify-center p-4 py-5 sm:p-6">
+      <div className="relative flex min-h-dvh justify-center p-4 py-5 sm:p-6">
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="km-path-chooser__panel km-rise relative z-10 w-full max-w-md border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-5 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
+        className="km-path-chooser__panel km-rise relative z-10 my-auto h-fit w-full max-w-md border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-5 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
       >
         <button
           ref={closeRef}

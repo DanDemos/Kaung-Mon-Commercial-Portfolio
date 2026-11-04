@@ -137,61 +137,63 @@ export default function ContactExperience() {
   return (
     <>
       <SiteLoader ready={ready} />
-      <div className="km-app relative flex min-h-full flex-1 flex-col">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        >
-          {/* Flat canvas — no hero-glow blue wash on the contact page */}
-          <div className="absolute inset-0 bg-[var(--color-bg)]" />
-        </div>
-
-        <header className="km-site-header">
-          <Link
-            href="/"
-            className="km-brand"
-            aria-label="Kaung Mon, back to home"
+      {ready ? (
+        <div className="km-app relative flex min-h-full flex-1 flex-col">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
           >
-            <MediaImage
-              src={logo}
-              alt=""
-              width={56}
-              height={56}
-              sizes="56px"
-              quality={95}
-              priority
-              className="km-brand__mark"
-            />
-            <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
-              Kaung Mon
-            </span>
-          </Link>
+            {/* Flat canvas — no hero-glow blue wash on the contact page */}
+            <div className="absolute inset-0 bg-[var(--color-bg)]" />
+          </div>
 
-          <div className="km-site-header__controls">
-            <ThemeCircles
-              themes={themes}
-              activeId={themeId}
-              customSeed={customSeed}
-              onChange={changeTheme}
-              onCustomSeedChange={changeCustomSeed}
-            />
-            <div className="km-site-header__path-mode">
-              <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+          <header className="km-site-header">
+            <Link
+              href="/"
+              className="km-brand"
+              aria-label="Kaung Mon, back to home"
+            >
+              <MediaImage
+                src={logo}
+                alt=""
+                width={56}
+                height={56}
+                sizes="56px"
+                quality={95}
+                priority
+                className="km-brand__mark"
+              />
+              <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
+                Kaung Mon
+              </span>
+            </Link>
+
+            <div className="km-site-header__controls">
+              <ThemeCircles
+                themes={themes}
+                activeId={themeId}
+                customSeed={customSeed}
+                onChange={changeTheme}
+                onCustomSeedChange={changeCustomSeed}
+              />
+              <div className="km-site-header__path-mode">
+                <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+              </div>
             </div>
-          </div>
-        </header>
+          </header>
 
-        <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
-          <p className="km-contact-page__back km-rise">
-            <TextLink href="/">← Back home</TextLink>
-          </p>
-          <div className="km-rise km-delay-1">
-            <ContactDock support={content.contactFormSupport} />
-          </div>
-        </main>
+          <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
+            <p className="km-contact-page__back km-rise">
+              <TextLink href="/">← Back home</TextLink>
+            </p>
+            <div className="km-rise km-delay-1">
+              <ContactDock support={content.contactFormSupport} />
+            </div>
+          </main>
 
-        <SiteFooter />
-      </div>
+          <SiteFooter />
+        </div>
+      ) : null}
     </>
   );
 }

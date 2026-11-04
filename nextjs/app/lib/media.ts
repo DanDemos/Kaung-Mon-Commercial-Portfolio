@@ -24,10 +24,10 @@ export type ProjectPreview = {
   /** Short label for alt text / chrome */
   label: string;
   /**
-   * Live hostname for the Safari-like frame. Omit when the site is offline —
-   * chrome then shows “Walkthrough” instead of a dead host.
+   * Hostname shown in the Safari-like frame (original site host).
+   * Decorative only — does not imply the site is still live.
    */
-  host?: string;
+  host: string;
   /** Web delivery — prefer webm then mp4 in <video> */
   preview: {
     mp4: string;
@@ -51,11 +51,13 @@ export const PROJECT_PREVIEWS: Record<ProjectMediaSlug, ProjectPreview> = {
   essential: {
     slug: "essential",
     label: "Essential",
+    host: "essentialairsolution.com",
     preview: projectPreviewUrls("essential"),
   },
   genesis: {
     slug: "genesis",
     label: "Genesis",
+    host: "genesismyanmar.com",
     preview: projectPreviewUrls("genesis"),
   },
   "myan-gate": {
@@ -67,6 +69,7 @@ export const PROJECT_PREVIEWS: Record<ProjectMediaSlug, ProjectPreview> = {
   "york-yoga": {
     slug: "york-yoga",
     label: "York Yoga",
+    host: "yorkyogacorner.com",
     preview: projectPreviewUrls("york-yoga"),
   },
 };

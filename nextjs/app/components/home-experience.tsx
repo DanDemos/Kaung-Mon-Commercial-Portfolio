@@ -208,6 +208,7 @@ export default function HomeExperience() {
   return (
     <>
       <SiteLoader ready={ready} />
+      {ready ? (
       <div className="km-app relative flex min-h-full flex-1 flex-col">
       <div
         aria-hidden
@@ -409,6 +410,7 @@ export default function HomeExperience() {
         onDismiss={dismissChooser}
       />
     </div>
+      ) : null}
     </>
   );
 }

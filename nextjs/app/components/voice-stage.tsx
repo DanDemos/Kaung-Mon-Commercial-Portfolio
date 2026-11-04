@@ -36,7 +36,7 @@ function chunkVoices(voices: PathVoice[], size: number): PathVoice[][] {
 
 /**
  * Voices carousel — 1-up on mobile / 2-up from tablet when quotes show;
- * compact people strip when quotes are off (Wonderer).
+ * people-only (Wonderer): all faces visible at once, roles wrap fully.
  */
 export default function VoiceStage({
   voices,

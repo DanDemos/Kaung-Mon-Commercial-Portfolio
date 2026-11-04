@@ -68,3 +68,10 @@ html[data-theme-surface="dark"] .km-section-title__title {
     font-size: 1.55rem;
   }
 }
+
+/* Mobile: Portfilio’s −0.95rem pull collides label + title — ease the overlap */
+@media (max-width: 639px) {
+  .km-section-title__title {
+    margin-top: -0.4rem;
+  }
+}

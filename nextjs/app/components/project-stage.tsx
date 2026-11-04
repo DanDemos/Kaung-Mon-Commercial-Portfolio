@@ -97,9 +97,7 @@ export default function ProjectStage({
             <span />
             <span />
             <span />
-            <p className="km-project-stage__url">
-              {media.host ?? "Walkthrough"}
-            </p>
+            <p className="km-project-stage__url">{media.host}</p>
           </div>
           <div className="km-project-stage__screen km-project-stage__screen--video">
             <ProjectVideo

@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useState,
+  type CSSProperties,
+} from "react";
 import "./site-loader.css";
 
 type SiteLoaderProps = {
@@ -9,8 +14,8 @@ type SiteLoaderProps = {
 };
 
 const LOADING_MESSAGES = [
-  "Fetching color of the year",
-  "Getting everything ready",
+  "Color of the year",
+  "Getting ready",
   "Loading",
 ] as const;
 
@@ -34,16 +39,41 @@ function pickMessage(exclude?: string) {
  * Flat white / black canvas from day·night. Dissolves when ready.
  */
 export default function SiteLoader({ ready }: SiteLoaderProps) {
-  const [message, setMessage] = useState(() => pickMessage());
+  /* Fixed first paint — Math.random in useState mismatches SSR hydration */
+  const [message, setMessage] = useState<string>(LOADING_MESSAGES[0]);
 
   useEffect(() => {
     if (ready) return;
 
+    setMessage((current) => pickMessage(current));
     const timer = window.setInterval(() => {
       setMessage((current) => pickMessage(current));
     }, MESSAGE_INTERVAL_MS);
 
     return () => window.clearInterval(timer);
+  }, [ready]);
+
+  /* Lock before paint — useEffect is too late; first frame can still scroll x. */
+  useLayoutEffect(() => {
+    if (ready) return;
+
+    const html = document.documentElement;
+    const { body } = document;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+    const prevHtmlOverscroll = html.style.overscrollBehavior;
+    const prevBodyOverscroll = body.style.overscrollBehavior;
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    html.style.overscrollBehavior = "none";
+    body.style.overscrollBehavior = "none";
+
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+      html.style.overscrollBehavior = prevHtmlOverscroll;
+      body.style.overscrollBehavior = prevBodyOverscroll;
+    };
   }, [ready]);
 
   return (
