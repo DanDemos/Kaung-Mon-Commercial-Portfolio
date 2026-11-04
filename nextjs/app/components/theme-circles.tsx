@@ -1,7 +1,14 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef, useState, type CSSProperties } from "react";
+import {
+  useRef,
+  useState,
+  type CSSProperties,
+  type FocusEvent,
+  type KeyboardEvent,
+  type PointerEvent,
+} from "react";
 import {
   CUSTOM_THEME_ID,
   type ColorTheme,
@@ -21,6 +28,11 @@ type ThemeCirclesProps = {
   onCustomSeedChange: (hex: string) => void;
 };
 
+type TipState = {
+  label: string;
+  x: number;
+};
+
 export default function ThemeCircles({
   themes,
   activeId,
@@ -29,8 +41,46 @@ export default function ThemeCircles({
   onCustomSeedChange,
 }: ThemeCirclesProps) {
   const customButtonRef = useRef<HTMLButtonElement>(null);
+  const shellRef = useRef<HTMLDivElement>(null);
   const [wheelOpen, setWheelOpen] = useState(false);
+  const [tip, setTip] = useState<TipState | null>(null);
   const customActive = activeId === CUSTOM_THEME_ID;
+
+  function hideTip() {
+    setTip(null);
+  }
+
+  function showTipFor(label: string, button: HTMLElement) {
+    const shell = shellRef.current;
+    if (!shell) return;
+    const shellRect = shell.getBoundingClientRect();
+    const btnRect = button.getBoundingClientRect();
+    const raw = btnRect.left + btnRect.width / 2 - shellRect.left;
+    const x = Math.min(Math.max(raw, 14), shellRect.width - 14);
+    setTip({ label, x });
+  }
+
+  function onCirclePointerEnter(
+    event: PointerEvent<HTMLButtonElement>,
+    label: string,
+  ) {
+    if (event.pointerType === "touch") return;
+    showTipFor(label, event.currentTarget);
+  }
+
+  function onCircleFocus(event: FocusEvent<HTMLButtonElement>, label: string) {
+    showTipFor(label, event.currentTarget);
+  }
+
+  function onShellPointerLeave() {
+    hideTip();
+  }
+
+  function onShellBlur(event: FocusEvent<HTMLDivElement>) {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      hideTip();
+    }
+  }
 
   function openCustomPicker() {
     if (wheelOpen) {
@@ -40,11 +90,17 @@ export default function ThemeCircles({
     if (!customActive) {
       onCustomSeedChange(customSeed);
     }
+    hideTip();
     setWheelOpen(true);
   }
 
   return (
-    <div className="relative">
+    <div
+      ref={shellRef}
+      className="theme-circles"
+      onPointerLeave={onShellPointerLeave}
+      onBlur={onShellBlur}
+    >
       <div
         role="radiogroup"
         aria-label="Color theme"
@@ -59,10 +115,16 @@ export default function ThemeCircles({
               role="radio"
               aria-checked={active}
               aria-label={theme.label}
-              title={theme.label}
+              onPointerEnter={(event) =>
+                onCirclePointerEnter(event, theme.label)
+              }
+              onFocus={(event) => onCircleFocus(event, theme.label)}
               onClick={() => {
                 setWheelOpen(false);
                 onChange(theme.id);
+              }}
+              onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
+                if (event.key === "Escape") hideTip();
               }}
               className={[
                 "theme-circle h-6 w-6 rounded-full border",
@@ -88,8 +150,14 @@ export default function ThemeCircles({
           aria-expanded={wheelOpen}
           aria-haspopup="dialog"
           aria-label="Custom color"
-          title="Custom color"
+          onPointerEnter={(event) =>
+            onCirclePointerEnter(event, "Custom color")
+          }
+          onFocus={(event) => onCircleFocus(event, "Custom color")}
           onClick={openCustomPicker}
+          onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
+            if (event.key === "Escape") hideTip();
+          }}
           className={[
             "theme-circle theme-circle--custom h-6 w-6 rounded-full border",
             customActive
@@ -104,6 +172,16 @@ export default function ThemeCircles({
           }
         />
       </div>
+
+      {tip ? (
+        <p
+          className="theme-circles__tip"
+          role="tooltip"
+          style={{ left: tip.x }}
+        >
+          {tip.label}
+        </p>
+      ) : null}
 
       <ColorWheelPicker
         open={wheelOpen}
