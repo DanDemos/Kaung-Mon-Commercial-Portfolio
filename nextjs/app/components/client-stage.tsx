@@ -41,9 +41,9 @@ export default function ClientStage({ title }: ClientStageProps) {
               <MediaImage
                 src={client.mark}
                 alt={index < CLIENT_LOGOS.length ? client.name : ""}
-                width={264}
-                height={264}
-                sizes="(max-width: 640px) 216px, 264px"
+                width={184}
+                height={184}
+                sizes="(max-width: 640px) 76px, 92px"
                 contain
                 className="km-client-stage__mark"
               />

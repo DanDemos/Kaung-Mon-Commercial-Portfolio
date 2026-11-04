@@ -2,57 +2,73 @@
   display: grid;
 }
 
-/* Mask only — no glass tray, no border card. */
+/*
+ * Five logos in view, modest mark size, leftover width goes into gaps.
+ */
 .km-client-stage__viewport {
+  --km-logo-size: clamp(4.25rem, 11cqi, 5.75rem);
+  --km-logo-gap: clamp(2rem, 6cqi, 4rem);
   position: relative;
   overflow: hidden;
+  container-type: inline-size;
+  container-name: clients-rail;
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 4%,
-    black 96%,
+    black 3%,
+    black 97%,
     transparent
   );
+}
+
+@supports (width: 1cqi) {
+  .km-client-stage__viewport {
+    --km-logo-size: clamp(4.25rem, 11cqi, 5.75rem);
+    /* Spread leftover space into gaps so ~5 marks fill the rail */
+    --km-logo-gap: max(
+      1.75rem,
+      calc((100cqi - (5 * var(--km-logo-size))) / 4)
+    );
+  }
 }
 
 .km-client-stage__track {
   display: flex;
   align-items: center;
   width: max-content;
-  gap: 2rem;
-  padding: 0.65rem 0.85rem;
+  gap: var(--km-logo-gap);
+  padding: 0.45rem 0;
   list-style: none;
   margin: 0;
-  /* Full set; keep pace readable (not a crawl). */
-  animation: km-client-marquee 32s linear infinite;
+  animation: km-client-marquee 22s linear infinite;
 }
 
-.km-client-stage__viewport:hover .km-client-stage__track,
-.km-client-stage__viewport:focus-within .km-client-stage__track {
+/* Pause only when a logo mark is hovered/focused — not empty belt space. */
+.km-client-stage__track:has(.km-client-stage__item:hover),
+.km-client-stage__track:has(.km-client-stage__item:focus-within) {
   animation-play-state: paused;
 }
 
-.km-client-stage__viewport:hover .km-client-stage__item,
-.km-client-stage__viewport:focus-within .km-client-stage__item {
-  opacity: 1;
-}
-
-/* Large square slots so circular marks (C2, etc.) stay legible. */
 .km-client-stage__item {
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  width: 8.25rem;
-  height: 8.25rem;
+  width: var(--km-logo-size);
+  height: var(--km-logo-size);
   opacity: 0.94;
   transition: opacity 180ms ease;
+}
+
+.km-client-stage__item:hover,
+.km-client-stage__item:focus-within {
+  opacity: 1;
 }
 
 .km-client-stage__mark {
   --km-media-w: 100% !important;
   --km-media-h: 100% !important;
   --km-media-ar: auto !important;
-  --km-spinner-size: 1.7rem;
+  --km-spinner-size: 1.35rem;
   --km-spinner-thickness: 2.5px;
   width: 100% !important;
   height: 100% !important;
@@ -74,14 +90,12 @@
 }
 
 @media (max-width: 640px) {
-  .km-client-stage__track {
-    gap: 1.5rem;
-    animation-duration: 28s;
+  .km-client-stage__viewport {
+    --km-logo-size: clamp(3.75rem, 18vw, 4.75rem);
   }
 
-  .km-client-stage__item {
-    width: 6.75rem;
-    height: 6.75rem;
+  .km-client-stage__track {
+    animation-duration: 18s;
   }
 }
 
@@ -95,7 +109,6 @@
   .km-client-stage__track {
     animation: none;
     width: max-content;
-    gap: 1.75rem;
     padding-inline: 0;
   }
 
