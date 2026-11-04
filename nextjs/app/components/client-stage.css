@@ -3,9 +3,11 @@
 }
 
 /*
- * Five logos in view, modest mark size, leftover width goes into gaps.
+ * Desktop: five in view. Mobile: three bigger discs (still fills the rail).
+ * Gap formula: leftover width after N marks → N−1 gaps.
  */
 .km-client-stage__viewport {
+  --km-logos-in-view: 5;
   --km-logo-size: clamp(4.25rem, 11cqi, 5.75rem);
   --km-logo-gap: clamp(2rem, 6cqi, 4rem);
   position: relative;
@@ -23,11 +25,12 @@
 
 @supports (width: 1cqi) {
   .km-client-stage__viewport {
-    --km-logo-size: clamp(4.25rem, 11cqi, 5.75rem);
-    /* Spread leftover space into gaps so ~5 marks fill the rail */
     --km-logo-gap: max(
       1.75rem,
-      calc((100cqi - (5 * var(--km-logo-size))) / 4)
+      calc(
+        (100cqi - (var(--km-logos-in-view) * var(--km-logo-size))) /
+          (var(--km-logos-in-view) - 1)
+      )
     );
   }
 }
@@ -144,12 +147,31 @@
 }
 
 @media (max-width: 640px) {
+  /*
+   * Bigger marks: size the disc from the rail so three fit with a tight gap.
+   * (~7rem on a 375px phone — up from the old ~4rem). Two-up only if we
+   * later need discs larger than this math allows.
+   */
   .km-client-stage__viewport {
-    --km-logo-size: clamp(3.75rem, 18vw, 4.75rem);
+    --km-logos-in-view: 3;
+    --km-logo-gap: 1.15rem;
+    --km-logo-size: calc(
+      (100cqi - (var(--km-logos-in-view) - 1) * var(--km-logo-gap)) /
+        var(--km-logos-in-view)
+    );
   }
 
   .km-client-stage__track {
     animation-duration: 18s;
+  }
+}
+
+/* No container queries: approximate three-up with viewport width */
+@supports not (width: 1cqi) {
+  @media (max-width: 640px) {
+    .km-client-stage__viewport {
+      --km-logo-size: calc((100vw - 3rem - 2.3rem) / 3);
+    }
   }
 }
 

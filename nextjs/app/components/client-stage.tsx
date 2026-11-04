@@ -40,7 +40,7 @@ export default function ClientStage({ title }: ClientStageProps) {
                 alt={isClone ? "" : client.name}
                 width={184}
                 height={184}
-                sizes="(max-width: 640px) 76px, 92px"
+                sizes="(max-width: 640px) 120px, 92px"
                 contain
                 className="km-client-stage__mark"
               />

@@ -10,7 +10,7 @@ assets/
     logo-mark.png
     unused/              # Logo originals / rejects (not imported)
     clients/
-      {client-slug}.png|.svg  # Live marks (wired in client-logos.ts)
+      {client-slug}.png  # Live marks — square white-disc plates when needed (wired in client-logos.ts)
       unused/            # Extra plates, squares, unoptimized exports
   people/
     voices/              # Live Voices portraits

@@ -3,7 +3,7 @@ import alidac from "../../../assets/brand/clients/alidac.png";
 import animeMmSub from "../../../assets/brand/clients/anime-mm-sub.png";
 import avs from "../../../assets/brand/clients/avs.png";
 import c2 from "../../../assets/brand/clients/c2.png";
-import cherryOo from "../../../assets/brand/clients/cherry-oo.svg";
+import cherryOo from "../../../assets/brand/clients/cherry-oo.png";
 import essentialAir from "../../../assets/brand/clients/essential-air.png";
 import genesis from "../../../assets/brand/clients/genesis.png";
 import hwt from "../../../assets/brand/clients/hwt.png";
@@ -17,8 +17,7 @@ import yorkYoga from "../../../assets/brand/clients/york-yoga.png";
 export type ClientLogo = {
   id: string;
   name: string;
-  /** PNG StaticImageData or SVG URL string (Next asset import). */
-  mark: StaticImageData | string;
+  mark: StaticImageData;
   /** Client site / social — opens in a new tab. */
   href?: string;
 };
