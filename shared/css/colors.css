@@ -6,18 +6,21 @@
  */
 :root {
   --color-bg: #121212;
-  --color-bg-elevated: #18293c;
+  --color-bg-elevated: #1a1a1a;
   --color-brand-mark: #ffffff;
   --color-fg-display: #f2f2f2;
   --color-fg: #ccd0d7;
   --color-fg-muted: #a3a5a8;
   --color-accent: #2c7bd3;
   --color-on-accent: #ffffff;
-  --color-accent-fg: #89b5e6;
-  --color-accent-soft: rgba(44, 123, 211, 0.14);
+  /* One brand blue only — accent-fg matches secondary exactly */
+  --color-accent-fg: #2c7bd3;
+  /* Soft fills stay neutral (not blue washes) */
+  --color-accent-soft: rgba(204, 208, 215, 0.08);
   --color-secondary: #2c7bd3;
-  --color-secondary-soft: rgba(44, 123, 211, 0.14);
+  --color-secondary-soft: rgba(204, 208, 215, 0.08);
   --color-line: rgba(204, 208, 215, 0.14);
-  --color-hero-glow: #1c3a5b;
-  --color-hero-wash: #16212d;
+  /* Flat Young Night canvas — no blue atmosphere blobs */
+  --color-hero-glow: #121212;
+  --color-hero-wash: #121212;
 }

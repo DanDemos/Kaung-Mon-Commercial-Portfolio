@@ -1,0 +1,55 @@
+/* Portfilio `.section-title` — accent label + rule, then bold title.
+ * Recreated with theme tokens; same proportions as assets/css/style.css. */
+
+.km-section-title {
+  display: grid;
+  gap: 0;
+}
+
+.km-section-title__label {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1px;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+  /* Theme secondary — solid fill only, never gradient / accent-fg */
+  color: var(--color-secondary);
+  background: none;
+  -webkit-text-fill-color: var(--color-secondary);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.km-section-title__label::after {
+  content: "";
+  display: inline-block;
+  width: 7.5rem;
+  height: 1px;
+  margin: 4px 10px;
+  vertical-align: middle;
+  background: var(--color-secondary);
+}
+
+.km-section-title__title {
+  margin: -0.95rem 0 0.95rem;
+  padding: 0;
+  font-size: clamp(1.55rem, 3.2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  text-wrap: balance;
+}
+
+/* Portfilio night titles were solid white */
+html[data-theme-surface="dark"] .km-section-title__title {
+  color: #fff;
+}
+
+@media (max-width: 62em) {
+  .km-section-title__title {
+    font-size: 1.55rem;
+  }
+}

@@ -90,6 +90,11 @@ export type ThemeTokens = {
   surface: ColorMode;
   /** Which spectrum recipe produced these tokens. */
   spectrum: SeedSpectrumId;
+  /**
+   * Young Night brand pair — flat surfaces: no secondary/accent soft
+   * backgrounds (CTAs/links keep solid accent).
+   */
+  brandFlat: boolean;
 };
 
 export type ColorTheme = {
@@ -1340,7 +1345,8 @@ export function tokensFromSeed(
   const spectrum = classifySeed(primary);
   const recipe = SPECTRUM_RECIPES[spectrum.id];
   // Brand pair: Young Night charcoal keeps spectrum recipes for canvas/ink,
-  // but the 10% accent (+ night atmosphere) is locked to YOUNG_NIGHT_ACCENT.
+  // but the 10% accent is locked to YOUNG_NIGHT_ACCENT (CTAs / links only).
+  // No blue background hue — hero glow/wash stay flat on the canvas.
   // Treat that accent as vivid so neutral sat caps don't crush the blue.
   const brandPair = isYoungNightSeed(primary);
   const accentRaw = brandPair
@@ -1350,30 +1356,21 @@ export function tokensFromSeed(
 
   if (mode === "dark") {
     const r = recipe.dark;
-    const atmosphere = brandPair
-      ? YOUNG_NIGHT_ACCENT
-      : darkAtmosphereSeed(primary, spectrum);
+    const atmosphere = darkAtmosphereSeed(primary, spectrum);
     // Vivid pastel nights: true charcoal canvas — seed color lives on the CTA
     const bg = MODE_DARK_BASE;
     const bgElevated = mixDarkAtmosphere(
       bg,
       atmosphere,
-      // Brand blue is chromatic — quieter elevated than neutral mist at 0.32
-      brandPair ? 0.22 : r.elevatedPrimary,
+      brandPair ? Math.min(r.elevatedPrimary, 0.16) : r.elevatedPrimary,
       spectrum,
     );
-    const heroGlow = mixDarkAtmosphere(
-      bg,
-      atmosphere,
-      brandPair ? 0.38 : r.glowPrimary,
-      spectrum,
-    );
-    const heroWash = mixDarkAtmosphere(
-      bg,
-      atmosphere,
-      brandPair ? 0.14 : r.washPrimary,
-      spectrum,
-    );
+    const heroGlow = brandPair
+      ? bg
+      : mixDarkAtmosphere(bg, atmosphere, r.glowPrimary, spectrum);
+    const heroWash = brandPair
+      ? bg
+      : mixDarkAtmosphere(bg, atmosphere, r.washPrimary, spectrum);
     const ink = enforceInkHierarchy(
       hardenInkOnGrounds(
         chromaTextFromColor(primary, bg, r.display),
@@ -1409,6 +1406,11 @@ export function tokensFromSeed(
     const brandMark = brandMarkForBg(bg);
     // Brand blue reads as a button field — white ink, never near-black on #2C7BD3
     const onAccent = brandPair ? "#ffffff" : accents.onAccent;
+    // Young Night: one blue only (#2C7BD3) — no softened accent-fg / soft washes
+    const softFill = brandPair
+      ? rgba(ink.body, 0.08)
+      : rgba(accents.accent, 0.14);
+    const accentFg = brandPair ? YOUNG_NIGHT_ACCENT : accents.accentFg;
 
     return {
       bg,
@@ -1419,15 +1421,16 @@ export function tokensFromSeed(
       fgMuted,
       accent: accents.accent,
       onAccent,
-      accentFg: accents.accentFg,
-      accentSoft: rgba(accents.accent, 0.14),
+      accentFg,
+      accentSoft: softFill,
       secondary: accents.accent,
-      secondarySoft: rgba(accents.accent, 0.14),
+      secondarySoft: softFill,
       line: rgba(ink.body, 0.14),
       heroGlow,
       heroWash,
       surface: mode,
       spectrum: spectrum.id,
+      brandFlat: brandPair,
     };
   }
 
@@ -1437,12 +1440,11 @@ export function tokensFromSeed(
   const bgElevated = mix(paper, primary, r.elevatedPrimary);
   // Tints keep seed-forward glow; mid tones need air or the atmosphere stains.
   const glowWhite = resolveLightGlowWhite(spectrum, r.glowWhite);
-  let heroGlow = mix(primary, paper, glowWhite);
-  // Day Young Night: cool paper + a soft blue wash so the brand pair still reads
-  if (brandPair) {
-    heroGlow = mix(heroGlow, YOUNG_NIGHT_ACCENT, 0.2);
-  }
-  const heroWash = mix(paper, primary, Math.max(r.washPrimary, 0.1));
+  // Day Young Night: flat paper — brand blue stays on controls, not atmosphere
+  const heroGlow = brandPair ? bg : mix(primary, paper, glowWhite);
+  const heroWash = brandPair
+    ? bg
+    : mix(paper, primary, Math.max(r.washPrimary, 0.1));
   const ink = enforceInkHierarchy(
     hardenInkOnGrounds(
       chromaTextFromColor(primary, bg, r.display),
@@ -1470,6 +1472,10 @@ export function tokensFromSeed(
   );
   const brandMark = brandMarkForBg(bg);
   const onAccent = brandPair ? "#ffffff" : accents.onAccent;
+  const softFill = brandPair
+    ? rgba(ink.body, 0.08)
+    : rgba(accents.accent, 0.12);
+  const accentFg = brandPair ? YOUNG_NIGHT_ACCENT : accents.accentFg;
 
   return {
     bg,
@@ -1480,15 +1486,16 @@ export function tokensFromSeed(
     fgMuted,
     accent: accents.accent,
     onAccent,
-    accentFg: accents.accentFg,
-    accentSoft: rgba(accents.accent, 0.12),
+    accentFg,
+    accentSoft: softFill,
     secondary: accents.accent,
-    secondarySoft: rgba(accents.accent, 0.1),
+    secondarySoft: brandPair ? softFill : rgba(accents.accent, 0.1),
     line: rgba(ink.body, 0.12),
     heroGlow,
     heroWash,
     surface: mode,
     spectrum: spectrum.id,
+    brandFlat: brandPair,
   };
 }
 
@@ -1544,6 +1551,8 @@ export function applyThemeTokens(
   }
   target.dataset.themeSurface = tokens.surface;
   target.dataset.themeSpectrum = tokens.spectrum;
+  if (tokens.brandFlat) target.dataset.themeBrand = "young-night";
+  else delete target.dataset.themeBrand;
 }
 
 export function isThemeId(

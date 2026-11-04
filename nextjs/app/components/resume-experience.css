@@ -3,30 +3,9 @@
   padding-top: clamp(3rem, 12vh, 6rem);
 }
 
-.km-resume-gate__eyebrow,
-.km-resume__eyebrow {
-  margin: 0 0 0.85rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-fg-muted);
-}
-
-.km-resume-gate__title,
-.km-resume__title {
-  margin: 0;
-  font-family: var(--font-display), ui-serif, Georgia, serif;
-  font-size: clamp(2.1rem, 5vw, 3.2rem);
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  color: var(--color-fg-display);
-}
-
 .km-resume-gate__support,
 .km-resume__support {
-  margin: 0.9rem 0 0;
+  margin: 0.15rem 0 0;
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--color-fg-muted);

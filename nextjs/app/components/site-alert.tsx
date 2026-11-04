@@ -14,6 +14,7 @@ type SiteAlertProps = {
 
 /**
  * Fixed top-center page alert — form / network errors, not field captions.
+ * Stays mounted through a leave animation so dismiss isn't a hard cut.
  */
 export default function SiteAlert({
   open,
@@ -22,10 +23,23 @@ export default function SiteAlert({
   dismissMs = 6000,
 }: SiteAlertProps) {
   const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [leaving, setLeaving] = useState(false);
+  const [shownMessage, setShownMessage] = useState("");
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (open && message) {
+      setShownMessage(message);
+      setLeaving(false);
+      setVisible(true);
+      return;
+    }
+    if (visible) setLeaving(true);
+  }, [open, message, visible]);
 
   useEffect(() => {
     if (!open || dismissMs <= 0) return;
@@ -33,15 +47,32 @@ export default function SiteAlert({
     return () => window.clearTimeout(timer);
   }, [open, message, dismissMs, onClose]);
 
-  if (!mounted || !open || !message) return null;
+  function finishLeave() {
+    if (!leaving) return;
+    setVisible(false);
+    setLeaving(false);
+    setShownMessage("");
+  }
+
+  if (!mounted || !visible || !shownMessage) return null;
 
   return createPortal(
-    <div className="km-site-alert" role="alert" aria-live="assertive">
-      <p className="km-site-alert__message">{message}</p>
+    <div
+      className={[
+        "km-site-alert",
+        leaving ? "km-site-alert--leave" : "km-site-alert--enter",
+      ].join(" ")}
+      role="alert"
+      aria-live="assertive"
+      aria-hidden={leaving || undefined}
+      onAnimationEnd={finishLeave}
+    >
+      <p className="km-site-alert__message">{shownMessage}</p>
       <button
         type="button"
         className="km-site-alert__close"
         aria-label="Dismiss"
+        disabled={leaving}
         onClick={onClose}
       >
         <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden>

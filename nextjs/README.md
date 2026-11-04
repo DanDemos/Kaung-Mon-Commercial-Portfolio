@@ -4,7 +4,7 @@ App Router site for the portfolio. See the [root README](../README.md) for setup
 
 ## Contact form
 
-The contact section posts to `POST /api/contact` and emails `CONTACT_TO_EMAIL` via [Resend](https://resend.com).
+The form on `/contact` posts to `POST /api/contact` and emails `CONTACT_TO_EMAIL` via [Resend](https://resend.com). Home only shows an invite CTA that links to `/contact`.
 
 Spam controls (stacked):
 

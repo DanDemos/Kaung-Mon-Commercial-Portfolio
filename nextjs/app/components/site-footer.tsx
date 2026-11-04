@@ -6,14 +6,10 @@ import {
   SOCIAL_LINKS,
 } from "../lib/visitor-paths";
 import MediaImage from "./media-image";
+import "./draw-underline.css";
 import "./site-footer.css";
 
 const logo = BRAND.logoMark;
-
-type SiteFooterProps = {
-  /** When true, invert the black source mark for dark canvases. */
-  invertMark?: boolean;
-};
 
 function isExternalHref(href: string) {
   return (
@@ -25,9 +21,9 @@ function isExternalHref(href: string) {
 
 /**
  * Shared site footer — same on every page.
- * Nav is real routes / mailto only (no in-page section scroll).
+ * Nav is real routes / mailto only. Logo stays the black source mark.
  */
-export default function SiteFooter({ invertMark = false }: SiteFooterProps) {
+export default function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
@@ -37,11 +33,19 @@ export default function SiteFooter({ invertMark = false }: SiteFooterProps) {
           <nav className="km-footer__nav" aria-label="Footer">
             {FOOTER_NAV.map((item) =>
               isExternalHref(item.href) ? (
-                <a key={item.href} href={item.href} className="km-footer__link">
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="km-footer__link km-draw-underline"
+                >
                   {item.label}
                 </a>
               ) : (
-                <Link key={item.href} href={item.href} className="km-footer__link">
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="km-footer__link km-draw-underline"
+                >
                   {item.label}
                 </Link>
               ),
@@ -61,10 +65,7 @@ export default function SiteFooter({ invertMark = false }: SiteFooterProps) {
                 height={72}
                 sizes="72px"
                 quality={95}
-                className={[
-                  "km-footer__mark",
-                  invertMark ? "km-media--invert" : "",
-                ].join(" ")}
+                className="km-footer__mark"
               />
               <span className="km-footer__name">Kaung Mon</span>
             </Link>

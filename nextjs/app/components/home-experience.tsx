@@ -24,8 +24,6 @@ import { clearLocationHash, scrollToSection } from "../lib/scroll-section";
 import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
 import {
   CHOOSER_SEEN_KEY,
-  CONTACT_EMAIL,
-  CONTACT_MAILTO,
   DEFAULT_PATH,
   PATH_OPTIONS,
   PATH_STORAGE_KEY,
@@ -34,11 +32,13 @@ import {
   type VisitorPath,
 } from "../lib/visitor-paths";
 import Btn from "./btn";
+import ContactInvite from "./contact-invite";
 import DayNightToggle from "./day-night-toggle";
 import FocusRail from "./focus-rail";
 import MediaImage from "./media-image";
 import PathLensControl from "./path-lens-control";
 import ProjectStage from "./project-stage";
+import SectionTitle from "./section-title";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
 import TextLink from "./text-link";
@@ -53,7 +53,6 @@ const PathChooserDialog = dynamic(() => import("./path-chooser-dialog"), {
 });
 const ClientStage = dynamic(() => import("./client-stage"));
 const VoiceStage = dynamic(() => import("./voice-stage"));
-const ContactDock = dynamic(() => import("./contact-dock"));
 
 /** Let brand + hero land before the first-visit ask. */
 const CHOOSER_OPEN_DELAY_MS = 900;
@@ -247,10 +246,7 @@ export default function HomeExperience() {
             sizes="56px"
             quality={95}
             priority
-            className={[
-              "km-brand__mark",
-              tokens.brandMark === "#ffffff" ? "km-media--invert" : "",
-            ].join(" ")}
+            className="km-brand__mark"
           />
           <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
             Kaung Mon
@@ -300,7 +296,7 @@ export default function HomeExperience() {
           </div>
 
           <p
-            className="km-rise km-delay-3 mt-7 max-w-xl text-[clamp(1.15rem,2.4vw,1.55rem)] font-medium leading-snug tracking-[-0.025em] text-[var(--color-fg)]"
+            className="km-hero-headline km-rise km-delay-3 mt-7 max-w-xl text-[clamp(1.15rem,2.4vw,1.55rem)] font-medium leading-snug tracking-[-0.025em]"
             key={`headline-${path}`}
           >
             {content.headline}
@@ -322,7 +318,7 @@ export default function HomeExperience() {
         {content.items.length > 0 ? (
           <section className="km-home-section" key={`focus-${path}`}>
             <div className="km-home-section__head km-rise">
-              <h2 className="km-home-section__title">{content.focusTitle}</h2>
+              <SectionTitle label="Services" title={content.focusTitle} />
               {content.focusSupport ? (
                 <p className="km-home-section__support">{content.focusSupport}</p>
               ) : null}
@@ -335,7 +331,7 @@ export default function HomeExperience() {
 
         <section id="work" className="km-home-section" key={`work-${path}`}>
           <div className="km-home-section__head km-rise">
-            <h2 className="km-home-section__title">{content.sectionTitle}</h2>
+            <SectionTitle label="Work" title={content.sectionTitle} />
             {content.sectionSupport ? (
               <p className="km-home-section__support">{content.sectionSupport}</p>
             ) : null}
@@ -343,14 +339,14 @@ export default function HomeExperience() {
           <div className="km-rise">
             <ProjectStage key={path} projects={content.projects} />
           </div>
-          <p className="km-home-section__support mt-5">
-            <TextLink href="/work">See all work →</TextLink>
-          </p>
+          <div className="mt-6">
+            <Btn href="/work">See all work</Btn>
+          </div>
         </section>
 
         <section id="clients" className="km-home-section" key={`clients-${path}`}>
           <div className="km-home-section__head km-rise">
-            <h2 className="km-home-section__title">{content.clientsTitle}</h2>
+            <SectionTitle label="Clients" title={content.clientsTitle} />
             {content.clientsSupport ? (
               <p className="km-home-section__support">{content.clientsSupport}</p>
             ) : null}
@@ -362,7 +358,7 @@ export default function HomeExperience() {
 
         <section id="about" className="km-home-section" key={`about-${path}`}>
           <div className="km-home-section__head km-rise">
-            <h2 className="km-home-section__title">{content.aboutTitle}</h2>
+            <SectionTitle label="About" title={content.aboutTitle} />
           </div>
           <div className="km-home-about km-rise">
             <p className="km-home-about__body">{content.aboutBody}</p>
@@ -377,7 +373,7 @@ export default function HomeExperience() {
             key={`voices-${path}`}
           >
             <div className="km-home-section__head km-rise">
-              <h2 className="km-home-section__title">{content.voicesTitle}</h2>
+              <SectionTitle label="Voices" title={content.voicesTitle} />
               {content.voicesSupport ? (
                 <p className="km-home-section__support">{content.voicesSupport}</p>
               ) : null}
@@ -386,6 +382,7 @@ export default function HomeExperience() {
               <VoiceStage
                 title={content.voicesTitle}
                 voices={content.voices}
+                showQuotes={content.voicesShowQuotes}
               />
             </div>
           </section>
@@ -393,17 +390,17 @@ export default function HomeExperience() {
 
         <section id="contact" className="km-home-section" key={`contact-${path}`}>
           <div className="km-rise">
-            <ContactDock
+            <ContactInvite
+              eyebrow={content.contactEyebrow}
               title={content.contactTitle}
               support={content.contactSupport}
-              email={CONTACT_EMAIL}
-              mailto={CONTACT_MAILTO}
+              ctaLabel={content.contactCtaLabel}
             />
           </div>
         </section>
       </main>
 
-      <SiteFooter invertMark={tokens.brandMark === "#ffffff"} />
+      <SiteFooter />
 
       <PathChooserDialog
         open={chooserOpen}

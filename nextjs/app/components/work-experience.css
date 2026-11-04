@@ -1,29 +1,10 @@
 .km-work-page__intro {
   padding-top: clamp(2rem, 6vh, 3.5rem);
-  max-width: 40rem;
-}
-
-.km-work-page__eyebrow {
-  margin: 0 0 0.85rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-fg-muted);
-}
-
-.km-work-page__title {
-  margin: 0;
-  font-family: var(--font-display), ui-serif, Georgia, serif;
-  font-size: clamp(2.1rem, 5vw, 3.35rem);
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  color: var(--color-fg-display);
+  max-width: 42rem;
 }
 
 .km-work-page__support {
-  margin: 0.9rem 0 0;
+  margin: 0.15rem 0 0;
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--color-fg-muted);

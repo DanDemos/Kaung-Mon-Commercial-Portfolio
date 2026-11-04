@@ -1,0 +1,49 @@
+.km-contact-invite {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+  border-radius: 1.4rem;
+  /* Neutral invite panel — no hero-glow blue wash */
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  background: color-mix(in oklab, var(--color-fg) 4.5%, var(--color-bg));
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 6%, transparent),
+    0 16px 40px color-mix(in oklab, var(--color-fg) 8%, transparent);
+}
+
+@media (min-width: 720px) {
+  .km-contact-invite {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 2rem;
+    padding: 2.35rem 2rem;
+  }
+}
+
+.km-contact-invite__copy {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 36rem;
+}
+
+.km-contact-invite__support {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+  max-width: 34rem;
+}
+
+.km-contact-invite__action {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (min-width: 720px) {
+  .km-contact-invite__action {
+    justify-content: flex-end;
+    padding-bottom: 0.15rem;
+  }
+}

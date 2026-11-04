@@ -35,6 +35,7 @@ import Btn from "./btn";
 import DayNightToggle from "./day-night-toggle";
 import MediaImage from "./media-image";
 import PathLensControl from "./path-lens-control";
+import SectionTitle from "./section-title";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
 import TextLink from "./text-link";
@@ -182,10 +183,7 @@ export default function ResumeExperience() {
               sizes="56px"
               quality={95}
               priority
-              className={[
-                "km-brand__mark",
-                tokens.brandMark === "#ffffff" ? "km-media--invert" : "",
-              ].join(" ")}
+              className="km-brand__mark"
             />
             <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
               Kaung Mon
@@ -220,7 +218,7 @@ export default function ResumeExperience() {
           )}
         </main>
 
-        <SiteFooter invertMark={tokens.brandMark === "#ffffff"} />
+        <SiteFooter />
       </div>
 
       <PathChooserDialog
@@ -239,8 +237,11 @@ export default function ResumeExperience() {
 function ResumeGate({ onUnlock }: { onUnlock: () => void }) {
   return (
     <section className="km-resume-gate km-rise">
-      <p className="km-resume-gate__eyebrow">Recruiter only</p>
-      <h1 className="km-resume-gate__title">Resume is behind the Recruiter lens</h1>
+      <SectionTitle
+        label="Recruiter only"
+        title="Resume is behind the Recruiter lens"
+        as="h1"
+      />
       <p className="km-resume-gate__support">
         Switch to Recruiter to view education and experience. Other visitors keep
         the quieter tour on home.
@@ -259,9 +260,12 @@ function ResumeBody() {
   return (
     <div className="km-resume km-rise">
       <header className="km-resume__intro">
-        <p className="km-resume__eyebrow">Resume</p>
         <div className="km-resume__heading-row">
-          <h1 className="km-resume__title">Education &amp; experience</h1>
+          <SectionTitle
+            label="Resume"
+            title="Education & experience"
+            as="h1"
+          />
           <p className="km-resume__aside">Hiring snapshot</p>
         </div>
         <p className="km-resume__support">

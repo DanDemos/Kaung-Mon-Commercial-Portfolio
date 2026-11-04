@@ -23,9 +23,7 @@ html:not([data-km-boot]) .km-app {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
   overflow: hidden;
-  /* Canvas only — no large accent / secondary wash */
   background: var(--color-bg);
   color: var(--color-fg);
   transition:
@@ -39,48 +37,64 @@ html:not([data-km-boot]) .km-app {
   pointer-events: none;
 }
 
-.km-loader__brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-/* Light pad so the black source logo always reads on dark themes */
 .km-loader__mark {
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #f4f4f4;
-  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  position: relative;
+  width: clamp(7.5rem, 22vw, 10rem);
+  height: clamp(7.5rem, 22vw, 10rem);
 }
 
 .km-loader__logo {
-  width: 1.85rem;
-  height: 1.85rem;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
-.km-loader__name {
-  margin: 0;
-  font-family: var(--font-display), ui-serif, Georgia, serif;
-  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--color-brand-mark, var(--color-fg));
+/*
+ * Cover ONLY the letter K — measured on 112² logo-mark.png:
+ * frame 9–12 / 99–102; left square-dot 25–31×63–69 (must stay visible);
+ * K glyph 32–86 × 28–82. Cover uses that box + 1–2px pad (not into the dot).
+ */
+.km-loader__k-block {
+  position: absolute;
+  z-index: 1;
+  left: 28.57%; /* 32/112 — flush after the square-dot */
+  top: 24.11%; /* 27/112 */
+  width: 50%; /* → 88/112, past K’s right serifs */
+  height: 50.89%; /* → 84/112, past K’s feet */
+  display: grid;
+  place-items: center;
+  background: #000;
+  transition:
+    opacity 280ms ease,
+    visibility 280ms linear;
 }
 
-/* Traditional indeterminate ring */
+/* Light canvas + inverted mark: cover with white so a black K disappears */
+html[data-theme-surface="light"] .km-loader__k-block {
+  background: #fff;
+}
+
+.km-loader__k-block--hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .km-loader__spinner {
-  width: 1.65rem;
-  height: 1.65rem;
+  position: relative;
+  z-index: 2;
+  width: 1.35rem;
+  height: 1.35rem;
   border-radius: 50%;
-  border: 2px solid color-mix(in oklab, var(--color-fg) 18%, transparent);
-  border-top-color: var(--color-fg);
+  border: 2px solid color-mix(in oklab, #fff 22%, transparent);
+  border-top-color: #fff;
   animation: km-loader-spin 0.7s linear infinite;
+}
+
+html[data-theme-surface="light"] .km-loader__spinner {
+  border-color: color-mix(in oklab, #000 18%, transparent);
+  border-top-color: #000;
 }
 
 @keyframes km-loader-spin {
@@ -92,7 +106,15 @@ html:not([data-km-boot]) .km-app {
 @media (prefers-reduced-motion: reduce) {
   .km-loader__spinner {
     animation: none;
-    border-top-color: color-mix(in oklab, var(--color-fg) 45%, transparent);
+    border-top-color: color-mix(in oklab, #fff 55%, transparent);
+  }
+
+  html[data-theme-surface="light"] .km-loader__spinner {
+    border-top-color: color-mix(in oklab, #000 55%, transparent);
+  }
+
+  .km-loader__k-block {
+    transition: none;
   }
 
   html[data-km-boot="ready"] .km-app,

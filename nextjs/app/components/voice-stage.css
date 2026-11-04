@@ -125,6 +125,33 @@
     0 10px 24px color-mix(in oklab, var(--color-fg) 7%, transparent);
 }
 
+/* People-only (no quotes): one row of faces, quieter chrome */
+.km-voice-stage--people .km-voice-stage__pair {
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  max-width: none;
+}
+
+.km-voice-stage--people .km-voice-stage__pair:has(> :only-child) {
+  max-width: none;
+}
+
+.km-voice-stage--people .km-voice-stage__card {
+  padding: 0.85rem 0.9rem;
+}
+
+.km-voice-stage--people .km-voice-stage__person {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.km-voice-stage--people .km-voice-stage__photo {
+  --km-media-w: 4rem !important;
+  --km-media-h: 4rem !important;
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
 .km-voice-stage__person {
   display: flex;
   align-items: center;
@@ -148,6 +175,10 @@
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--color-fg);
+}
+
+html[data-theme-surface="dark"] .km-voice-stage__name {
+  color: #fff;
 }
 
 .km-voice-stage__role {

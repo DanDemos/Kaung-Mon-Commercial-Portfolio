@@ -13,14 +13,19 @@
   color: inherit;
 }
 
+/* White-on-black mark — sit on the page, no light pad */
 .km-brand__mark {
   --km-media-w: 1.75rem !important;
   --km-media-h: 1.75rem !important;
-  --km-spinner-size: 0.85rem;
+  --km-spinner-size: 0.7rem;
   --km-spinner-thickness: 2px;
+  box-sizing: border-box;
   width: 1.75rem !important;
   height: 1.75rem !important;
+  padding: 0;
+  border-radius: 0;
   background: transparent;
+  border: none;
   transform-origin: center;
   transition:
     transform 280ms cubic-bezier(0.22, 1.15, 0.36, 1),

@@ -23,6 +23,7 @@ import { BRAND } from "../lib/media";
 import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
 import DayNightToggle from "./day-night-toggle";
 import MediaImage from "./media-image";
+import SectionTitle from "./section-title";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
 import TextLink from "./text-link";
@@ -142,10 +143,7 @@ export default function WorkExperience() {
               sizes="56px"
               quality={95}
               priority
-              className={[
-                "km-brand__mark",
-                tokens.brandMark === "#ffffff" ? "km-media--invert" : "",
-              ].join(" ")}
+              className="km-brand__mark"
             />
             <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
               Kaung Mon
@@ -166,8 +164,11 @@ export default function WorkExperience() {
 
         <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
           <header className="km-work-page__intro km-rise">
-            <p className="km-work-page__eyebrow">Portfolio</p>
-            <h1 className="km-work-page__title">Projects I&apos;ve worked on</h1>
+            <SectionTitle
+              label="Portfolio"
+              title="Projects I've worked on"
+              as="h1"
+            />
             <p className="km-work-page__support">
               Same filters as before — Web, App, Chatbot, Designs, MMD. Hover a
               piece for the title and links; open home for live walkthroughs.
@@ -182,7 +183,7 @@ export default function WorkExperience() {
           </div>
         </main>
 
-        <SiteFooter invertMark={tokens.brandMark === "#ffffff"} />
+        <SiteFooter />
       </div>
     </>
   );

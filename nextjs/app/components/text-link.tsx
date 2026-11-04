@@ -7,6 +7,7 @@ import {
   scrollToSection,
   type PageSection,
 } from "../lib/scroll-section";
+import "./draw-underline.css";
 import "./text-link.css";
 
 type SharedProps = {
@@ -35,7 +36,9 @@ type TextLinkAsButton = SharedProps &
 export type TextLinkProps = TextLinkAsSection | TextLinkAsAnchor | TextLinkAsButton;
 
 function classes(className?: string) {
-  return ["km-text-link", className].filter(Boolean).join(" ");
+  return ["km-text-link", "km-draw-underline", className]
+    .filter(Boolean)
+    .join(" ");
 }
 
 /**

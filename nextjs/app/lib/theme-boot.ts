@@ -87,7 +87,6 @@ export function getThemeBootScript(): string {
     var fg = mode === "light" ? p.lightFg : p.darkFg;
     var brandPair = String(seed).toUpperCase() === p.youngNightSeed;
     var accent = brandPair ? p.youngNightAccent : seed;
-    var glow = brandPair ? p.youngNightAccent : seed;
     root.style.setProperty("--color-bg", bg);
     root.style.setProperty("--color-bg-elevated", bg);
     root.style.setProperty("--color-fg", fg);
@@ -98,15 +97,20 @@ export function getThemeBootScript(): string {
     root.style.setProperty("--color-accent", accent);
     root.style.setProperty("--color-accent-fg", accent);
     root.style.setProperty("--color-secondary", accent);
-    root.style.setProperty("--color-hero-glow", glow);
+    /* Young Night: flat canvas — no blue hero hue before tokens apply */
+    root.style.setProperty("--color-hero-glow", bg);
     root.style.setProperty("--color-hero-wash", bg);
     if (brandPair) {
       root.style.setProperty("--color-on-accent", "#ffffff");
-      root.style.setProperty("--color-accent-fg", "#89b5e6");
-      root.style.setProperty("--color-accent-soft", "rgba(44,123,211,0.14)");
-      root.style.setProperty("--color-secondary-soft", "rgba(44,123,211,0.14)");
-      root.style.setProperty("--color-hero-glow", "#1c3a5b");
-      root.style.setProperty("--color-bg-elevated", "#18293c");
+      /* Exact brand blue only — no softened #89b5e6 accent-fg */
+      root.style.setProperty("--color-accent-fg", p.youngNightAccent);
+      root.style.setProperty("--color-secondary", p.youngNightAccent);
+      /* Neutral soft fills — no blue washes on surfaces */
+      root.style.setProperty("--color-accent-soft", "rgba(204,208,215,0.08)");
+      root.style.setProperty("--color-secondary-soft", "rgba(204,208,215,0.08)");
+      root.dataset.themeBrand = "young-night";
+    } else {
+      delete root.dataset.themeBrand;
     }
     root.dataset.themeSurface = mode;
     root.dataset.kmBoot = "loading";

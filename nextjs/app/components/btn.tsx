@@ -78,7 +78,8 @@ function classes(className?: string, busy?: boolean) {
 }
 
 /**
- * Default site button — same treatment as the hero “Start browsing” control.
+ * One main site button — accent fill in day, glass in night
+ * (`html[data-theme-surface]`).
  */
 export default function Btn(props: BtnProps) {
   if (props.section) {
@@ -114,7 +115,13 @@ export default function Btn(props: BtnProps) {
     );
   }
 
-  const { children, className, type = "button", busy, ...buttonRest } = props;
+  const {
+    children,
+    className,
+    type = "button",
+    busy,
+    ...buttonRest
+  } = props;
   return (
     <button
       type={type}

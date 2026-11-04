@@ -19,6 +19,8 @@ const VOICES_PER_SLIDE = 2;
 type VoiceStageProps = {
   voices: PathVoice[];
   title: string;
+  /** When false, people only (photo / name / role) — no quote comments. */
+  showQuotes?: boolean;
   /** Auto-advance interval in ms. 0 disables. */
   intervalMs?: number;
 };
@@ -32,12 +34,13 @@ function chunkVoices(voices: PathVoice[], size: number): PathVoice[][] {
 }
 
 /**
- * Voices carousel — two colleagues per slide so the network reads at a glance.
- * Auto-advances; pauses on hover / focus / manual nav.
+ * Voices carousel — two colleagues per slide with quotes, or a people strip
+ * when quotes are off (Wonderer). Auto-advances; pauses on hover / focus / nav.
  */
 export default function VoiceStage({
   voices,
   title,
+  showQuotes = true,
   intervalMs = 5000,
 }: VoiceStageProps) {
   const labelId = useId();
@@ -47,9 +50,10 @@ export default function VoiceStage({
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  const perSlide = showQuotes ? VOICES_PER_SLIDE : Math.max(voices.length, 1);
   const slides = useMemo(
-    () => chunkVoices(voices, VOICES_PER_SLIDE),
-    [voices],
+    () => chunkVoices(voices, perSlide),
+    [voices, perSlide],
   );
   const slideCount = slides.length;
   const networkCount = voices.length;
@@ -137,7 +141,10 @@ export default function VoiceStage({
 
   return (
     <div
-      className="km-voice-stage"
+      className={[
+        "km-voice-stage",
+        showQuotes ? "" : "km-voice-stage--people",
+      ].join(" ")}
       role="region"
       aria-roledescription="carousel"
       aria-labelledby={labelId}
@@ -157,7 +164,9 @@ export default function VoiceStage({
 
       <div className="km-voice-stage__toolbar">
         <p className="km-voice-stage__count" aria-live="polite">
-          {networkCount} colleagues · {index + 1} / {slideCount}
+          {showQuotes
+            ? `${networkCount} colleagues · ${index + 1} / ${slideCount}`
+            : `${networkCount} people`}
         </p>
         {slideCount > 1 ? (
           <div className="km-voice-stage__controls">
@@ -214,9 +223,11 @@ export default function VoiceStage({
                       <p className="km-voice-stage__role">{voice.role}</p>
                     </div>
                   </div>
-                  <blockquote className="km-voice-stage__quote">
-                    “{voice.quote}”
-                  </blockquote>
+                  {showQuotes ? (
+                    <blockquote className="km-voice-stage__quote">
+                      “{voice.quote}”
+                    </blockquote>
+                  ) : null}
                 </li>
               ))}
             </ul>

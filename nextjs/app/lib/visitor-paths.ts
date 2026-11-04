@@ -9,14 +9,17 @@ export const CHOOSER_SEEN_KEY = "km-path-chooser-seen";
 /** Wonderer is the quiet default; roles are one Lens click away. */
 export const DEFAULT_PATH: VisitorPath = "wander";
 
-/** Public contact address (mailto / copy). Form delivery uses server env. */
+/** Public contact details (mailto / copy / contact page cards). */
 export const CONTACT_EMAIL = "kaungmonsoe14613@gmail.com";
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
+export const CONTACT_PHONE = "+95-9972040003";
+export const CONTACT_PHONE_TEL = "tel:+959972040003";
+export const CONTACT_ADDRESS = "Yangon, Thingangyun, Myanmar";
 
 /** Editable social / resume. Resume page is Recruiter-lens only. */
 export const SOCIAL_LINKS = {
-  linkedin: "https://www.linkedin.com/",
-  youtube: "https://www.youtube.com/",
+  linkedin: "https://www.linkedin.com/in/dan-demo-aba827218/",
+  youtube: "https://www.youtube.com/channel/UCOWXAE5cXMeVcAz6GiEZ6Qw",
   resume: "/resume",
 } as const;
 
@@ -33,7 +36,7 @@ export const FOOTER_NAV: FooterNavItem[] = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
   { label: "Resume", href: SOCIAL_LINKS.resume },
-  { label: "Contact", href: CONTACT_MAILTO },
+  { label: "Contact", href: "/contact" },
 ];
 
 export type PathCta =
@@ -114,8 +117,17 @@ export type PathContent = {
   voicesTitle: string;
   voicesSupport: string;
   voices: PathVoice[];
+  /** When false, show people (photo/name/role) without quote comments. */
+  voicesShowQuotes: boolean;
+  /** Home invite eyebrow (empty = hidden). */
+  contactEyebrow: string;
   contactTitle: string;
+  /** Home invite body. */
   contactSupport: string;
+  /** Form page body under the same title. */
+  contactFormSupport: string;
+  /** Home invite button → `/contact`. */
+  contactCtaLabel: string;
 };
 
 /** Screen recordings under `public/media/projects/{slug}/`. Copy is path-specific. */
@@ -207,30 +219,30 @@ const BUILD_PROJECTS = projectsWith({
 
 const WANDER_PROJECTS = projectsWith({
   essential: {
-    meta: "A product I built",
-    outcome: "Press play if it looks interesting.",
-    body: "No homework. Skip anything that doesn't catch you.",
+    meta: "Product",
+    outcome: "A short walkthrough of the product in use.",
+    body: "Play the clip when you want more than a still.",
   },
   genesis: {
-    meta: "A product I built",
-    outcome: "Another short walkthrough.",
-    body: "Stay as long as you like.",
+    meta: "Product",
+    outcome: "Another build with the same kind of walkthrough.",
+    body: "Watch it or keep moving.",
   },
   "myan-gate": {
-    meta: "A product I built",
-    outcome: "More of the same craft, different surface.",
-    body: "Open it or keep scrolling. Either is fine.",
+    meta: "Product",
+    outcome: "Denser UI, same idea of watching it run.",
+    body: "Open the recording if this shape interests you.",
   },
   "york-yoga": {
-    meta: "A site I built",
-    outcome: "A quieter piece for a small business.",
-    body: "Good stop if you prefer calm pages over product chrome.",
+    meta: "Website",
+    outcome: "A small-business site with less product chrome.",
+    body: "Quieter than the product pieces above.",
   },
 });
 
 /**
  * Colleague voices for hire, craft, and wonderer.
- * Not shown on Client. Quotes stay verbatim.
+ * Not shown on Client. Quotes stay verbatim when shown.
  */
 const COLLEAGUE_VOICES: PathVoice[] = [
   {
@@ -278,16 +290,21 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     projects: HIRE_PROJECTS,
     aboutTitle: "Who you'd be hiring",
     aboutBody:
-      "I'm Kaung Mon (Dan). Product engineer with a bias for clear interfaces and finished edges. I've shipped for teams and for small businesses. I write and speak plainly about what shipped and what I'd change next.",
+      "I'm Kaung Mon, also known as Dan. Product engineer with a bias for clear interfaces and finished edges. I've shipped for teams and for small businesses. I write and speak plainly about what shipped and what I'd change next.",
     aboutCta: { label: "View resume", href: "/resume" },
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "From people I've shipped with",
     voicesSupport: "Unedited. Useful for culture and collaboration fit.",
     voices: COLLEAGUE_VOICES,
+    voicesShowQuotes: true,
+    contactEyebrow: "",
     contactTitle: "Open to the right\u00A0role",
     contactSupport:
-      "Send the role, timeline, and location or remote expectations. I'll reply with a straight yes, no, or clarifying question.",
+      "Send the role, timeline, and location or remote expectations.",
+    contactFormSupport:
+      "I'll reply with a straight yes, no, or clarifying question.",
+    contactCtaLabel: "Send message",
   },
 
   /* Developer/Designer: peer tone, tradeoffs, no sales pitch. */
@@ -318,12 +335,16 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     voicesTitle: "Colleague network",
     voicesSupport: "Two faces per slide on purpose. Density over theatre.",
     voices: COLLEAGUE_VOICES,
+    voicesShowQuotes: true,
+    contactEyebrow: "",
     contactTitle: "Got a knotty UI or API\u00A0edge?",
-    contactSupport:
-      "Email a link, a loom, or a short description. I'll answer with how I'd cut the problem, not a sales call.",
+    contactSupport: "Send a link, a loom, or a short description.",
+    contactFormSupport:
+      "I'll answer with how I'd cut the problem, not a sales call.",
+    contactCtaLabel: "Send message",
   },
 
-  /* Client: warm, practical, business-owner speak. */
+  /* Client: warmer than Wonderer, still practical. No buddy "Say hello" theater. */
   build: {
     eyebrow: "For your business",
     roles: [
@@ -333,20 +354,20 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     ],
     headline: "A site your customers understand, and you aren't afraid to update.",
     support:
-      "I build custom websites for companies, shops, and associations that want to grow. Plain language. Yours, not a theme with a logo slapped on.",
+      "I build custom websites for companies, shops, and associations that want to grow. Plain language. Yours, not a theme with a logo stuck on.",
     primaryCta: { label: "See examples", section: "work" },
-    secondaryCta: { label: "Say hello", section: "contact" },
+    secondaryCta: { label: "Get in touch", section: "contact" },
     focusTitle: "What usually gets in the way",
     focusSupport:
-      "Getting found online does not have to feel hard. People already work with people they trust. Here is what we fix first.",
+      "Most owners hit the same few blockers first. Here is how we clear them.",
     items: [
       {
         title: "Nobody books the call",
-        body: "If the site shows what you do and why you are worth trusting, people have a reason to reach out.",
+        body: "When the site shows what you do and why people should trust you, reaching out feels obvious.",
       },
       {
         title: "Tech feels like a wall",
-        body: "I walk you through the online side until it makes sense. Plain language, and I stay reachable after launch.",
+        body: "I explain the online side in plain language, and I stay reachable after launch.",
       },
       {
         title: "It has to feel like you",
@@ -354,52 +375,61 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
       },
     ],
     sectionTitle: "Examples you can watch",
-    sectionSupport: "Real sites and products. Ask if you want the longer story behind any of them.",
+    sectionSupport: "Real sites and products. Ask if you want more behind any of them.",
     projects: BUILD_PROJECTS,
-    aboutTitle: "Nice to meet you. I'm Dan",
+    aboutTitle: "I'm Kaung Mon, also known as Dan",
     aboutBody:
-      "I'm Kaung Mon. Friends call me Dan. I make websites for small businesses and local shops so customers can see what you offer and get in touch. You should understand how the online side works, not just own a file you can't change.",
-    aboutCta: { label: "Say hello", section: "contact" },
+      "I make websites for small businesses and local shops so customers can see what you offer and get in touch. You should understand how the online side works, and be able to change it later.",
+    aboutCta: { label: "Get in touch", section: "contact" },
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "Voices",
     voicesSupport: "",
     voices: [],
-    contactTitle: "Tell me what you want to\u00A0grow",
+    voicesShowQuotes: false,
+    contactEyebrow: "Are you ready?",
+    contactTitle: "Let's create your beautiful\u00A0website",
     contactSupport:
-      "A sentence about your business is enough to start. We'll figure out whether a new site, a redesign, or something smaller is the right next step.",
+      "Tell me about your project. We can create something new together.",
+    contactFormSupport:
+      "A short note is enough. We can sort out whether you need a new site, a redesign, or something smaller.",
+    contactCtaLabel: "Send message",
   },
 
-  /* Wonderer: calm, low pressure — not performatively friendly. */
+  /* Wonderer: steady host. Plain, unhurried. Not buddy-warm, not clerk-cold. */
   wander: {
-    eyebrow: "Just looking",
+    eyebrow: "Look around",
     roles: [
       "Web developer",
       "UI designer",
       "Someone who builds for small teams",
     ],
-    headline: "Wander around. Nothing here asks you to decide today.",
+    headline: "Browse the work at your own pace.",
     support:
-      "Clips of work, a few people I've built with, and a quiet about section. Use Lens in the header if you arrived with a job to do.",
-    primaryCta: { label: "Browse work", section: "work" },
+      "Short clips of work, people I've worked with, and a short about. Switch Lens in the header if you're here for hiring, craft, or a project.",
+    primaryCta: { label: "See work", section: "work" },
     secondaryCta: { label: "Contact", section: "contact" },
     focusTitle: "",
     focusSupport: "",
     items: [],
-    sectionTitle: "Things I've made",
-    sectionSupport: "Skip freely. Pause only where something pulls you in.",
+    sectionTitle: "Work",
+    sectionSupport: "Short recordings from projects I've shipped.",
     projects: WANDER_PROJECTS,
-    aboutTitle: "About me",
+    aboutTitle: "About",
     aboutBody:
-      "I'm Kaung Mon, also Dan. I build websites and product interfaces. Some days that means a shop that needs to be found online. Other days it's denser product UI for a team. Either way I care that the screen makes sense.",
+      "I'm Kaung Mon, also known as Dan. I build websites and product interfaces. Sometimes that is a shop that needs to be found online. Sometimes it is denser product UI for a team. I care that the screen makes sense either way.",
     aboutCta: { label: "Contact", section: "contact" },
     clientsTitle: "Worked with",
     clientsSupport: "",
-    voicesTitle: "People I've worked beside",
-    voicesSupport: "Optional reading. Faces first.",
+    voicesTitle: "People I've worked with",
+    voicesSupport: "Colleagues from projects I've shipped.",
     voices: COLLEAGUE_VOICES,
+    voicesShowQuotes: false,
+    contactEyebrow: "",
     contactTitle: "Contact",
-    contactSupport: "Form or email — I read what comes in.",
+    contactSupport: "If you have a project or a question, send a message.",
+    contactFormSupport: "Use the form or email. I'll get back to you.",
+    contactCtaLabel: "Send message",
   },
 };
 
