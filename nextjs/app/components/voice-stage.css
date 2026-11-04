@@ -125,6 +125,15 @@
     0 10px 24px color-mix(in oklab, var(--color-fg) 7%, transparent);
 }
 
+/* Dark: flat card — no secondary/hero-glow wash */
+html[data-theme-surface="dark"] .km-voice-stage__card {
+  background: color-mix(in oklab, var(--color-fg) 7%, var(--color-bg));
+}
+
+html[data-theme-surface="dark"] .km-voice-stage__role {
+  color: color-mix(in oklab, #fff 58%, transparent);
+}
+
 /* People-only (no quotes): one row of faces, quieter chrome */
 .km-voice-stage--people .km-voice-stage__pair {
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
@@ -196,6 +205,10 @@ html[data-theme-surface="dark"] .km-voice-stage__name {
   line-height: 1.45;
   letter-spacing: -0.02em;
   color: color-mix(in oklab, var(--color-fg) 78%, var(--color-fg-muted));
+}
+
+html[data-theme-surface="dark"] .km-voice-stage__quote {
+  color: #fff;
 }
 
 .km-voice-stage__dots {

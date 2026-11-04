@@ -287,7 +287,7 @@ export default function HomeExperience() {
             {content.eyebrow}
           </p>
 
-          <h1 className="km-font-display km-rise km-delay-2 max-w-[12ch] text-[clamp(3.25rem,11vw,6.75rem)] font-semibold leading-[0.9] tracking-[-0.02em] text-[var(--color-fg-display)]">
+          <h1 className="km-hero-brand km-font-display km-rise km-delay-2 max-w-[12ch] text-[clamp(3.25rem,11vw,6.75rem)] font-semibold leading-[0.9] tracking-[-0.02em]">
             Kaung Mon
           </h1>
 

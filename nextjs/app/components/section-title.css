@@ -38,7 +38,7 @@
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--color-fg);
+  color: #000;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   text-wrap: balance;
 }

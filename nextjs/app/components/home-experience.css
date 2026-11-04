@@ -1,11 +1,17 @@
 /* Home shell — sections stay simple; interaction lives in components */
 
-.km-hero-headline {
-  color: var(--color-fg);
+/* Brand name: black in day; themed display ink at night */
+.km-hero-brand {
+  color: #000;
 }
 
-html[data-theme-surface="dark"] .km-hero-headline {
-  color: #fff;
+html[data-theme-surface="dark"] .km-hero-brand {
+  color: var(--color-fg-display);
+}
+
+/* Headline keeps --color-fg-display (not forced black) */
+.km-hero-headline {
+  color: var(--color-fg-display);
 }
 
 .km-home-section {

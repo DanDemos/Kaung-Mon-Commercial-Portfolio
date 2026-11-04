@@ -253,8 +253,9 @@
 html[data-theme-surface="dark"] .km-btn {
   --km-btn-edge: color-mix(in oklab, var(--color-fg) 55%, white);
   --km-btn-hold: color-mix(in oklab, var(--color-fg) 70%, transparent);
-  border-color: color-mix(in oklab, var(--color-fg) 22%, transparent);
-  background: color-mix(in oklab, var(--color-bg-elevated) 42%, transparent);
+  /* Rest = former hover fill */
+  border-color: color-mix(in oklab, var(--color-fg) 34%, transparent);
+  background: color-mix(in oklab, var(--color-bg-elevated) 58%, transparent);
   color: var(--color-fg);
   backdrop-filter: blur(14px) saturate(1.15);
   -webkit-backdrop-filter: blur(14px) saturate(1.15);
@@ -275,9 +276,9 @@ html[data-theme-surface="dark"] .km-btn::before {
 
 html[data-theme-surface="dark"] .km-btn:hover,
 html[data-theme-surface="dark"] .km-btn:focus-visible {
-  filter: brightness(1.06);
-  border-color: color-mix(in oklab, var(--color-fg) 34%, transparent);
-  background: color-mix(in oklab, var(--color-bg-elevated) 58%, transparent);
+  filter: brightness(1.05);
+  border-color: color-mix(in oklab, var(--color-fg) 44%, transparent);
+  background: color-mix(in oklab, var(--color-bg-elevated) 72%, transparent);
 }
 
 html[data-theme-surface="dark"] .km-btn:focus-visible {
