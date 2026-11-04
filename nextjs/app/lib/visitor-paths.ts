@@ -9,8 +9,8 @@ export const CHOOSER_SEEN_KEY = "km-path-chooser-seen";
 /** Wonderer is the quiet default; roles are one Lens click away. */
 export const DEFAULT_PATH: VisitorPath = "wander";
 
-/** Editable contact. Swap when ready. */
-export const CONTACT_EMAIL = "hello@kaungmon.dev";
+/** Public contact address (mailto / copy). Form delivery uses server env. */
+export const CONTACT_EMAIL = "kaungmonsoe14613@gmail.com";
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
 
 /** Editable social / resume. Swap when ready. */

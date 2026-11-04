@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
+import { loadEnvConfig } from "@next/env";
 import path from "path";
 
-/** Repo root (shared/ + assets/ live next to nextjs/). */
+/** Repo root (shared/ + assets/ + shared `.env` live next to nextjs/). */
 const repoRoot = path.join(__dirname, "..");
+
+// One env file for the whole monorepo — not nextjs/.env.local.
+loadEnvConfig(repoRoot);
 
 const nextConfig: NextConfig = {
   // Dev/bundler + production file tracing both need the monorepo root so

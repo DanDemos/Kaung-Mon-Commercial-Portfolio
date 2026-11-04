@@ -11,12 +11,15 @@ Personal commercial portfolio built with Next.js. Visitors can pick a soft audie
 ## Setup
 
 ```bash
+cp .env.example .env   # shared secrets for the whole repo
 cd nextjs
 yarn install
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+Env lives at **repo root** `/.env` (see `.env.example`). Next.js loads it from `nextjs/next.config.ts` so other frameworks can share the same file.
 
 ## Project layout
 

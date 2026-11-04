@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
-import { PATH_OPTIONS, type VisitorPath } from "../lib/visitor-paths";
+import {
+  ROLE_OPTIONS,
+  WANDER_OPTION,
+  type VisitorPath,
+} from "../lib/visitor-paths";
 
 type PathChooserDialogProps = {
   open: boolean;
@@ -53,6 +57,8 @@ export default function PathChooserDialog({
 
   if (!open) return null;
 
+  const wondererActive = currentPath === WANDER_OPTION.id;
+
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center">
       <button
@@ -70,20 +76,32 @@ export default function PathChooserDialog({
         aria-describedby={descriptionId}
         className="km-rise relative z-10 w-full max-w-md border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-6 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
       >
-        <div className="flex items-start justify-between gap-4">
-          <p className="text-[0.75rem] font-medium uppercase tracking-[0.16em] text-[var(--color-fg-muted)]">
-            Optional
-          </p>
-          <button
-            ref={closeRef}
-            type="button"
-            aria-label="Close"
-            onClick={onDismiss}
-            className="-mr-2 -mt-1 rounded-md px-2 py-1 text-[0.9rem] text-[var(--color-fg-muted)] transition-colors hover:bg-[color-mix(in_oklab,var(--color-fg)_6%,transparent)] hover:text-[var(--color-fg)]"
+        <button
+          ref={closeRef}
+          type="button"
+          aria-label="Close"
+          onClick={onDismiss}
+          className="absolute right-3 top-3 inline-flex size-9 items-center justify-center rounded-full text-[var(--color-fg-muted)] transition-[background-color,color,transform] duration-150 hover:bg-[color-mix(in_oklab,var(--color-fg)_7%,transparent)] hover:text-[var(--color-fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            aria-hidden
           >
-            Close
-          </button>
-        </div>
+            <path
+              d="M3 3l8 8M11 3L3 11"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+
+        <p className="pr-10 text-[0.75rem] font-medium uppercase tracking-[0.16em] text-[var(--color-fg-muted)]">
+          Optional
+        </p>
         <h2
           id={titleId}
           className="mt-3 text-[1.55rem] font-semibold tracking-[-0.035em] text-[var(--color-fg)]"
@@ -94,8 +112,7 @@ export default function PathChooserDialog({
           id={descriptionId}
           className="mt-2 text-[0.98rem] leading-relaxed text-[var(--color-fg-muted)]"
         >
-          Wonderer is the default. Pick any of the four. You can change later from
-          Lens.
+          Default is wonderer. Pick a role only if you want a different view.
         </p>
 
         <div
@@ -103,7 +120,7 @@ export default function PathChooserDialog({
           aria-label="Visitor type"
           className="mt-7 flex flex-col"
         >
-          {PATH_OPTIONS.map((option) => {
+          {ROLE_OPTIONS.map((option) => {
             const active = currentPath === option.id;
             return (
               <button
@@ -112,7 +129,7 @@ export default function PathChooserDialog({
                 aria-pressed={active}
                 onClick={() => onChoose(option.id)}
                 className={[
-                  "-mx-3 flex items-baseline justify-between gap-4 border-t border-[var(--color-line)] px-3 py-3.5 text-left transition-[background-color,color] duration-150 last:border-b",
+                  "-mx-3 flex items-baseline justify-between gap-4 border-t border-[var(--color-line)] px-3 py-3.5 text-left transition-[background-color,color] duration-150",
                   active
                     ? "bg-[var(--color-accent-soft)] text-[var(--color-accent-fg)]"
                     : "bg-transparent text-[var(--color-fg)] hover:bg-[var(--color-accent-soft)] hover:text-[var(--color-accent-fg)]",
@@ -127,6 +144,25 @@ export default function PathChooserDialog({
               </button>
             );
           })}
+        </div>
+
+        <div className="mt-2 border-t border-[var(--color-line)] pt-3">
+          <button
+            type="button"
+            aria-pressed={wondererActive}
+            onClick={() => onChoose(WANDER_OPTION.id)}
+            className={[
+              "-mx-3 w-[calc(100%+1.5rem)] px-3 py-3 text-left text-[0.98rem] font-medium transition-[background-color,color] duration-150",
+              wondererActive
+                ? "bg-[var(--color-accent-soft)] text-[var(--color-accent-fg)]"
+                : "bg-transparent text-[var(--color-fg-muted)] hover:bg-[color-mix(in_oklab,var(--color-fg)_6%,transparent)] hover:text-[var(--color-fg)]",
+            ].join(" ")}
+          >
+            Continue as {WANDER_OPTION.label.toLowerCase()}
+            <span aria-hidden className="ml-1">
+              →
+            </span>
+          </button>
         </div>
       </div>
     </div>

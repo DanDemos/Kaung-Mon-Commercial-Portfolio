@@ -208,7 +208,10 @@ export default function HomeExperience() {
 
   return (
     <>
-      <SiteLoader ready={ready} />
+      <SiteLoader
+        ready={ready}
+        invertMark={tokens.brandMark === "#ffffff"}
+      />
       <div className="km-app relative flex min-h-full flex-1 flex-col overflow-x-hidden">
       <div
         aria-hidden
