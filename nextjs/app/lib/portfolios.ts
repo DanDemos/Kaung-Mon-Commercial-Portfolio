@@ -11,6 +11,7 @@ import animeMmSub from "../../../assets/portfolios/mobile-apps/anime-mm-sub/cove
 import avs from "../../../assets/portfolios/mobile-apps/avs/cover.jpg";
 import c2 from "../../../assets/portfolios/mobile-apps/c2/cover.jpg";
 import chikanero from "../../../assets/portfolios/mmd/chikanero/cover.jpg";
+import dandemo from "../../../assets/portfolios/websites/dandemo/cover.jpg";
 import essential from "../../../assets/portfolios/websites/essential/cover.jpg";
 import finalPrototypeDay from "../../../assets/portfolios/drawings/final-prototype-day/cover.jpg";
 import finalPrototypeNight from "../../../assets/portfolios/drawings/final-prototype-night/cover.jpg";
@@ -98,10 +99,71 @@ export const PORTFOLIO_FILTERS: {
 ];
 
 /**
- * Order follows the old `portfolio-container` row.
- * Titles / kinds / hrefs taken from that markup.
+ * Newest → oldest by `year`. Same year: web → app → chatbot → designs → mmd.
  */
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  // 2022
+  {
+    slug: "dandemo",
+    title: "Dan Demo",
+    category: "web",
+    kind: "Website",
+    cover: dandemo,
+    year: 2022,
+    tool: "HTML · Bootstrap",
+    href: "https://dandemo.vercel.app/",
+  },
+  // 2021
+  {
+    slug: "genesis",
+    title: "Genesis Myanmar",
+    category: "web",
+    kind: "Website",
+    cover: genesis,
+    year: 2021,
+    tool: "WordPress · Elementor",
+    archivedHref: "http://genesismyanmar.com/",
+    hasWalkthrough: true,
+  },
+  {
+    slug: "myan-bell",
+    title: "Myanbell",
+    category: "web",
+    kind: "Website",
+    cover: myanBell,
+    year: 2021,
+    tool: "WordPress · Elementor",
+    href: "https://myanbell.com/",
+  },
+  {
+    slug: "myan-pro-solutions",
+    title: "Myan Pro Solutions",
+    category: "web",
+    kind: "Website",
+    cover: myanProSolutions,
+    year: 2021,
+    tool: "WordPress · Elementor",
+    href: "https://myanprosolutions.com/",
+  },
+  {
+    slug: "myan-bell-chatbot",
+    title: "Myanbell",
+    category: "chatbot",
+    kind: "Chatbot",
+    cover: myanBellChatbot,
+    year: 2021,
+    href: "https://www.facebook.com/Myanbellofficial/",
+  },
+  {
+    slug: "sei-no-glasses",
+    title: "Sei Takanashi",
+    category: "designs",
+    kind: "Drawing",
+    cover: seiNoGlasses,
+    year: 2021,
+    tool: "Inkscape",
+  },
+  // 2020
   {
     slug: "york-yoga",
     title: "York Yoga Corner",
@@ -125,17 +187,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     hasWalkthrough: true,
   },
   {
-    slug: "genesis",
-    title: "Genesis Myanmar",
-    category: "web",
-    kind: "Website",
-    cover: genesis,
-    year: 2021,
-    tool: "WordPress · Elementor",
-    archivedHref: "http://genesismyanmar.com/",
-    hasWalkthrough: true,
-  },
-  {
     slug: "myan-gate",
     title: "MyanGate",
     category: "web",
@@ -145,26 +196,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     tool: "Wix",
     href: "https://myangate.com/",
     hasWalkthrough: true,
-  },
-  {
-    slug: "myan-bell",
-    title: "Myanbell",
-    category: "web",
-    kind: "Website",
-    cover: myanBell,
-    year: 2021,
-    tool: "WordPress · Elementor",
-    href: "https://myanbell.com/",
-  },
-  {
-    slug: "myan-pro-solutions",
-    title: "Myan Pro Solutions",
-    category: "web",
-    kind: "Website",
-    cover: myanProSolutions,
-    year: 2021,
-    tool: "WordPress · Elementor",
-    href: "https://myanprosolutions.com/",
   },
   {
     slug: "hwt",
@@ -197,6 +228,16 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     href: "https://play.google.com/store/apps/details?id=com.myanshop.avsonlinestore",
   },
   {
+    slug: "tsukasa-tsukuyomi",
+    title: "Tsukasa Tsukuyomi",
+    category: "designs",
+    kind: "Drawing",
+    cover: tsukasaTsukuyomi,
+    year: 2020,
+    tool: "Inkscape",
+  },
+  // 2019
+  {
     slug: "anime-mm-sub",
     title: "Anime MM Sub",
     category: "app",
@@ -216,14 +257,24 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     tool: "Android · Java",
   },
   {
-    slug: "myan-bell-chatbot",
-    title: "Myanbell",
-    category: "chatbot",
-    kind: "Chatbot",
-    cover: myanBellChatbot,
-    year: 2021,
-    href: "https://www.facebook.com/Myanbellofficial/",
+    slug: "chikanero",
+    title: "Chika Dance Nero Claudius",
+    category: "mmd",
+    kind: "MMD",
+    cover: chikanero,
+    year: 2019,
+    href: "https://youtu.be/lnps2LOVhkE",
   },
+  {
+    slug: "ia-conqueror",
+    title: "IA — Conqueror",
+    category: "mmd",
+    kind: "MMD",
+    cover: iaConqueror,
+    year: 2019,
+    href: "https://youtu.be/rtrv5rbjF54",
+  },
+  // 2018
   {
     slug: "hnd-project",
     title: "Seventh April Online Shop",
@@ -234,25 +285,38 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     tool: "PHP · HTML · CSS · JavaScript",
     href: "https://docs.google.com/document/d/1Ga7dvY4VtSAej1zeqmTaulGtjXxwedsq/edit?usp=sharing&ouid=103913041693913816097&rtpof=true&sd=true",
   },
-
   {
-    slug: "tsukasa-tsukuyomi",
-    title: "Tsukasa Tsukuyomi",
+    slug: "wizard",
+    title: "Black Wizard",
     category: "designs",
-    kind: "Drawing",
-    cover: tsukasaTsukuyomi,
-    year: 2020,
+    kind: "Animation",
+    cover: wizardIdle,
+    year: 2018,
+    tool: "Inkscape",
+    modes: [
+      { id: "idle", label: "Idle", cover: wizardIdle },
+      { id: "move", label: "Move", cover: wizardMove },
+    ],
+  },
+  {
+    slug: "final-prototype-night",
+    title: "Smart Car UI",
+    category: "designs",
+    kind: "Student project design",
+    cover: finalPrototypeNight,
+    year: 2018,
     tool: "Inkscape",
   },
   {
-    slug: "sei-no-glasses",
-    title: "Sei Takanashi",
+    slug: "final-prototype-day",
+    title: "Smart Car UI — day",
     category: "designs",
-    kind: "Drawing",
-    cover: seiNoGlasses,
-    year: 2021,
+    kind: "Student project design",
+    cover: finalPrototypeDay,
+    year: 2018,
     tool: "Inkscape",
   },
+  // 2017
   {
     slug: "slime",
     title: "Slime",
@@ -279,19 +343,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
       { id: "attack", label: "Attack", cover: zeusAttack },
     ],
   },
-  {
-    slug: "wizard",
-    title: "Black Wizard",
-    category: "designs",
-    kind: "Animation",
-    cover: wizardIdle,
-    year: 2018,
-    tool: "Inkscape",
-    modes: [
-      { id: "idle", label: "Idle", cover: wizardIdle },
-      { id: "move", label: "Move", cover: wizardMove },
-    ],
-  },
+  // 2016
   {
     slug: "potion",
     title: "Lava Potion",
@@ -310,43 +362,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     year: 2016,
     tool: "Adobe Illustrator",
   },
-  {
-    slug: "final-prototype-night",
-    title: "Smart Car UI",
-    category: "designs",
-    kind: "Student project design",
-    cover: finalPrototypeNight,
-    year: 2018,
-    tool: "Inkscape",
-  },
-  {
-    slug: "final-prototype-day",
-    title: "Smart Car UI — day",
-    category: "designs",
-    kind: "Student project design",
-    cover: finalPrototypeDay,
-    year: 2018,
-    tool: "Inkscape",
-  },
-  {
-    slug: "chikanero",
-    title: "Chika Dance Nero Claudius",
-    category: "mmd",
-    kind: "MMD",
-    cover: chikanero,
-    year: 2019,
-    href: "https://youtu.be/lnps2LOVhkE",
-  },
-  {
-    slug: "ia-conqueror",
-    title: "IA — Conqueror",
-    category: "mmd",
-    kind: "MMD",
-    cover: iaConqueror,
-    year: 2019,
-    href: "https://youtu.be/rtrv5rbjF54",
-  },
-
 ];
 
 export function portfoliosForFilter(

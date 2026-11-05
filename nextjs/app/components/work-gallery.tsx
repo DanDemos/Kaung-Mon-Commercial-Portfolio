@@ -36,9 +36,21 @@ export default function WorkGallery() {
   const [filter, setFilter] = useState<FilterId>("all");
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
 
-  const visible = useMemo(() => {
-    if (filter === "all") return PORTFOLIO_ITEMS;
-    return PORTFOLIO_ITEMS.filter((item) => item.category === filter);
+  const sections = useMemo(() => {
+    const items =
+      filter === "all"
+        ? PORTFOLIO_ITEMS
+        : PORTFOLIO_ITEMS.filter((item) => item.category === filter);
+
+    const byYear = new Map<number, PortfolioItem[]>();
+    for (const item of items) {
+      if (item.year == null) continue;
+      const group = byYear.get(item.year);
+      if (group) group.push(item);
+      else byYear.set(item.year, [item]);
+    }
+
+    return [...byYear.entries()].sort(([a], [b]) => b - a);
   }, [filter]);
 
   return (
@@ -70,15 +82,31 @@ export default function WorkGallery() {
         })}
       </ul>
 
-      <ul className="km-portfolio__container portfolio-container">
-        {visible.map((item) => (
-          <PortfolioCard
-            key={item.slug}
-            item={item}
-            onView={(state) => setLightbox(state)}
-          />
+      <div className="km-portfolio__years">
+        {sections.map(([year, items]) => (
+          <section
+            key={year}
+            className="km-portfolio__year"
+            aria-labelledby={`portfolio-year-${year}`}
+          >
+            <h2
+              id={`portfolio-year-${year}`}
+              className="km-portfolio__year-title km-font-display"
+            >
+              {year}
+            </h2>
+            <ul className="km-portfolio__container portfolio-container">
+              {items.map((item) => (
+                <PortfolioCard
+                  key={item.slug}
+                  item={item}
+                  onView={(state) => setLightbox(state)}
+                />
+              ))}
+            </ul>
+          </section>
         ))}
-      </ul>
+      </div>
 
       {lightbox ? (
         <PortfolioLightbox
@@ -103,7 +131,9 @@ function PortfolioCard({
   const mode = modes?.[modeIndex];
   const cover = mode?.cover ?? item.cover;
   const kind = mode ? mode.label : item.kind;
-  const meta = portfolioMetaLabel(item);
+  /** Year lives in the section heading — card meta is tool only. */
+  const meta = item.tool ?? null;
+  const lightboxMeta = portfolioMetaLabel(item);
 
   function cycleMode() {
     if (!modes || modes.length < 2) return;
@@ -172,7 +202,7 @@ function PortfolioCard({
                 onView({
                   title: item.title,
                   kind: item.kind,
-                  meta,
+                  meta: lightboxMeta,
                   cover,
                   modes: canCycle ? modes : undefined,
                   modeIndex,

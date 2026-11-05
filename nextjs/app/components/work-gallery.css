@@ -5,6 +5,26 @@
   gap: 1.25rem;
 }
 
+.km-portfolio__years {
+  display: grid;
+  gap: 2.75rem;
+}
+
+.km-portfolio__year {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.km-portfolio__year-title {
+  margin: 0;
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-fg);
+}
+
 .km-portfolio__filters {
   display: flex;
   flex-wrap: wrap;
