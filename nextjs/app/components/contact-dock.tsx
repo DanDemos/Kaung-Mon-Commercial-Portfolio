@@ -258,7 +258,10 @@ export default function ContactDock({ support }: ContactDockProps) {
             <ShareIcon />
           </span>
           <div className="km-contact-info__body">
-            <p className="km-contact-info__label">Social Profiles</p>
+            <p className="km-contact-info__label">
+              <span className="km-contact-info__label-short">Social</span>
+              <span className="km-contact-info__label-full">Social Profiles</span>
+            </p>
             <div className="km-contact-info__social">
               <a
                 href={SOCIAL_LINKS.youtube}
