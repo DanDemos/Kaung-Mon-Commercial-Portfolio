@@ -301,13 +301,13 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     contactEyebrow: "",
     contactTitle: "Open to the right\u00A0role",
     contactSupport:
-      "Send the role, timeline, and location or remote expectations.",
+      "Send the role, timeline, and whether the work is remote or on-site.",
     contactFormSupport:
-      "I'll reply with a straight yes, no, or clarifying question.",
+      "I'll reply with a clear yes, no, or a short clarifying question.",
     contactCtaLabel: "Send message",
   },
 
-  /* Developer/Designer: peer tone, tradeoffs, no sales pitch. */
+  /* Developer/Designer: coolest lens (~25% warm). Peer tone, no pitch. */
   craft: {
     eyebrow: "Craft",
     roles: [
@@ -333,18 +333,18 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     clientsTitle: "Worked with",
     clientsSupport: "",
     voicesTitle: "Colleague network",
-    voicesSupport: "Paired faces from tablet up. Density over theatre.",
+    voicesSupport: "Two faces from tablet up when the screen allows.",
     voices: COLLEAGUE_VOICES,
     voicesShowQuotes: true,
     contactEyebrow: "",
-    contactTitle: "Got a knotty UI or API\u00A0edge?",
-    contactSupport: "Send a link, a loom, or a short description.",
+    contactTitle: "Stuck on a UI or API\u00A0edge?",
+    contactSupport: "Send a link, a recording, or a short description.",
     contactFormSupport:
-      "I'll answer with how I'd cut the problem, not a sales call.",
+      "I'll answer with how I'd cut the problem. Not a sales call.",
     contactCtaLabel: "Send message",
   },
 
-  /* Client: warmer than Wonderer, still practical. No buddy "Say hello" theater. */
+  /* Client: warmest lens (~50% of full sweet-talk). Practical, not buddy theater. */
   build: {
     eyebrow: "For your business",
     roles: [
@@ -387,16 +387,16 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     voicesSupport: "",
     voices: [],
     voicesShowQuotes: false,
-    contactEyebrow: "Are you ready?",
-    contactTitle: "Let's create your beautiful\u00A0website",
+    contactEyebrow: "",
+    contactTitle: "Tell me about the\u00A0project",
     contactSupport:
-      "Tell me about your project.\nWe can create something new together.",
+      "What you sell, who it's for, and what the site should do.",
     contactFormSupport:
-      "A short note is enough. We can sort out whether you need a new site, a redesign, or something smaller.",
+      "A short note is enough. We can sort out a new site, a redesign, or something smaller.",
     contactCtaLabel: "Send message",
   },
 
-  /* Wonderer: steady host. Plain, unhurried. Not buddy-warm, not clerk-cold. */
+  /* Wonderer: ~30% warm. Steady host. Plain, unhurried. */
   wander: {
     eyebrow: "Look around",
     roles: [
@@ -427,7 +427,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
     voicesShowQuotes: false,
     contactEyebrow: "",
     contactTitle: "Contact",
-    contactSupport: "If you have a project or a question, send a message.",
+    contactSupport: "A project note or a question is fine. Send a message when you want a reply.",
     contactFormSupport: "Use the form or email. I'll get back to you.",
     contactCtaLabel: "Send message",
   },
