@@ -1,0 +1,167 @@
+@import "../../site-loader-gate.css";
+
+/* Brand-first loader visuals */
+
+.km-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding-inline: 1.5rem;
+  overflow: hidden;
+  overflow-x: clip;
+  background: #fff;
+  color: #4a4a4a;
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 520ms linear;
+}
+
+html[data-theme-surface="dark"] .km-loader {
+  background: #000;
+  color: #c8c8c8;
+}
+
+.km-loader--done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.km-loader__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(16rem, 72vw);
+  aspect-ratio: 1;
+}
+
+.km-loader__aura {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 45%,
+    color-mix(in oklab, var(--color-accent) 28%, transparent) 0%,
+    color-mix(in oklab, var(--color-accent) 8%, transparent) 42%,
+    transparent 72%
+  );
+  filter: blur(2px);
+  animation: km-loader-aura 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+html[data-theme-surface="dark"] .km-loader__aura {
+  background: radial-gradient(
+    circle at 50% 45%,
+    color-mix(in oklab, var(--color-accent) 36%, transparent) 0%,
+    color-mix(in oklab, var(--color-accent) 10%, transparent) 45%,
+    transparent 74%
+  );
+}
+
+.km-loader__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: km-loader-spin 1.65s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.km-loader__ring-track {
+  stroke: color-mix(in oklab, var(--color-accent) 16%, transparent);
+  stroke-width: 1.25;
+}
+
+.km-loader__ring-arc {
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 44 132;
+}
+
+.km-loader__brand {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 9ch;
+  text-align: center;
+  font-size: clamp(1.65rem, 5.5vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: #111;
+}
+
+html[data-theme-surface="dark"] .km-loader__brand {
+  color: #fff;
+}
+
+.km-loader__label {
+  margin: 0;
+  padding: 0;
+  min-height: 1.2em;
+  font-family: var(--font-sans), "Geist Sans", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--color-accent);
+  animation: km-loader-label-in 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes km-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes km-loader-aura {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes km-loader-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .km-loader__ring,
+  .km-loader__aura,
+  .km-loader__label {
+    animation: none;
+  }
+
+  .km-loader__aura {
+    opacity: 0.85;
+  }
+
+  .km-loader {
+    transition: none;
+  }
+}

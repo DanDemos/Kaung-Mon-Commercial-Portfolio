@@ -103,7 +103,7 @@
   color: var(--color-fg-muted);
 }
 
-/* Demoted wonderer escape — underline under label text only, not full row. */
+/* Demoted wonderer escape — underline via shared `.km-draw-underline` on the label. */
 .km-path-chooser__wonderer {
   display: inline-flex;
   align-items: center;
@@ -125,59 +125,27 @@
 }
 
 .km-path-chooser__wonderer-label {
-  position: relative;
   display: inline;
 }
 
-.km-path-chooser__wonderer-label::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.12em;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left center;
-  opacity: 0.75;
-  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
+/* Active = current path: stronger ink, no resting underline (already chosen) */
 .km-path-chooser__wonderer--active {
   color: var(--color-fg);
 }
 
-.km-path-chooser__wonderer--active .km-path-chooser__wonderer-label::after {
-  transform: scaleX(1);
-}
-
-/* Hover: secondary ink + underline only — no fill wash */
+/* Hover: secondary ink + draw underline (trigger on whole row, not only the label) */
 .km-path-chooser__wonderer:hover,
 .km-path-chooser__wonderer:focus-visible {
   color: var(--color-secondary);
   background: transparent;
 }
 
-.km-path-chooser__wonderer:hover .km-path-chooser__wonderer-label::after,
-.km-path-chooser__wonderer:focus-visible .km-path-chooser__wonderer-label::after {
+.km-path-chooser__wonderer:hover .km-draw-underline::after,
+.km-path-chooser__wonderer:focus-visible .km-draw-underline::after {
   transform: scaleX(1);
 }
 
 .km-path-chooser__wonderer:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--color-accent) 55%, transparent);
   outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .km-path-chooser__wonderer-label::after {
-    transform: scaleX(1);
-    opacity: 0.35;
-    transition: opacity 160ms ease;
-  }
-
-  .km-path-chooser__wonderer:hover .km-path-chooser__wonderer-label::after,
-  .km-path-chooser__wonderer:focus-visible .km-path-chooser__wonderer-label::after,
-  .km-path-chooser__wonderer--active .km-path-chooser__wonderer-label::after {
-    opacity: 0.75;
-  }
 }

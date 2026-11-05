@@ -43,7 +43,6 @@ import ThemeCircles from "./theme-circles";
 import "./brand-lockup.css";
 import "./home-experience.css";
 import "./resume-experience.css";
-import "./site-loader.css";
 
 const PathChooserDialog = dynamic(() => import("./path-chooser-dialog"), {
   ssr: false,

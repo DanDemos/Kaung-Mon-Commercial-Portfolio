@@ -147,6 +147,47 @@
   color: var(--color-secondary);
 }
 
+/* Pixiv-ish: © + each year digit pendulums; “Kaung Mon” stays still */
+.km-footer__year {
+  display: inline-flex;
+  gap: 0.12em;
+}
+
+.km-footer__year-digit {
+  display: inline-block;
+  transform-origin: 50% 0;
+  will-change: transform;
+  animation: km-footer-year-pendulum 2.6s cubic-bezier(0.45, 0.05, 0.55, 0.95)
+    infinite;
+}
+
+@keyframes km-footer-year-pendulum {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  18% {
+    transform: rotate(14deg);
+  }
+
+  36% {
+    transform: rotate(-11deg);
+  }
+
+  54% {
+    transform: rotate(7deg);
+  }
+
+  72% {
+    transform: rotate(-4deg);
+  }
+
+  88% {
+    transform: rotate(1.5deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .km-footer__social-btn {
     transition: none;
@@ -155,5 +196,9 @@
   .km-footer__social-btn:hover,
   .km-footer__social-btn:focus-visible {
     transform: none;
+  }
+
+  .km-footer__year-digit {
+    animation: none;
   }
 }

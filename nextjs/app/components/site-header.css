@@ -75,6 +75,7 @@
     justify-content: space-between;
     gap: 0.45rem;
     padding: 0.55rem 0.85rem;
+    overflow: visible;
     background: color-mix(in oklab, var(--color-bg) 88%, transparent);
     border-bottom: 1px solid color-mix(in oklab, var(--color-fg) 10%, transparent);
     backdrop-filter: blur(14px);

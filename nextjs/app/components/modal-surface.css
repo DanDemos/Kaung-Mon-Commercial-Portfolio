@@ -1,0 +1,14 @@
+/**
+ * Shared modal / popover plate — Lens chooser, color wheel, any future dialog.
+ * Day: elevated. Night: near-canvas charcoal (elevated reads milky).
+ */
+.km-modal-surface {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 24px 80px rgba(18, 24, 31, 0.18);
+}
+
+html[data-theme-surface="dark"] .km-modal-surface {
+  background: color-mix(in oklab, var(--color-fg) 5%, var(--color-bg));
+  box-shadow: 0 24px 80px color-mix(in oklab, black 55%, transparent);
+}

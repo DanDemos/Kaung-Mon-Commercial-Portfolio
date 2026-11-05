@@ -8,13 +8,20 @@
   --km-btn-edge: color-mix(in oklab, #fff6ea 35%, white);
   --km-btn-hold: color-mix(in oklab, white 88%, transparent);
   --km-btn-line: 1.5px;
+  /* One footprint project-wide — tweak here, not per call site */
+  --km-btn-width: 12.5rem;
+  --km-btn-height: 2.75rem;
   position: relative;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  width: var(--km-btn-width);
+  min-width: var(--km-btn-width);
+  max-width: var(--km-btn-width);
+  height: var(--km-btn-height);
   /* Chase edges need a compact label — keep copy short (2–3 words). */
-  max-width: 12.5rem;
   white-space: nowrap;
   border-radius: 0;
   /* Pane ≈ canvas with stronger secondary in the glass; warm specular; dark rim */
@@ -30,7 +37,7 @@
   );
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  padding: 0.65rem 1.15rem;
+  padding: 0 1.15rem;
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: -0.015em;

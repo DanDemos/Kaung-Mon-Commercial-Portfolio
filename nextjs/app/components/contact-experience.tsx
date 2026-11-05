@@ -36,7 +36,6 @@ import TextLink from "./text-link";
 import ThemeCircles from "./theme-circles";
 import "./brand-lockup.css";
 import "./home-experience.css";
-import "./site-loader.css";
 
 const logo = BRAND.logoMark;
 

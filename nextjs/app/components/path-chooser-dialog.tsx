@@ -6,6 +6,8 @@ import {
   WANDER_OPTION,
   type VisitorPath,
 } from "../lib/visitor-paths";
+import "./draw-underline.css";
+import "./modal-surface.css";
 import "./path-chooser-dialog.css";
 import "./section-title.css";
 
@@ -83,7 +85,7 @@ export default function PathChooserDialog({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="km-path-chooser__panel km-rise relative z-10 my-auto h-fit w-full max-w-md border border-[var(--color-line)] bg-[var(--color-bg-elevated)] p-5 shadow-[0_24px_80px_rgba(18,24,31,0.18)] sm:p-8"
+        className="km-path-chooser__panel km-modal-surface km-rise relative z-10 my-auto h-fit w-full max-w-md p-5 sm:p-8"
       >
         <button
           ref={closeRef}
@@ -160,7 +162,7 @@ export default function PathChooserDialog({
             wondererActive ? "km-path-chooser__wonderer--active" : "",
           ].join(" ")}
         >
-          <span className="km-path-chooser__wonderer-label">
+          <span className="km-path-chooser__wonderer-label km-draw-underline">
             Continue as {WANDER_OPTION.label.toLowerCase()}
             <span aria-hidden className="ml-1">
               →

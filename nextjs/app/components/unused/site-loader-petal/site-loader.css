@@ -1,39 +1,6 @@
-/* Boot gate — hide app until tokens match stored prefs */
+@import "../../site-loader-gate.css";
 
-html[data-km-boot="loading"] .km-app {
-  opacity: 0;
-  pointer-events: none;
-}
-
-html[data-km-boot="ready"] .km-app {
-  opacity: 1;
-  transition: opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-html:not([data-km-boot]) .km-app {
-  /* SSR / no-JS fallback — show content */
-  opacity: 1;
-}
-
-/* Gate up: clip document scroll. Opacity:0 alone still expands scrollWidth
-   (mobile header / footer), so also pin .km-app to the viewport. */
-html:has(.km-loader:not(.km-loader--done)),
-body:has(.km-loader:not(.km-loader--done)) {
-  overflow: hidden;
-  overscroll-behavior: none;
-  max-width: 100%;
-}
-
-body:has(.km-loader:not(.km-loader--done)) .km-app {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
+/* Petal loader visuals */
 
 .km-loader {
   position: fixed;
@@ -50,7 +17,6 @@ body:has(.km-loader:not(.km-loader--done)) .km-app {
   padding-inline: 1.25rem;
   overflow: hidden;
   overflow-x: clip;
-  /* Day / night only — not theme seed */
   background: #fff;
   color: #4a4a4a;
   transition:
@@ -69,7 +35,6 @@ html[data-theme-surface="dark"] .km-loader {
   pointer-events: none;
 }
 
-/* Leaf ring — greyscale only (no theme / blue) */
 .km-loader__spinner {
   display: block;
   width: 3.3rem;
@@ -79,27 +44,11 @@ html[data-theme-surface="dark"] .km-loader {
 
 .km-loader__petal {
   --km-petal: 0;
-  /* Day: charcoal → grey (greyscale only — white leaves vanish on #fff) */
-  fill: rgb(
-    calc(42 + (var(--km-petal) * 28)),
-    calc(42 + (var(--km-petal) * 28)),
-    calc(42 + (var(--km-petal) * 28))
-  );
-  opacity: calc(1 - (var(--km-petal) * 0.06));
-}
-
-/* Night: white → grey trail (matches reference) */
-html[data-theme-surface="dark"] .km-loader__petal {
-  fill: rgb(
-    calc(255 - (var(--km-petal) * 30)),
-    calc(255 - (var(--km-petal) * 30)),
-    calc(255 - (var(--km-petal) * 30))
-  );
-  opacity: calc(1 - (var(--km-petal) * 0.08));
+  fill: var(--color-accent);
+  opacity: calc(1 - (var(--km-petal) * 0.1));
 }
 
 .km-loader__status {
-  /* One row: label + dots share the same horizontal axis */
   display: inline-flex;
   flex-direction: row;
   align-items: baseline;
@@ -114,11 +63,6 @@ html[data-theme-surface="dark"] .km-loader__petal {
   align-items: center;
   gap: 0.42rem;
   flex-shrink: 0;
-  /*
-   * Sit in the x-height band (a/c/e), not on the baseline with descenders (p)
-   * and not centered on full line-box / ascenders (b).
-   * From baseline: mid-x is 0.5ex; lift so dot centers there.
-   */
   position: relative;
   bottom: calc(0.5ex - 0.228rem);
 }
@@ -128,12 +72,8 @@ html[data-theme-surface="dark"] .km-loader__petal {
   width: 0.456rem;
   height: 0.456rem;
   border-radius: 50%;
-  background: #9a9a9a;
+  background: var(--color-accent);
   animation: km-loader-dot-bounce 1.05s ease-in-out infinite;
-}
-
-html[data-theme-surface="dark"] .km-loader__dots span {
-  background: #d0d0d0;
 }
 
 .km-loader__dots span:nth-child(2) {
@@ -155,11 +95,7 @@ html[data-theme-surface="dark"] .km-loader__dots span {
   line-height: 1.2;
   text-align: left;
   white-space: nowrap;
-  color: #6a6a6a;
-}
-
-html[data-theme-surface="dark"] .km-loader__label {
-  color: #b0b0b0;
+  color: var(--color-accent);
 }
 
 @keyframes km-loader-spin {
@@ -192,7 +128,6 @@ html[data-theme-surface="dark"] .km-loader__label {
     opacity: 0.75;
   }
 
-  html[data-km-boot="ready"] .km-app,
   .km-loader {
     transition: none;
   }

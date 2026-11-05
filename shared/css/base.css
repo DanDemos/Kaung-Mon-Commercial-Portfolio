@@ -31,6 +31,25 @@ select:not(:disabled) {
   cursor: pointer;
 }
 
+/* Mobile: no long-press text select / callout on control labels */
+@media (max-width: 639px) {
+  button,
+  [role="button"],
+  [role="radio"],
+  [role="tab"],
+  [role="switch"],
+  .km-btn,
+  .km-path-lens,
+  .km-path-chooser__wonderer,
+  .day-night-switch,
+  .day-night-switch__track,
+  .theme-circle {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+}
+
 @keyframes km-rise {
   from {
     opacity: 0;

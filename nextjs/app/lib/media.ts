@@ -45,7 +45,7 @@ function projectPreviewUrls(slug: ProjectMediaSlug) {
 
 /**
  * Project screen recordings. `preview.mp4` should be the best practical
- * encode (often a copy of `assets/portfolios/{slug}/master.mp4`).
+ * encode (often a copy of `assets/portfolios/websites/{slug}/master.mp4`).
  */
 export const PROJECT_PREVIEWS: Record<ProjectMediaSlug, ProjectPreview> = {
   essential: {

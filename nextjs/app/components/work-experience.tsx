@@ -31,7 +31,6 @@ import ThemeCircles from "./theme-circles";
 import WorkGallery from "./work-gallery";
 import "./brand-lockup.css";
 import "./home-experience.css";
-import "./site-loader.css";
 import "./work-experience.css";
 
 const logo = BRAND.logoMark;

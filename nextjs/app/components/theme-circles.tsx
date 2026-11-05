@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type CSSProperties,
@@ -33,7 +34,8 @@ type ThemeCirclesProps = {
 
 type TipState = {
   label: string;
-  x: number;
+  /** Button center X relative to shell — caret aims here. */
+  anchorX: number;
 };
 
 export default function ThemeCircles({
@@ -45,6 +47,7 @@ export default function ThemeCircles({
 }: ThemeCirclesProps) {
   const customButtonRef = useRef<HTMLButtonElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
+  const tipRef = useRef<HTMLParagraphElement>(null);
   const [wheelOpen, setWheelOpen] = useState(false);
   const [tip, setTip] = useState<TipState | null>(null);
   /** Mobile: collapsed to active swatch until expanded */
@@ -85,10 +88,34 @@ export default function ThemeCircles({
     if (!shell) return;
     const shellRect = shell.getBoundingClientRect();
     const btnRect = button.getBoundingClientRect();
-    const raw = btnRect.left + btnRect.width / 2 - shellRect.left;
-    const x = Math.min(Math.max(raw, 14), shellRect.width - 14);
-    setTip({ label, x });
+    const anchorX = btnRect.left + btnRect.width / 2 - shellRect.left;
+    setTip({ label, anchorX });
   }
+
+  /* Keep caret on the swatch; only the bubble slides when near edges. */
+  useLayoutEffect(() => {
+    const tipEl = tipRef.current;
+    const shell = shellRef.current;
+    if (!tip || !tipEl || !shell) return;
+
+    const shellRect = shell.getBoundingClientRect();
+    const tipW = tipEl.offsetWidth;
+    const pad = 8;
+    const shellMax = Math.max(pad, shellRect.width - tipW - pad);
+    let left = tip.anchorX - tipW / 2;
+    left = Math.min(Math.max(left, pad), shellMax);
+
+    /* Mobile sticky rail: also keep the bubble inside the viewport */
+    const viewMin = pad - shellRect.left;
+    const viewMax = window.innerWidth - pad - tipW - shellRect.left;
+    if (viewMax >= viewMin) {
+      left = Math.min(Math.max(left, viewMin), viewMax);
+    }
+
+    const arrowX = Math.min(Math.max(tip.anchorX - left, 10), tipW - 10);
+    tipEl.style.left = `${left}px`;
+    tipEl.style.setProperty("--tip-arrow-x", `${arrowX}px`);
+  }, [tip]);
 
   function onCirclePointerEnter(
     event: PointerEvent<HTMLButtonElement>,
@@ -246,11 +273,7 @@ export default function ThemeCircles({
       </div>
 
       {tip ? (
-        <p
-          className="theme-circles__tip"
-          role="tooltip"
-          style={{ left: tip.x }}
-        >
+        <p ref={tipRef} className="theme-circles__tip" role="tooltip">
           {tip.label}
         </p>
       ) : null}

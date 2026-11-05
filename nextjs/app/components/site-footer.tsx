@@ -103,7 +103,21 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <p className="km-footer__copy">© {year} Kaung Mon</p>
+        <p className="km-footer__copy">
+          <span className="km-footer__year" aria-label={`© ${year}`}>
+            {["©", ...String(year).split("")].map((glyph, index) => (
+              <span
+                key={`${glyph}-${index}`}
+                className="km-footer__year-digit"
+                style={{ animationDelay: `${index * 0.12}s` }}
+                aria-hidden
+              >
+                {glyph}
+              </span>
+            ))}
+          </span>{" "}
+          Kaung Mon
+        </p>
       </div>
     </footer>
   );

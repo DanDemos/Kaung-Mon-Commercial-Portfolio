@@ -2,40 +2,38 @@
  * Works index for `/work`.
  * Shape mirrors the old `portfolio-container` items:
  * category filter class + title + kind label + optional external link.
- * Covers: `assets/portfolios/{slug}/cover.*`
+ * Covers: `assets/portfolios/{type}/{slug}/cover.*`
  */
 
 import type { StaticImageData } from "next/image";
 
-import animeMmSub from "../../../assets/portfolios/anime-mm-sub/cover.jpg";
-import avs from "../../../assets/portfolios/avs/cover.jpg";
-import blackWizard from "../../../assets/portfolios/black-wizard/cover.gif";
-import c2 from "../../../assets/portfolios/c2/cover.jpg";
-import cheese from "../../../assets/portfolios/cheese/cover.jpg";
-import chikanero from "../../../assets/portfolios/chikanero/cover.jpg";
-import essential from "../../../assets/portfolios/essential/cover.jpg";
-import finalPrototypeDay from "../../../assets/portfolios/final-prototype-day/cover.jpg";
-import finalPrototypeNight from "../../../assets/portfolios/final-prototype-night/cover.jpg";
-import genesis from "../../../assets/portfolios/genesis/cover.jpg";
-import hndProject from "../../../assets/portfolios/hnd-project/cover.jpg";
-import hwt from "../../../assets/portfolios/hwt/cover.jpg";
-import iaConqueror from "../../../assets/portfolios/ia-conqueror/cover.jpg";
-import kmd from "../../../assets/portfolios/kmd/cover.jpg";
-import myanBell from "../../../assets/portfolios/myan-bell/cover.jpg";
-import myanBellChatbot from "../../../assets/portfolios/myan-bell-chatbot/cover.jpg";
-import myanGate from "../../../assets/portfolios/myan-gate/cover.jpg";
-import myanProSolutions from "../../../assets/portfolios/myan-pro-solutions/cover.jpg";
-import potion from "../../../assets/portfolios/potion/cover.jpg";
-import rubiksCube from "../../../assets/portfolios/rubiks-cube/cover.jpg";
-import seiNoGlasses from "../../../assets/portfolios/sei-no-glasses/cover.jpg";
-import slime from "../../../assets/portfolios/slime/cover.gif";
-import slimeAttack from "../../../assets/portfolios/slime-attack/cover.gif";
-import tsukasaTsukuyomi from "../../../assets/portfolios/tsukasa-tsukuyomi/cover.jpg";
-import wizard from "../../../assets/portfolios/wizard/cover.jpg";
-import wizardStudy from "../../../assets/portfolios/wizard-study/cover.jpg";
-import yorkYoga from "../../../assets/portfolios/york-yoga/cover.jpg";
-import zeus from "../../../assets/portfolios/zeus/cover.gif";
-import zeusAttack from "../../../assets/portfolios/zeus-attack/cover.gif";
+import animeMmSub from "../../../assets/portfolios/mobile-apps/anime-mm-sub/cover.jpg";
+import avs from "../../../assets/portfolios/mobile-apps/avs/cover.jpg";
+import c2 from "../../../assets/portfolios/mobile-apps/c2/cover.jpg";
+import chikanero from "../../../assets/portfolios/mmd/chikanero/cover.jpg";
+import essential from "../../../assets/portfolios/websites/essential/cover.jpg";
+import finalPrototypeDay from "../../../assets/portfolios/drawings/final-prototype-day/cover.jpg";
+import finalPrototypeNight from "../../../assets/portfolios/drawings/final-prototype-night/cover.jpg";
+import genesis from "../../../assets/portfolios/websites/genesis/cover.jpg";
+import hndProject from "../../../assets/portfolios/websites/hnd-project/cover.jpg";
+import hwt from "../../../assets/portfolios/mobile-apps/hwt/cover.jpg";
+import iaConqueror from "../../../assets/portfolios/mmd/ia-conqueror/cover.jpg";
+import kmd from "../../../assets/portfolios/mobile-apps/kmd/cover.jpg";
+import myanBell from "../../../assets/portfolios/websites/myan-bell/cover.jpg";
+import myanBellChatbot from "../../../assets/portfolios/chatbots/myan-bell-chatbot/cover.jpg";
+import myanGate from "../../../assets/portfolios/websites/myan-gate/cover.jpg";
+import myanProSolutions from "../../../assets/portfolios/websites/myan-pro-solutions/cover.jpg";
+import potion from "../../../assets/portfolios/drawings/potion/cover.jpg";
+import rubiksCube from "../../../assets/portfolios/drawings/rubiks-cube/cover.jpg";
+import seiNoGlasses from "../../../assets/portfolios/drawings/sei-no-glasses/cover.jpg";
+import slime from "../../../assets/portfolios/drawings/slime/cover.gif";
+import slimeAttack from "../../../assets/portfolios/drawings/slime-attack/cover.gif";
+import tsukasaTsukuyomi from "../../../assets/portfolios/drawings/tsukasa-tsukuyomi/cover.jpg";
+import wizardIdle from "../../../assets/portfolios/drawings/wizard-idle/cover.jpg";
+import wizardMove from "../../../assets/portfolios/drawings/wizard-move/cover.gif";
+import yorkYoga from "../../../assets/portfolios/websites/york-yoga/cover.jpg";
+import zeus from "../../../assets/portfolios/drawings/zeus/cover.gif";
+import zeusAttack from "../../../assets/portfolios/drawings/zeus-attack/cover.gif";
 
 /** Same filters as the old `#portfolio-flters` list. */
 export type PortfolioCategory =
@@ -45,6 +43,14 @@ export type PortfolioCategory =
   | "designs"
   | "mmd";
 
+/** Alternate still/GIF for one grid cell — click cycles (e.g. Move ↔ Attack). */
+export type PortfolioMode = {
+  id: string;
+  /** Short label under the title while this mode is active. */
+  label: string;
+  cover: StaticImageData;
+};
+
 export type PortfolioItem = {
   slug: string;
   /** Visible title (h4 in old markup). */
@@ -53,13 +59,31 @@ export type PortfolioItem = {
   category: PortfolioCategory;
   /** Overlay line under the title — Website, App, Drawing, Animation, … */
   kind: string;
+  /** Default / only cover. First `modes` entry should match when modes exist. */
   cover: StaticImageData;
+  /** Completion / release year when known. */
+  year?: number;
+  /** Tool used (drawings) — e.g. Inkscape, Adobe Illustrator. */
+  tool?: string;
+  /**
+   * Optional motion set for one piece (e.g. Slime move + attack).
+   * One grid cell; visitor click swaps the active mode.
+   */
+  modes?: PortfolioMode[];
   /** Live external project link. Omit when the site is gone. */
   href?: string;
   /** Former URL kept for records when `href` is omitted. */
   archivedHref?: string;
   hasWalkthrough?: boolean;
 };
+
+/** "2016 · Adobe Illustrator" / "2018" — for overlay + lightbox. */
+export function portfolioMetaLabel(item: Pick<PortfolioItem, "year" | "tool">) {
+  const parts: string[] = [];
+  if (item.year != null) parts.push(String(item.year));
+  if (item.tool) parts.push(item.tool);
+  return parts.length ? parts.join(" · ") : null;
+}
 
 export const PORTFOLIO_FILTERS: {
   id: "all" | PortfolioCategory;
@@ -84,6 +108,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: yorkYoga,
+    year: 2020,
+    tool: "WordPress · Elementor",
     archivedHref: "https://yorkyogacorner.com/",
     hasWalkthrough: true,
   },
@@ -93,6 +119,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: essential,
+    year: 2020,
+    tool: "WordPress · Elementor",
     archivedHref: "https://essentialairsolution.com/",
     hasWalkthrough: true,
   },
@@ -102,6 +130,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: genesis,
+    year: 2021,
+    tool: "WordPress · Elementor",
     archivedHref: "http://genesismyanmar.com/",
     hasWalkthrough: true,
   },
@@ -111,6 +141,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: myanGate,
+    year: 2020,
+    tool: "Wix",
     href: "https://myangate.com/",
     hasWalkthrough: true,
   },
@@ -120,6 +152,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: myanBell,
+    year: 2021,
+    tool: "WordPress · Elementor",
     href: "https://myanbell.com/",
   },
   {
@@ -128,6 +162,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Website",
     cover: myanProSolutions,
+    year: 2021,
+    tool: "WordPress · Elementor",
     href: "https://myanprosolutions.com/",
   },
   {
@@ -136,6 +172,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "app",
     kind: "App",
     cover: hwt,
+    year: 2020,
+    tool: "React Native",
     href: "https://play.google.com/store/apps/details?id=com.myanshop.hwt",
   },
   {
@@ -144,6 +182,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "app",
     kind: "App",
     cover: c2,
+    year: 2020,
+    tool: "React Native",
     href: "https://play.google.com/store/apps/details?id=com.myanshop.c2onlineshoppingmall",
   },
   {
@@ -152,6 +192,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "app",
     kind: "App",
     cover: avs,
+    year: 2020,
+    tool: "React Native",
     href: "https://play.google.com/store/apps/details?id=com.myanshop.avsonlinestore",
   },
   {
@@ -160,6 +202,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "app",
     kind: "App",
     cover: animeMmSub,
+    year: 2019,
+    tool: "Android · Java",
     href: "https://play.google.com/store/apps/details?id=com.jp.ul.nwayoofansub",
   },
   {
@@ -168,6 +212,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "app",
     kind: "Student project (final year)",
     cover: kmd,
+    year: 2019,
+    tool: "Android · Java",
   },
   {
     slug: "myan-bell-chatbot",
@@ -175,6 +221,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "chatbot",
     kind: "Chatbot",
     cover: myanBellChatbot,
+    year: 2021,
     href: "https://www.facebook.com/Myanbellofficial/",
   },
   {
@@ -183,14 +230,19 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "web",
     kind: "Student project (HND)",
     cover: hndProject,
+    year: 2018,
+    tool: "PHP · HTML · CSS · JavaScript",
     href: "https://docs.google.com/document/d/1Ga7dvY4VtSAej1zeqmTaulGtjXxwedsq/edit?usp=sharing&ouid=103913041693913816097&rtpof=true&sd=true",
   },
+
   {
     slug: "tsukasa-tsukuyomi",
     title: "Tsukasa Tsukuyomi",
     category: "designs",
     kind: "Drawing",
     cover: tsukasaTsukuyomi,
+    year: 2020,
+    tool: "Inkscape",
   },
   {
     slug: "sei-no-glasses",
@@ -198,55 +250,47 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "designs",
     kind: "Drawing",
     cover: seiNoGlasses,
-  },
-  {
-    slug: "slime-attack",
-    title: "Slime",
-    category: "designs",
-    kind: "Animation",
-    cover: slimeAttack,
+    year: 2021,
+    tool: "Inkscape",
   },
   {
     slug: "slime",
-    title: "Slime walk",
+    title: "Slime",
     category: "designs",
     kind: "Animation",
     cover: slime,
-  },
-  {
-    slug: "zeus-attack",
-    title: "Zeus",
-    category: "designs",
-    kind: "Animation",
-    cover: zeusAttack,
+    year: 2017,
+    tool: "Inkscape",
+    modes: [
+      { id: "move", label: "Move", cover: slime },
+      { id: "attack", label: "Attack", cover: slimeAttack },
+    ],
   },
   {
     slug: "zeus",
-    title: "Zeus idle",
+    title: "Zeus",
     category: "designs",
     kind: "Animation",
     cover: zeus,
-  },
-  {
-    slug: "black-wizard",
-    title: "Black Wizard",
-    category: "designs",
-    kind: "Animation",
-    cover: blackWizard,
+    year: 2017,
+    tool: "Inkscape",
+    modes: [
+      { id: "move", label: "Move", cover: zeus },
+      { id: "attack", label: "Attack", cover: zeusAttack },
+    ],
   },
   {
     slug: "wizard",
-    title: "Wizard",
+    title: "Black Wizard",
     category: "designs",
-    kind: "Drawing",
-    cover: wizard,
-  },
-  {
-    slug: "wizard-study",
-    title: "Wizard study",
-    category: "designs",
-    kind: "Drawing",
-    cover: wizardStudy,
+    kind: "Animation",
+    cover: wizardIdle,
+    year: 2018,
+    tool: "Inkscape",
+    modes: [
+      { id: "idle", label: "Idle", cover: wizardIdle },
+      { id: "move", label: "Move", cover: wizardMove },
+    ],
   },
   {
     slug: "potion",
@@ -254,6 +298,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "designs",
     kind: "Drawing",
     cover: potion,
+    year: 2016,
+    tool: "Adobe Illustrator",
   },
   {
     slug: "rubiks-cube",
@@ -261,6 +307,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "designs",
     kind: "Drawing",
     cover: rubiksCube,
+    year: 2016,
+    tool: "Adobe Illustrator",
   },
   {
     slug: "final-prototype-night",
@@ -268,6 +316,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "designs",
     kind: "Student project design",
     cover: finalPrototypeNight,
+    year: 2018,
+    tool: "Inkscape",
   },
   {
     slug: "final-prototype-day",
@@ -275,6 +325,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "designs",
     kind: "Student project design",
     cover: finalPrototypeDay,
+    year: 2018,
+    tool: "Inkscape",
   },
   {
     slug: "chikanero",
@@ -282,6 +334,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "mmd",
     kind: "MMD",
     cover: chikanero,
+    year: 2019,
     href: "https://youtu.be/lnps2LOVhkE",
   },
   {
@@ -290,8 +343,10 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "mmd",
     kind: "MMD",
     cover: iaConqueror,
+    year: 2019,
     href: "https://youtu.be/rtrv5rbjF54",
   },
+
 ];
 
 export function portfoliosForFilter(

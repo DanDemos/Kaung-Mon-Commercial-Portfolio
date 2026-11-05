@@ -46,7 +46,6 @@ import ThemeCircles from "./theme-circles";
 import TypewriterRoles from "./typewriter-roles";
 import "./brand-lockup.css";
 import "./home-experience.css";
-import "./site-loader.css";
 
 const PathChooserDialog = dynamic(() => import("./path-chooser-dialog"), {
   ssr: false,

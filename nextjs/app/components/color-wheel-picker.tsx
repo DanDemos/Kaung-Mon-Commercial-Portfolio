@@ -9,6 +9,7 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { normalizeHex } from "../lib/color-themes";
+import "./modal-surface.css";
 import "./color-wheel-picker.css";
 
 type Hsv = { h: number; s: number; v: number };
@@ -264,7 +265,7 @@ export default function ColorWheelPicker({
       role="dialog"
       aria-modal="false"
       aria-labelledby={titleId}
-      className="color-wheel-picker"
+      className="color-wheel-picker km-modal-surface"
     >
       <p id={titleId} className="color-wheel-picker__label">
         Custom seed
