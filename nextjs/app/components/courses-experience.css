@@ -1,0 +1,304 @@
+.km-courses-page__intro {
+  padding-top: clamp(2rem, 6vh, 3.5rem);
+  max-width: 42rem;
+}
+
+.km-courses-page__support {
+  margin: 0 0 2rem;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+}
+
+.km-courses-page__back {
+  margin: clamp(1.25rem, 4vh, 2rem) 0 1.75rem;
+  /* Clearance + clip so draw-underline can’t paint over the section label */
+  padding-bottom: 0.55rem;
+  line-height: 1.35;
+  overflow: hidden;
+}
+
+.km-courses-page__back .km-draw-underline {
+  display: inline-block;
+  max-width: 100%;
+  /* Underline sits in this padding, not below the box into the label */
+  padding-bottom: 0.28em;
+}
+
+.km-courses-page__back .km-draw-underline::after {
+  bottom: 0.05em;
+  /* Hug the link text — don’t stretch across the row */
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+/*
+ * Portfilio label uses line-height: 1px + trailing rule. That 1px box lets
+ * glyph overflow collide with the back-link underline; keep rule beside text.
+ */
+.km-course > .km-section-title .km-section-title__label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  /* Real line box — Portfilio’s 1px height lets glyphs collide with the back link */
+  line-height: 1.25;
+}
+
+.km-course > .km-section-title .km-section-title__label::after {
+  flex: 0 0 7.5rem;
+  width: 7.5rem;
+  margin: 0;
+  vertical-align: unset;
+}
+
+.km-course-picker {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  max-width: 40rem;
+  list-style: none;
+  border-top: 1px solid var(--color-line);
+}
+
+.km-course-picker__item {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.35rem 0 1.45rem;
+  border-bottom: 1px solid var(--color-line);
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.km-course-picker__item:hover .km-course-picker__title,
+.km-course-picker__item:focus-visible .km-course-picker__title {
+  color: var(--color-secondary);
+}
+
+.km-course-picker__item:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-fg) 40%, transparent);
+  outline-offset: 4px;
+}
+
+.km-course-picker__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.km-course-picker__title {
+  font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-fg);
+  transition: color 180ms ease;
+}
+
+html[data-theme-surface="dark"] .km-course-picker__title {
+  color: #fff;
+}
+
+.km-course-picker__meta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.km-course-picker__blurb {
+  max-width: 38rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-fg-muted);
+}
+
+.km-course-picker__cta {
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+html[data-theme-surface="dark"] .km-course-picker__cta {
+  color: #fff;
+}
+
+.km-course-picker__item:hover .km-course-picker__cta,
+.km-course-picker__item:focus-visible .km-course-picker__cta {
+  color: var(--color-secondary);
+}
+
+.km-course {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 46rem;
+  padding-bottom: 2rem;
+}
+
+.km-course__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.km-course__blurb {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--color-fg);
+}
+
+html[data-theme-surface="dark"] .km-course__blurb {
+  color: #fff;
+}
+
+.km-course__docs {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-fg-muted);
+}
+
+.km-course__lesson-docs {
+  margin: 0.15rem 0 0;
+  font-size: 0.88rem;
+}
+
+.km-course__stepped {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.km-course__step-progress {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.km-course__lesson--focus {
+  padding: 1.25rem 0 0.25rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.km-course__try-this {
+  margin: 0.35rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.65rem;
+  border: 1px solid color-mix(in oklab, var(--color-secondary) 28%, transparent);
+  background: color-mix(in oklab, var(--color-secondary) 8%, var(--color-bg));
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-fg);
+}
+
+.km-course__try-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.km-course__step-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.85rem;
+  padding-top: 0.35rem;
+}
+
+.km-course__lessons {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-line);
+}
+
+.km-course__lesson {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.35rem 0 1.45rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.km-course__lesson-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.km-course__lesson-index {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary);
+}
+
+.km-course__lesson-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+html[data-theme-surface="dark"] .km-course__lesson-title {
+  color: #fff;
+}
+
+.km-course__lesson-summary {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--color-fg-muted);
+}
+
+.km-course__points {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--color-fg-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.km-course__points li::marker {
+  color: color-mix(in oklab, var(--color-secondary) 70%, var(--color-fg-muted));
+}
+
+.km-course__example {
+  margin: 0.15rem 0 0;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  border-radius: 0.65rem;
+  border: 1px solid color-mix(in oklab, var(--color-fg) 12%, transparent);
+  background: color-mix(in oklab, var(--color-fg) 4.5%, var(--color-bg));
+  font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-fg);
+}
+
+html[data-theme-surface="dark"] .km-course__example {
+  background: color-mix(in oklab, var(--color-fg) 7%, var(--color-bg));
+  color: #f2f2f2;
+}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import type { NavHref } from "../lib/messages";
 import { siteNavForPath } from "../lib/site-nav";
 import {
   DEFAULT_PATH,
@@ -10,6 +11,7 @@ import {
   PATH_STORAGE_KEY,
   type VisitorPath,
 } from "../lib/visitor-paths";
+import { useLocale } from "./locale-provider";
 import "./draw-underline.css";
 import "./site-destination-nav.css";
 
@@ -38,6 +40,7 @@ function navLinkClass(active: boolean) {
 
 function DestinationLinks({ className }: { className?: string }) {
   const pathname = usePathname() || "/";
+  const { messages } = useLocale();
   const [path, setPath] = useState<VisitorPath>(DEFAULT_PATH);
 
   useEffect(() => {
@@ -64,6 +67,8 @@ function DestinationLinks({ className }: { className?: string }) {
           item.href === "/"
             ? pathname === "/"
             : pathname === item.href || pathname.startsWith(`${item.href}/`);
+        const label =
+          messages.nav[item.href as NavHref] ?? item.label;
         return (
           <li key={item.href}>
             <Link
@@ -71,7 +76,7 @@ function DestinationLinks({ className }: { className?: string }) {
               className={navLinkClass(active)}
               aria-current={active ? "page" : undefined}
             >
-              {item.label}
+              {label}
             </Link>
           </li>
         );
@@ -82,10 +87,11 @@ function DestinationLinks({ className }: { className?: string }) {
 
 /** Brand lockup + desktop page nav (Home · Work · Resume? · Contact). */
 export function SiteNavLead({ children }: { children: ReactNode }) {
+  const { messages } = useLocale();
   return (
     <div className="km-site-header__lead">
       <div className="km-site-nav__brand">{children}</div>
-      <nav className="km-site-nav km-site-nav--desktop" aria-label="Site pages">
+      <nav className="km-site-nav km-site-nav--desktop" aria-label={messages.navAria}>
         <DestinationLinks className="km-site-nav__list" />
       </nav>
     </div>
@@ -97,8 +103,9 @@ export function SiteNavLead({ children }: { children: ReactNode }) {
  * Not a second sticky layer (that caused scroll jitter).
  */
 export function SiteNavStrip() {
+  const { messages } = useLocale();
   return (
-    <nav className="km-site-nav km-site-nav--strip" aria-label="Site pages">
+    <nav className="km-site-nav km-site-nav--strip" aria-label={messages.navAria}>
       <DestinationLinks className="km-site-nav__list km-site-nav__list--strip" />
     </nav>
   );

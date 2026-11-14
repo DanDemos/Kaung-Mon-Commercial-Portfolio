@@ -6,6 +6,7 @@ import {
   WANDER_OPTION,
   type VisitorPath,
 } from "../lib/visitor-paths";
+import { useLocale } from "./locale-provider";
 import "./draw-underline.css";
 import "./modal-surface.css";
 import "./path-chooser-dialog.css";
@@ -28,6 +29,7 @@ export default function PathChooserDialog({
   const descriptionId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const { messages } = useLocale();
 
   useEffect(() => {
     if (!open) return;
@@ -62,6 +64,7 @@ export default function PathChooserDialog({
   if (!open) return null;
 
   const wondererActive = currentPath === WANDER_OPTION.id;
+  const wondererLabel = messages.pathLabels.wander;
 
   return (
     <div
@@ -93,7 +96,7 @@ export default function PathChooserDialog({
         <button
           ref={closeRef}
           type="button"
-          aria-label="Close"
+          aria-label={messages.chooser.close}
           onClick={onDismiss}
           className="absolute right-3 top-3 inline-flex size-9 items-center justify-center rounded-full text-[var(--color-fg-muted)] transition-[background-color,color,transform] duration-150 hover:bg-[color-mix(in_oklab,var(--color-fg)_7%,transparent)] hover:text-[var(--color-fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
         >
@@ -113,23 +116,23 @@ export default function PathChooserDialog({
           </svg>
         </button>
 
-        <p className="km-section-title__label pr-10">Optional</p>
+        <p className="km-section-title__label pr-10">{messages.chooser.optional}</p>
         <h2
           id={titleId}
           className="km-section-title__title"
         >
-          What are you looking for?
+          {messages.chooser.title}
         </h2>
         <p
           id={descriptionId}
           className="km-path-chooser__desc text-[0.98rem] leading-relaxed text-[var(--color-fg-muted)]"
         >
-          You can stay as a wonderer, or choose a lens if you&apos;re hiring, curious about the craft, or need a site built.
+          {messages.chooser.desc}
         </p>
 
         <div
           role="group"
-          aria-label="Visitor type"
+          aria-label={messages.chooser.rolesAria}
           className="km-path-chooser__roles"
         >
           {ROLE_OPTIONS.map((option) => {
@@ -146,10 +149,10 @@ export default function PathChooserDialog({
                 ].join(" ")}
               >
                 <span className="km-path-chooser__role-label">
-                  {option.label}
+                  {messages.pathLabels[option.id]}
                 </span>
                 <span className="km-path-chooser__role-hint">
-                  {option.hint}
+                  {messages.pathHints[option.id]}
                 </span>
               </button>
             );
@@ -166,7 +169,7 @@ export default function PathChooserDialog({
           ].join(" ")}
         >
           <span className="km-path-chooser__wonderer-label km-draw-underline">
-            Continue as {WANDER_OPTION.label.toLowerCase()}
+            {messages.chooser.continueAs(wondererLabel)}
             <span aria-hidden className="ml-1">
               →
             </span>

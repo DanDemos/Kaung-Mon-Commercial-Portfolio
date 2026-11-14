@@ -35,4 +35,14 @@
 :root {
   --font-sans: "Geist Sans", system-ui, sans-serif;
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  /* Myanmar script — loaded when locale is `my` (see layout + locale boot). */
+  --font-myanmar: "Noto Sans Myanmar", "Myanmar Text", "Pyidaungsu", sans-serif;
+}
+
+html[lang="my"] body {
+  font-family: var(--font-myanmar), var(--font-sans);
+}
+
+html[lang="my"] .km-font-display {
+  font-family: var(--font-myanmar), var(--font-display);
 }

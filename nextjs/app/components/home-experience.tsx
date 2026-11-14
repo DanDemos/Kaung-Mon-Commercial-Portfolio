@@ -22,12 +22,11 @@ import {
 import { BRAND } from "../lib/media";
 import { clearLocationHash, scrollToSection } from "../lib/scroll-section";
 import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
+import { contentFor } from "../lib/content";
 import {
   CHOOSER_SEEN_KEY,
   DEFAULT_PATH,
-  PATH_OPTIONS,
   PATH_STORAGE_KEY,
-  contentFor,
   notifyPathChange,
   type PathCta,
   type VisitorPath,
@@ -36,6 +35,8 @@ import Btn from "./btn";
 import ContactInvite from "./contact-invite";
 import DayNightToggle from "./day-night-toggle";
 import FocusRail from "./focus-rail";
+import { useLocale } from "./locale-provider";
+import LocaleToggle from "./locale-toggle";
 import MediaImage from "./media-image";
 import PathLensControl from "./path-lens-control";
 import ProjectStage from "./project-stage";
@@ -87,6 +88,7 @@ function PathTextLink({ cta }: { cta: PathCta }) {
 
 export default function HomeExperience() {
   const themes = useMemo(() => themesForYear(), []);
+  const { locale, messages } = useLocale();
   // SSR + first hydrate use defaults; boot script covers paint until we resolve storage.
   const [path, setPath] = useState<VisitorPath>(DEFAULT_PATH);
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
@@ -94,9 +96,8 @@ export default function HomeExperience() {
   const [colorMode, setColorMode] = useState<ColorMode>(DEFAULT_COLOR_MODE);
   const [chooserOpen, setChooserOpen] = useState(false);
   const [ready, setReady] = useState(false);
-  const content = contentFor(path);
-  const activeLabel =
-    PATH_OPTIONS.find((option) => option.id === path)?.label ?? "Wonderer";
+  const content = contentFor(path, locale);
+  const activeLabel = messages.pathLabels[path];
   const activeSwatch =
     themeId === CUSTOM_THEME_ID
       ? customSeed
@@ -278,6 +279,7 @@ export default function HomeExperience() {
               />
 
               <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+              <LocaleToggle />
             </div>
           </div>
         </div>
@@ -291,7 +293,7 @@ export default function HomeExperience() {
         <section className="km-home-hero">
           <p
             className="km-rise km-delay-1 mb-5 text-[0.8rem] font-medium uppercase tracking-[0.18em] text-[var(--color-fg-muted)]"
-            key={`eyebrow-${path}`}
+            key={`eyebrow-${path}-${locale}`}
           >
             {content.eyebrow}
           </p>
@@ -300,20 +302,20 @@ export default function HomeExperience() {
             Kaung Mon
           </h1>
 
-          <div className="km-rise km-delay-2" key={`roles-${path}`}>
+          <div className="km-rise km-delay-2" key={`roles-${path}-${locale}`}>
             <TypewriterRoles roles={content.roles} />
           </div>
 
           <p
             className="km-hero-headline km-rise km-delay-3 mt-7 max-w-xl text-[clamp(1.15rem,2.4vw,1.55rem)] font-medium leading-snug tracking-[-0.025em]"
-            key={`headline-${path}`}
+            key={`headline-${path}-${locale}`}
           >
             {content.headline}
           </p>
 
           <p
             className="km-rise km-delay-4 mt-4 max-w-lg text-[1.02rem] leading-relaxed text-[var(--color-fg-muted)]"
-            key={`support-${path}`}
+            key={`support-${path}-${locale}`}
           >
             {content.support}
           </p>
@@ -325,9 +327,12 @@ export default function HomeExperience() {
         </section>
 
         {content.items.length > 0 ? (
-          <section className="km-home-section" key={`focus-${path}`}>
+          <section className="km-home-section" key={`focus-${path}-${locale}`}>
             <div className="km-home-section__head km-rise">
-              <SectionTitle label="Services" title={content.focusTitle} />
+              <SectionTitle
+                label={messages.sections.services}
+                title={content.focusTitle}
+              />
               {content.focusSupport ? (
                 <p className="km-home-section__support">{content.focusSupport}</p>
               ) : null}
@@ -338,24 +343,38 @@ export default function HomeExperience() {
           </section>
         ) : null}
 
-        <section id="work" className="km-home-section" key={`work-${path}`}>
+        <section
+          id="work"
+          className="km-home-section"
+          key={`work-${path}-${locale}`}
+        >
           <div className="km-home-section__head km-rise">
-            <SectionTitle label="Work" title={content.sectionTitle} />
+            <SectionTitle
+              label={messages.sections.work}
+              title={content.sectionTitle}
+            />
             {content.sectionSupport ? (
               <p className="km-home-section__support">{content.sectionSupport}</p>
             ) : null}
           </div>
           <div className="km-rise">
-            <ProjectStage key={path} projects={content.projects} />
+            <ProjectStage key={`${path}-${locale}`} projects={content.projects} />
           </div>
           <Btn className="km-home-section__cta" href="/work">
-            See all work
+            {messages.seeAllWork}
           </Btn>
         </section>
 
-        <section id="clients" className="km-home-section" key={`clients-${path}`}>
+        <section
+          id="clients"
+          className="km-home-section"
+          key={`clients-${path}-${locale}`}
+        >
           <div className="km-home-section__head km-rise">
-            <SectionTitle label="Clients" title={content.clientsTitle} />
+            <SectionTitle
+              label={messages.sections.clients}
+              title={content.clientsTitle}
+            />
             {content.clientsSupport ? (
               <p className="km-home-section__support">{content.clientsSupport}</p>
             ) : null}
@@ -365,9 +384,16 @@ export default function HomeExperience() {
           </div>
         </section>
 
-        <section id="about" className="km-home-section" key={`about-${path}`}>
+        <section
+          id="about"
+          className="km-home-section"
+          key={`about-${path}-${locale}`}
+        >
           <div className="km-home-section__head km-rise">
-            <SectionTitle label="About" title={content.aboutTitle} />
+            <SectionTitle
+              label={messages.sections.about}
+              title={content.aboutTitle}
+            />
           </div>
           <div className="km-home-about km-rise">
             <p className="km-home-about__body">{content.aboutBody}</p>
@@ -379,10 +405,13 @@ export default function HomeExperience() {
           <section
             id="voices"
             className="km-home-section"
-            key={`voices-${path}`}
+            key={`voices-${path}-${locale}`}
           >
             <div className="km-home-section__head km-rise">
-              <SectionTitle label="Voices" title={content.voicesTitle} />
+              <SectionTitle
+                label={messages.sections.voices}
+                title={content.voicesTitle}
+              />
               {content.voicesSupport ? (
                 <p className="km-home-section__support">{content.voicesSupport}</p>
               ) : null}

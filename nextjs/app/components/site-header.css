@@ -157,6 +157,11 @@
     height: 1.35rem;
   }
 
+  /* Locale segment stays readable without widening the sticky row */
+  .km-site-header .km-locale-toggle {
+    flex: 0 0 auto;
+  }
+
   .km-home-hero {
     min-height: 0;
     justify-content: flex-start;

@@ -22,6 +22,8 @@ import {
 import { BRAND } from "../lib/media";
 import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
 import DayNightToggle from "./day-night-toggle";
+import { useLocale } from "./locale-provider";
+import LocaleToggle from "./locale-toggle";
 import MediaImage from "./media-image";
 import SectionTitle from "./section-title";
 import SiteFooter from "./site-footer";
@@ -41,6 +43,7 @@ const logo = BRAND.logoMark;
  */
 export default function WorkExperience() {
   const themes = useMemo(() => themesForYear(), []);
+  const { messages } = useLocale();
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
   const [customSeed, setCustomSeed] = useState(DEFAULT_CUSTOM_SEED);
   const [colorMode, setColorMode] = useState<ColorMode>(DEFAULT_COLOR_MODE);
@@ -164,6 +167,7 @@ export default function WorkExperience() {
                 />
                 <div className="km-site-header__path-mode">
                   <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+                  <LocaleToggle />
                 </div>
               </div>
             </div>
@@ -173,14 +177,11 @@ export default function WorkExperience() {
           <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
             <header className="km-work-page__intro km-rise">
               <SectionTitle
-                label="Portfolio"
-                title="Projects I've worked on"
+                label={messages.sections.portfolio}
+                title={messages.workPage.title}
                 as="h1"
               />
-              <p className="km-work-page__support">
-                Same filters as before — Web, App, Chatbot, Designs, MMD. Hover a
-                piece for the title and links; open home for live walkthroughs.
-              </p>
+              <p className="km-work-page__support">{messages.workPage.support}</p>
             </header>
 
             <div className="km-rise km-delay-2">

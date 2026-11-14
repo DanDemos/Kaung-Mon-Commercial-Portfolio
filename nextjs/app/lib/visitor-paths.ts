@@ -42,6 +42,7 @@ export type FooterNavItem = { label: string; href: string };
 export const FOOTER_NAV: FooterNavItem[] = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
+  { label: "Courses", href: "/courses" },
   { label: "Resume", href: SOCIAL_LINKS.resume },
   { label: "Contact", href: "/contact" },
 ];
@@ -253,7 +254,7 @@ const WANDER_PROJECTS = projectsWith({
  * Colleague voices for hire, craft, and wonderer.
  * Not shown on Client. Quotes stay verbatim when shown.
  */
-const COLLEAGUE_VOICES: PathVoice[] = [
+export const COLLEAGUE_VOICES: PathVoice[] = [
   {
     id: "kein",
     quote:
@@ -446,6 +447,7 @@ export const PATH_CONTENT: Record<VisitorPath, PathContent> = {
 
 export const DEFAULT_CONTENT: PathContent = PATH_CONTENT.build;
 
-export function contentFor(path: VisitorPath = DEFAULT_PATH): PathContent {
+/** English path copy. Prefer `contentFor` from `./content` when locale matters. */
+export function contentForEn(path: VisitorPath = DEFAULT_PATH): PathContent {
   return PATH_CONTENT[path] ?? DEFAULT_CONTENT;
 }

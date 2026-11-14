@@ -10,6 +10,7 @@ import {
   YOUNG_NIGHT_SEED,
   type ColorMode,
 } from "./color-themes";
+import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY } from "./locale";
 import { recentCoty } from "./pantone-coty";
 
 export type KmBootPrefs = {
@@ -49,6 +50,8 @@ export function getThemeBootScript(): string {
     modeKey: MODE_STORAGE_KEY,
     themeKey: THEME_STORAGE_KEY,
     customKey: CUSTOM_SEED_STORAGE_KEY,
+    localeKey: LOCALE_STORAGE_KEY,
+    defaultLocale: DEFAULT_LOCALE,
     defaultMode: DEFAULT_COLOR_MODE,
     defaultThemeId: DEFAULT_THEME_ID,
     customThemeId: CUSTOM_THEME_ID,
@@ -83,6 +86,11 @@ export function getThemeBootScript(): string {
     if (!seed) seed = p.presets[p.defaultThemeId];
 
     var root = document.documentElement;
+    var locale = null;
+    try { locale = localStorage.getItem(p.localeKey); } catch (e) {}
+    if (locale !== "en" && locale !== "my") locale = p.defaultLocale;
+    root.lang = locale;
+    root.dataset.locale = locale;
     var bg = mode === "light" ? p.lightBg : p.darkBg;
     var fg = mode === "light" ? p.lightFg : p.darkFg;
     var brandPair = String(seed).toUpperCase() === p.youngNightSeed;

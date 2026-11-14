@@ -27,13 +27,14 @@ import {
   CHOOSER_SEEN_KEY,
   CONTACT_MAILTO,
   DEFAULT_PATH,
-  PATH_OPTIONS,
   PATH_STORAGE_KEY,
   notifyPathChange,
   type VisitorPath,
 } from "../lib/visitor-paths";
 import Btn from "./btn";
 import DayNightToggle from "./day-night-toggle";
+import { useLocale } from "./locale-provider";
+import LocaleToggle from "./locale-toggle";
 import MediaImage from "./media-image";
 import PathLensControl from "./path-lens-control";
 import SectionTitle from "./section-title";
@@ -67,6 +68,7 @@ function isVisitorPath(value: string | null): value is VisitorPath {
  */
 export default function ResumeExperience() {
   const themes = useMemo(() => themesForYear(), []);
+  const { messages } = useLocale();
   const [path, setPath] = useState<VisitorPath>(DEFAULT_PATH);
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
   const [customSeed, setCustomSeed] = useState(DEFAULT_CUSTOM_SEED);
@@ -74,8 +76,7 @@ export default function ResumeExperience() {
   const [ready, setReady] = useState(false);
   const [chooserOpen, setChooserOpen] = useState(false);
 
-  const activeLabel =
-    PATH_OPTIONS.find((option) => option.id === path)?.label ?? "Wonderer";
+  const activeLabel = messages.pathLabels[path];
   const isRecruiter = path === "hire";
 
   const activeSwatch =
@@ -214,6 +215,7 @@ export default function ResumeExperience() {
                     onOpen={() => setChooserOpen(true)}
                   />
                   <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+                  <LocaleToggle />
                 </div>
               </div>
             </div>

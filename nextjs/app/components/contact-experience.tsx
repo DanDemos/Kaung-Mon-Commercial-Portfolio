@@ -21,14 +21,16 @@ import {
 } from "../lib/color-themes";
 import { BRAND } from "../lib/media";
 import { markBootReady, readClientBootPrefs } from "../lib/theme-boot";
+import { contentFor } from "../lib/content";
 import {
   DEFAULT_PATH,
   PATH_STORAGE_KEY,
-  contentFor,
   type VisitorPath,
 } from "../lib/visitor-paths";
 import ContactDock from "./contact-dock";
 import DayNightToggle from "./day-night-toggle";
+import { useLocale } from "./locale-provider";
+import LocaleToggle from "./locale-toggle";
 import MediaImage from "./media-image";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
@@ -54,13 +56,14 @@ function isVisitorPath(value: string | null): value is VisitorPath {
  */
 export default function ContactExperience() {
   const themes = useMemo(() => themesForYear(), []);
+  const { locale } = useLocale();
   const [path, setPath] = useState<VisitorPath>(DEFAULT_PATH);
   const [themeId, setThemeId] = useState(DEFAULT_THEME_ID);
   const [customSeed, setCustomSeed] = useState(DEFAULT_CUSTOM_SEED);
   const [colorMode, setColorMode] = useState<ColorMode>(DEFAULT_COLOR_MODE);
   const [ready, setReady] = useState(false);
 
-  const content = contentFor(path);
+  const content = contentFor(path, locale);
   const activeSwatch =
     themeId === CUSTOM_THEME_ID
       ? customSeed
@@ -181,6 +184,7 @@ export default function ContactExperience() {
                 />
                 <div className="km-site-header__path-mode">
                   <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+                  <LocaleToggle />
                 </div>
               </div>
             </div>
@@ -188,7 +192,7 @@ export default function ContactExperience() {
           </header>
 
           <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 pt-6 sm:px-8 sm:pt-8">
-            <div className="km-rise">
+            <div className="km-rise" key={locale}>
               <ContactDock support={content.contactFormSupport} />
             </div>
           </main>

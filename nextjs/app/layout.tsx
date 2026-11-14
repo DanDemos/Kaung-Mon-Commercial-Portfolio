@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import logo from "../../assets/brand/logo-mark.png";
 import geistSans from "../../shared/fonts/GeistSans.woff2";
 import cormorantGaramond from "../../shared/fonts/CormorantGaramond-SemiBold.woff2";
+import { LocaleProvider } from "./components/locale-provider";
 import PwaRegister from "./components/pwa-register";
 import { ThemeBootScript } from "./components/theme-boot-script";
 import { getThemeBootScript } from "./lib/theme-boot";
@@ -57,12 +58,23 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        {/* Myanmar script for locale `my` — unicode-range keeps Latin on Geist */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {/* SSR stream injection — not in the React client tree (Next 16 / React 19) */}
         <ThemeBootScript script={getThemeBootScript()} />
         <PwaRegister />
-        {children}
+        <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import type { NavHref } from "../lib/messages";
 import { BRAND } from "../lib/media";
-import {
-  FOOTER_BLURB,
-  FOOTER_NAV,
-  SOCIAL_LINKS,
-} from "../lib/visitor-paths";
+import { FOOTER_NAV, SOCIAL_LINKS } from "../lib/visitor-paths";
+import { useLocale } from "./locale-provider";
 import MediaImage from "./media-image";
 import "./draw-underline.css";
 import "./site-footer.css";
@@ -25,20 +25,22 @@ function isExternalHref(href: string) {
  */
 export default function SiteFooter() {
   const year = new Date().getFullYear();
+  const { messages } = useLocale();
 
   return (
     <footer className="km-footer">
       <div className="km-footer__inner">
         <div className="km-footer__grid">
-          <nav className="km-footer__nav" aria-label="Footer">
-            {FOOTER_NAV.map((item) =>
-              isExternalHref(item.href) ? (
+          <nav className="km-footer__nav" aria-label={messages.footerAria}>
+            {FOOTER_NAV.map((item) => {
+              const label = messages.nav[item.href as NavHref] ?? item.label;
+              return isExternalHref(item.href) ? (
                 <a
                   key={item.href}
                   href={item.href}
                   className="km-footer__link km-draw-underline"
                 >
-                  {item.label}
+                  {label}
                 </a>
               ) : (
                 <Link
@@ -46,10 +48,10 @@ export default function SiteFooter() {
                   href={item.href}
                   className="km-footer__link km-draw-underline"
                 >
-                  {item.label}
+                  {label}
                 </Link>
-              ),
-            )}
+              );
+            })}
           </nav>
 
           <div className="km-footer__brand">
@@ -69,8 +71,8 @@ export default function SiteFooter() {
               />
               <span className="km-footer__name">Kaung Mon</span>
             </Link>
-            <p className="km-footer__blurb">{FOOTER_BLURB}</p>
-            <div className="km-footer__social" aria-label="Social">
+            <p className="km-footer__blurb">{messages.footerBlurb}</p>
+            <div className="km-footer__social" aria-label={messages.socialAria}>
               <a
                 href={SOCIAL_LINKS.youtube}
                 className="km-footer__social-btn"

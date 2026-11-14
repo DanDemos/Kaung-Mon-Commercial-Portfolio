@@ -1,6 +1,7 @@
 "use client";
 
 import type { ColorMode } from "../lib/color-themes";
+import { useLocale } from "./locale-provider";
 import "./day-night-toggle.css";
 
 type DayNightToggleProps = {
@@ -15,6 +16,7 @@ type DayNightToggleProps = {
 export default function DayNightToggle({ mode, onChange }: DayNightToggleProps) {
   const isNight = mode === "dark";
   const inputId = "km-day-night";
+  const { messages } = useLocale();
 
   return (
     <div className="day-night-switch">
@@ -24,7 +26,9 @@ export default function DayNightToggle({ mode, onChange }: DayNightToggleProps) 
         type="checkbox"
         checked={isNight}
         onChange={(event) => onChange(event.target.checked ? "dark" : "light")}
-        aria-label={isNight ? "Switch to light mode" : "Switch to dark mode"}
+        aria-label={
+          isNight ? messages.dayNight.toLight : messages.dayNight.toDark
+        }
       />
       <label className="day-night-switch__track" htmlFor={inputId}>
         <i className="day-night-switch__sun" aria-hidden>
