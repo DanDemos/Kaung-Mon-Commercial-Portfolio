@@ -26,11 +26,12 @@ import MediaImage from "./media-image";
 import SectionTitle from "./section-title";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
-import TextLink from "./text-link";
+import { SiteNavLead, SiteNavStrip } from "./site-destination-nav";
 import ThemeCircles from "./theme-circles";
 import WorkGallery from "./work-gallery";
 import "./brand-lockup.css";
 import "./home-experience.css";
+import "./site-header.css";
 import "./work-experience.css";
 
 const logo = BRAND.logoMark;
@@ -130,38 +131,43 @@ export default function WorkExperience() {
           </div>
 
           <header className="km-site-header">
-            <Link
-              href="/"
-              className="km-brand"
-              aria-label="Kaung Mon, back to home"
-            >
-              <MediaImage
-                src={logo}
-                alt=""
-                width={56}
-                height={56}
-                sizes="56px"
-                quality={95}
-                priority
-                className="km-brand__mark"
-              />
-              <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
-                Kaung Mon
-              </span>
-            </Link>
+            <div className="km-site-header__row">
+              <SiteNavLead>
+                <Link
+                  href="/"
+                  className="km-brand"
+                  aria-label="Kaung Mon, back to home"
+                >
+                  <MediaImage
+                    src={logo}
+                    alt=""
+                    width={56}
+                    height={56}
+                    sizes="56px"
+                    quality={95}
+                    priority
+                    className="km-brand__mark"
+                  />
+                  <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
+                    Kaung Mon
+                  </span>
+                </Link>
+              </SiteNavLead>
 
-            <div className="km-site-header__controls">
-              <ThemeCircles
-                themes={themes}
-                activeId={themeId}
-                customSeed={customSeed}
-                onChange={changeTheme}
-                onCustomSeedChange={changeCustomSeed}
-              />
-              <div className="km-site-header__path-mode">
-                <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+              <div className="km-site-header__controls">
+                <ThemeCircles
+                  themes={themes}
+                  activeId={themeId}
+                  customSeed={customSeed}
+                  onChange={changeTheme}
+                  onCustomSeedChange={changeCustomSeed}
+                />
+                <div className="km-site-header__path-mode">
+                  <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+                </div>
               </div>
             </div>
+            <SiteNavStrip />
           </header>
 
           <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
@@ -174,9 +180,6 @@ export default function WorkExperience() {
               <p className="km-work-page__support">
                 Same filters as before — Web, App, Chatbot, Designs, MMD. Hover a
                 piece for the title and links; open home for live walkthroughs.
-              </p>
-              <p className="km-work-page__back">
-                <TextLink href="/">← Back home</TextLink>
               </p>
             </header>
 

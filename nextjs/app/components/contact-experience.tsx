@@ -32,10 +32,11 @@ import DayNightToggle from "./day-night-toggle";
 import MediaImage from "./media-image";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
-import TextLink from "./text-link";
+import { SiteNavLead, SiteNavStrip } from "./site-destination-nav";
 import ThemeCircles from "./theme-circles";
 import "./brand-lockup.css";
 import "./home-experience.css";
+import "./site-header.css";
 
 const logo = BRAND.logoMark;
 
@@ -147,45 +148,47 @@ export default function ContactExperience() {
           </div>
 
           <header className="km-site-header">
-            <Link
-              href="/"
-              className="km-brand"
-              aria-label="Kaung Mon, back to home"
-            >
-              <MediaImage
-                src={logo}
-                alt=""
-                width={56}
-                height={56}
-                sizes="56px"
-                quality={95}
-                priority
-                className="km-brand__mark"
-              />
-              <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
-                Kaung Mon
-              </span>
-            </Link>
+            <div className="km-site-header__row">
+              <SiteNavLead>
+                <Link
+                  href="/"
+                  className="km-brand"
+                  aria-label="Kaung Mon, back to home"
+                >
+                  <MediaImage
+                    src={logo}
+                    alt=""
+                    width={56}
+                    height={56}
+                    sizes="56px"
+                    quality={95}
+                    priority
+                    className="km-brand__mark"
+                  />
+                  <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
+                    Kaung Mon
+                  </span>
+                </Link>
+              </SiteNavLead>
 
-            <div className="km-site-header__controls">
-              <ThemeCircles
-                themes={themes}
-                activeId={themeId}
-                customSeed={customSeed}
-                onChange={changeTheme}
-                onCustomSeedChange={changeCustomSeed}
-              />
-              <div className="km-site-header__path-mode">
-                <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+              <div className="km-site-header__controls">
+                <ThemeCircles
+                  themes={themes}
+                  activeId={themeId}
+                  customSeed={customSeed}
+                  onChange={changeTheme}
+                  onCustomSeedChange={changeCustomSeed}
+                />
+                <div className="km-site-header__path-mode">
+                  <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+                </div>
               </div>
             </div>
+            <SiteNavStrip />
           </header>
 
-          <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
-            <p className="km-contact-page__back km-rise">
-              <TextLink href="/">← Back home</TextLink>
-            </p>
-            <div className="km-rise km-delay-1">
+          <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 pt-6 sm:px-8 sm:pt-8">
+            <div className="km-rise">
               <ContactDock support={content.contactFormSupport} />
             </div>
           </main>

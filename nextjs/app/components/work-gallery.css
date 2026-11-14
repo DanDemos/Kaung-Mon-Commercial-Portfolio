@@ -329,6 +329,7 @@
   display: grid;
   place-items: center;
   padding: 1.25rem;
+  cursor: pointer;
 }
 
 .km-portfolio-lightbox__scrim {
@@ -338,7 +339,7 @@
   padding: 0;
   border: none;
   background: color-mix(in oklab, black 78%, transparent);
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .km-portfolio-lightbox__stage {
@@ -350,6 +351,7 @@
   max-width: min(100%, 72rem);
   max-height: calc(100dvh - 2.5rem);
   outline: none;
+  cursor: default;
 }
 
 .km-portfolio-lightbox__close {

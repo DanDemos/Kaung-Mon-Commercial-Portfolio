@@ -227,6 +227,44 @@ html[data-theme-surface="dark"] .km-voice-stage--people .km-voice-stage__card {
   border: 1px solid color-mix(in oklab, var(--color-fg) 16%, transparent);
 }
 
+.km-voice-stage__card--link,
+.km-voice-stage--people .km-voice-stage__card--link {
+  padding: 0;
+}
+
+.km-voice-stage__card-link {
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1rem 1rem 1.05rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: inherit;
+  outline: none;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.km-voice-stage--people .km-voice-stage__card-link {
+  gap: 0;
+  padding: 0.5rem 0.75rem 0.5rem 0.45rem;
+}
+
+.km-voice-stage__card--link:hover,
+.km-voice-stage__card--link:focus-within {
+  border-color: color-mix(in oklab, var(--color-fg) 22%, transparent);
+  background: color-mix(in oklab, var(--color-fg) 7.5%, var(--color-bg));
+}
+
+html[data-theme-surface="dark"] .km-voice-stage__card--link:hover,
+html[data-theme-surface="dark"] .km-voice-stage__card--link:focus-within {
+  background: color-mix(in oklab, var(--color-fg) 11%, var(--color-bg));
+}
+
+.km-voice-stage__card-link:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-fg) 45%, transparent);
+  outline-offset: 2px;
+}
+
 .km-voice-stage__name {
   margin: 0;
   font-size: 0.95rem;

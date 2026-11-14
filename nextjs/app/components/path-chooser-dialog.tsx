@@ -64,12 +64,13 @@ export default function PathChooserDialog({
   const wondererActive = currentPath === WANDER_OPTION.id;
 
   return (
-    <div className="km-path-chooser fixed inset-0 z-50 overflow-y-auto overscroll-contain">
-      <button
-        type="button"
-        aria-label="Close path chooser"
-        className="fixed inset-0 bg-[color-mix(in_oklab,var(--color-fg)_28%,transparent)] backdrop-blur-[2px] transition-opacity"
-        onClick={onDismiss}
+    <div
+      className="km-path-chooser fixed inset-0 z-50 overflow-y-auto overscroll-contain"
+      onClick={onDismiss}
+    >
+      <div
+        className="pointer-events-none fixed inset-0 bg-[color-mix(in_oklab,var(--color-fg)_28%,transparent)] backdrop-blur-[2px]"
+        aria-hidden
       />
 
       {/*
@@ -77,6 +78,7 @@ export default function PathChooserDialog({
         centers when short; when taller than the phone, margins collapse and
         the full card stays reachable by scrolling (avoids stretch from
         unsupported `align-items: safe center`).
+        Outside clicks hit this shell (or bubble from empty flex space) → dismiss.
       */}
       <div className="relative flex min-h-dvh justify-center p-4 py-5 sm:p-6">
       <div
@@ -86,6 +88,7 @@ export default function PathChooserDialog({
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
         className="km-path-chooser__panel km-modal-surface km-rise relative z-10 my-auto h-fit w-full max-w-md p-5 sm:p-8"
+        onClick={(event) => event.stopPropagation()}
       >
         <button
           ref={closeRef}

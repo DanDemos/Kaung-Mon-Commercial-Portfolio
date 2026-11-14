@@ -61,8 +61,8 @@
 }
 
 /*
- * Mobile: sticky preference rail — no hamburger, no scroll-to-top tax.
- * One row: mark · active swatch · Lens · day/night.
+ * Mobile: one sticky chrome block — controls row + page strip.
+ * Strip is inside this sticky header (not a second sticky layer).
  */
 @media (max-width: 639px) {
   .km-site-header {
@@ -70,11 +70,11 @@
     top: 0;
     z-index: 40;
     display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.45rem;
-    padding: 0.55rem 0.85rem;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0.55rem 0.85rem 0.45rem;
     overflow: visible;
     background: color-mix(in oklab, var(--color-bg) 88%, transparent);
     border-bottom: 1px solid color-mix(in oklab, var(--color-fg) 10%, transparent);
@@ -82,7 +82,22 @@
     -webkit-backdrop-filter: blur(14px);
   }
 
-  .km-site-header > .km-brand {
+  .km-site-header__row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .km-site-header__lead {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .km-site-header__lead > .km-site-nav__brand {
     flex: 0 0 auto;
   }
 
@@ -147,5 +162,12 @@
     justify-content: flex-start;
     padding-top: 1.05rem;
     padding-bottom: 3.25rem;
+  }
+}
+
+/* Desktop: row wrapper is a passthrough so lead + controls stay side-by-side */
+@media (min-width: 640px) {
+  .km-site-header__row {
+    display: contents;
   }
 }

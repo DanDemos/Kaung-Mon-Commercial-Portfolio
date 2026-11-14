@@ -308,18 +308,14 @@ function PortfolioLightbox({
   if (!mounted) return null;
 
   return createPortal(
-    <div className="km-portfolio-lightbox">
-      <button
-        type="button"
-        className="km-portfolio-lightbox__scrim"
-        aria-label="Close fullscreen view"
-        onClick={onClose}
-      />
+    <div className="km-portfolio-lightbox" onClick={onClose}>
+      <div className="km-portfolio-lightbox__scrim" aria-hidden />
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         className="km-portfolio-lightbox__stage"
+        onClick={(event) => event.stopPropagation()}
       >
         <button
           ref={closeRef}

@@ -220,30 +220,56 @@ export default function VoiceStage({
             aria-hidden={i !== index}
           >
             <ul className="km-voice-stage__pair">
-              {group.map((voice) => (
-                <li key={voice.id} className="km-voice-stage__card">
-                  <div className="km-voice-stage__person">
-                    <MediaImage
-                      src={VOICE_PHOTOS[voice.id]}
-                      alt=""
-                      width={128}
-                      height={128}
-                      sizes="128px"
-                      round
-                      className="km-voice-stage__photo"
-                    />
-                    <div className="min-w-0">
-                      <p className="km-voice-stage__name">{voice.name}</p>
-                      <p className="km-voice-stage__role">{voice.role}</p>
+              {group.map((voice) => {
+                const body = (
+                  <>
+                    <div className="km-voice-stage__person">
+                      <MediaImage
+                        src={VOICE_PHOTOS[voice.id]}
+                        alt=""
+                        width={128}
+                        height={128}
+                        sizes="128px"
+                        round
+                        className="km-voice-stage__photo"
+                      />
+                      <div className="min-w-0">
+                        <p className="km-voice-stage__name">{voice.name}</p>
+                        <p className="km-voice-stage__role">{voice.role}</p>
+                      </div>
                     </div>
-                  </div>
-                  {showQuotes ? (
-                    <blockquote className="km-voice-stage__quote">
-                      “{voice.quote}”
-                    </blockquote>
-                  ) : null}
-                </li>
-              ))}
+                    {showQuotes ? (
+                      <blockquote className="km-voice-stage__quote">
+                        “{voice.quote}”
+                      </blockquote>
+                    ) : null}
+                  </>
+                );
+
+                return (
+                  <li
+                    key={voice.id}
+                    className={[
+                      "km-voice-stage__card",
+                      voice.linkedin ? "km-voice-stage__card--link" : "",
+                    ].join(" ")}
+                  >
+                    {voice.linkedin ? (
+                      <a
+                        className="km-voice-stage__card-link"
+                        href={voice.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${voice.name} on LinkedIn`}
+                      >
+                        {body}
+                      </a>
+                    ) : (
+                      body
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </li>
         ))}

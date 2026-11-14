@@ -29,6 +29,7 @@ import {
   DEFAULT_PATH,
   PATH_OPTIONS,
   PATH_STORAGE_KEY,
+  notifyPathChange,
   type VisitorPath,
 } from "../lib/visitor-paths";
 import Btn from "./btn";
@@ -38,11 +39,13 @@ import PathLensControl from "./path-lens-control";
 import SectionTitle from "./section-title";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
+import { SiteNavLead, SiteNavStrip } from "./site-destination-nav";
 import TextLink from "./text-link";
 import ThemeCircles from "./theme-circles";
 import "./brand-lockup.css";
 import "./home-experience.css";
 import "./resume-experience.css";
+import "./site-header.css";
 
 const PathChooserDialog = dynamic(() => import("./path-chooser-dialog"), {
   ssr: false,
@@ -134,6 +137,7 @@ export default function ResumeExperience() {
     setPath(next);
     window.localStorage.setItem(PATH_STORAGE_KEY, next);
     window.localStorage.setItem(CHOOSER_SEEN_KEY, "1");
+    notifyPathChange();
   }
 
   function changeTheme(nextId: string) {
@@ -171,44 +175,49 @@ export default function ResumeExperience() {
           </div>
 
           <header className="km-site-header">
-            <Link
-              href="/"
-              className="km-brand"
-              aria-label="Kaung Mon, back to home"
-            >
-              <MediaImage
-                src={logo}
-                alt=""
-                width={56}
-                height={56}
-                sizes="56px"
-                quality={95}
-                priority
-                className="km-brand__mark"
-              />
-              <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
-                Kaung Mon
-              </span>
-            </Link>
+            <div className="km-site-header__row">
+              <SiteNavLead>
+                <Link
+                  href="/"
+                  className="km-brand"
+                  aria-label="Kaung Mon, back to home"
+                >
+                  <MediaImage
+                    src={logo}
+                    alt=""
+                    width={56}
+                    height={56}
+                    sizes="56px"
+                    quality={95}
+                    priority
+                    className="km-brand__mark"
+                  />
+                  <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
+                    Kaung Mon
+                  </span>
+                </Link>
+              </SiteNavLead>
 
-            <div className="km-site-header__controls">
-              <ThemeCircles
-                themes={themes}
-                activeId={themeId}
-                customSeed={customSeed}
-                onChange={changeTheme}
-                onCustomSeedChange={changeCustomSeed}
-              />
-              <div className="km-site-header__path-mode">
-                <PathLensControl
-                  label={activeLabel}
-                  ready={ready}
-                  open={chooserOpen}
-                  onOpen={() => setChooserOpen(true)}
+              <div className="km-site-header__controls">
+                <ThemeCircles
+                  themes={themes}
+                  activeId={themeId}
+                  customSeed={customSeed}
+                  onChange={changeTheme}
+                  onCustomSeedChange={changeCustomSeed}
                 />
-                <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+                <div className="km-site-header__path-mode">
+                  <PathLensControl
+                    label={activeLabel}
+                    ready={ready}
+                    open={chooserOpen}
+                    onOpen={() => setChooserOpen(true)}
+                  />
+                  <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+                </div>
               </div>
             </div>
+            <SiteNavStrip />
           </header>
 
           <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-20 sm:px-8">
@@ -254,7 +263,6 @@ function ResumeGate({ onUnlock }: { onUnlock: () => void }) {
         <Btn type="button" onClick={onUnlock}>
           View as recruiter
         </Btn>
-        <TextLink href="/">Back home</TextLink>
       </div>
     </section>
   );
@@ -277,8 +285,6 @@ function ResumeBody() {
           the walkthroughs on home.
         </p>
         <p className="km-resume__links">
-          <TextLink href="/">← Home</TextLink>
-          <span aria-hidden> · </span>
           <TextLink href={CONTACT_MAILTO}>Email me</TextLink>
         </p>
       </header>

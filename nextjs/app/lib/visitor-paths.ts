@@ -8,6 +8,13 @@ export const PATH_STORAGE_KEY = "km-visitor-path";
 export const CHOOSER_SEEN_KEY = "km-path-chooser-seen";
 /** Wonderer is the quiet default; roles are one Lens click away. */
 export const DEFAULT_PATH: VisitorPath = "wander";
+/** Fired after `PATH_STORAGE_KEY` changes so header nav can show/hide Resume. */
+export const PATH_CHANGE_EVENT = "km-path-change";
+
+export function notifyPathChange() {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event(PATH_CHANGE_EVENT));
+}
 
 /** Public contact details (mailto / copy / contact page cards). */
 export const CONTACT_EMAIL = "kaungmonsoe14613@gmail.com";
@@ -90,6 +97,8 @@ export type PathVoice = {
   quote: string;
   name: string;
   role: string;
+  /** Optional profile link (e.g. LinkedIn). Name becomes the anchor when set. */
+  linkedin?: string;
 };
 
 export type PathContent = {
@@ -251,6 +260,7 @@ const COLLEAGUE_VOICES: PathVoice[] = [
       "Dan is an Expert in UI/UX. He Literally do UI simple and Easy to Understand Interface.He also see the details and sizes of components in UI and Calculate it based on how many percent is needed to do. Working with Dan is Fun and you can leave everything about UI/UX to him. Thanks, Dan!",
     name: "Kein Pyi Si",
     role: "Backend Developer & Founder of Vocaloid Nation Myanmar",
+    linkedin: "https://www.linkedin.com/in/keinpyisi/",
   },
   {
     id: "khin",
@@ -258,6 +268,7 @@ const COLLEAGUE_VOICES: PathVoice[] = [
       "Dan is one of those rare breeds of professional who is passionate about his work and will go to any length to complete an assignment on time. He is the one who is admired and envied. But it's not just his technical abilities that have me impressed. Dan was a joy to work with because of his incredible positive attitude, emotional intelligence, and commitment to meet deadlines.",
     name: "Khin Myat San",
     role: "Web Developer",
+    linkedin: "https://www.linkedin.com/in/khin-myat-san-3a63061a0/",
   },
   {
     id: "wai-yan",

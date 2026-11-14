@@ -28,6 +28,7 @@ import {
   PATH_OPTIONS,
   PATH_STORAGE_KEY,
   contentFor,
+  notifyPathChange,
   type PathCta,
   type VisitorPath,
 } from "../lib/visitor-paths";
@@ -41,11 +42,13 @@ import ProjectStage from "./project-stage";
 import SectionTitle from "./section-title";
 import SiteFooter from "./site-footer";
 import SiteLoader from "./site-loader";
+import { SiteNavLead, SiteNavStrip } from "./site-destination-nav";
 import TextLink from "./text-link";
 import ThemeCircles from "./theme-circles";
 import TypewriterRoles from "./typewriter-roles";
 import "./brand-lockup.css";
 import "./home-experience.css";
+import "./site-header.css";
 
 const PathChooserDialog = dynamic(() => import("./path-chooser-dialog"), {
   ssr: false,
@@ -172,6 +175,7 @@ export default function HomeExperience() {
   function persist(next: VisitorPath) {
     setPath(next);
     window.localStorage.setItem(PATH_STORAGE_KEY, next);
+    notifyPathChange();
   }
 
   function choose(next: VisitorPath) {
@@ -232,47 +236,52 @@ export default function HomeExperience() {
       </div>
 
       <header className="km-site-header km-site-header--home">
-        <button
-          type="button"
-          className="km-brand"
-          aria-label="Kaung Mon, back to top"
-          onClick={() => scrollToSection("top")}
-        >
-          <MediaImage
-            src={logo}
-            alt=""
-            width={56}
-            height={56}
-            sizes="56px"
-            quality={95}
-            priority
-            className="km-brand__mark"
-          />
-          <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
-            Kaung Mon
-          </span>
-        </button>
+        <div className="km-site-header__row">
+          <SiteNavLead>
+            <button
+              type="button"
+              className="km-brand"
+              aria-label="Kaung Mon, back to top"
+              onClick={() => scrollToSection("top")}
+            >
+              <MediaImage
+                src={logo}
+                alt=""
+                width={56}
+                height={56}
+                sizes="56px"
+                quality={95}
+                priority
+                className="km-brand__mark"
+              />
+              <span className="km-brand__name text-[0.95rem] font-semibold tracking-[-0.02em] text-[var(--color-brand-mark)]">
+                Kaung Mon
+              </span>
+            </button>
+          </SiteNavLead>
 
-        <div className="km-site-header__controls">
-          <ThemeCircles
-            themes={themes}
-            activeId={themeId}
-            customSeed={customSeed}
-            onChange={changeTheme}
-            onCustomSeedChange={changeCustomSeed}
-          />
-
-          <div className="km-site-header__path-mode">
-            <PathLensControl
-              label={activeLabel}
-              ready={ready}
-              open={chooserOpen}
-              onOpen={() => setChooserOpen(true)}
+          <div className="km-site-header__controls">
+            <ThemeCircles
+              themes={themes}
+              activeId={themeId}
+              customSeed={customSeed}
+              onChange={changeTheme}
+              onCustomSeedChange={changeCustomSeed}
             />
 
-            <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+            <div className="km-site-header__path-mode">
+              <PathLensControl
+                label={activeLabel}
+                ready={ready}
+                open={chooserOpen}
+                onOpen={() => setChooserOpen(true)}
+              />
+
+              <DayNightToggle mode={colorMode} onChange={changeColorMode} />
+            </div>
           </div>
         </div>
+        <SiteNavStrip />
       </header>
 
       <main

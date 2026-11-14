@@ -1,11 +1,8 @@
 /* Contact page — layout from Portfilio: info cards + full-width form.
  * Neutral panels only. Accent on icons / submit / social hover — not washes. */
 
-.km-contact-page__back {
-  margin: 0.5rem 0 1.5rem;
-}
-
 .km-contact-page {
+
   display: grid;
 }
 

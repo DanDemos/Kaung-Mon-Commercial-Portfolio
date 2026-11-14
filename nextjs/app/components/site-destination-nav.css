@@ -1,0 +1,112 @@
+/* Brand + desktop destinations share the left header cluster */
+.km-site-header__lead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1.25rem;
+  min-width: 0;
+}
+
+.km-site-nav__brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.km-site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.km-site-nav__link {
+  position: relative;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-fg-muted);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.km-site-nav__link:hover,
+.km-site-nav__link:focus-visible {
+  color: var(--color-secondary);
+}
+
+/* Current page — solid weight + always-on rule (not hover-draw only) */
+.km-site-nav__link--active {
+  font-weight: 700;
+  color: var(--color-fg);
+}
+
+.km-site-nav__link--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.12em;
+  height: 1.5px;
+  background: currentColor;
+  opacity: 0.9;
+}
+
+html[data-theme-surface="dark"] .km-site-nav__link--active {
+  color: #fff;
+}
+
+.km-site-nav--desktop {
+  display: none;
+}
+
+.km-site-nav--strip {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .km-site-header__lead {
+    flex: 1 1 auto;
+  }
+
+  .km-site-nav--desktop {
+    display: block;
+  }
+}
+
+/*
+ * Mobile strip is row 2 of the sticky header — same stick unit as controls.
+ * No position:sticky / top offset of its own (avoids dual-sticky jitter).
+ */
+@media (max-width: 639px) {
+  .km-site-nav--strip {
+    display: block;
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 0.15rem 0 0.1rem;
+    border-top: 1px solid color-mix(in oklab, var(--color-fg) 8%, transparent);
+  }
+
+  .km-site-nav__list--strip {
+    justify-content: flex-start;
+    gap: 0.85rem;
+  }
+
+  .km-site-nav__list--strip .km-site-nav__link {
+    font-size: 0.74rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .km-site-nav__list--strip .km-site-nav__link--active {
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  html[data-theme-surface="dark"] .km-site-nav__list--strip .km-site-nav__link--active {
+    color: var(--color-secondary);
+  }
+}
