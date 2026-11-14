@@ -38,10 +38,10 @@
   color: var(--color-secondary);
 }
 
-/* Current page — solid weight + always-on rule (not hover-draw only) */
+/* Current page — secondary + always-on rule (desktop + sticky strip) */
 .km-site-nav__link--active {
   font-weight: 700;
-  color: var(--color-fg);
+  color: var(--color-secondary);
 }
 
 .km-site-nav__link--active::after {
@@ -53,10 +53,6 @@
   height: 1.5px;
   background: currentColor;
   opacity: 0.9;
-}
-
-html[data-theme-surface="dark"] .km-site-nav__link--active {
-  color: #fff;
 }
 
 .km-site-nav--desktop {
@@ -103,10 +99,5 @@ html[data-theme-surface="dark"] .km-site-nav__link--active {
 
   .km-site-nav__list--strip .km-site-nav__link--active {
     font-weight: 700;
-    color: var(--color-secondary);
-  }
-
-  html[data-theme-surface="dark"] .km-site-nav__list--strip .km-site-nav__link--active {
-    color: var(--color-secondary);
   }
 }
