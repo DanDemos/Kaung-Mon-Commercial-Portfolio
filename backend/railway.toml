@@ -1,0 +1,15 @@
+# Same GitHub monorepo as the Vercel site.
+# Railway service settings: Root Directory = `backend`
+# Volume: mount `/data`, set ANALYTICS_DB_PATH=/data/analytics.sqlite
+
+[build]
+builder = "NIXPACKS"
+buildCommand = "yarn install && yarn build"
+watchPatterns = ["backend/**"]
+
+[deploy]
+startCommand = "yarn start"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

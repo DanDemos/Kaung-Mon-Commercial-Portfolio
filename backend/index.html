@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin · Kaung Mon</title>
+    <link rel="icon" href="/icons/logo-mark.png" type="image/png" />
+    <link
+      rel="preload"
+      href="/fonts/GeistSans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script>
+      /* Pre-paint Young Night surface — backend-local storage key only */
+      (function () {
+        try {
+          var m = localStorage.getItem("km-dash-color-mode");
+          if (m !== "light" && m !== "dark") m = "dark";
+          document.documentElement.dataset.themeSurface = m;
+          document.documentElement.style.colorScheme = m;
+        } catch (e) {
+          document.documentElement.dataset.themeSurface = "dark";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/client/main.jsx"></script>
+  </body>
+</html>

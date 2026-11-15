@@ -1,58 +1,50 @@
 # Kaung Mon — Portfolio
 
-Personal commercial portfolio built with Next.js. Visitors can pick a soft audience lens, switch color themes (Young Night + recent Pantone Colors of the Year), and toggle day/night chrome.
+**One GitHub repo.** Folders by concern — not “one framework = the whole frontend.”
 
-## Stack
+```
+Kaung-Mon-Commercial-Portfolio/    ← single git remote
+  frontend/                        ← all public UIs (can grow)
+    nextjs/                        → Vercel (Root Directory: frontend/nextjs)
+    # later: html/, vue/, …
+  backend/                         → Railway (Root Directory: backend)
+  docs/                            ← local notes (not deployed)
+```
 
-- Next.js (App Router) + React + TypeScript
-- Tailwind CSS v4
-- Shared fonts/images under `shared/`
+`frontend/` is a **container**. Today only `frontend/nextjs` exists. More stacks can sit beside it later without renaming the Next app to “frontend.”
 
-## Setup
+`backend/` is the admin API + dashboard. It does not import from `frontend/`.
+
+## Local setup
 
 ```bash
-cp .env.example .env   # shared secrets for the whole repo
-cd nextjs
-yarn install
-yarn dev
+# Portfolio (Next.js)
+cd frontend/nextjs && cp .env.example .env && yarn install && yarn dev
+# → http://localhost:3000
+
+# Admin (separate terminal)
+cd backend && cp .env.example .env && yarn install && yarn dev
+# → API http://localhost:8787 · UI http://localhost:5174
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## CI/CD (same repo, separate pipelines)
 
-Env lives at **repo root** `/.env` (see `.env.example`). Next.js loads it from `nextjs/next.config.ts` so other frameworks can share the same file.
+### Vercel → `frontend/nextjs`
 
-## Project layout
+1. Import **this** GitHub repo in Vercel.
+2. **Root Directory:** `frontend/nextjs`
+3. Skip deploy when that directory has no changes (optional but recommended).
+4. Env: contact keys; `NEXT_PUBLIC_ANALYTICS_URL` → Railway URL when ready.
 
-```
-nextjs/          App Router site (Vercel Root Directory)
-shared/          Fonts, CSS tokens
-assets/          Brand / media source files imported by the app
-```
+### Railway → `backend`
 
-## Deploy (Vercel)
+1. Same GitHub repo → Railway service.
+2. **Root Directory:** `backend`
+3. Volume `/data` + `ANALYTICS_DB_PATH=/data/analytics.sqlite`
+4. `DASHBOARD_PASSWORD`, `ANALYTICS_CORS_ORIGINS`, `NODE_ENV=production`
 
-CI/CD is the **Vercel ↔ GitHub** integration (no GitHub Actions required). Each push to the linked branch builds and deploys; PRs get preview URLs.
+Details: [`backend/README.md`](backend/README.md) · [`frontend/README.md`](frontend/README.md)
 
-1. Open [vercel.com/new](https://vercel.com/new) and import `DanDemos/Kaung-Mon-Commercial-Portfolio`.
-2. Set **Root Directory** to `nextjs` (Edit → select `nextjs`).
-3. Keep **Include source files outside of the Root Directory** enabled (needed for `shared/` + `assets/`).
-4. Framework preset: Next.js. Install/build come from `nextjs/vercel.json` (`yarn install` / `yarn build`).
-5. Under **Git → Production Branch**, set the branch you want live (currently `idea` if that is your working branch; otherwise `main` after merge).
-6. Deploy. Later pushes to that branch auto-deploy production; other branches / PRs get previews.
+## Secrets not in git
 
-Local CLI (optional, from **repo root**):
-
-```bash
-npx vercel link    # choose Root Directory ./nextjs
-npx vercel         # preview
-npx vercel --prod  # production
-```
-
-## Scripts
-
-| Command        | Description              |
-| -------------- | ------------------------ |
-| `yarn dev`     | Development server       |
-| `yarn build`   | Production build         |
-| `yarn start`   | Serve production build   |
-| `yarn lint`    | ESLint                   |
+`frontend/nextjs/.env`, `backend/.env`, and `backend/data/*.sqlite` stay off GitHub.

@@ -1,0 +1,31 @@
+{
+  "name": "km-portfolio-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c blue,magenta \"yarn dev:server\" \"yarn dev:client\"",
+    "dev:server": "node --watch server/server.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node server/server.js",
+    "db:reset": "node scripts/reset-db.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "concurrently": "^9.2.1",
+    "vite": "^7.1.12"
+  }
+}
