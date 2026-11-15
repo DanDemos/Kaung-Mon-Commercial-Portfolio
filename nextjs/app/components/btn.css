@@ -339,8 +339,8 @@ html[data-theme-surface="dark"] .km-btn[aria-disabled="true"]:not(.km-btn--busy)
 
 /*
  * Pointer capability — not viewport.
- * Fine + hover (mice / trackpads, even in a small window): keep hover chase.
- * No hover (phones / tablets): sheen + edge chase as a loop (no hold rim).
+ * Fine + hover (mice / trackpads, even in a small window): hover chase + hold.
+ * No hover (phones / tablets): looping sheen only; hold while pressed (:active).
  */
 @media (hover: hover) and (pointer: fine) {
   .km-btn::after {
@@ -429,40 +429,19 @@ html[data-theme-surface="dark"] .km-btn[aria-disabled="true"]:not(.km-btn--busy)
   }
 }
 
-/* Touch / no-hover primary input — replay the chase as ambient motion */
+/* Touch / no-hover — ambient sheen; hold rim only while finger is down */
 @media (hover: none) {
   .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)::after {
     animation: km-btn-sheen-loop 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   }
 
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(1) {
-    animation: km-btn-chase-top 2.6s ease infinite;
+  .km-btn__hold {
+    transition: opacity 0.15s ease;
   }
 
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(2) {
-    animation: km-btn-chase-left 2.6s ease infinite;
-  }
-
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(3) {
-    animation: km-btn-chase-bottom 2.6s ease infinite;
-  }
-
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(4) {
-    animation: km-btn-chase-right 2.6s ease infinite;
-  }
-
-  /* No hold rim on touch — sheen + chase only */
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy) {
-    animation: km-btn-pane-loop 2.6s ease infinite;
-  }
-
-  html[data-theme-surface="dark"]
-    .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy) {
-    animation: km-btn-pane-loop-dark 2.6s ease infinite;
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy):active
+    .km-btn__hold {
+    opacity: 1;
   }
 }
 
@@ -474,179 +453,6 @@ html[data-theme-surface="dark"] .km-btn[aria-disabled="true"]:not(.km-btn--busy)
   38%,
   100% {
     left: 100%;
-  }
-}
-
-@keyframes km-btn-chase-top {
-  0%,
-  8% {
-    width: 0;
-    transform: translateX(0);
-  }
-  28% {
-    width: 100%;
-    transform: translateX(0);
-  }
-  42%,
-  100% {
-    width: 100%;
-    transform: translateX(100%);
-  }
-}
-
-@keyframes km-btn-chase-bottom {
-  0%,
-  8% {
-    width: 0;
-    transform: translateX(0);
-  }
-  28% {
-    width: 100%;
-    transform: translateX(0);
-  }
-  42%,
-  100% {
-    width: 100%;
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes km-btn-chase-left {
-  0%,
-  8% {
-    height: 0;
-    transform: translateY(0);
-  }
-  28% {
-    height: 100%;
-    transform: translateY(0);
-  }
-  42%,
-  100% {
-    height: 100%;
-    transform: translateY(100%);
-  }
-}
-
-@keyframes km-btn-chase-right {
-  0%,
-  8% {
-    height: 0;
-    transform: translateY(0);
-  }
-  28% {
-    height: 100%;
-    transform: translateY(0);
-  }
-  42%,
-  100% {
-    height: 100%;
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes km-btn-pane-loop {
-  0%,
-  12% {
-    border-color: color-mix(
-      in oklab,
-      var(--color-secondary) 28%,
-      color-mix(in oklab, black 10%, transparent)
-    );
-    background: color-mix(
-      in oklab,
-      var(--color-secondary) 22%,
-      color-mix(in oklab, white 12%, transparent)
-    );
-    box-shadow:
-      inset 0 1px 0 color-mix(in oklab, #fff6ea 70%, white),
-      inset 1px 0 0 color-mix(in oklab, white 48%, transparent),
-      inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 42%, transparent),
-      inset 0 -1px 0 color-mix(in oklab, black 20%, transparent),
-      0 8px 22px color-mix(
-        in oklab,
-        var(--color-secondary) 14%,
-        color-mix(in oklab, black 6%, transparent)
-      );
-  }
-  35%,
-  55% {
-    border-color: color-mix(
-      in oklab,
-      var(--color-secondary) 36%,
-      color-mix(in oklab, black 12%, transparent)
-    );
-    background: color-mix(
-      in oklab,
-      var(--color-secondary) 30%,
-      color-mix(in oklab, white 14%, transparent)
-    );
-    box-shadow:
-      inset 0 1px 0 color-mix(in oklab, #fff8f0 85%, white),
-      inset 1px 0 0 color-mix(in oklab, white 58%, transparent),
-      inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 48%, transparent),
-      inset 0 -1px 0 color-mix(in oklab, black 22%, transparent),
-      0 10px 26px color-mix(
-        in oklab,
-        var(--color-secondary) 18%,
-        color-mix(in oklab, black 7%, transparent)
-      );
-  }
-  72%,
-  100% {
-    border-color: color-mix(
-      in oklab,
-      var(--color-secondary) 28%,
-      color-mix(in oklab, black 10%, transparent)
-    );
-    background: color-mix(
-      in oklab,
-      var(--color-secondary) 22%,
-      color-mix(in oklab, white 12%, transparent)
-    );
-    box-shadow:
-      inset 0 1px 0 color-mix(in oklab, #fff6ea 70%, white),
-      inset 1px 0 0 color-mix(in oklab, white 48%, transparent),
-      inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 42%, transparent),
-      inset 0 -1px 0 color-mix(in oklab, black 20%, transparent),
-      0 8px 22px color-mix(
-        in oklab,
-        var(--color-secondary) 14%,
-        color-mix(in oklab, black 6%, transparent)
-      );
-  }
-}
-
-@keyframes km-btn-pane-loop-dark {
-  0%,
-  12% {
-    filter: none;
-    border-color: color-mix(
-      in oklab,
-      var(--color-secondary) 18%,
-      color-mix(in oklab, var(--color-fg) 30%, transparent)
-    );
-    background: color-mix(in oklab, var(--km-btn-glass-plate) 58%, transparent);
-  }
-  35%,
-  55% {
-    filter: brightness(1.05);
-    border-color: color-mix(
-      in oklab,
-      var(--color-secondary) 24%,
-      color-mix(in oklab, var(--color-fg) 36%, transparent)
-    );
-    background: color-mix(in oklab, var(--km-btn-glass-plate) 72%, transparent);
-  }
-  72%,
-  100% {
-    filter: none;
-    border-color: color-mix(
-      in oklab,
-      var(--color-secondary) 18%,
-      color-mix(in oklab, var(--color-fg) 30%, transparent)
-    );
-    background: color-mix(in oklab, var(--km-btn-glass-plate) 58%, transparent);
   }
 }
 
@@ -735,25 +541,27 @@ html[data-theme-surface="dark"] .km-btn .km-btn__spinner {
     transition-delay: 0s;
   }
 
-  /* Static hold rim instead of chase — readable without motion */
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__hold {
-    opacity: 0.85;
-  }
+  /* Fine pointer: static rim instead of chase. Touch still uses :active hold. */
+  @media (hover: hover) and (pointer: fine) {
+    .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+      .km-btn__hold {
+      opacity: 0.85;
+    }
 
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(1),
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(3) {
-    width: 100%;
-    transform: none;
-  }
+    .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+      .km-btn__edge:nth-child(1),
+    .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+      .km-btn__edge:nth-child(3) {
+      width: 100%;
+      transform: none;
+    }
 
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(2),
-  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
-    .km-btn__edge:nth-child(4) {
-    height: 100%;
-    transform: none;
+    .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+      .km-btn__edge:nth-child(2),
+    .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+      .km-btn__edge:nth-child(4) {
+      height: 100%;
+      transform: none;
+    }
   }
 }
