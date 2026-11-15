@@ -660,12 +660,12 @@ const SPECTRUM_RECIPES: Record<SeedSpectrumId, SpectrumRecipe> = {
 
   "vivid-shade": {
     light: {
-      whiteMix: 0.58,
-      targetLum: 0.72,
-      elevatedPrimary: 0.08,
-      glowWhite: 0.22,
-      washPrimary: 0.16,
-      mutedMix: 0.28,
+      whiteMix: 0.68,
+      targetLum: 0.88,
+      elevatedPrimary: 0.05,
+      glowWhite: 0.62,
+      washPrimary: 0.09,
+      mutedMix: 0.26,
       display: inkOpts({
         minRatio: 4.8,
         lightStart: 0.3,
@@ -717,14 +717,19 @@ const SPECTRUM_RECIPES: Record<SeedSpectrumId, SpectrumRecipe> = {
     },
   },
 
+  /**
+   * Mid high-chroma — outer wheel ring (e.g. custom #CD409D).
+   * Light only: cream canvas + quiet wash; CTA keeps exact vivid seed.
+   * Dark recipes unchanged from pre–outer-ring fix.
+   */
   "vivid-tone": {
     light: {
-      whiteMix: 0.4,
-      targetLum: 0.72,
-      elevatedPrimary: 0.08,
-      glowWhite: 0.1,
-      washPrimary: 0.2,
-      mutedMix: 0.18,
+      whiteMix: 0.7,
+      targetLum: 0.9,
+      elevatedPrimary: 0.045,
+      glowWhite: 0.68,
+      washPrimary: 0.08,
+      mutedMix: 0.2,
       display: inkOpts({
         minRatio: 4.5,
         lightStart: 0.26,
@@ -1007,6 +1012,22 @@ function resolveLightGlowWhite(
     return Math.max(recipeGlowWhite, 0.62);
   }
   return Math.max(recipeGlowWhite, 0.28);
+}
+
+/**
+ * Light-mode surface pigment from a seed (day only).
+ * Outer-ring (vivid) seeds keep full chroma on CTAs; canvas air borrows a
+ * soft-band sat so #CD409D-class picks don’t pink the whole field.
+ * Soft / neutral seeds pass through unchanged. Dark mode never calls this.
+ */
+function surfacePigment(primary: string, spectrum: SeedSpectrum): string {
+  if (spectrum.chroma !== "vivid") return primary;
+  const { h, s, l } = hexToHsl(primary);
+  // Soft chroma band is s < 0.42 — park atmosphere inside that air.
+  const satCap =
+    spectrum.value === "tint" ? 0.38 : spectrum.value === "tone" ? 0.3 : 0.26;
+  if (s <= satCap) return primary;
+  return hslToHex(h, satCap, l);
 }
 
 /**
@@ -1446,15 +1467,17 @@ export function tokensFromSeed(
 
   const r = recipe.light;
   const paper = lightPaperHex(r);
-  const bg = lightModeBg(primary, r);
-  const bgElevated = mix(paper, primary, r.elevatedPrimary);
+  // Vivid outer-ring seeds: cream air from chroma-capped pigment; CTA stays exact.
+  const surface = brandPair ? primary : surfacePigment(primary, spectrum);
+  const bg = lightModeBg(surface, r);
+  const bgElevated = mix(paper, surface, r.elevatedPrimary);
   // Tints keep seed-forward glow; mid tones need air or the atmosphere stains.
   const glowWhite = resolveLightGlowWhite(spectrum, r.glowWhite);
   // Day Young Night: flat paper — brand blue stays on controls, not atmosphere
-  const heroGlow = brandPair ? bg : mix(primary, paper, glowWhite);
+  const heroGlow = brandPair ? bg : mix(surface, paper, glowWhite);
   const heroWash = brandPair
     ? bg
-    : mix(paper, primary, Math.max(r.washPrimary, 0.1));
+    : mix(paper, surface, Math.max(r.washPrimary, 0.08));
   const ink = enforceInkHierarchy(
     hardenInkOnGrounds(
       chromaTextFromColor(primary, bg, r.display),

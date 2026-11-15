@@ -65,33 +65,14 @@
     background 150ms ease;
 }
 
-.km-btn:hover,
-.km-btn:focus-visible {
-  filter: none;
-  border-color: color-mix(
-    in oklab,
-    var(--color-secondary) 36%,
-    color-mix(in oklab, black 12%, transparent)
-  );
-  background: color-mix(
-    in oklab,
-    var(--color-secondary) 30%,
-    color-mix(in oklab, white 14%, transparent)
-  );
-  box-shadow:
-    inset 0 1px 0 color-mix(in oklab, #fff8f0 85%, white),
-    inset 1px 0 0 color-mix(in oklab, white 58%, transparent),
-    inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 48%, transparent),
-    inset 0 -1px 0 color-mix(in oklab, black 22%, transparent),
-    0 10px 26px color-mix(
-      in oklab,
-      var(--color-secondary) 18%,
-      color-mix(in oklab, black 7%, transparent)
-    );
-}
-
 .km-btn:active {
   transform: scale(0.98);
+}
+
+/* Keyboard focus ring — all devices (not pointer-gated) */
+.km-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .km-btn__label {
@@ -143,12 +124,12 @@
 }
 
 /*
- * Disabled = dormant glass (not grey flat / not a tiny filter nudge).
- * Pane stays readable as glass; chroma, specular chase, and cast light go out.
- * Busy keeps the lit pane + spinner — exclude it so “working” ≠ “unavailable”.
+ * Day only — dormant glass when disabled (chroma/chase out; pane stays glass).
+ * Night glass keeps its frosted secondary plate; only a quiet filter + cursor.
+ * Busy stays lit + spinner either mode.
  */
-.km-btn:disabled:not(.km-btn--busy),
-.km-btn[aria-disabled="true"]:not(.km-btn--busy) {
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy),
+html[data-theme-surface="light"] .km-btn[aria-disabled="true"]:not(.km-btn--busy) {
   cursor: not-allowed;
   color: var(--color-fg-muted);
   text-shadow: none;
@@ -172,8 +153,9 @@
     color 150ms ease;
 }
 
-.km-btn:disabled:not(.km-btn--busy)::before,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy)::before {
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy)::before,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy)::before {
   background: linear-gradient(
     180deg,
     color-mix(in oklab, var(--color-fg) 7%, transparent) 0%,
@@ -182,22 +164,27 @@
   opacity: 0.7;
 }
 
-/* Lights out — no chase, no hold rim while dormant */
-.km-btn:disabled:not(.km-btn--busy)::after,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy)::after,
-.km-btn:disabled:not(.km-btn--busy) .km-btn__edge,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy) .km-btn__edge,
-.km-btn:disabled:not(.km-btn--busy) .km-btn__hold,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy) .km-btn__hold {
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy)::after,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy)::after,
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy) .km-btn__edge,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy) .km-btn__edge,
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy) .km-btn__hold,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy) .km-btn__hold {
   display: none;
 }
 
-.km-btn:disabled:not(.km-btn--busy):hover,
-.km-btn:disabled:not(.km-btn--busy):focus-visible,
-.km-btn:disabled:not(.km-btn--busy):active,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy):hover,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy):focus-visible,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy):active {
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy):hover,
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy):focus-visible,
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy):active,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy):hover,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy):focus-visible,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy):active {
   filter: none;
   transform: none;
   color: var(--color-fg-muted);
@@ -214,9 +201,18 @@
     inset 0 -1px 0 color-mix(in oklab, black 10%, transparent);
 }
 
-.km-btn:disabled:not(.km-btn--busy):focus-visible,
-.km-btn[aria-disabled="true"]:not(.km-btn--busy):focus-visible {
+html[data-theme-surface="light"] .km-btn:disabled:not(.km-btn--busy):focus-visible,
+html[data-theme-surface="light"]
+  .km-btn[aria-disabled="true"]:not(.km-btn--busy):focus-visible {
   outline-color: color-mix(in oklab, var(--color-fg) 35%, transparent);
+}
+
+/* Night disabled — same frosted plate as enabled; don’t recolor the glass */
+html[data-theme-surface="dark"] .km-btn:disabled:not(.km-btn--busy),
+html[data-theme-surface="dark"] .km-btn[aria-disabled="true"]:not(.km-btn--busy) {
+  cursor: not-allowed;
+  filter: saturate(0.92) brightness(0.96);
+  transform: none;
 }
 
 @keyframes km-btn-spin {
@@ -261,13 +257,6 @@
     transparent
   );
   pointer-events: none;
-  transition: left 0.4s ease;
-  transition-delay: 0.15s;
-}
-
-.km-btn:hover::after,
-.km-btn:focus-visible::after {
-  left: 100%;
 }
 
 /* ——— Chase segments ——— */
@@ -278,7 +267,6 @@
   display: block;
   background: var(--km-btn-edge);
   pointer-events: none;
-  transition: 0.4s ease;
 }
 
 .km-btn__edge:nth-child(1) {
@@ -309,30 +297,6 @@
   height: 0;
 }
 
-.km-btn:hover .km-btn__edge:nth-child(1),
-.km-btn:focus-visible .km-btn__edge:nth-child(1) {
-  width: 100%;
-  transform: translateX(100%);
-}
-
-.km-btn:hover .km-btn__edge:nth-child(3),
-.km-btn:focus-visible .km-btn__edge:nth-child(3) {
-  width: 100%;
-  transform: translateX(-100%);
-}
-
-.km-btn:hover .km-btn__edge:nth-child(2),
-.km-btn:focus-visible .km-btn__edge:nth-child(2) {
-  height: 100%;
-  transform: translateY(100%);
-}
-
-.km-btn:hover .km-btn__edge:nth-child(4),
-.km-btn:focus-visible .km-btn__edge:nth-child(4) {
-  height: 100%;
-  transform: translateY(-100%);
-}
-
 /**
  * White hold segments — same edge track as chase; fade in after chase.
  */
@@ -343,8 +307,6 @@
   background: var(--km-btn-hold);
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
-  transition-delay: 0s;
 }
 
 .km-btn__hold:nth-child(5) {
@@ -375,15 +337,317 @@
   height: 100%;
 }
 
-.km-btn:hover .km-btn__hold,
-.km-btn:focus-visible .km-btn__hold {
-  opacity: 1;
-  transition-delay: 0.4s;
+/*
+ * Pointer capability — not viewport.
+ * Fine + hover (mice / trackpads, even in a small window): keep hover chase.
+ * No hover (phones / tablets): sheen + edge chase as a loop (no hold rim).
+ */
+@media (hover: hover) and (pointer: fine) {
+  .km-btn::after {
+    transition: left 0.4s ease;
+    transition-delay: 0.15s;
+  }
+
+  .km-btn__edge {
+    transition: 0.4s ease;
+  }
+
+  .km-btn__hold {
+    transition: opacity 0.2s ease;
+    transition-delay: 0s;
+  }
+
+  .km-btn:hover,
+  .km-btn:focus-visible {
+    filter: none;
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 36%,
+      color-mix(in oklab, black 12%, transparent)
+    );
+    background: color-mix(
+      in oklab,
+      var(--color-secondary) 30%,
+      color-mix(in oklab, white 14%, transparent)
+    );
+    box-shadow:
+      inset 0 1px 0 color-mix(in oklab, #fff8f0 85%, white),
+      inset 1px 0 0 color-mix(in oklab, white 58%, transparent),
+      inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 48%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, black 22%, transparent),
+      0 10px 26px color-mix(
+        in oklab,
+        var(--color-secondary) 18%,
+        color-mix(in oklab, black 7%, transparent)
+      );
+  }
+
+  .km-btn:hover::after,
+  .km-btn:focus-visible::after {
+    left: 100%;
+  }
+
+  .km-btn:hover .km-btn__edge:nth-child(1),
+  .km-btn:focus-visible .km-btn__edge:nth-child(1) {
+    width: 100%;
+    transform: translateX(100%);
+  }
+
+  .km-btn:hover .km-btn__edge:nth-child(3),
+  .km-btn:focus-visible .km-btn__edge:nth-child(3) {
+    width: 100%;
+    transform: translateX(-100%);
+  }
+
+  .km-btn:hover .km-btn__edge:nth-child(2),
+  .km-btn:focus-visible .km-btn__edge:nth-child(2) {
+    height: 100%;
+    transform: translateY(100%);
+  }
+
+  .km-btn:hover .km-btn__edge:nth-child(4),
+  .km-btn:focus-visible .km-btn__edge:nth-child(4) {
+    height: 100%;
+    transform: translateY(-100%);
+  }
+
+  .km-btn:hover .km-btn__hold,
+  .km-btn:focus-visible .km-btn__hold {
+    opacity: 1;
+    transition-delay: 0.4s;
+  }
+
+  html[data-theme-surface="dark"] .km-btn:hover,
+  html[data-theme-surface="dark"] .km-btn:focus-visible {
+    filter: brightness(1.05);
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 24%,
+      color-mix(in oklab, var(--color-fg) 36%, transparent)
+    );
+    background: color-mix(in oklab, var(--km-btn-glass-plate) 72%, transparent);
+  }
 }
 
-.km-btn:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+/* Touch / no-hover primary input — replay the chase as ambient motion */
+@media (hover: none) {
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)::after {
+    animation: km-btn-sheen-loop 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(1) {
+    animation: km-btn-chase-top 2.6s ease infinite;
+  }
+
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(2) {
+    animation: km-btn-chase-left 2.6s ease infinite;
+  }
+
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(3) {
+    animation: km-btn-chase-bottom 2.6s ease infinite;
+  }
+
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(4) {
+    animation: km-btn-chase-right 2.6s ease infinite;
+  }
+
+  /* No hold rim on touch — sheen + chase only */
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy) {
+    animation: km-btn-pane-loop 2.6s ease infinite;
+  }
+
+  html[data-theme-surface="dark"]
+    .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy) {
+    animation: km-btn-pane-loop-dark 2.6s ease infinite;
+  }
+}
+
+@keyframes km-btn-sheen-loop {
+  0%,
+  10% {
+    left: -100%;
+  }
+  38%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes km-btn-chase-top {
+  0%,
+  8% {
+    width: 0;
+    transform: translateX(0);
+  }
+  28% {
+    width: 100%;
+    transform: translateX(0);
+  }
+  42%,
+  100% {
+    width: 100%;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes km-btn-chase-bottom {
+  0%,
+  8% {
+    width: 0;
+    transform: translateX(0);
+  }
+  28% {
+    width: 100%;
+    transform: translateX(0);
+  }
+  42%,
+  100% {
+    width: 100%;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes km-btn-chase-left {
+  0%,
+  8% {
+    height: 0;
+    transform: translateY(0);
+  }
+  28% {
+    height: 100%;
+    transform: translateY(0);
+  }
+  42%,
+  100% {
+    height: 100%;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes km-btn-chase-right {
+  0%,
+  8% {
+    height: 0;
+    transform: translateY(0);
+  }
+  28% {
+    height: 100%;
+    transform: translateY(0);
+  }
+  42%,
+  100% {
+    height: 100%;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes km-btn-pane-loop {
+  0%,
+  12% {
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 28%,
+      color-mix(in oklab, black 10%, transparent)
+    );
+    background: color-mix(
+      in oklab,
+      var(--color-secondary) 22%,
+      color-mix(in oklab, white 12%, transparent)
+    );
+    box-shadow:
+      inset 0 1px 0 color-mix(in oklab, #fff6ea 70%, white),
+      inset 1px 0 0 color-mix(in oklab, white 48%, transparent),
+      inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 42%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, black 20%, transparent),
+      0 8px 22px color-mix(
+        in oklab,
+        var(--color-secondary) 14%,
+        color-mix(in oklab, black 6%, transparent)
+      );
+  }
+  35%,
+  55% {
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 36%,
+      color-mix(in oklab, black 12%, transparent)
+    );
+    background: color-mix(
+      in oklab,
+      var(--color-secondary) 30%,
+      color-mix(in oklab, white 14%, transparent)
+    );
+    box-shadow:
+      inset 0 1px 0 color-mix(in oklab, #fff8f0 85%, white),
+      inset 1px 0 0 color-mix(in oklab, white 58%, transparent),
+      inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 48%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, black 22%, transparent),
+      0 10px 26px color-mix(
+        in oklab,
+        var(--color-secondary) 18%,
+        color-mix(in oklab, black 7%, transparent)
+      );
+  }
+  72%,
+  100% {
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 28%,
+      color-mix(in oklab, black 10%, transparent)
+    );
+    background: color-mix(
+      in oklab,
+      var(--color-secondary) 22%,
+      color-mix(in oklab, white 12%, transparent)
+    );
+    box-shadow:
+      inset 0 1px 0 color-mix(in oklab, #fff6ea 70%, white),
+      inset 1px 0 0 color-mix(in oklab, white 48%, transparent),
+      inset -1px 0 0 color-mix(in oklab, var(--color-secondary) 42%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, black 20%, transparent),
+      0 8px 22px color-mix(
+        in oklab,
+        var(--color-secondary) 14%,
+        color-mix(in oklab, black 6%, transparent)
+      );
+  }
+}
+
+@keyframes km-btn-pane-loop-dark {
+  0%,
+  12% {
+    filter: none;
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 18%,
+      color-mix(in oklab, var(--color-fg) 30%, transparent)
+    );
+    background: color-mix(in oklab, var(--km-btn-glass-plate) 58%, transparent);
+  }
+  35%,
+  55% {
+    filter: brightness(1.05);
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 24%,
+      color-mix(in oklab, var(--color-fg) 36%, transparent)
+    );
+    background: color-mix(in oklab, var(--km-btn-glass-plate) 72%, transparent);
+  }
+  72%,
+  100% {
+    filter: none;
+    border-color: color-mix(
+      in oklab,
+      var(--color-secondary) 18%,
+      color-mix(in oklab, var(--color-fg) 30%, transparent)
+    );
+    background: color-mix(in oklab, var(--km-btn-glass-plate) 58%, transparent);
+  }
 }
 
 /**
@@ -427,65 +691,6 @@ html[data-theme-surface="dark"] .km-btn::before {
   );
 }
 
-html[data-theme-surface="dark"] .km-btn:hover,
-html[data-theme-surface="dark"] .km-btn:focus-visible {
-  filter: brightness(1.05);
-  border-color: color-mix(
-    in oklab,
-    var(--color-secondary) 24%,
-    color-mix(in oklab, var(--color-fg) 36%, transparent)
-  );
-  background: color-mix(in oklab, var(--km-btn-glass-plate) 72%, transparent);
-}
-
-/* Night dormant — frost stays, chroma and lift drop out */
-html[data-theme-surface="dark"] .km-btn:disabled:not(.km-btn--busy),
-html[data-theme-surface="dark"] .km-btn[aria-disabled="true"]:not(.km-btn--busy) {
-  color: var(--color-fg-muted);
-  border-color: color-mix(in oklab, var(--color-fg) 16%, transparent);
-  background: color-mix(
-    in oklab,
-    var(--color-bg-elevated) 55%,
-    transparent
-  );
-  backdrop-filter: blur(10px) saturate(0.85);
-  -webkit-backdrop-filter: blur(10px) saturate(0.85);
-  box-shadow:
-    inset 0 1px 0 color-mix(in oklab, white 12%, transparent),
-    inset 0 -1px 0 color-mix(in oklab, var(--color-fg) 5%, transparent);
-}
-
-html[data-theme-surface="dark"] .km-btn:disabled:not(.km-btn--busy)::before,
-html[data-theme-surface="dark"]
-  .km-btn[aria-disabled="true"]:not(.km-btn--busy)::before {
-  background: linear-gradient(
-    160deg,
-    color-mix(in oklab, white 10%, transparent),
-    transparent 52%
-  );
-  opacity: 0.55;
-}
-
-html[data-theme-surface="dark"] .km-btn:disabled:not(.km-btn--busy):hover,
-html[data-theme-surface="dark"]
-  .km-btn:disabled:not(.km-btn--busy):focus-visible,
-html[data-theme-surface="dark"]
-  .km-btn[aria-disabled="true"]:not(.km-btn--busy):hover,
-html[data-theme-surface="dark"]
-  .km-btn[aria-disabled="true"]:not(.km-btn--busy):focus-visible {
-  filter: none;
-  color: var(--color-fg-muted);
-  border-color: color-mix(in oklab, var(--color-fg) 16%, transparent);
-  background: color-mix(
-    in oklab,
-    var(--color-bg-elevated) 55%,
-    transparent
-  );
-  box-shadow:
-    inset 0 1px 0 color-mix(in oklab, white 12%, transparent),
-    inset 0 -1px 0 color-mix(in oklab, var(--color-fg) 5%, transparent);
-}
-
 /*
  * Young Night dark glass — elevated is flat, so secondary carries the chroma.
  * Slightly stronger tint than other themes’ automatic elevated mix.
@@ -523,34 +728,31 @@ html[data-theme-surface="dark"] .km-btn .km-btn__spinner {
 
   .km-btn::after,
   .km-btn__edge,
-  .km-btn__hold {
+  .km-btn__hold,
+  .km-btn {
+    animation: none !important;
     transition: none;
     transition-delay: 0s;
   }
 
-  .km-btn:hover::after,
-  .km-btn:focus-visible::after {
-    left: -100%;
+  /* Static hold rim instead of chase — readable without motion */
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__hold {
+    opacity: 0.85;
   }
 
-  .km-btn:hover .km-btn__hold,
-  .km-btn:focus-visible .km-btn__hold {
-    opacity: 1;
-    transition-delay: 0s;
-  }
-
-  .km-btn:hover .km-btn__edge:nth-child(1),
-  .km-btn:focus-visible .km-btn__edge:nth-child(1),
-  .km-btn:hover .km-btn__edge:nth-child(3),
-  .km-btn:focus-visible .km-btn__edge:nth-child(3) {
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(1),
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(3) {
     width: 100%;
     transform: none;
   }
 
-  .km-btn:hover .km-btn__edge:nth-child(2),
-  .km-btn:focus-visible .km-btn__edge:nth-child(2),
-  .km-btn:hover .km-btn__edge:nth-child(4),
-  .km-btn:focus-visible .km-btn__edge:nth-child(4) {
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(2),
+  .km-btn:not(:disabled):not([aria-disabled="true"]):not(.km-btn--busy)
+    .km-btn__edge:nth-child(4) {
     height: 100%;
     transform: none;
   }
