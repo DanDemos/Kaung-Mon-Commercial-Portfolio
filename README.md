@@ -32,8 +32,9 @@ cd backend && cp .env.example .env && yarn install && yarn dev
 ### Vercel → `frontend/nextjs`
 
 1. Import **this** GitHub repo in Vercel.
-2. **Root Directory:** `frontend/nextjs`
-3. Skip deploy when that directory has no changes (optional but recommended).
+2. **Root Directory:** `frontend/nextjs`  
+   (**Settings → Build and Deployment → Root Directory** — not under Git.)
+3. Optional: enable **Skip deployment** on that same Root Directory block (skips when `frontend/nextjs` didn’t change). If you don’t see it, use **Ignored Build Step** → only build when that folder changes.
 4. Env: contact keys; `NEXT_PUBLIC_ANALYTICS_URL` → Railway URL when ready.
 
 ### Railway → `backend`
