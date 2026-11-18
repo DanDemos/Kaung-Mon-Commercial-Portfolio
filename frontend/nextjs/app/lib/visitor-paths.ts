@@ -43,6 +43,7 @@ export const FOOTER_NAV: FooterNavItem[] = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
   { label: "Courses", href: "/courses" },
+  { label: "Blog", href: "/blog" },
   { label: "Resume", href: SOCIAL_LINKS.resume },
   { label: "Contact", href: "/contact" },
 ];

@@ -1,7 +1,13 @@
 import type { Locale } from "./locale";
 import type { VisitorPath } from "./visitor-paths";
 
-export type NavHref = "/" | "/work" | "/courses" | "/resume" | "/contact";
+export type NavHref =
+  | "/"
+  | "/work"
+  | "/courses"
+  | "/blog"
+  | "/resume"
+  | "/contact";
 
 export type Messages = {
   nav: Record<NavHref, string>;
@@ -47,6 +53,15 @@ export type Messages = {
     next: string;
     yourTurn: string;
   };
+  blog: {
+    label: string;
+    back: string;
+    allTitle: string;
+    allSupport: string;
+    read: string;
+    missingTitle: string;
+    missingSupport: string;
+  };
   locale: {
     groupAria: string;
     en: string;
@@ -65,6 +80,7 @@ const en: Messages = {
     "/": "Home",
     "/work": "Work",
     "/courses": "Courses",
+    "/blog": "Blog",
     "/resume": "Resume",
     "/contact": "Contact",
   },
@@ -123,6 +139,16 @@ const en: Messages = {
     next: "Next step",
     yourTurn: "Your turn",
   },
+  blog: {
+    label: "Notes",
+    back: "← All posts",
+    allTitle: "Blog",
+    allSupport:
+      "Short notes on React, UI, and building. More posts will land here over time.",
+    read: "Read post",
+    missingTitle: "Post not found",
+    missingSupport: "That post isn’t here. Pick another from the list.",
+  },
   locale: {
     groupAria: "Language",
     en: "EN",
@@ -141,6 +167,7 @@ const my: Messages = {
     "/": "ပင်မ",
     "/work": "အလုပ်များ",
     "/courses": "သင်ခန်းစာ",
+    "/blog": "ဘလော့",
     "/resume": "ကိုယ်ရေး",
     "/contact": "ဆက်သွယ်ရန်",
   },
@@ -197,6 +224,16 @@ const my: Messages = {
     previous: "ယခင်",
     next: "နောက်အဆင့်",
     yourTurn: "သင့်အလှည့်",
+  },
+  blog: {
+    label: "မှတ်စုများ",
+    back: "← ပို့စ်အားလုံး",
+    allTitle: "ဘလော့",
+    allSupport:
+      "React၊ UI၊ တည်ဆောက်ခြင်းအကြောင်း တိုတောင်းသော မှတ်စုများ။ နောက်ထပ် ပို့စ်များ ထပ်ထည့်သွားမည်။",
+    read: "ဖတ်ရန်",
+    missingTitle: "ပို့စ် မတွေ့ပါ",
+    missingSupport: "ဒီပို့စ် မရှိပါ။ စာရင်းမှ တစ်ခုရွေးပါ။",
   },
   locale: {
     groupAria: "ဘာသာစကား",
